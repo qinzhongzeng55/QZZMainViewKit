@@ -7,7 +7,8 @@
 //
 
 @import UIKit;
+#import <QZZMainViewKit/QZZListViewController.h>
 
-@interface QZZMainViewKitViewController : UIViewController
+@interface QZZMainViewKitViewController : QZZListViewController
 
 @end

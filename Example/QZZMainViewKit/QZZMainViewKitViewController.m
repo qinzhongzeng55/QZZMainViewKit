@@ -25,5 +25,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+- (void)setupNavType{
+    [super setupNavType];
+    [self setupNavSearchBar];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"nav_bg_wode"] forBarMetrics:UIBarMetricsDefault];
+}
 @end

@@ -157,26 +157,52 @@ _Pragma("clang diagnostic pop") \
 //******************************************************************
 #pragma mark -  **************  获取通过xib创建的view  *************
 //******************************************************************
-///获取通过xib创建的view
-#define QZZGetNibFile(NibNamed) [[[NSBundle bundleForClass:[self class]] loadNibNamed:NibNamed owner:nil options:nil] lastObject]
+//----------------获取主app中xib创建的view----------------//
+#define QZZGetNibFile(NibName) [[[NSBundle mainBundle] loadNibNamed:NibName owner:nil options:nil] lastObject]
+//----------获取主app以外的其他组件中xib创建的view----------//
+///获取MainBundle通过xib创建的view
+#define QZZGetNibFile_MainBundle(NibName) [[[NSBundle bundleForClass:[self class]] loadNibNamed:NibName owner:nil options:nil] lastObject]
+///获取二级bundle中通过xib创建的view(BundleName---二级bundle名称不带".bundle")
+#define QZZGetNibFile_SecondaryBundle(BundleName,NibName) [[[NSBundle bundleWithPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.bundle",BundleName]]] loadNibNamed:NibName owner:nil options:nil] lastObject]
 
 //******************************************************************
 #pragma mark -  *****************  导航栏和tabbar  ****************
 //******************************************************************
 ///导航栏高度
-#define NAV_HEIGHT (iPhoneX == 1)?88.0f: 64.0f
+#define NAV_HEIGHT (iPhoneX == 1) ? 88.0f : 64.0f
 ///tabBar高度
-#define TABBAR_HEIGHT (iPhoneX == 1)?83.0f: 49.0f
+#define TABBAR_HEIGHT (iPhoneX == 1) ? 83.0f : 49.0f
 ///底部安全高度
 #define BottomSafeHeight 34
 
 //******************************************************************
-#pragma mark -  *************  拼接NSBundle中的资源路径  ************
+#pragma mark -  ***********  拼接NSBundle中的图片资源路径  **********
 //******************************************************************
-//拼接NSBundle中的资源路径
+//----------------------调用主app中的图片资源----------------------//
 #define MYBUNDLE_PATH(BundleName) [[NSBundle mainBundle] pathForResource:BundleName ofType:nil]
+
 #define MYBUNDLE(BundleName,ImageName) [MYBUNDLE_PATH(BundleName) stringByAppendingPathComponent:ImageName]
+
+///拼接主app的MainBundle中的图片资源路径
 #define MYBUNDLE_Image(BundleName,ImageName) [UIImage imageWithContentsOfFile:MYBUNDLE(BundleName,ImageName)]
+//----------------调用主app以外的其他组件中的图片资源----------------//
+//----------调用主app以外的其他组件的MainBundle中的图片资源----------//
+#define MYBUNDLE_PATH_MainBundle(BundleName) [NSBundle bundleForClass:[self class]]
+
+#define MYBUNDLE_MainBundle(BundleName,ImageName) [MYBUNDLE_PATH_MainBundle(BundleName) stringByAppendingPathComponent:ImageName]
+
+///拼接主app以外的其他组件的MainBundle中的图片资源路径
+#define MYBUNDLE_Image_MainBundle(BundleName,ImageName) [UIImage imageWithContentsOfFile:MYBUNDLE_MainBundle(BundleName,ImageName)]
+//----------调用主app以外的其他组件的二级Bundle中的图片资源----------//
+#define MYBUNDLE_PATH_SecondaryBundle(BundleName) [NSBundle bundleWithPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.bundle",BundleName]]]
+
+#define MYBUNDLE_SecondaryBundle(BundleName,ImageName) [MYBUNDLE_PATH_SecondaryBundle(BundleName) stringByAppendingPathComponent:ImageName]
+
+///拼接主app以外的其他组件的二级Bundle中的图片资源路径
+#define MYBUNDLE_Image_SecondaryBundle(BundleName,ImageName) [UIImage imageWithContentsOfFile:MYBUNDLE_SecondaryBundle(BundleName,ImageName)]
+
+
+
 
 //******************************************************************
 #pragma mark -  ********************* 通知相关  ********************
