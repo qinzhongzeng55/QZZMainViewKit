@@ -1,0 +1,6 @@
+framework module QZZFunctionalComponentsKit {
+  umbrella header "QZZFunctionalComponentsKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

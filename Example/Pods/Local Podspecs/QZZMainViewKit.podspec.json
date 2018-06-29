@@ -1,0 +1,32 @@
+{
+  "name": "QZZMainViewKit",
+  "version": "0.1.1",
+  "summary": "A short description of QZZMainViewKit.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/qinzhongzeng55/QZZMainViewKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "qinzhongzeng55": "qinzhongzeng55@163.com"
+  },
+  "source": {
+    "git": "https://github.com/qinzhongzeng55/QZZMainViewKit.git",
+    "tag": "0.1.1"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "QZZMainViewKit/Classes/**/*",
+  "resource_bundles": {
+    "QZZMainViewKit": [
+      "QZZMainViewKit/Assets/*"
+    ]
+  },
+  "dependencies": {
+    "QZZFunctionalComponentsKit": [
+
+    ]
+  }
+}
