@@ -75,7 +75,7 @@
     UITextField * searchField = [self.searchBar valueForKey:@"_searchField"];
 //    [self.searchBar setSearchFieldBackgroundImage:[UIImage new] forState:UIControlStateNormal];
     //设置占位文字颜色
-    [searchField setValue:[UIColor colorWithWhite:204 alpha:1] forKeyPath:@"_placeholderLabel.textColor"];
+    [searchField setValue:[UIColor colorWithWhite:204/255.0 alpha:1] forKeyPath:@"_placeholderLabel.textColor"];
     //设置占位文字大小
     [searchField setValue:[UIFont boldSystemFontOfSize:13] forKeyPath:@"_placeholderLabel.font"];
     [self.searchBar setImage:[UIImage qzz_imagePathWithName:@"nav_search" bundle:@"QZZMainViewKit" targetClass:[self class]] forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];

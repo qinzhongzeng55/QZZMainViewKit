@@ -8,8 +8,10 @@ PODS:
   - QZZFunctionalComponentsKit (0.1.1):
     - MJRefresh
     - QZZToolsKit
-  - QZZMainViewKit (0.1.1):
+  - QZZMainViewKit (0.1.3):
     - QZZFunctionalComponentsKit
+    - QZZPublicModel
+  - QZZPublicModel (0.1.0)
   - QZZToolsKit (0.1.4):
     - FLAnimatedImage
     - FMDB
@@ -32,6 +34,7 @@ SPEC REPOS:
   https://github.com/qinzhongzeng55/QZZSpecs.git:
     - QZZCategoryKit
     - QZZFunctionalComponentsKit
+    - QZZPublicModel
     - QZZToolsKit
 
 EXTERNAL SOURCES:
@@ -44,7 +47,8 @@ SPEC CHECKSUMS:
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
   QZZCategoryKit: d6fd2f7e7a522d325fd8544c8f17df0d01197e37
   QZZFunctionalComponentsKit: 9c738a8742897d6d667aa4dd1b21e3c6543c1f8b
-  QZZMainViewKit: 58b33abad16e9bd274cc03e6ac50b81e20af8706
+  QZZMainViewKit: 53c2cee544e4b41fe65cceb93f40fe16656e87b3
+  QZZPublicModel: 4186c3dad883ed94b1c3039822558c63bdd22bf2
   QZZToolsKit: 4102d579c39453602c72b0656cfbf6a6b9a09d38
   SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
 

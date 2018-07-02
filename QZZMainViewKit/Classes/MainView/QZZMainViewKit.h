@@ -178,29 +178,19 @@ _Pragma("clang diagnostic pop") \
 //******************************************************************
 #pragma mark -  ***********  拼接NSBundle中的图片资源路径  **********
 //******************************************************************
-//----------------------调用主app中的图片资源----------------------//
-#define MYBUNDLE_PATH(BundleName) [[NSBundle mainBundle] pathForResource:BundleName ofType:nil]
+//----------------------调用主app的二级Bundle中的图片资源----------------------//
+#define MYBUNDLE_Path(BundleName) [[NSBundle mainBundle] pathForResource:BundleName ofType:nil]
 
-#define MYBUNDLE(BundleName,ImageName) [MYBUNDLE_PATH(BundleName) stringByAppendingPathComponent:ImageName]
+#define MYBUNDLE_ImagePath(BundleName,ImageName) [MYBUNDLE_Path(BundleName) stringByAppendingPathComponent:ImageName]
 
-///拼接主app的MainBundle中的图片资源路径
-#define MYBUNDLE_Image(BundleName,ImageName) [UIImage imageWithContentsOfFile:MYBUNDLE(BundleName,ImageName)]
 //----------------调用主app以外的其他组件中的图片资源----------------//
 //----------调用主app以外的其他组件的MainBundle中的图片资源----------//
-#define MYBUNDLE_PATH_MainBundle(BundleName) [NSBundle bundleForClass:[self class]]
+#define MYBUNDLE_MainBundle(BundleName,ImageName) [[NSBundle bundleForClass:[self class]] stringByAppendingPathComponent:ImageName]
 
-#define MYBUNDLE_MainBundle(BundleName,ImageName) [MYBUNDLE_PATH_MainBundle(BundleName) stringByAppendingPathComponent:ImageName]
-
-///拼接主app以外的其他组件的MainBundle中的图片资源路径
-#define MYBUNDLE_Image_MainBundle(BundleName,ImageName) [UIImage imageWithContentsOfFile:MYBUNDLE_MainBundle(BundleName,ImageName)]
 //----------调用主app以外的其他组件的二级Bundle中的图片资源----------//
-#define MYBUNDLE_PATH_SecondaryBundle(BundleName) [NSBundle bundleWithPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.bundle",BundleName]]]
+#define MYBUNDLE_Path_SecondaryBundle(BundleName) [NSBundle bundleWithPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.bundle",BundleName]]]
 
-#define MYBUNDLE_SecondaryBundle(BundleName,ImageName) [MYBUNDLE_PATH_SecondaryBundle(BundleName) stringByAppendingPathComponent:ImageName]
-
-///拼接主app以外的其他组件的二级Bundle中的图片资源路径
-#define MYBUNDLE_Image_SecondaryBundle(BundleName,ImageName) [UIImage imageWithContentsOfFile:MYBUNDLE_SecondaryBundle(BundleName,ImageName)]
-
+#define MYBUNDLE_SecondaryBundle_ImagePath(BundleName,ImageName) [MYBUNDLE_Path_SecondaryBundle(BundleName) stringByAppendingPathComponent:ImageName]
 
 
 
@@ -255,15 +245,22 @@ _Pragma("clang diagnostic pop") \
 #import <QZZFunctionalComponentsKit/QZZRefresh.h>
 
 
+#import <QZZMainViewKit/UITableViewCell+QZZAdd.h>
+#import <QZZMainViewKit/QZZNavigationController.h>
+#import <QZZMainViewKit/QZZViewController.h>
 
-
-
-
-
-
-
-
-
+#import <QZZMainViewKit/QZZAlertView.h>
+#import <QZZMainViewKit/DatePickerView.h>
+#import <QZZMainViewKit/GotoOtherViewCell.h>
+#import <QZZMainViewKit/KuanTextViewTableViewCell.h>
+#import <QZZMainViewKit/MoreSelectedSearchOptionsListView.h>
+#import <QZZMainViewKit/OptionsListView.h>
+#import <QZZMainViewKit/SearchOptionsListView.h>
+#import <QZZMainViewKit/ScrollOptionsView.h>
+#import <QZZMainViewKit/SelectedOptionsBtnCell.h>
+#import <QZZMainViewKit/MoreSelectedTableViewCell.h>
+#import <QZZMainViewKit/SelectedTableViewCell.h>
+#import <QZZMainViewKit/TextTableViewCell.h>
 
 
 

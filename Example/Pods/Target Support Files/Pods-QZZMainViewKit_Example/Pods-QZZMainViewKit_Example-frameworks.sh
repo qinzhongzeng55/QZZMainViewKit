@@ -149,6 +149,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/QZZCategoryKit/QZZCategoryKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/QZZFunctionalComponentsKit/QZZFunctionalComponentsKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/QZZMainViewKit/QZZMainViewKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/QZZPublicModel/QZZPublicModel.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/QZZToolsKit/QZZToolsKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework"
 fi
@@ -159,6 +160,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/QZZCategoryKit/QZZCategoryKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/QZZFunctionalComponentsKit/QZZFunctionalComponentsKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/QZZMainViewKit/QZZMainViewKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/QZZPublicModel/QZZPublicModel.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/QZZToolsKit/QZZToolsKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework"
 fi

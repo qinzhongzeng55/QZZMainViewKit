@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "QZZMainViewKit.h"
+#import <QZZCategoryKit/UIImage+Extension.h>
 
 @protocol NavSearchBarViewDelegate <NSObject>
 

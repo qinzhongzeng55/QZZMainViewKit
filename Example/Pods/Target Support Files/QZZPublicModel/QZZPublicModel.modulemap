@@ -1,0 +1,6 @@
+framework module QZZPublicModel {
+  umbrella header "QZZPublicModel-umbrella.h"
+
+  export *
+  module * { export * }
+}

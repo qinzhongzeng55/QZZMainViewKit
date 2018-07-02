@@ -346,6 +346,7 @@
 				"${BUILT_PRODUCTS_DIR}/QZZCategoryKit/QZZCategoryKit.framework",
 				"${BUILT_PRODUCTS_DIR}/QZZFunctionalComponentsKit/QZZFunctionalComponentsKit.framework",
 				"${BUILT_PRODUCTS_DIR}/QZZMainViewKit/QZZMainViewKit.framework",
+				"${BUILT_PRODUCTS_DIR}/QZZPublicModel/QZZPublicModel.framework",
 				"${BUILT_PRODUCTS_DIR}/QZZToolsKit/QZZToolsKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
@@ -357,6 +358,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QZZCategoryKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QZZFunctionalComponentsKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QZZMainViewKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QZZPublicModel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QZZToolsKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);

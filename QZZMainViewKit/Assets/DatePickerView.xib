@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DatePickerView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jEt-fC-7Nh" customClass="UIControl">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MUn-tD-pAQ">
+                    <rect key="frame" x="47.5" y="213.5" width="280" height="240"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FVh-Pc-TlS">
+                            <rect key="frame" x="0.0" y="-0.5" width="280" height="47"/>
+                            <color key="backgroundColor" red="0.2274509804" green="0.61176470589999998" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="47" id="Z7W-X1-tiI"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="日期选择" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U4R-Ue-bmV">
+                            <rect key="frame" x="105.5" y="13" width="69.5" height="20.5"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="LzH-Nv-EpE">
+                            <rect key="frame" x="0.0" y="47" width="280" height="148"/>
+                            <date key="date" timeIntervalSinceReferenceDate="491233993.29527301">
+                                <!--2016-07-26 13:53:13 +0000-->
+                            </date>
+                            <locale key="locale" localeIdentifier="zh"/>
+                        </datePicker>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qeC-FV-Wqs">
+                            <rect key="frame" x="0.0" y="195" width="280" height="45"/>
+                            <color key="backgroundColor" red="0.2274509804" green="0.61176470589999998" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="45" id="dNg-oM-btx"/>
+                            </constraints>
+                            <state key="normal" title="确定"/>
+                            <connections>
+                                <action selector="selectedDate:" destination="iN0-l3-epB" eventType="touchUpInside" id="Vv0-3z-wPo"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="U4R-Ue-bmV" firstAttribute="centerY" secondItem="FVh-Pc-TlS" secondAttribute="centerY" id="5UI-RM-nMR"/>
+                        <constraint firstAttribute="height" constant="240" id="7Wy-Ci-jfW"/>
+                        <constraint firstItem="qeC-FV-Wqs" firstAttribute="top" secondItem="LzH-Nv-EpE" secondAttribute="bottom" id="Ehv-wO-Rtx"/>
+                        <constraint firstAttribute="trailing" secondItem="LzH-Nv-EpE" secondAttribute="trailing" id="EvD-Pc-jmk"/>
+                        <constraint firstItem="FVh-Pc-TlS" firstAttribute="top" secondItem="MUn-tD-pAQ" secondAttribute="top" id="KYU-Jv-mI5"/>
+                        <constraint firstItem="LzH-Nv-EpE" firstAttribute="leading" secondItem="MUn-tD-pAQ" secondAttribute="leading" id="TKP-qr-nZp"/>
+                        <constraint firstItem="FVh-Pc-TlS" firstAttribute="leading" secondItem="MUn-tD-pAQ" secondAttribute="leading" id="eCz-Rh-oUL"/>
+                        <constraint firstItem="U4R-Ue-bmV" firstAttribute="centerX" secondItem="MUn-tD-pAQ" secondAttribute="centerX" id="hNU-oD-R9L"/>
+                        <constraint firstAttribute="trailing" secondItem="FVh-Pc-TlS" secondAttribute="trailing" id="juc-Bk-ZUv"/>
+                        <constraint firstItem="LzH-Nv-EpE" firstAttribute="top" secondItem="FVh-Pc-TlS" secondAttribute="bottom" id="oCY-sw-JoR"/>
+                        <constraint firstAttribute="bottom" secondItem="qeC-FV-Wqs" secondAttribute="bottom" id="pCs-ez-XpM"/>
+                        <constraint firstAttribute="trailing" secondItem="qeC-FV-Wqs" secondAttribute="trailing" id="qPH-dQ-88A"/>
+                        <constraint firstAttribute="width" constant="280" id="w4e-vy-KbL"/>
+                        <constraint firstItem="qeC-FV-Wqs" firstAttribute="leading" secondItem="MUn-tD-pAQ" secondAttribute="leading" id="wT2-E3-gUo"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="jEt-fC-7Nh" secondAttribute="bottom" id="6nv-JG-NiZ"/>
+                <constraint firstItem="jEt-fC-7Nh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Edd-Bx-QxM"/>
+                <constraint firstItem="MUn-tD-pAQ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="fYO-uw-XEo"/>
+                <constraint firstItem="jEt-fC-7Nh" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ib1-Sq-vmc"/>
+                <constraint firstItem="MUn-tD-pAQ" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ien-fE-Bx9"/>
+                <constraint firstAttribute="trailing" secondItem="jEt-fC-7Nh" secondAttribute="trailing" id="jn1-MB-3ao"/>
+            </constraints>
+            <connections>
+                <outlet property="TitleLabel" destination="U4R-Ue-bmV" id="2kZ-Uu-nma"/>
+                <outlet property="datePicker" destination="LzH-Nv-EpE" id="4Yr-yq-bj1"/>
+                <outlet property="dateSelecterView" destination="MUn-tD-pAQ" id="oTO-k9-URf"/>
+                <outlet property="selectedBtn" destination="qeC-FV-Wqs" id="MYs-hw-OeW"/>
+                <outlet property="shadeView" destination="jEt-fC-7Nh" id="iS5-bP-ILD"/>
+                <outlet property="topView" destination="FVh-Pc-TlS" id="vTp-2g-FcX"/>
+            </connections>
+            <point key="canvasLocation" x="66.5" y="134.5"/>
+        </view>
+    </objects>
+</document>

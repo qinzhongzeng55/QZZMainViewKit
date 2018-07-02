@@ -280,7 +280,7 @@
 - (void)setupEmptyContentView{
     CGFloat y = NAV_HEIGHT;
     UIView *EmptyContentView = [[UIView alloc] initWithFrame:CGRectMake(0,y, Screen_Width, self.tableView.frame.size.height)];
-    EmptyContentView.backgroundColor = [UIColor colorWithWhite:255/255.0 alpha:1];
+    EmptyContentView.backgroundColor = QZZUIColorWithWhite(255);
     self.EmptyContentView = EmptyContentView;
     UIImageView *img = [[UIImageView alloc] initWithImage:[UIImage qzz_imagePathWithName:@"data_empty" bundle:@"QZZMainViewKit" targetClass:[self class]]];
     img.frame  = CGRectMake((Screen_Width - 213)*0.5, (EmptyContentView.bounds.size.height - 213-30-58)*0.5, 213, 213);

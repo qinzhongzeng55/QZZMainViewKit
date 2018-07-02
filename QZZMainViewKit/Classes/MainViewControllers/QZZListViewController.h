@@ -8,7 +8,7 @@
 #import "QZZBasicViewController.h"
 #import "NavSearchBarView.h"
 
-@interface QZZListViewController : QZZBasicViewController<UITableViewDelegate,UITableViewDataSource>
+@interface QZZListViewController : QZZBasicViewController <UITableViewDelegate,UITableViewDataSource>
 
 ///数据列表数据源
 @property (nonatomic, strong) NSMutableArray *dataArray;

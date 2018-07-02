@@ -45,9 +45,9 @@
 @property (copy, nonatomic) NSString *searchString;
 ///是否搜索
 @property (assign, nonatomic) BOOL isSearch;
-
-@property (assign, nonatomic)BOOL isExpansion;//导航栏上是否展开
-
+///导航栏上是否展开
+@property (assign, nonatomic) BOOL isExpansion;
+#pragma mark - 子控件
 ///列表视图
 @property (strong, nonatomic) UIView *optionListView;
 ///选项卡视图

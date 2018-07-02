@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SearchOptionsListView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nFR-e4-D4O" customClass="UIControl">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LIK-3h-eeH">
+                    <rect key="frame" x="43" y="173.5" width="289" height="320"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d3v-4V-SzK">
+                            <rect key="frame" x="-0.5" y="0.0" width="289.5" height="49"/>
+                            <subviews>
+                                <searchBar contentMode="redraw" placeholder="请输入您要查找的内容..." translatesAutoresizingMaskIntoConstraints="NO" id="fre-pu-M2G">
+                                    <rect key="frame" x="0.0" y="0.0" width="289" height="49"/>
+                                    <color key="backgroundColor" red="0.2274509804" green="0.61176470589999998" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="barTintColor" red="0.2274509804" green="0.61176470589999998" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </searchBar>
+                            </subviews>
+                            <color key="backgroundColor" red="0.2274509804" green="0.61176470589999998" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="fre-pu-M2G" firstAttribute="top" secondItem="d3v-4V-SzK" secondAttribute="top" id="CD9-BO-Yi9"/>
+                                <constraint firstAttribute="trailing" secondItem="fre-pu-M2G" secondAttribute="trailing" id="FRO-SD-elq"/>
+                                <constraint firstItem="fre-pu-M2G" firstAttribute="leading" secondItem="d3v-4V-SzK" secondAttribute="leading" id="U8w-LR-od5"/>
+                                <constraint firstAttribute="height" constant="49" id="h5I-n6-XWp"/>
+                                <constraint firstAttribute="bottom" secondItem="fre-pu-M2G" secondAttribute="bottom" id="iOX-di-iC2"/>
+                            </constraints>
+                        </view>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Rjz-Cv-ryT">
+                            <rect key="frame" x="0.0" y="49" width="289" height="271"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <outlet property="dataSource" destination="iN0-l3-epB" id="8wj-Ra-jFv"/>
+                                <outlet property="delegate" destination="iN0-l3-epB" id="HRT-HY-0Lc"/>
+                            </connections>
+                        </tableView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="d3v-4V-SzK" firstAttribute="top" secondItem="LIK-3h-eeH" secondAttribute="top" id="2fy-IH-zAi"/>
+                        <constraint firstItem="d3v-4V-SzK" firstAttribute="leading" secondItem="LIK-3h-eeH" secondAttribute="leading" id="8md-tY-Qzf"/>
+                        <constraint firstItem="Rjz-Cv-ryT" firstAttribute="leading" secondItem="LIK-3h-eeH" secondAttribute="leading" id="AJR-8b-Vx5"/>
+                        <constraint firstAttribute="trailing" secondItem="Rjz-Cv-ryT" secondAttribute="trailing" id="IvJ-77-87E"/>
+                        <constraint firstItem="Rjz-Cv-ryT" firstAttribute="top" secondItem="d3v-4V-SzK" secondAttribute="bottom" id="Lot-61-Aj6"/>
+                        <constraint firstAttribute="height" constant="320" id="kX5-uk-l81"/>
+                        <constraint firstAttribute="trailing" secondItem="d3v-4V-SzK" secondAttribute="trailing" id="tJi-ub-yRd"/>
+                        <constraint firstAttribute="bottom" secondItem="Rjz-Cv-ryT" secondAttribute="bottom" id="xLx-Sb-4kz"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="LIK-3h-eeH" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="8ga-gv-rnZ"/>
+                <constraint firstAttribute="bottom" secondItem="nFR-e4-D4O" secondAttribute="bottom" id="D79-Zx-XIH"/>
+                <constraint firstItem="nFR-e4-D4O" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="EIo-Gp-zVp"/>
+                <constraint firstAttribute="trailing" secondItem="LIK-3h-eeH" secondAttribute="trailing" constant="43" id="WAq-kK-zuM"/>
+                <constraint firstItem="LIK-3h-eeH" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ZZU-vD-lpk"/>
+                <constraint firstItem="LIK-3h-eeH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="43" id="dPf-QF-GhX"/>
+                <constraint firstItem="nFR-e4-D4O" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="oDN-Ve-BUx"/>
+                <constraint firstAttribute="trailing" secondItem="nFR-e4-D4O" secondAttribute="trailing" id="rfi-nG-ke5"/>
+            </constraints>
+            <connections>
+                <outlet property="containView" destination="LIK-3h-eeH" id="SHv-kc-zOn"/>
+                <outlet property="containViewHeight" destination="kX5-uk-l81" id="xre-JN-qp3"/>
+                <outlet property="searchBar" destination="fre-pu-M2G" id="ahm-TK-xvM"/>
+                <outlet property="shadeView" destination="nFR-e4-D4O" id="Zn7-cT-MzS"/>
+                <outlet property="tableView" destination="Rjz-Cv-ryT" id="bA4-eT-2rg"/>
+                <outlet property="topView" destination="d3v-4V-SzK" id="RGy-Hs-axc"/>
+            </connections>
+            <point key="canvasLocation" x="24.5" y="51.5"/>
+        </view>
+    </objects>
+</document>
