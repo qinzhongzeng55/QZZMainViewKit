@@ -12,6 +12,8 @@
 
 #import "QZZAlertView.h"
 #import "DatePickerView.h"
+#import "GongNengOptionsView.h"
+#import "HomeOptionsBtnCell.h"
 #import "GotoOtherViewCell.h"
 #import "KuanTextViewTableViewCell.h"
 #import "NavSearchBarView.h"
