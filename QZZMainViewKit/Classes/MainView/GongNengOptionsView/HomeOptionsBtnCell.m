@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *OptionImageView;
 @property (weak, nonatomic) IBOutlet UILabel *OptionTextLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageViewWConstraint;
 
 @end
 
@@ -26,7 +27,15 @@
         [self.delegate selectedThisOption:self.key];
     }
 }
-
+///设置图片的宽度(长度 1:1)
+- (void)settingImageViewWidth:(CGFloat)width{
+    self.imageViewWConstraint.constant = width;
+}
+///设置功能按钮的font
+- (void)settingLabelFont:(UIFont *)font{
+    self.OptionTextLabel.font = font;
+}
+#pragma mark - setter,getter
 - (void)setModel:(OptionButtonModel *)model{
 
     _model = model;

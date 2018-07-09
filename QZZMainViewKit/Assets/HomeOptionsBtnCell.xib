@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -56,6 +56,7 @@
             <connections>
                 <outlet property="OptionImageView" destination="FnT-f2-pQx" id="ICh-1K-1dr"/>
                 <outlet property="OptionTextLabel" destination="GGW-sO-vdX" id="YHA-Z6-Eqt"/>
+                <outlet property="imageViewWConstraint" destination="CsR-5I-JfT" id="IJd-is-RXW"/>
             </connections>
             <point key="canvasLocation" x="55" y="74"/>
         </collectionViewCell>

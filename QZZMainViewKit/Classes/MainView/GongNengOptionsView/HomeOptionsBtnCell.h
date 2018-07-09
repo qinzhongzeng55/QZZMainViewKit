@@ -22,4 +22,8 @@
 @property (nonatomic, strong) OptionButtonModel *model;
 @property (nonatomic, assign) id<HomeOptionsBtnCellDelegate> delegate;
 
+///设置图片的宽度(长度 1:1)
+- (void)settingImageViewWidth:(CGFloat)width;
+///设置功能按钮的font
+- (void)settingLabelFont:(UIFont *)font;
 @end

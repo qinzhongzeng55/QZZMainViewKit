@@ -11,6 +11,9 @@
 
 @interface GongNengOptionsView  ()<UICollectionViewDelegate,UICollectionViewDataSource,HomeOptionsBtnCellDelegate>
 
+///功能按钮的图片的宽度
+@property (nonatomic, assign) CGFloat imgViewWidthOfOptionsBtn;
+@property (nonatomic, strong) UIFont *labelFont;
 @end
 
 static NSString *identifier = @"HomeOptionsBtnCellID";
@@ -20,6 +23,8 @@ static NSString *identifier = @"HomeOptionsBtnCellID";
 - (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout{
     
     if (self = [super initWithFrame:frame collectionViewLayout:layout]) {
+        self.imgViewWidthOfOptionsBtn = frame.size.height - 34;
+        self.labelFont = [UIFont systemFontOfSize:17];
         [self settingCollectionView];
     }
     return self;
@@ -46,6 +51,8 @@ static NSString *identifier = @"HomeOptionsBtnCellID";
         OptionButtonModel *model = self.dataArray[indexPath.row];
         cell.model = model;
     }
+    [cell settingImageViewWidth:self.imgViewWidthOfOptionsBtn];
+    [cell settingLabelFont:self.labelFont];
     cell.delegate = self;
     cell.key = indexPath;
     return cell;
@@ -57,6 +64,16 @@ static NSString *identifier = @"HomeOptionsBtnCellID";
     if ([self.selectedDelegate respondsToSelector:@selector(optionBtnSelected:)]) {
         [self.selectedDelegate optionBtnSelected:key];
     }
+}
+//设置功能按钮的图片的宽度(长度 1:1)
+- (void)settingImageViewWidthOfOptionsBtn:(CGFloat)width{
+    self.imgViewWidthOfOptionsBtn = width;
+    [self reloadData];
+}
+///设置功能按钮的font
+- (void)settingLabelFontOfOptionsBtn:(UIFont *)font{
+    self.labelFont = font;
+    [self reloadData];
 }
 #pragma mark - 懒加载
 - (void)setDataArray:(NSMutableArray *)dataArray{

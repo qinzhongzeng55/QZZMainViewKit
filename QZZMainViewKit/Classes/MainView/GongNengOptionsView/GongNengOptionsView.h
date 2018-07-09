@@ -18,4 +18,9 @@
 
 @property (nonatomic, strong) NSMutableArray *dataArray;
 @property (nonatomic, assign) id<GongNengOptionsViewDelegate> selectedDelegate;
+
+///设置功能按钮的图片的宽度(长度 1:1)
+- (void)settingImageViewWidthOfOptionsBtn:(CGFloat)width;
+///设置功能按钮的font
+- (void)settingLabelFontOfOptionsBtn:(UIFont *)font;
 @end
