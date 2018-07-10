@@ -23,4 +23,6 @@
 - (void)settingImageViewWidthOfOptionsBtn:(CGFloat)width;
 ///设置功能按钮的font
 - (void)settingLabelFontOfOptionsBtn:(UIFont *)font;
+///设置文本头部距离
+- (void)settingTitleLabelTopOfOptionsBtn:(CGFloat)top;
 @end

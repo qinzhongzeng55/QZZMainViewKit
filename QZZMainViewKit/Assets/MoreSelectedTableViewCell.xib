@@ -79,6 +79,7 @@
                 <outlet property="gotoDetailBtn" destination="fYg-fp-4M3" id="PZb-BD-Aql"/>
                 <outlet property="lineView" destination="hQu-Ed-rLD" id="xvx-ex-zB5"/>
                 <outlet property="moreImgView" destination="El6-57-NtI" id="mU3-UY-bRf"/>
+                <outlet property="titleLConstraint" destination="sw0-WF-PQ4" id="8NI-La-tPW"/>
                 <outlet property="titleLabel" destination="rcq-86-cBb" id="hEa-Vh-say"/>
                 <outlet property="titleWConstraint" destination="Fmw-fz-1wh" id="Y6f-vN-rL6"/>
             </connections>

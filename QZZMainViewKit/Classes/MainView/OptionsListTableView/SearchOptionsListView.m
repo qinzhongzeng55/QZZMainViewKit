@@ -21,6 +21,11 @@
 @property (nonatomic, assign) BOOL isSearch;
 ///搜索结果数据
 @property (nonatomic, strong) NSMutableArray *searchResultArray;
+
+@property (nonatomic, assign) BOOL isHiddenMoreImageView;
+@property (nonatomic, strong) UIColor *optionsTitleColor;
+@property (nonatomic, strong) UIFont *optionsTitleFont;
+@property (nonatomic, strong) UIColor *lineViewColor;
 @end
 
 @implementation SearchOptionsListView
@@ -80,6 +85,9 @@
     }
     cell.delegate = self;
     cell.key = indexPath;
+    [cell settingContentTextColor:(self.optionsTitleColor == nil ? QZZUIColorWithHexStringNoTransparent(@"#333333") : self.optionsTitleColor) font:(self.optionsTitleFont == nil ? [UIFont systemFontOfSize:17] : self.optionsTitleFont)];
+    [cell settingLineViewColor:(self.lineViewColor == nil ? QZZUIColorWithHexStringNoTransparent(@"#EEEEEE") : self.lineViewColor)];
+    [cell hiddenMoreImageView:self.isHiddenMoreImageView];
     cell.selectedBackgroundView = [UIView new];
     return cell;
 }
@@ -143,6 +151,22 @@
 #pragma mark - 设置头部lineView的背景颜色
 - (void)settingBackgroundColorOfTopView:(UIColor *)color{
     self.topView.backgroundColor = color;
+}
+#pragma mark - 设置lineView的颜色
+- (void)settingLineViewColor:(UIColor *)color{
+    self.lineViewColor = color;
+    [self.tableView reloadData];
+}
+#pragma mark - 隐藏 >
+- (void)hiddenMoreImageView:(BOOL)isHidden{
+    self.isHiddenMoreImageView = isHidden;
+    [self.tableView reloadData];
+}
+#pragma mark - 设置选项的字体
+- (void)settingContentTextColor:(UIColor *)color font:(UIFont *)font{
+    self.optionsTitleFont = font;
+    self.optionsTitleColor = color;
+    [self.tableView reloadData];
 }
 #pragma mark - 懒加载
 - (void)setDataArray:(NSMutableArray *)dataArray{

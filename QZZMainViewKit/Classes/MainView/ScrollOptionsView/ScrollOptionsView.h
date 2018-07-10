@@ -25,7 +25,9 @@
 @property (nonatomic, strong) NSIndexPath *selectedKey;
 ///线长度
 @property (nonatomic, assign) CGFloat lineWidth;
-
+@property (nonatomic, strong) UIColor *lineColor;
 ///滚动到指定的列
 - (void)scrollToIndexPath:(NSIndexPath *)key;
+///设置选项字体
+- (void)settingOptionTitleColor:(UIColor *)color font:(UIFont *)font;
 @end

@@ -21,6 +21,11 @@
 @property (nonatomic, strong) NSMutableArray *selectedArray;
 @property (nonatomic, strong) UIImage *normalSelectedBtnImage;
 @property (nonatomic, strong) UIImage *selectedBtnImage;
+@property (nonatomic, assign) CGFloat selectedBtnLeft;
+@property (nonatomic, assign) CGFloat selectedBtnWidth;
+@property (nonatomic, strong) UIColor *optionsTitleColor;
+@property (nonatomic, strong) UIFont *optionsTitleFont;
+@property (nonatomic, strong) UIColor *lineViewColor;
 @end
 
 @implementation MoreSelectedSearchOptionsListView
@@ -78,6 +83,10 @@
     cell.delegate = self;
     cell.key = indexPath;
     [cell settingImage:self.normalSelectedBtnImage withSelectedImage:self.selectedBtnImage];
+    [cell settingSelectedBtnLeft:(self.selectedBtnLeft == 0 ? 10 : self.selectedBtnLeft)];
+    [cell settingSelectedBtnWidth:(self.selectedBtnWidth == 0 ? 44 : self.selectedBtnWidth)];
+    [cell settingContentTextColor:(self.optionsTitleColor == nil ? QZZUIColorWithHexStringNoTransparent(@"#333333") : self.optionsTitleColor) font:(self.optionsTitleFont == nil ? [UIFont systemFontOfSize:17] : self.optionsTitleFont)];
+    [cell settingLineViewColor:(self.lineViewColor == nil ? QZZUIColorWithHexStringNoTransparent(@"#EEEEEE") : self.lineViewColor)];
     cell.isSelected = [self.selectedArray containsObject:indexPath];
     cell.selectedBackgroundView = [UIView new];
     return cell;
@@ -160,6 +169,27 @@
     self.tableView.tableFooterView = [UIView new];
     self.tableView.tableHeaderView = [UIView new];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+}
+#pragma mark - 设置lineView的颜色
+- (void)settingLineViewColor:(UIColor *)color{
+    self.lineViewColor = color;
+    [self.tableView reloadData];
+}
+#pragma mark - 设置选中按钮左侧的距离
+- (void)settingSelectedBtnLeft:(CGFloat)left{
+    self.selectedBtnLeft = left;
+    [self.tableView reloadData];
+}
+#pragma mark - 设置选中按钮的大小
+- (void)settingSelectedBtnWidth:(CGFloat)width{
+    self.selectedBtnWidth = width;
+    [self.tableView reloadData];
+}
+#pragma mark - 设置选项的字体
+- (void)settingContentTextColor:(UIColor *)color font:(UIFont *)font{
+    self.optionsTitleColor = color;
+    self.optionsTitleFont = font;
+    [self.tableView reloadData];
 }
 #pragma mark - 懒加载
 - (void)setDataArray:(NSMutableArray *)dataArray{

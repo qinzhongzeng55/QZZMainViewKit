@@ -1,22 +1,23 @@
 //
-//  HomeOptionsBtnCell.m
+//  SelectedOptionsBtnCell.m
 //  
 //
 //  Created by qinzhongzeng on 2017/1/10.
 //  Copyright © 2017年 bejingyimeng. All rights reserved.
 //
 
-#import "HomeOptionsBtnCell.h"
+#import "SelectedOptionsBtnCell.h"
 
-@interface HomeOptionsBtnCell()
+@interface SelectedOptionsBtnCell()
 
 @property (weak, nonatomic) IBOutlet UIImageView *OptionImageView;
 @property (weak, nonatomic) IBOutlet UILabel *OptionTextLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageViewWConstraint;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLabelTConstraint;
 @end
 
-@implementation HomeOptionsBtnCell
+@implementation SelectedOptionsBtnCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -34,6 +35,10 @@
 ///设置功能按钮的font
 - (void)settingLabelFont:(UIFont *)font{
     self.OptionTextLabel.font = font;
+}
+///设置文本头部距离
+- (void)settingTitleLabelTop:(CGFloat)top{
+    self.titleLabelTConstraint.constant = top;
 }
 #pragma mark - setter,getter
 - (void)setModel:(OptionButtonModel *)model{

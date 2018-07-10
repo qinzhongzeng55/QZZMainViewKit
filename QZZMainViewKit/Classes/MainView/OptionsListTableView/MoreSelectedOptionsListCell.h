@@ -24,8 +24,17 @@
 @property (nonatomic, strong) NSIndexPath *key;
 ///是否被选中
 @property (nonatomic, assign) BOOL isSelected;
-///隐藏底部line
+
+///隐藏底部lineView
 - (void)hiddenLineView:(BOOL)isHidden;
+//设置lineView的颜色
+- (void)settingLineViewColor:(UIColor *)color;
 ///设置选中按钮的图片
 - (void)settingImage:(UIImage *)img withSelectedImage:(UIImage *)selectedImg;
+///设置选中按钮左侧的距离
+- (void)settingSelectedBtnLeft:(CGFloat)left;
+///设置选中按钮的大小
+- (void)settingSelectedBtnWidth:(CGFloat)width;
+///设置选项的字体
+- (void)settingContentTextColor:(UIColor *)color font:(UIFont *)font;
 @end

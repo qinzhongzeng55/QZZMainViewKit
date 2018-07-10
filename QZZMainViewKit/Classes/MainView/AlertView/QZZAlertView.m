@@ -43,16 +43,22 @@
 - (IBAction)removeView:(id)sender {
     [self removeFromSuperview];
 }
-
-- (void)settingTitleText:(NSString *)title{
+//设置警告框内容
+- (void)settingTitleText:(NSString *)title font:(UIFont *)font{
 
     self.TitleTextLabel.text = title;
+    self.TitleTextLabel.font = font;
 }
-
+//设置确定按钮
+- (void)settingQueDingBtnTitle:(NSString *)title font:(UIFont *)font{
+    [self.queDingBtn setTitle:title forState:UIControlStateNormal];
+    self.queDingBtn.titleLabel.font = font;
+}
+ //设置头部lineView的背景颜色
 - (void)settingColorOfTopLineView:(UIColor *)color{
     self.TopLineView.backgroundColor = color;
 }
-
+//设置确定按钮的字体颜色
 - (void)settingColorOfQueDingBtn:(UIColor *)color{
     [self.queDingBtn setTitleColor:color forState:UIControlStateNormal];
 }

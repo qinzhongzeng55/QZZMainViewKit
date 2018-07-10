@@ -27,11 +27,18 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Apj-df-ZJs">
-                        <rect key="frame" x="12" y="17" width="40" height="20"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <rect key="frame" x="52" y="17" width="42" height="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="m5L-jz-1a4">
+                        <rect key="frame" x="9" y="9" width="36" height="36"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="m5L-jz-1a4" secondAttribute="height" multiplier="1:1" id="7Y5-92-Y4X"/>
+                            <constraint firstAttribute="width" constant="36" id="DJN-XV-7qs"/>
+                        </constraints>
+                    </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uc3-lN-Oxy">
                         <rect key="frame" x="0.0" y="52" width="320" height="1"/>
                         <color key="backgroundColor" red="0.84313725490196079" green="0.84313725490196079" blue="0.84313725490196079" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -48,23 +55,29 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="Uc3-lN-Oxy" secondAttribute="bottom" id="38b-eQ-f2s"/>
+                    <constraint firstItem="Apj-df-ZJs" firstAttribute="centerY" secondItem="m5L-jz-1a4" secondAttribute="centerY" id="3MI-8h-DUI"/>
                     <constraint firstAttribute="trailing" secondItem="wQs-U1-7oU" secondAttribute="trailing" id="4yB-bu-YqH"/>
                     <constraint firstAttribute="bottom" secondItem="wQs-U1-7oU" secondAttribute="bottom" id="Ad0-0h-okA"/>
                     <constraint firstAttribute="trailing" secondItem="Tbj-4b-5YP" secondAttribute="trailing" constant="12" id="D9R-Gm-YuH"/>
-                    <constraint firstItem="Apj-df-ZJs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="KCo-7E-hUm"/>
+                    <constraint firstItem="m5L-jz-1a4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="9" id="OgM-Pf-nDt"/>
                     <constraint firstItem="Tbj-4b-5YP" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Qv6-6V-mss"/>
                     <constraint firstItem="Tbj-4b-5YP" firstAttribute="width" secondItem="Tbj-4b-5YP" secondAttribute="height" multiplier="20:37" id="TWh-B1-dWt"/>
                     <constraint firstItem="Uc3-lN-Oxy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="UQa-S4-bh1"/>
+                    <constraint firstItem="m5L-jz-1a4" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="YEH-uw-1Ln"/>
                     <constraint firstItem="wQs-U1-7oU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="dE6-FA-LTl"/>
                     <constraint firstItem="wQs-U1-7oU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="dXn-fq-9Lx"/>
-                    <constraint firstItem="Tbj-4b-5YP" firstAttribute="centerY" secondItem="Apj-df-ZJs" secondAttribute="centerY" id="oFE-ap-26h"/>
+                    <constraint firstItem="Apj-df-ZJs" firstAttribute="leading" secondItem="m5L-jz-1a4" secondAttribute="trailing" constant="7" id="rRx-PH-iFD"/>
                     <constraint firstAttribute="trailing" secondItem="Uc3-lN-Oxy" secondAttribute="trailing" id="vkq-8H-PLu"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
+                <outlet property="IconImageView" destination="m5L-jz-1a4" id="4HS-Xo-tZK"/>
+                <outlet property="TitleLConstraint" destination="rRx-PH-iFD" id="XKk-uq-ZCb"/>
                 <outlet property="TitleLabel" destination="Apj-df-ZJs" id="gVV-Lr-Q2o"/>
                 <outlet property="gotoOtherViewImageView" destination="Tbj-4b-5YP" id="mL5-sg-VtV"/>
+                <outlet property="imgLConstraint" destination="OgM-Pf-nDt" id="xlD-ZZ-RX2"/>
+                <outlet property="imgWConstraint" destination="DJN-XV-7qs" id="LRk-dv-qma"/>
                 <outlet property="lineView" destination="Uc3-lN-Oxy" id="fVU-Pt-af2"/>
             </connections>
         </tableViewCell>

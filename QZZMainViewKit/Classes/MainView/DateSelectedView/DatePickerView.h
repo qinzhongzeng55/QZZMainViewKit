@@ -24,6 +24,10 @@ typedef void (^selectedDateBlock)(NSDate *selectedDate);
 - (void)settingTitle:(NSString *)title;
 ///设置头部lineView的背景颜色
 - (void)settingBackgroundColorOfTopView:(UIColor *)color;
+///设置头部图片
+- (void)settingTopImageView:(UIImage *)image;
 ///设置确定按钮的字体颜色
 - (void)settingBackgroundColorOfQueDingBtn:(UIColor *)color;
+///设置选择按钮的背景图片
+- (void)settingBackgroundImageOfQueDingBtn:(UIImage *)image;
 @end

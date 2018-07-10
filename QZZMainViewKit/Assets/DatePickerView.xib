@@ -24,9 +24,18 @@
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FVh-Pc-TlS">
                             <rect key="frame" x="0.0" y="-0.5" width="280" height="47"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QxD-Hu-lhS">
+                                    <rect key="frame" x="0.0" y="0.0" width="280" height="47"/>
+                                </imageView>
+                            </subviews>
                             <color key="backgroundColor" red="0.2274509804" green="0.61176470589999998" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
+                                <constraint firstItem="QxD-Hu-lhS" firstAttribute="leading" secondItem="FVh-Pc-TlS" secondAttribute="leading" id="CXy-y5-PUj"/>
                                 <constraint firstAttribute="height" constant="47" id="Z7W-X1-tiI"/>
+                                <constraint firstAttribute="trailing" secondItem="QxD-Hu-lhS" secondAttribute="trailing" id="kGz-VN-Zc4"/>
+                                <constraint firstAttribute="bottom" secondItem="QxD-Hu-lhS" secondAttribute="bottom" id="ts3-vG-O1c"/>
+                                <constraint firstItem="QxD-Hu-lhS" firstAttribute="top" secondItem="FVh-Pc-TlS" secondAttribute="top" id="udx-7x-br4"/>
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="日期选择" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U4R-Ue-bmV">
@@ -88,6 +97,7 @@
                 <outlet property="dateSelecterView" destination="MUn-tD-pAQ" id="oTO-k9-URf"/>
                 <outlet property="selectedBtn" destination="qeC-FV-Wqs" id="MYs-hw-OeW"/>
                 <outlet property="shadeView" destination="jEt-fC-7Nh" id="iS5-bP-ILD"/>
+                <outlet property="topImageView" destination="QxD-Hu-lhS" id="84K-N1-bz6"/>
                 <outlet property="topView" destination="FVh-Pc-TlS" id="vTp-2g-FcX"/>
             </connections>
             <point key="canvasLocation" x="66.5" y="134.5"/>

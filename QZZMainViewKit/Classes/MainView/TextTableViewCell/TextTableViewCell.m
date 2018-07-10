@@ -63,33 +63,44 @@
     [self.contentText resignFirstResponder];
 }
 #pragma mark - method
-- (void)settingContentTextColor:(UIColor *)color{
-    
-    self.contentText.textColor = color;
-}
-
+#pragma mark - 设置键盘类型
 - (void)settingKeyboardType:(UIKeyboardType)KeyboardType{
     
     //数字键盘UIKeyboardTypeNumberPad
     self.contentText.keyboardType = KeyboardType;
 }
-
+#pragma mark - 设置lineView左边距
 - (void)settingLineLConstraint:(CGFloat)width{
     
     self.lineLConstraint.constant = width;
 }
-
+#pragma mark - 设置标题左边距
 - (void)settingTitleLConstraint:(CGFloat)width{
     
     self.titleLConstraint.constant = width;
 }
+#pragma mark - 设置标题宽度
 - (void)settingTitleWidth:(CGFloat)width{
     
     self.titleWConstraint.constant = width;
 }
-///隐藏lineView
+#pragma mark - 隐藏lineView
 - (void)hiddenLineView:(BOOL)isHidden{
     self.lineView.hidden = isHidden;
+}
+#pragma mark - 设置lineView的背景颜色
+- (void)settingLineViewColor:(UIColor *)color{
+    self.lineView.backgroundColor = color;
+}
+#pragma mark - 设置标题的字体
+- (void)settingTitleColor:(UIColor *)color font:(UIFont *)font{
+    self.titleLabel.textColor = color;
+    self.titleLabel.font = font;
+}
+#pragma mark - 设置内容的字体
+- (void)settingContentTextColor:(UIColor *)color font:(UIFont *)font{
+    self.contentText.textColor = color;
+    self.contentText.font = font;
 }
 #pragma mark - setter,getter
 - (void)setModel:(TableViewCellModel *)model{
@@ -111,9 +122,5 @@
     _isDetail = isDetail;
     self.contentText.enabled = !isDetail;
     
-}
-- (void)setColor:(UIColor *)color{
-    
-    self.titleLabel.textColor = color;
 }
 @end

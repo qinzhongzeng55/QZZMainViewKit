@@ -1,7 +1,7 @@
 //
 //  QZZAlertView.h
 //
-//  确认框
+//  确认框/警告框
 //  Created by qinzhongzeng on 2017/2/17.
 //  Copyright © 2017年 bejingyimeng. All rights reserved.
 //
@@ -21,10 +21,12 @@
 
 @property (nonatomic, assign) id<QZZAlertViewDelegate> delegate;
 
-///设置确认框的标题
-- (void)settingTitleText:(NSString *)title;
+///设置警告框内容
+- (void)settingTitleText:(NSString *)title font:(UIFont *)font;
 ///设置头部lineView的背景颜色
 - (void)settingColorOfTopLineView:(UIColor *)color;
 ///设置确定按钮的字体颜色
 - (void)settingColorOfQueDingBtn:(UIColor *)color;
+///设置确定按钮
+- (void)settingQueDingBtnTitle:(NSString *)title font:(UIFont *)font;
 @end

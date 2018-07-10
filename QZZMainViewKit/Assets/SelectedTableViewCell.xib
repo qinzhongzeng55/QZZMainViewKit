@@ -91,6 +91,7 @@
                 <outlet property="lineView" destination="hQu-Ed-rLD" id="F8g-eL-KQc"/>
                 <outlet property="moreImageView" destination="SWg-Kz-kbH" id="a6k-7O-fdL"/>
                 <outlet property="selectedBtn" destination="cAr-VC-jsj" id="DO8-jL-gbL"/>
+                <outlet property="titleLConstraint" destination="sw0-WF-PQ4" id="VKe-t0-rPf"/>
                 <outlet property="titleLabel" destination="rcq-86-cBb" id="hEa-Vh-say"/>
                 <outlet property="titleWContraint" destination="oYO-Fi-kPl" id="lJ7-I4-3Op"/>
             </connections>

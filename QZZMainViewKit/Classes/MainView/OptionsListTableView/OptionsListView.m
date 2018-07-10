@@ -16,7 +16,12 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *containViewHeight;
 @property (weak, nonatomic) IBOutlet UILabel *TitleLabel;
 @property (weak, nonatomic) IBOutlet UIView *topView;
+@property (weak, nonatomic) IBOutlet UIImageView *topImageView;
 
+@property (nonatomic, assign) BOOL isHiddenMoreImageView;
+@property (nonatomic, strong) UIColor *optionsTitleColor;
+@property (nonatomic, strong) UIFont *optionsTitleFont;
+@property (nonatomic, strong) UIColor *lineViewColor;
 @end
 
 @implementation OptionsListView
@@ -63,6 +68,9 @@
     }
     cell.delegate = self;
     cell.key = indexPath;
+    [cell settingContentTextColor:(self.optionsTitleColor == nil ? QZZUIColorWithHexStringNoTransparent(@"#333333") : self.optionsTitleColor) font:(self.optionsTitleFont == nil ? [UIFont systemFontOfSize:17] : self.optionsTitleFont)];
+    [cell settingLineViewColor:(self.lineViewColor == nil ? QZZUIColorWithHexStringNoTransparent(@"#EEEEEE") : self.lineViewColor)];
+    [cell hiddenMoreImageView:self.isHiddenMoreImageView];
     cell.selectedBackgroundView = [UIView new];
     return cell;
 }
@@ -84,6 +92,31 @@
 #pragma mark - 设置头部lineView的背景颜色
 - (void)settingBackgroundColorOfTopView:(UIColor *)color{
     self.topView.backgroundColor = color;
+}
+#pragma mark - 设置lineView的颜色
+- (void)settingLineViewColor:(UIColor *)color{
+    self.lineViewColor = color;
+    [self.tableView reloadData];
+}
+#pragma mark - 隐藏 >
+- (void)hiddenMoreImageView:(BOOL)isHidden{
+    self.isHiddenMoreImageView = isHidden;
+    [self.tableView reloadData];
+}
+#pragma mark - 设置选项的字体
+- (void)settingContentTextColor:(UIColor *)color font:(UIFont *)font{
+    self.optionsTitleFont = font;
+    self.optionsTitleColor = color;
+    [self.tableView reloadData];
+}
+#pragma mark - 设置弹框的字体
+- (void)settingTitleColor:(UIColor *)color font:(UIFont *)font{
+    self.TitleLabel.textColor = color;
+    self.TitleLabel.font = font;
+}
+#pragma mark - 设置头部图片
+- (void)settingTopImageView:(UIImage *)image{
+    self.topImageView.image = image;
 }
 #pragma mark - 懒加载
 - (void)setDataArray:(NSMutableArray *)dataArray{

@@ -64,8 +64,10 @@
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
                 <outlet property="contentLabel" destination="gZI-oc-1BC" id="NQL-GO-ICS"/>
+                <outlet property="imageViewLConstraint" destination="YBp-Zf-pTw" id="lkM-nA-jOc"/>
                 <outlet property="lineView" destination="x9r-uh-PF7" id="X3n-9l-or6"/>
                 <outlet property="selectedBtn" destination="Ibj-Ob-ThC" id="67p-4P-n1S"/>
+                <outlet property="selectedBtnWConstraint" destination="GYI-49-pTv" id="6fV-z8-JQj"/>
             </connections>
         </tableViewCell>
     </objects>

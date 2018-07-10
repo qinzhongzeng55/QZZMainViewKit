@@ -153,10 +153,12 @@
     self.contentTextViewBConstraint.constant = 0;
     [self.contentView layoutIfNeeded];
 }
+//设置文本框下边距
 - (void)settingContentTextViewBConstraint:(CGFloat)constraint{
     self.contentTextViewBConstraint.constant = constraint;
     [self.contentView layoutIfNeeded];
 }
+//设置占位文字上边距
 - (void)settingPlaceHolderTConstraint:(CGFloat)constraint{
     self.placeHolderTConstraint.constant = constraint;
     [self.contentView layoutIfNeeded];

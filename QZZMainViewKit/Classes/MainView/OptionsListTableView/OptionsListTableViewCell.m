@@ -41,6 +41,15 @@
 - (void)hiddenMoreImageView:(BOOL)isHidden{
     self.moreImageView.hidden = isHidden;
 }
+#pragma mark - 设置lineView的颜色
+- (void)settingLineViewColor:(UIColor *)color{
+    self.lineView.backgroundColor = color;
+}
+#pragma mark - 设置选项的字体
+- (void)settingContentTextColor:(UIColor *)color font:(UIFont *)font{
+    self.optionContentLabel.textColor = color;
+    self.optionContentLabel.font = font;
+}
 #pragma mark - setter,getter
 - (void)setModel:(OptionButtonModel *)model{
     _model = model;

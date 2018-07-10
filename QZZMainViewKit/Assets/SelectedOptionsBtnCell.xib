@@ -20,7 +20,7 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FnT-f2-pQx">
-                        <rect key="frame" x="39.5" y="5" width="41" height="41"/>
+                        <rect key="frame" x="39.5" y="9" width="41" height="41"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="FnT-f2-pQx" secondAttribute="height" multiplier="1:1" id="3fw-uU-KDD"/>
                             <constraint firstAttribute="width" constant="41" id="CsR-5I-JfT"/>
@@ -46,7 +46,7 @@
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="GGW-sO-vdX" firstAttribute="top" secondItem="FnT-f2-pQx" secondAttribute="bottom" constant="5" id="FrG-Ue-yLc"/>
+                <constraint firstItem="GGW-sO-vdX" firstAttribute="top" secondItem="FnT-f2-pQx" secondAttribute="bottom" constant="1" id="FrG-Ue-yLc"/>
                 <constraint firstItem="GGW-sO-vdX" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Nyy-B3-JnG"/>
                 <constraint firstAttribute="trailing" secondItem="GGW-sO-vdX" secondAttribute="trailing" id="Too-dy-IhD"/>
                 <constraint firstItem="GGW-sO-vdX" firstAttribute="centerX" secondItem="FnT-f2-pQx" secondAttribute="centerX" id="mxE-P4-CRm"/>
@@ -56,6 +56,8 @@
             <connections>
                 <outlet property="OptionImageView" destination="FnT-f2-pQx" id="ICh-1K-1dr"/>
                 <outlet property="OptionTextLabel" destination="GGW-sO-vdX" id="YHA-Z6-Eqt"/>
+                <outlet property="imageViewWConstraint" destination="CsR-5I-JfT" id="IJd-is-RXW"/>
+                <outlet property="titleLabelTConstraint" destination="FrG-Ue-yLc" id="g5A-18-O2I"/>
             </connections>
             <point key="canvasLocation" x="55" y="74"/>
         </collectionViewCell>

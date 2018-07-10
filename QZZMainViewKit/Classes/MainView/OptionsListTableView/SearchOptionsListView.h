@@ -27,4 +27,10 @@ typedef void (^OptionSelectedBlock)(OptionButtonModel *model,NSIndexPath *key);
 
 ///设置头部lineView的背景颜色
 - (void)settingBackgroundColorOfTopView:(UIColor *)color;
+//设置lineView的颜色
+- (void)settingLineViewColor:(UIColor *)color;
+//隐藏 >
+- (void)hiddenMoreImageView:(BOOL)isHidden;
+///设置选项的字体
+- (void)settingContentTextColor:(UIColor *)color font:(UIFont *)font;
 @end

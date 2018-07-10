@@ -15,7 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *selectedBtn;
 @property (weak, nonatomic) IBOutlet UIImageView *moreImageView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleWContraint;
-
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLConstraint;
 @end
 
 @implementation SelectedTableViewCell
@@ -52,6 +52,24 @@
 - (void)hiddenLineView:(BOOL)isHidden{
     self.lineView.hidden = isHidden;
 }
+#pragma mark - 设置lineView的背景颜色
+- (void)settingLineViewColor:(UIColor *)color{
+    self.lineView.backgroundColor = color;
+}
+#pragma mark - 设置标题左侧的距离
+- (void)settingTitleLeft:(CGFloat)left{
+    self.titleLConstraint.constant = left;
+}
+#pragma mark - 设置标题的字体
+- (void)settingTitleColor:(UIColor *)color font:(UIFont *)font{
+    self.titleLabel.textColor = color;
+    self.titleLabel.font = font;
+}
+#pragma mark - 设置内容的字体
+- (void)settingContentTextColor:(UIColor *)color font:(UIFont *)font{
+    [self.selectedBtn setTitleColor:color forState:UIControlStateNormal];
+    self.selectedBtn.titleLabel.font = font;
+}
 #pragma mark - setter,getter
 - (void)setModel:(TableViewCellModel *)model{
     _model = model;
@@ -76,10 +94,5 @@
     _isDetail = isDetail;
     self.moreImageView.hidden = isDetail;
     self.selectedBtn.enabled = !isDetail;
-}
-
-- (void)setColor:(UIColor *)color{
-    
-    self.titleLabel.textColor = color;
 }
 @end

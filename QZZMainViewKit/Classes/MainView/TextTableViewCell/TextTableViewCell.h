@@ -19,13 +19,10 @@
 
 @property (nonatomic, assign) id<TextTableViewCellDelegate> delegate;
 @property (nonatomic, strong) TableViewCellModel *model;
-@property (nonatomic, assign) UIColor *color;
 @property (nonatomic, assign) BOOL isDetail;
 @property (nonatomic, strong) NSIndexPath *key;
 
 - (void)resignResponder;
-///设置文本内容颜色
-- (void)settingContentTextColor:(UIColor *)color;
 ///设置弹出键盘类型
 - (void)settingKeyboardType:(UIKeyboardType)KeyboardType;
 ///设置lineView左边距
@@ -36,4 +33,10 @@
 - (void)settingTitleWidth:(CGFloat)width;
 ///隐藏lineView
 - (void)hiddenLineView:(BOOL)isHidden;
+///设置lineView的背景颜色
+- (void)settingLineViewColor:(UIColor *)color;
+///设置标题的字体
+- (void)settingTitleColor:(UIColor *)color font:(UIFont *)font;
+///设置内容的字体
+- (void)settingContentTextColor:(UIColor *)color font:(UIFont *)font;
 @end

@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *selectedBtn;
 @property (weak, nonatomic) IBOutlet UILabel *TitleLabel;
 @property (weak, nonatomic) IBOutlet UIView *topView;
+@property (weak, nonatomic) IBOutlet UIImageView *topImageView;
 
 @end
 @implementation DatePickerView
@@ -58,12 +59,20 @@
 - (void)settingTitle:(NSString *)title{
     self.TitleLabel.text = title;
 }
-#pragma mark - 头部View的背景颜色
+#pragma mark - 设置头部View的背景颜色
 - (void)settingBackgroundColorOfTopView:(UIColor *)color{
     self.topView.backgroundColor = color;
+}
+#pragma mark - 设置头部图片
+- (void)settingTopImageView:(UIImage *)image{
+    self.topImageView.image = image;
 }
 #pragma mark - 设置选择按钮的背景颜色
 - (void)settingBackgroundColorOfQueDingBtn:(UIColor *)color{
     self.selectedBtn.backgroundColor = color;
+}
+#pragma mark - 设置选择按钮的背景图片
+- (void)settingBackgroundImageOfQueDingBtn:(UIImage *)image{
+    [self.selectedBtn setBackgroundImage:image forState:UIControlStateNormal];
 }
 @end

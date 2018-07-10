@@ -26,6 +26,9 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="In2-bM-Ik2">
                             <rect key="frame" x="-0.5" y="0.0" width="345.5" height="49"/>
                             <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mza-qR-fwp">
+                                    <rect key="frame" x="0.0" y="0.0" width="346" height="49"/>
+                                </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请选择" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPl-El-6uq">
                                     <rect key="frame" x="147" y="14" width="52" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -35,8 +38,12 @@
                             </subviews>
                             <color key="backgroundColor" red="0.2274509804" green="0.61176470589999998" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
+                                <constraint firstAttribute="bottom" secondItem="Mza-qR-fwp" secondAttribute="bottom" id="0J7-IX-WeW"/>
                                 <constraint firstItem="XPl-El-6uq" firstAttribute="centerX" secondItem="In2-bM-Ik2" secondAttribute="centerX" id="4jp-BC-o0L"/>
+                                <constraint firstItem="Mza-qR-fwp" firstAttribute="leading" secondItem="In2-bM-Ik2" secondAttribute="leading" id="MLe-Zs-nGA"/>
+                                <constraint firstAttribute="trailing" secondItem="Mza-qR-fwp" secondAttribute="trailing" id="Nv3-tt-gmd"/>
                                 <constraint firstAttribute="height" constant="49" id="TbR-xX-IYQ"/>
+                                <constraint firstItem="Mza-qR-fwp" firstAttribute="top" secondItem="In2-bM-Ik2" secondAttribute="top" id="enc-Oe-1hk"/>
                                 <constraint firstItem="XPl-El-6uq" firstAttribute="centerY" secondItem="In2-bM-Ik2" secondAttribute="centerY" id="fu9-aE-YTE"/>
                             </constraints>
                         </view>
@@ -76,6 +83,7 @@
                 <outlet property="containViewHeight" destination="lnl-hg-teW" id="6Jb-c2-I0q"/>
                 <outlet property="shadeView" destination="TsL-wX-kpv" id="Uh8-4A-Ihu"/>
                 <outlet property="tableView" destination="QT9-pb-Ud7" id="NhH-i1-Vvy"/>
+                <outlet property="topImageView" destination="Mza-qR-fwp" id="Awm-Aw-iSr"/>
                 <outlet property="topView" destination="In2-bM-Ik2" id="Uzd-mZ-jFu"/>
             </connections>
             <point key="canvasLocation" x="24.5" y="51.5"/>

@@ -35,4 +35,9 @@
 - (void)settingTitleLabelText:(NSString *)text{
     [self.optionBtn setTitle:text forState:UIControlStateNormal];
 }
+///设置选项字体
+- (void)settingOptionTitleColor:(UIColor *)color font:(UIFont *)font{
+    [self.optionBtn setTitleColor:color forState:UIControlStateNormal];
+    self.optionBtn.titleLabel.font = font;
+}
 @end

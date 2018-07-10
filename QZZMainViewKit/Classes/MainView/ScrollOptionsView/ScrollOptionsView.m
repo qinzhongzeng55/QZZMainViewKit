@@ -15,6 +15,8 @@
 @property (nonatomic, strong) UIView *scrollLineView;
 @property (nonatomic, strong) UIScrollView *lineContainScrollView;
 
+@property (nonatomic, strong) UIColor *optionsTitleColor;
+@property (nonatomic, strong) UIFont *optionsTitleFont;
 @end
 
 static NSString *identifier = @"ScrollOptionsCellID";
@@ -62,6 +64,7 @@ static NSString *identifier = @"ScrollOptionsCellID";
     cell.delegate = self;
     //设置是否被选中
     [cell settingSelectedForOptionBtn:self.selectedKey == indexPath];
+    [cell settingOptionTitleColor:(self.optionsTitleColor == nil ? QZZUIColorWithHexStringNoTransparent(@"#333333") : self.optionsTitleColor) font:(self.optionsTitleFont == nil ? [UIFont systemFontOfSize:17] : self.optionsTitleFont)];
     return cell;
 }
 #pragma mark - UICollectionViewDelegate
@@ -134,7 +137,7 @@ static NSString *identifier = @"ScrollOptionsCellID";
     UIView *lineView= [[UIView alloc] initWithFrame:CGRectMake((W-self.lineWidth)*0.5, 0, self.lineWidth, 2)];
     lineView.layer.cornerRadius = 1;
     lineView.layer.masksToBounds = YES;
-    lineView.backgroundColor = QZZUIColorWithRGB(58, 156, 241);
+    lineView.backgroundColor = self.lineColor == nil ? QZZUIColorWithRGB(58, 156, 241) : self.lineColor;
     [scrollView addSubview:lineView];
     scrollView.contentSize = CGSizeMake(W * self.dataArray.count, 2);
     self.scrollLineView =  lineView;
@@ -161,7 +164,12 @@ static NSString *identifier = @"ScrollOptionsCellID";
     self.flowLayout.minimumLineSpacing = 0;
     self.flowLayout.minimumInteritemSpacing = 0;
 }
-
+#pragma mark - 设置选项字体
+- (void)settingOptionTitleColor:(UIColor *)color font:(UIFont *)font{
+    self.optionsTitleFont = font;
+    self.optionsTitleColor = color;
+    [self.collectionView reloadData];
+}
 #pragma mark - setter,getter
 - (void)setDataArray:(NSMutableArray *)dataArray{
     _dataArray = dataArray;
