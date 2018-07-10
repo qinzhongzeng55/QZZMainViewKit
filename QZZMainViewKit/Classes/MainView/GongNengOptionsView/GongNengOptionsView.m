@@ -15,6 +15,7 @@
 @property (nonatomic, assign) CGFloat imgViewWidthOfOptionsBtn;
 @property (nonatomic, strong) UIFont *labelFont;
 @property (nonatomic, assign) CGFloat labelTop;
+@property (nonatomic, assign) CGFloat titlelabelHeight;
 @end
 
 static NSString *identifier = @"SelectedOptionsBtnCellID";
@@ -56,6 +57,7 @@ static NSString *identifier = @"SelectedOptionsBtnCellID";
     [cell settingImageViewWidth:self.imgViewWidthOfOptionsBtn];
     [cell settingLabelFont:self.labelFont];
     [cell settingTitleLabelTop:self.labelTop];
+    [cell settingTitlelabelHeight:self.titlelabelHeight];
     cell.delegate = self;
     cell.key = indexPath;
     return cell;
@@ -81,6 +83,11 @@ static NSString *identifier = @"SelectedOptionsBtnCellID";
 ///设置文本头部距离
 - (void)settingTitleLabelTopOfOptionsBtn:(CGFloat)top{
     self.labelTop = top;
+    [self reloadData];
+}
+///设置文本高度
+- (void)settingTitlelabelHeight:(CGFloat)height{
+    self.titlelabelHeight = height;
     [self reloadData];
 }
 #pragma mark - 懒加载

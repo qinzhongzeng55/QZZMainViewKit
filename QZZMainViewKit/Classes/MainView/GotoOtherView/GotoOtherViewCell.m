@@ -44,9 +44,10 @@
     self.lineView.hidden = isHidden;
 }
 #pragma mark - 设置选项文本
-- (void)settingTitleView:(NSString *)title font:(UIFont *)font{
+- (void)settingTitleView:(NSString *)title textColor:(UIColor *)color font:(UIFont *)font{
     self.TitleLabel.text = title;
     self.TitleLabel.font = font;
+    self.TitleLabel.textColor = color;
 }
 #pragma mark - 设置图片大小
 - (void)settingImageWidth:(CGFloat)width{
@@ -72,6 +73,10 @@
 #pragma mark - 设置图片
 - (void)settingImageView:(UIImage *)image{
     self.IconImageView.image = image;
+}
+#pragma mark - 设置>图片
+- (void)settingMoreImageView:(UIImage *)image{
+    self.gotoOtherViewImageView.image = image;
 }
 #pragma mark - 设置lineView的背景颜色
 - (void)settingLineViewColor:(UIColor *)color{

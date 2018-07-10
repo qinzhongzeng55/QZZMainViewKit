@@ -56,6 +56,7 @@
             <connections>
                 <outlet property="OptionImageView" destination="FnT-f2-pQx" id="ICh-1K-1dr"/>
                 <outlet property="OptionTextLabel" destination="GGW-sO-vdX" id="YHA-Z6-Eqt"/>
+                <outlet property="TextLabelHConstraint" destination="1L4-2f-sy2" id="3Bz-1l-fSo"/>
                 <outlet property="imageViewWConstraint" destination="CsR-5I-JfT" id="IJd-is-RXW"/>
                 <outlet property="titleLabelTConstraint" destination="FrG-Ue-yLc" id="g5A-18-O2I"/>
             </connections>

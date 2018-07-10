@@ -28,6 +28,8 @@
 - (void)hiddenLineView:(BOOL)isHidden;
 //设置lineView的颜色
 - (void)settingLineViewColor:(UIColor *)color;
+///设置>图片
+- (void)settingMoreImageView:(UIImage *)image;
 //隐藏 > 
 - (void)hiddenMoreImageView:(BOOL)isHidden;
 ///设置选项的字体

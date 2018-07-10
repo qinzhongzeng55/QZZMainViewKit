@@ -22,6 +22,7 @@
 @property (nonatomic, strong) UIColor *optionsTitleColor;
 @property (nonatomic, strong) UIFont *optionsTitleFont;
 @property (nonatomic, strong) UIColor *lineViewColor;
+@property (nonatomic, strong) UIImage *moreImage;
 @end
 
 @implementation OptionsListView
@@ -71,6 +72,7 @@
     [cell settingContentTextColor:(self.optionsTitleColor == nil ? QZZUIColorWithHexStringNoTransparent(@"#333333") : self.optionsTitleColor) font:(self.optionsTitleFont == nil ? [UIFont systemFontOfSize:17] : self.optionsTitleFont)];
     [cell settingLineViewColor:(self.lineViewColor == nil ? QZZUIColorWithHexStringNoTransparent(@"#EEEEEE") : self.lineViewColor)];
     [cell hiddenMoreImageView:self.isHiddenMoreImageView];
+    [cell settingMoreImageView:self.moreImage];
     cell.selectedBackgroundView = [UIView new];
     return cell;
 }
@@ -107,6 +109,11 @@
 - (void)settingContentTextColor:(UIColor *)color font:(UIFont *)font{
     self.optionsTitleFont = font;
     self.optionsTitleColor = color;
+    [self.tableView reloadData];
+}
+///设置>图片
+- (void)settingMoreImageView:(UIImage *)image{
+    self.moreImage = image;
     [self.tableView reloadData];
 }
 #pragma mark - 设置弹框的字体

@@ -68,6 +68,10 @@
 - (void)hiddenMoreImageView:(BOOL)isHidden{
     self.moreImgView.hidden = isHidden;
 }
+#pragma mark - 设置>图片
+- (void)settingMoreImageView:(UIImage *)image{
+    self.moreImgView.image = image;
+}
 #pragma mark - setter,getter
 - (void)setModel:(TableViewCellModel *)model{
 

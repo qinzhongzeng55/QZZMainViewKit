@@ -50,6 +50,10 @@
     self.optionContentLabel.textColor = color;
     self.optionContentLabel.font = font;
 }
+#pragma mark - 设置>图片
+- (void)settingMoreImageView:(UIImage *)image{
+    self.moreImageView.image = image;
+}
 #pragma mark - setter,getter
 - (void)setModel:(OptionButtonModel *)model{
     _model = model;

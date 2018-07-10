@@ -27,7 +27,7 @@
 ///设置lineView的背景颜色
 - (void)settingLineViewColor:(UIColor *)color;
 ///设置选项文本
-- (void)settingTitleView:(NSString *)title font:(UIFont *)font;
+- (void)settingTitleView:(NSString *)title textColor:(UIColor *)color font:(UIFont *)font;
 ///设置图片大小
 - (void)settingImageWidth:(CGFloat)width;
 ///设置图片左侧距离
@@ -38,5 +38,6 @@
 - (void)showImageView:(BOOL)isShow;
 ///设置图片
 - (void)settingImageView:(UIImage *)image;
-   
+///设置>图片
+- (void)settingMoreImageView:(UIImage *)image;
 @end

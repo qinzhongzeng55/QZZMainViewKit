@@ -28,4 +28,6 @@
 - (void)settingLabelFont:(UIFont *)font;
 ///设置文本头部距离
 - (void)settingTitleLabelTop:(CGFloat)top;
+///设置文本高度
+- (void)settingTitlelabelHeight:(CGFloat)height;
 @end

@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageViewWConstraint;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLabelTConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *TextLabelHConstraint;
 @end
 
 @implementation SelectedOptionsBtnCell
@@ -39,6 +40,10 @@
 ///设置文本头部距离
 - (void)settingTitleLabelTop:(CGFloat)top{
     self.titleLabelTConstraint.constant = top;
+}
+///设置文本高度
+- (void)settingTitlelabelHeight:(CGFloat)height{
+    self.TextLabelHConstraint.constant = height;
 }
 #pragma mark - setter,getter
 - (void)setModel:(OptionButtonModel *)model{
