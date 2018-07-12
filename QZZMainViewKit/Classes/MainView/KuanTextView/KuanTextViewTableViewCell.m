@@ -20,6 +20,11 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *placeHolderTConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLabelHConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentTextViewBConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentTextViewTConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLabelLConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLabelTConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *placeHolderLConstraint;
+@property (weak, nonatomic) IBOutlet UIView *topLineView;
 @end
 @implementation KuanTextViewTableViewCell
 
@@ -117,14 +122,15 @@
 }
 
 #pragma mark - method
-- (void)settingTitleColor:(UIColor *)color{
+- (void)settingTitleColor:(UIColor *)color font:(UIFont *)font{
     
     self.titleLabel.textColor = color;
+    self.titleLabel.font = font;
 }
-///设置占位文字颜色
-- (void)settingPlaceHolderColor:(UIColor *)color{
+///设置占位文字
+- (void)settingPlaceHolderColor:(UIColor *)color  font:(UIFont *)font{
     self.placeHudLabel.textColor = color;
-    self.textMaxLengthLabel.textColor = color;
+    self.placeHudLabel.font = font;
 }
 ///设置字体大小
 - (void)settingFontSize:(CGFloat)size{
@@ -140,7 +146,14 @@
     self.textCurrentLengthLabel.hidden = isHidden;
     self.textMaxLengthLabel.hidden = isHidden;
 }
-
+///设置lineView的背景颜色
+- (void)settingLineViewColor:(UIColor *)color{
+    self.topLineView.backgroundColor = color;
+}
+///设置lineView高度
+- (void)settinglineViewHeigth:(CGFloat)height{
+    self.lineViewHConstraint.constant = height;
+}
 ///隐藏lineView
 - (void)hiddenLineView{
     self.lineViewHConstraint.constant = 0;
@@ -158,9 +171,29 @@
     self.contentTextViewBConstraint.constant = constraint;
     [self.contentView layoutIfNeeded];
 }
+///设置文本框上边距
+- (void)settingContentTextViewTConstraint:(CGFloat)constraint{
+    self.contentTextViewTConstraint.constant = constraint;
+    [self.contentView layoutIfNeeded];
+}
 //设置占位文字上边距
 - (void)settingPlaceHolderTConstraint:(CGFloat)constraint{
     self.placeHolderTConstraint.constant = constraint;
+    [self.contentView layoutIfNeeded];
+}
+///设置占位文字左边距
+- (void)settingPlaceHolderLConstraint:(CGFloat)constraint{
+    self.placeHolderLConstraint.constant = constraint;
+    [self.contentView layoutIfNeeded];
+}
+//设置标题上边距
+- (void)settingTitleLabelTConstraint:(CGFloat)constraint{
+    self.titleLabelTConstraint.constant = constraint;
+    [self.contentView layoutIfNeeded];
+}
+///设置标题左边距
+- (void)settingTitleLabelLConstraint:(CGFloat)constraint{
+    self.titleLabelLConstraint.constant = constraint;
     [self.contentView layoutIfNeeded];
 }
 #pragma mark - setter,getter

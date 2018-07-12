@@ -26,6 +26,8 @@
 - (void)settingImageViewWidth:(CGFloat)width;
 ///设置功能按钮的font
 - (void)settingLabelFont:(UIFont *)font;
+///设置功能按钮的字体颜色
+- (void)settingTextColor:(UIColor *)color;
 ///设置文本头部距离
 - (void)settingTitleLabelTop:(CGFloat)top;
 ///设置文本高度

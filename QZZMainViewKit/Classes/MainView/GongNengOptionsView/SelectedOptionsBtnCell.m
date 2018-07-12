@@ -29,19 +29,23 @@
         [self.delegate selectedThisOption:self.key];
     }
 }
-///设置图片的宽度(长度 1:1)
+#pragma mark - 设置图片的宽度(长度 1:1)
 - (void)settingImageViewWidth:(CGFloat)width{
     self.imageViewWConstraint.constant = width;
 }
-///设置功能按钮的font
+#pragma mark - 设置功能按钮的font
 - (void)settingLabelFont:(UIFont *)font{
     self.OptionTextLabel.font = font;
 }
-///设置文本头部距离
+#pragma mark - 设置功能按钮的字体颜色
+- (void)settingTextColor:(UIColor *)color{
+    self.OptionTextLabel.textColor = color;
+}
+#pragma mark - 设置文本头部距离
 - (void)settingTitleLabelTop:(CGFloat)top{
     self.titleLabelTConstraint.constant = top;
 }
-///设置文本高度
+#pragma mark - 设置文本高度
 - (void)settingTitlelabelHeight:(CGFloat)height{
     self.TextLabelHConstraint.constant = height;
 }

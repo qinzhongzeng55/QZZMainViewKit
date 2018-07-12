@@ -107,13 +107,18 @@
             <connections>
                 <outlet property="contentTextView" destination="n5A-ON-pwD" id="xaW-8i-faR"/>
                 <outlet property="contentTextViewBConstraint" destination="ypb-ug-met" id="0km-BJ-YwU"/>
+                <outlet property="contentTextViewTConstraint" destination="rND-Ep-xeR" id="RSc-Jm-tu5"/>
                 <outlet property="lineViewHConstraint" destination="m73-7O-wYN" id="l1u-Ag-oZo"/>
+                <outlet property="placeHolderLConstraint" destination="hvI-uY-3OF" id="mLq-Dx-Vqs"/>
                 <outlet property="placeHolderTConstraint" destination="4VR-VK-X2Y" id="OG6-3X-bY1"/>
                 <outlet property="placeHudLabel" destination="BLg-B4-2eK" id="vKA-2h-twA"/>
                 <outlet property="textCurrentLengthLabel" destination="YXP-gB-L4X" id="MDq-VS-Af0"/>
                 <outlet property="textMaxLengthLabel" destination="0aE-i9-jyy" id="IR9-v1-c5Q"/>
                 <outlet property="titleLabel" destination="DME-D6-aRl" id="Co4-nb-35z"/>
                 <outlet property="titleLabelHConstraint" destination="bj4-gL-H6N" id="IiT-mX-Z4C"/>
+                <outlet property="titleLabelLConstraint" destination="1Ch-4X-vmJ" id="AC2-2g-RBU"/>
+                <outlet property="titleLabelTConstraint" destination="Rvs-yY-m9O" id="1PY-qk-ezi"/>
+                <outlet property="topLineView" destination="GJ4-kI-WFB" id="mPQ-V4-WhG"/>
             </connections>
             <point key="canvasLocation" x="333.5" y="370.5"/>
         </tableViewCell>

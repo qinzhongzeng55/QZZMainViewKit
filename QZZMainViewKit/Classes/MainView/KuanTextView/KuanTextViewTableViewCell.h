@@ -23,17 +23,20 @@
 @property (nonatomic, strong) TableViewCellModel *model;
 @property (nonatomic, assign) UIColor *color;
 @property (nonatomic, strong) NSIndexPath *key;
+
 ///最大字数
 @property (nonatomic, assign) NSInteger maxLengtn;
-///设置标题内容颜色
-- (void)settingTitleColor:(UIColor *)color;
-///设置占位文字颜色
-- (void)settingPlaceHolderColor:(UIColor *)color;
-///设置字体大小
-- (void)settingFontSize:(CGFloat)size;
+///设置标题字体及字体颜色
+- (void)settingTitleColor:(UIColor *)color font:(UIFont *)font;
+///设置占位文字
+- (void)settingPlaceHolderColor:(UIColor *)color font:(UIFont *)font;
 ///是否隐藏字数label
 - (void)hiddenTextLengthLabel:(BOOL)isHidden;
-///隐藏lineView
+///设置lineView的背景颜色
+- (void)settingLineViewColor:(UIColor *)color;
+///设置lineView高度
+- (void)settinglineViewHeigth:(CGFloat)height;
+///隐藏顶部的lineView
 - (void)hiddenLineView;
 ///隐藏titleLabel
 - (void)hiddenTitleLabel;
@@ -41,6 +44,14 @@
 - (void)showContentViewBorder:(BOOL)isShow;
 ///设置文本框下边距
 - (void)settingContentTextViewBConstraint:(CGFloat)constraint;
+///设置文本框上边距
+- (void)settingContentTextViewTConstraint:(CGFloat)constraint;
 ///设置占位文字上边距
 - (void)settingPlaceHolderTConstraint:(CGFloat)constraint;
+///设置占位文字左边距
+- (void)settingPlaceHolderLConstraint:(CGFloat)constraint;
+///设置标题上边距
+- (void)settingTitleLabelTConstraint:(CGFloat)constraint;
+///设置标题左边距
+- (void)settingTitleLabelLConstraint:(CGFloat)constraint;
 @end

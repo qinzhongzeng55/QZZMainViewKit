@@ -16,6 +16,7 @@
 @property (nonatomic, strong) UIFont *labelFont;
 @property (nonatomic, assign) CGFloat labelTop;
 @property (nonatomic, assign) CGFloat titlelabelHeight;
+@property (nonatomic, strong) UIColor *textColor;
 @end
 
 static NSString *identifier = @"SelectedOptionsBtnCellID";
@@ -54,10 +55,11 @@ static NSString *identifier = @"SelectedOptionsBtnCellID";
         OptionButtonModel *model = self.dataArray[indexPath.row];
         cell.model = model;
     }
-    [cell settingImageViewWidth:self.imgViewWidthOfOptionsBtn];
-    [cell settingLabelFont:self.labelFont];
-    [cell settingTitleLabelTop:self.labelTop];
-    [cell settingTitlelabelHeight:self.titlelabelHeight];
+    [cell settingImageViewWidth:(self.imgViewWidthOfOptionsBtn == 0 ? 36: self.imgViewWidthOfOptionsBtn)];
+    [cell settingLabelFont:(self.labelFont == nil ? [UIFont systemFontOfSize:17] : self.labelFont)];
+    [cell settingTextColor:(self.textColor == nil ? [UIColor colorWithWhite:102 alpha:2] :self.textColor)];
+    [cell settingTitleLabelTop:(self.labelTop == 0 ? 5 : self.labelTop)];
+    [cell settingTitlelabelHeight:(self.titlelabelHeight == 0 ? 24 : self.titlelabelHeight)];
     cell.delegate = self;
     cell.key = indexPath;
     return cell;
@@ -70,22 +72,27 @@ static NSString *identifier = @"SelectedOptionsBtnCellID";
         [self.selectedDelegate optionBtnSelected:key];
     }
 }
-//设置功能按钮的图片的宽度(长度 1:1)
+#pragma mark - 设置功能按钮的图片的宽度(长度 1:1)
 - (void)settingImageViewWidthOfOptionsBtn:(CGFloat)width{
     self.imgViewWidthOfOptionsBtn = width;
     [self reloadData];
 }
-///设置功能按钮的font
+#pragma mark - 设置功能按钮的font
 - (void)settingLabelFontOfOptionsBtn:(UIFont *)font{
     self.labelFont = font;
     [self reloadData];
 }
-///设置文本头部距离
+#pragma mark - 设置功能按钮的字体颜色
+- (void)settingTextColorOfOptionsBtn:(UIColor *)color{
+    self.textColor = color;
+    [self reloadData];
+}
+#pragma mark - 设置文本头部距离
 - (void)settingTitleLabelTopOfOptionsBtn:(CGFloat)top{
     self.labelTop = top;
     [self reloadData];
 }
-///设置文本高度
+#pragma mark - 设置文本高度
 - (void)settingTitlelabelHeight:(CGFloat)height{
     self.titlelabelHeight = height;
     [self reloadData];
