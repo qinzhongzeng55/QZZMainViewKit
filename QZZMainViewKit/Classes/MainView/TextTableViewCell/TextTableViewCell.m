@@ -121,6 +121,7 @@
     
     _isDetail = isDetail;
     self.contentText.enabled = !isDetail;
+    self.userInteractionEnabled = !isDetail;
     
 }
 @end

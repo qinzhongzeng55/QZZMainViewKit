@@ -57,7 +57,7 @@ static NSString *identifier = @"SelectedOptionsBtnCellID";
     }
     [cell settingImageViewWidth:(self.imgViewWidthOfOptionsBtn == 0 ? 36: self.imgViewWidthOfOptionsBtn)];
     [cell settingLabelFont:(self.labelFont == nil ? [UIFont systemFontOfSize:17] : self.labelFont)];
-    [cell settingTextColor:(self.textColor == nil ? [UIColor colorWithWhite:102 alpha:2] :self.textColor)];
+    [cell settingTextColor:(self.textColor == nil ? [UIColor colorWithWhite:51/255.0 alpha:1] :self.textColor)];
     [cell settingTitleLabelTop:(self.labelTop == 0 ? 5 : self.labelTop)];
     [cell settingTitlelabelHeight:(self.titlelabelHeight == 0 ? 24 : self.titlelabelHeight)];
     cell.delegate = self;
