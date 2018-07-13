@@ -98,5 +98,6 @@
     _isDetail = isDetail;
     self.moreImageView.hidden = isDetail;
     self.selectedBtn.enabled = !isDetail;
+    self.userInteractionEnabled = !isDetail;
 }
 @end

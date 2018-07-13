@@ -21,16 +21,16 @@
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GUQ-Fz-6lh">
-                    <rect key="frame" x="15" y="173.5" width="345" height="320"/>
+                    <rect key="frame" x="43" y="173.5" width="289" height="320"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="In2-bM-Ik2">
-                            <rect key="frame" x="-0.5" y="0.0" width="345.5" height="49"/>
+                            <rect key="frame" x="-0.5" y="0.0" width="289.5" height="49"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mza-qR-fwp">
-                                    <rect key="frame" x="0.0" y="0.0" width="346" height="49"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="290" height="49"/>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请选择" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPl-El-6uq">
-                                    <rect key="frame" x="147" y="14" width="52" height="21"/>
+                                    <rect key="frame" x="119" y="14" width="52" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
@@ -48,7 +48,7 @@
                             </constraints>
                         </view>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QT9-pb-Ud7">
-                            <rect key="frame" x="0.0" y="49" width="345" height="271"/>
+                            <rect key="frame" x="0.0" y="49" width="289" height="271"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </tableView>
                     </subviews>
@@ -59,6 +59,7 @@
                         <constraint firstItem="QT9-pb-Ud7" firstAttribute="leading" secondItem="GUQ-Fz-6lh" secondAttribute="leading" id="KXQ-hy-JDi"/>
                         <constraint firstAttribute="trailing" secondItem="QT9-pb-Ud7" secondAttribute="trailing" id="bFb-dd-2ek"/>
                         <constraint firstAttribute="height" constant="320" id="lnl-hg-teW"/>
+                        <constraint firstAttribute="width" constant="289" id="q8h-vc-lJv"/>
                         <constraint firstItem="In2-bM-Ik2" firstAttribute="leading" secondItem="GUQ-Fz-6lh" secondAttribute="leading" id="tb4-3U-vqz"/>
                         <constraint firstItem="QT9-pb-Ud7" firstAttribute="top" secondItem="In2-bM-Ik2" secondAttribute="bottom" id="vhf-XV-sKD"/>
                         <constraint firstItem="In2-bM-Ik2" firstAttribute="top" secondItem="GUQ-Fz-6lh" secondAttribute="top" id="ziD-bi-7ye"/>
@@ -67,12 +68,10 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="GUQ-Fz-6lh" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="AzC-2H-xa9"/>
                 <constraint firstItem="TsL-wX-kpv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="C03-eB-k8s"/>
                 <constraint firstAttribute="bottom" secondItem="TsL-wX-kpv" secondAttribute="bottom" id="TND-dO-Ns2"/>
                 <constraint firstAttribute="trailing" secondItem="TsL-wX-kpv" secondAttribute="trailing" id="XGz-CS-D1e"/>
                 <constraint firstItem="GUQ-Fz-6lh" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="XJ3-hT-AXE"/>
-                <constraint firstAttribute="trailing" secondItem="GUQ-Fz-6lh" secondAttribute="trailing" constant="15" id="e9x-e6-YRb"/>
                 <constraint firstItem="TsL-wX-kpv" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="jgX-bu-1Tq"/>
                 <constraint firstItem="GUQ-Fz-6lh" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="wgV-xc-mmh"/>
             </constraints>
@@ -81,10 +80,12 @@
                 <outlet property="TitleLabel" destination="XPl-El-6uq" id="JZF-eI-jZ9"/>
                 <outlet property="containView" destination="GUQ-Fz-6lh" id="1Fv-Ic-ny2"/>
                 <outlet property="containViewHeight" destination="lnl-hg-teW" id="6Jb-c2-I0q"/>
+                <outlet property="containViewWConstraint" destination="q8h-vc-lJv" id="veY-wr-gfA"/>
                 <outlet property="shadeView" destination="TsL-wX-kpv" id="Uh8-4A-Ihu"/>
                 <outlet property="tableView" destination="QT9-pb-Ud7" id="NhH-i1-Vvy"/>
                 <outlet property="topImageView" destination="Mza-qR-fwp" id="Awm-Aw-iSr"/>
                 <outlet property="topView" destination="In2-bM-Ik2" id="Uzd-mZ-jFu"/>
+                <outlet property="topViewHConstraint" destination="TbR-xX-IYQ" id="Bqt-3G-QIn"/>
             </connections>
             <point key="canvasLocation" x="24.5" y="51.5"/>
         </view>

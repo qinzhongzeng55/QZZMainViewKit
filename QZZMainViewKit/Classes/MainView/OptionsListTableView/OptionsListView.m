@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *TitleLabel;
 @property (weak, nonatomic) IBOutlet UIView *topView;
 @property (weak, nonatomic) IBOutlet UIImageView *topImageView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topViewHConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *containViewWConstraint;
 
 @property (nonatomic, assign) BOOL isHiddenMoreImageView;
 @property (nonatomic, strong) UIColor *optionsTitleColor;
@@ -124,6 +126,19 @@
 #pragma mark - 设置头部图片
 - (void)settingTopImageView:(UIImage *)image{
     self.topImageView.image = image;
+}
+#pragma mark - 设置头部view的高度
+- (void)settingTopViewHeight:(CGFloat)height{
+    self.topViewHConstraint.constant = height;
+}
+#pragma mark - 设置containView的圆角角度
+- (void)settingContainViewRadius:(CGFloat)radius{
+    self.containView.layer.cornerRadius = radius;
+    self.containView.layer.masksToBounds = YES;
+}
+#pragma mark - 设置containViewd的宽度
+- (void)settingContainViewWidth:(CGFloat)Width{
+    self.containViewWConstraint.constant = Width;
 }
 #pragma mark - 懒加载
 - (void)setDataArray:(NSMutableArray *)dataArray{

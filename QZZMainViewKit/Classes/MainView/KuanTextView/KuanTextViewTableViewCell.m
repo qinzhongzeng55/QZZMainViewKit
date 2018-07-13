@@ -18,13 +18,20 @@
 @property (weak, nonatomic) IBOutlet UILabel *textMaxLengthLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *lineViewHConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *placeHolderTConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *placeHolderLConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLabelHConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLabelTConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLabelLConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentTextViewBConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentTextViewTConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLabelLConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLabelTConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *placeHolderLConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentTextViewLConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentTextViewRConstraint;
 @property (weak, nonatomic) IBOutlet UIView *topLineView;
+@property (weak, nonatomic) IBOutlet UIView *containView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *containViewLConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *containViewRConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *containViewTConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *containViewBConstraint;
 @end
 @implementation KuanTextViewTableViewCell
 
@@ -112,12 +119,12 @@
 #pragma mark - 是否显示文本框边框
 - (void)showContentViewBorder:(BOOL)isShow{
     if (isShow) {
-        self.contentTextView.layer.cornerRadius = 5;
-        self.contentTextView.layer.masksToBounds = YES;
-        self.contentTextView.layer.borderColor = [UIColor colorWithWhite:153/255.0 alpha:1].CGColor;
-        self.contentTextView.layer.borderWidth = 1;
+        self.containView.layer.cornerRadius = 5;
+        self.containView.layer.masksToBounds = YES;
+        self.containView.layer.borderColor = [UIColor colorWithWhite:153/255.0 alpha:1].CGColor;
+        self.containView.layer.borderWidth = 1;
     }else{
-        self.contentTextView.layer.borderWidth = 0;
+        self.containView.layer.borderWidth = 0;
     }
 }
 
@@ -166,15 +173,19 @@
     self.contentTextViewBConstraint.constant = 0;
     [self.contentView layoutIfNeeded];
 }
-//设置文本框下边距
-- (void)settingContentTextViewBConstraint:(CGFloat)constraint{
-    self.contentTextViewBConstraint.constant = constraint;
-    [self.contentView layoutIfNeeded];
+///设置文本框边距
+- (void)settingContentTextViewConstantForTop:(CGFloat)top left:(CGFloat)left bottom:(CGFloat)bottom right:(CGFloat)right{
+    self.contentTextViewTConstraint.constant = top;
+    self.contentTextViewLConstraint.constant = left;
+    self.contentTextViewBConstraint.constant = bottom;
+    self.contentTextViewRConstraint.constant = right;
 }
-///设置文本框上边距
-- (void)settingContentTextViewTConstraint:(CGFloat)constraint{
-    self.contentTextViewTConstraint.constant = constraint;
-    [self.contentView layoutIfNeeded];
+///设置文本框外上边距
+- (void)settingContainViewConstantForTop:(CGFloat)top left:(CGFloat)left bottom:(CGFloat)bottom right:(CGFloat)right{
+    self.containViewTConstraint.constant = top;
+    self.containViewLConstraint.constant = left;
+    self.containViewBConstraint.constant = bottom;
+    self.containViewRConstraint.constant = right;
 }
 //设置占位文字上边距
 - (void)settingPlaceHolderTConstraint:(CGFloat)constraint{
@@ -194,6 +205,7 @@
 ///设置标题左边距
 - (void)settingTitleLabelLConstraint:(CGFloat)constraint{
     self.titleLabelLConstraint.constant = constraint;
+    self.containViewRConstraint.constant = constraint;
     [self.contentView layoutIfNeeded];
 }
 #pragma mark - setter,getter
@@ -201,6 +213,7 @@
     
     _isEditting = isEditting;
     self.contentTextView.editable = isEditting;
+    self.userInteractionEnabled = isEditting;
 }
 - (void)setMaxLengtn:(NSInteger)maxLengtn{
     _maxLengtn = maxLengtn;

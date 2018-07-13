@@ -28,11 +28,11 @@
                                 <searchBar contentMode="redraw" placeholder="请输入您要查找的内容..." translatesAutoresizingMaskIntoConstraints="NO" id="fre-pu-M2G">
                                     <rect key="frame" x="0.0" y="0.0" width="289" height="49"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="barTintColor" red="0.2274509804" green="0.61176470589999998" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="barTintColor" red="0.1843137255" green="0.77647058820000003" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </searchBar>
                             </subviews>
-                            <color key="backgroundColor" red="0.2274509804" green="0.61176470589999998" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" red="0.1843137255" green="0.77647058820000003" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstItem="fre-pu-M2G" firstAttribute="top" secondItem="d3v-4V-SzK" secondAttribute="top" id="CD9-BO-Yi9"/>
                                 <constraint firstAttribute="trailing" secondItem="fre-pu-M2G" secondAttribute="trailing" id="FRO-SD-elq"/>
@@ -58,6 +58,7 @@
                         <constraint firstAttribute="trailing" secondItem="Rjz-Cv-ryT" secondAttribute="trailing" id="IvJ-77-87E"/>
                         <constraint firstItem="Rjz-Cv-ryT" firstAttribute="top" secondItem="d3v-4V-SzK" secondAttribute="bottom" id="Lot-61-Aj6"/>
                         <constraint firstAttribute="height" constant="320" id="kX5-uk-l81"/>
+                        <constraint firstAttribute="width" constant="289" id="rOZ-f1-rnK"/>
                         <constraint firstAttribute="trailing" secondItem="d3v-4V-SzK" secondAttribute="trailing" id="tJi-ub-yRd"/>
                         <constraint firstAttribute="bottom" secondItem="Rjz-Cv-ryT" secondAttribute="bottom" id="xLx-Sb-4kz"/>
                     </constraints>
@@ -68,15 +69,15 @@
                 <constraint firstItem="LIK-3h-eeH" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="8ga-gv-rnZ"/>
                 <constraint firstAttribute="bottom" secondItem="nFR-e4-D4O" secondAttribute="bottom" id="D79-Zx-XIH"/>
                 <constraint firstItem="nFR-e4-D4O" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="EIo-Gp-zVp"/>
-                <constraint firstAttribute="trailing" secondItem="LIK-3h-eeH" secondAttribute="trailing" constant="43" id="WAq-kK-zuM"/>
                 <constraint firstItem="LIK-3h-eeH" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ZZU-vD-lpk"/>
-                <constraint firstItem="LIK-3h-eeH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="43" id="dPf-QF-GhX"/>
                 <constraint firstItem="nFR-e4-D4O" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="oDN-Ve-BUx"/>
                 <constraint firstAttribute="trailing" secondItem="nFR-e4-D4O" secondAttribute="trailing" id="rfi-nG-ke5"/>
             </constraints>
             <connections>
+                <outlet property="TopViewHConstraint" destination="h5I-n6-XWp" id="jO4-Vu-eU6"/>
                 <outlet property="containView" destination="LIK-3h-eeH" id="SHv-kc-zOn"/>
                 <outlet property="containViewHeight" destination="kX5-uk-l81" id="xre-JN-qp3"/>
+                <outlet property="containViewWConstraint" destination="rOZ-f1-rnK" id="qSw-Ag-bHP"/>
                 <outlet property="searchBar" destination="fre-pu-M2G" id="ahm-TK-xvM"/>
                 <outlet property="shadeView" destination="nFR-e4-D4O" id="Zn7-cT-MzS"/>
                 <outlet property="tableView" destination="Rjz-Cv-ryT" id="bA4-eT-2rg"/>

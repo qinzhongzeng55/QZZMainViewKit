@@ -42,10 +42,10 @@
 - (void)hiddenTitleLabel;
 ///是否显示文本框边框
 - (void)showContentViewBorder:(BOOL)isShow;
-///设置文本框下边距
-- (void)settingContentTextViewBConstraint:(CGFloat)constraint;
-///设置文本框上边距
-- (void)settingContentTextViewTConstraint:(CGFloat)constraint;
+///设置文本框边距
+- (void)settingContentTextViewConstantForTop:(CGFloat)top left:(CGFloat)left bottom:(CGFloat)bottom right:(CGFloat)right;
+///设置文本框外上边距
+- (void)settingContainViewConstantForTop:(CGFloat)top left:(CGFloat)left bottom:(CGFloat)bottom right:(CGFloat)right;
 ///设置占位文字上边距
 - (void)settingPlaceHolderTConstraint:(CGFloat)constraint;
 ///设置占位文字左边距

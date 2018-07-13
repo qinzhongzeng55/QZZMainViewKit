@@ -16,12 +16,14 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *containViewHeight;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UIView *topView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *containViewWConstraint;
 
 ///是否搜索
 @property (nonatomic, assign) BOOL isSearch;
 ///搜索结果数据
 @property (nonatomic, strong) NSMutableArray *searchResultArray;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *TopViewHConstraint;
 @property (nonatomic, assign) BOOL isHiddenMoreImageView;
 @property (nonatomic, strong) UIColor *optionsTitleColor;
 @property (nonatomic, strong) UIFont *optionsTitleFont;
@@ -151,6 +153,7 @@
 #pragma mark - 设置头部lineView的背景颜色
 - (void)settingBackgroundColorOfTopView:(UIColor *)color{
     self.topView.backgroundColor = color;
+    self.searchBar.barTintColor = color;
 }
 #pragma mark - 设置lineView的颜色
 - (void)settingLineViewColor:(UIColor *)color{
@@ -168,6 +171,19 @@
     self.optionsTitleColor = color;
     [self.tableView reloadData];
 }
+#pragma mark - 设置头部view的高度
+- (void)settingTopViewHeight:(CGFloat)height{
+    self.TopViewHConstraint.constant = height;
+}
+#pragma mark - 设置containView的圆角角度
+- (void)settingContainViewRadius:(CGFloat)radius{
+    self.containView.layer.cornerRadius = radius;
+    self.containView.layer.masksToBounds = YES;
+}
+#pragma mark - 设置containViewd的宽度
+- (void)settingContainViewWidth:(CGFloat)Width{
+    self.containViewWConstraint.constant = Width;
+}
 #pragma mark - 懒加载
 - (void)setDataArray:(NSMutableArray *)dataArray{
 
@@ -182,7 +198,7 @@
     if (h >= maxH) {
         h = maxH;
     }
-    self.containViewHeight.constant = h + 40;
+    self.containViewHeight.constant = h + 49;
     [self.tableView reloadData];
 }
 
@@ -198,7 +214,7 @@
     if (h >= maxH) {
         h = maxH;
     }
-    self.containViewHeight.constant = h + 40;
+    self.containViewHeight.constant = h + 49;
     [self.tableView reloadData];
 }
 

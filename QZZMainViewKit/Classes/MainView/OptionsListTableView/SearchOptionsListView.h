@@ -33,4 +33,10 @@ typedef void (^OptionSelectedBlock)(OptionButtonModel *model,NSIndexPath *key);
 - (void)hiddenMoreImageView:(BOOL)isHidden;
 ///设置选项的字体
 - (void)settingContentTextColor:(UIColor *)color font:(UIFont *)font;
+///设置头部view的高度
+- (void)settingTopViewHeight:(CGFloat)height;
+///设置containView的圆角角度
+- (void)settingContainViewRadius:(CGFloat)radius;
+///设置containViewd的宽度
+- (void)settingContainViewWidth:(CGFloat)Width;
 @end
