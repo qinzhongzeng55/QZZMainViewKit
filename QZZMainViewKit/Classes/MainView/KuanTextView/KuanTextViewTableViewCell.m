@@ -134,6 +134,12 @@
     self.titleLabel.textColor = color;
     self.titleLabel.font = font;
 }
+///设置内容文字
+- (void)settingContentTextColor:(UIColor *)color font:(UIFont *)font{
+    
+    self.contentTextView.textColor = color;
+    self.contentTextView.font = font;
+}
 ///设置占位文字
 - (void)settingPlaceHolderColor:(UIColor *)color  font:(UIFont *)font{
     self.placeHudLabel.textColor = color;

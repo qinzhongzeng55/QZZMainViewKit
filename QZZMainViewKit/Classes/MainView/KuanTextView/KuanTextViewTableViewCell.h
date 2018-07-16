@@ -28,6 +28,8 @@
 @property (nonatomic, assign) NSInteger maxLengtn;
 ///设置标题字体及字体颜色
 - (void)settingTitleColor:(UIColor *)color font:(UIFont *)font;
+///设置内容文字
+- (void)settingContentTextColor:(UIColor *)color font:(UIFont *)font;
 ///设置占位文字
 - (void)settingPlaceHolderColor:(UIColor *)color font:(UIFont *)font;
 ///是否隐藏字数label
