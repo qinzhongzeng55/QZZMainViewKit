@@ -17,14 +17,11 @@
 
 @end
 
-typedef void (^selectedBtnDidClickBlock)(TableViewCellModel *model);
-
 @interface SelectedTableViewCell : UITableViewCell
 
 @property (nonatomic, assign) id<SelectedTableViewCellDelegate> delegate;
 @property (nonatomic, strong) NSIndexPath *key;
 @property (nonatomic, strong) TableViewCellModel *model;
-@property (copy, nonatomic) selectedBtnDidClickBlock selectedBtnDidClickBlock;
 @property (nonatomic, assign) BOOL isDetail;
 
 ///隐藏lineView

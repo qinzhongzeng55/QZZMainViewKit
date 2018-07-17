@@ -39,4 +39,7 @@ typedef void (^OptionSelectedBlock)(OptionButtonModel *model,NSIndexPath *key);
 - (void)settingContainViewRadius:(CGFloat)radius;
 ///设置containViewd的宽度
 - (void)settingContainViewWidth:(CGFloat)Width;
+
+///设置提示信息
+- (void)settingTiShi:(NSString *)tiShi;
 @end

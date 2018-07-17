@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *moreImageView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleWContraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLConstraint;
+@property (weak, nonatomic) IBOutlet UITextView *contentText;
 @end
 
 @implementation SelectedTableViewCell
@@ -35,9 +36,6 @@
     
     if ([self.delegate respondsToSelector:@selector(selectedBtnDidClick:key:)]) {
         [self.delegate selectedBtnDidClick:self.model key:self.key];
-    }
-    if (self.selectedBtnDidClickBlock) {
-        self.selectedBtnDidClickBlock(self.model);
     }
 }
 #pragma mark - 设置标题的宽度
@@ -78,18 +76,17 @@
 - (void)setModel:(TableViewCellModel *)model{
     _model = model;
     self.titleLabel.text = [NSString stringWithFormat:@"%@:  ",model.lableTitle];
-    if (model.info == nil || [model.info isEqualToString:@""]) {
+    if (model.info == nil || [model.info isEqualToString:@""] || [model.info isKindOfClass:[NSNull class]]) {
         
         if (model.placeHoled == nil || [model.placeHoled isEqualToString:@""]) {
-//            [self.selectedBtn setTitle:@"请选择" forState:UIControlStateNormal];
+            //self.contentText.text = @"请选择";
         }else{
-            [self.selectedBtn setTitle:model.placeHoled forState:UIControlStateNormal];
+            self.contentText.text = model.placeHoled;
         }
-        [self.selectedBtn setTitleColor:[UIColor colorWithWhite:200/255.0 alpha:1] forState:UIControlStateNormal];
+        self.contentText.textColor = [UIColor colorWithWhite:200/255.0 alpha:1];
     }else{
-        
-        [self.selectedBtn setTitle:model.info forState:UIControlStateNormal];
-        [self.selectedBtn setTitleColor:[UIColor colorWithWhite:102/255.0 alpha:1] forState:UIControlStateNormal];
+        self.contentText.text = model.info;
+        self.contentText.textColor = [UIColor colorWithWhite:102/255.0 alpha:1];
     }
 }
 
@@ -98,6 +95,5 @@
     _isDetail = isDetail;
     self.moreImageView.hidden = isDetail;
     self.selectedBtn.enabled = !isDetail;
-    self.userInteractionEnabled = !isDetail;
 }
 @end

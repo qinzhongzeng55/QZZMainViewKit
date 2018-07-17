@@ -73,7 +73,6 @@
     self.searchBar.showsCancelButton = NO;
     self.searchBar.placeholder = @"请输入要搜索的关键字";
     UITextField * searchField = [self.searchBar valueForKey:@"_searchField"];
-//    [self.searchBar setSearchFieldBackgroundImage:[UIImage new] forState:UIControlStateNormal];
     //设置占位文字颜色
     [searchField setValue:[UIColor colorWithWhite:204/255.0 alpha:1] forKeyPath:@"_placeholderLabel.textColor"];
     //设置占位文字大小
@@ -90,6 +89,7 @@
 #pragma mark - 设置搜索框背景
 - (void)settingBackgroundImage:(UIImage *)image{
     self.bgImageView.image = image;
+    [self.searchBar setSearchFieldBackgroundImage:image forState:UIControlStateNormal];
 }
 #pragma mark - 设置搜索框左右两侧的间距
 - (void)settingSearchBarLRConstratint:(CGFloat)constraint{

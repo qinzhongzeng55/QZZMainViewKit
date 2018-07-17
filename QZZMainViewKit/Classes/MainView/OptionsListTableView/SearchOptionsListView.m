@@ -28,6 +28,7 @@
 @property (nonatomic, strong) UIColor *optionsTitleColor;
 @property (nonatomic, strong) UIFont *optionsTitleFont;
 @property (nonatomic, strong) UIColor *lineViewColor;
+@property (weak, nonatomic) IBOutlet UILabel *TiShiLabel;
 @end
 
 @implementation SearchOptionsListView
@@ -114,7 +115,8 @@
     NSMutableArray *tempArray = [NSMutableArray array];
     if (self.dataArray.count <= 0 || [searchText isEqualToString:@""]) {
         self.isSearch = NO;
-        [self.tableView reloadData];
+        self.TiShiLabel.hidden = YES;
+        [self layoutContainView];
         return;
     }
     self.isSearch = YES;
@@ -138,7 +140,7 @@
 }
 #pragma mark - method
 - (void)endEdit{
-    
+    [self endEditing:YES];
     [self removeFromSuperview];
 }
 #pragma mark - 设置tableView
@@ -188,38 +190,54 @@
 - (void)setDataArray:(NSMutableArray *)dataArray{
 
     _dataArray = dataArray;
-    CGFloat h = self.tableView.rowHeight * dataArray.count;
+    [self layoutContainView];
+}
+- (void)layoutContainView{
+    CGFloat h = self.tableView.rowHeight * self.dataArray.count;
     CGFloat maxH = 0;
+    CGFloat bottom = 0;
+    if (self.dataArray.count == 0) {
+        bottom = 50;
+    }
     if (Screen_Height > 480) {
-        maxH = 480;
+        maxH = 360;
     }else{
         maxH = 320;
     }
     if (h >= maxH) {
         h = maxH;
     }
-    self.containViewHeight.constant = h + 49;
+    self.containViewHeight.constant = h + 49 + bottom;
     [self.tableView reloadData];
 }
 
 - (void)setSearchResultArray:(NSMutableArray *)searchResultArray{
     _searchResultArray = searchResultArray;
+    self.TiShiLabel.hidden = searchResultArray.count > 0;
+    CGFloat bottom = 0;
+    if (searchResultArray.count == 0) {
+        bottom = 40;
+    }
     CGFloat h = self.tableView.rowHeight * searchResultArray.count;
     CGFloat maxH = 0;
     if (Screen_Height > 480) {
-        maxH = 480;
+        maxH = 360;
     }else{
         maxH = 320;
     }
     if (h >= maxH) {
         h = maxH;
     }
-    self.containViewHeight.constant = h + 49;
+    self.containViewHeight.constant = h + 49 + bottom;
     [self.tableView reloadData];
 }
 
 - (void)setSearchPlaceholder:(NSString *)searchPlaceholder{
     _searchPlaceholder = searchPlaceholder;
     self.searchBar.placeholder = searchPlaceholder;
+}
+#pragma mark - 设置提示信息
+- (void)settingTiShi:(NSString *)tiShi{
+    self.TiShiLabel.text = tiShi;
 }
 @end

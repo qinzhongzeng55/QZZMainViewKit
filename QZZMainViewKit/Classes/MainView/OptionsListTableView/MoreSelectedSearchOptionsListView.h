@@ -27,18 +27,21 @@ typedef void (^OptionMoreSelectedBlock)(NSMutableArray *selectedArray,NSIndexPat
 @property (nonatomic, strong) NSMutableArray *searchResultArray;
 @property (nonatomic, strong) NSIndexPath *key;
 
-///设置头部lineView的背景颜色
+///设置头部View的背景颜色
 - (void)settingBackgroundColorOfTopView:(UIColor *)color;
-///设置确定按钮的字体颜色
+///设置确定按钮的背景颜色
 - (void)settingBackgroundColorOfQueDingBtn:(UIColor *)color;
 ///设置选中按钮的图片
 - (void)settingImage:(UIImage *)img withSelectedImage:(UIImage *)selectedImg;
-//设置lineView的颜色
+///设置选项lineView的颜色
 - (void)settingLineViewColor:(UIColor *)color;
-///设置选中按钮左侧的距离
+///设置选项选中按钮左侧的距离
 - (void)settingSelectedBtnLeft:(CGFloat)left;
-///设置选中按钮的大小
+///设置选项选中按钮的大小
 - (void)settingSelectedBtnWidth:(CGFloat)width;
 ///设置选项的字体
 - (void)settingContentTextColor:(UIColor *)color font:(UIFont *)font;
+
+///设置提示信息
+- (void)settingTiShi:(NSString *)tiShi;
 @end

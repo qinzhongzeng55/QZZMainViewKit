@@ -146,15 +146,19 @@
     _dataArray = dataArray;
     CGFloat h = self.tableView.rowHeight * dataArray.count;
     CGFloat maxH = 0;
+    CGFloat bottom = 0;
+    if (self.dataArray.count == 0) {
+        bottom = 50;
+    }
     if (Screen_Height > 480) {
-        maxH = 480;
+        maxH = 360;
     }else{
         maxH = 320;
     }
     if (h >= maxH) {
         h = maxH;
     }
-    self.containViewHeight.constant = h + 40;
+    self.containViewHeight.constant = h + 49 + bottom;
     [self.tableView reloadData];
 }
 

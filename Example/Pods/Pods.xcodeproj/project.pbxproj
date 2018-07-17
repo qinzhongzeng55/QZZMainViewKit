@@ -23,7 +23,6 @@
 		0E390894EC7CF7F5A2CEBB82FBF63992 /* MBProgressHUD+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F461B55F69315651A9E8BFEF950716 /* MBProgressHUD+MJ.m */; };
 		0EFB524EFDF2F8712A2F5067817A672E /* UIScrollView+MJRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = BBB6FF51CE3E052D2B0899A4268A4B56 /* UIScrollView+MJRefresh.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0F1EF6DA45F047D57F1F477C89CEE332 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2DC9B6AE2CE6D453BD329F321D01342 /* Foundation.framework */; };
-		0F8ACF0781D348007E052857736E8655 /* MoreSelectedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B4DB7066D3EDD33FDC505458CFEF53 /* MoreSelectedTableViewCell.m */; };
 		101F836F887C01B45F4DCF351EBC28D1 /* MJRefreshBackNormalFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02FAEB103C363A70A8732C3DF5E5AA3B /* MJRefreshBackNormalFooter.m */; };
 		1173D504C66F5DDE1355194647A8A954 /* QZZNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6CABCE9EF889DACC7EE664077961844 /* QZZNavigationController.m */; };
 		11E19BAD1E1873FA7B05FDF812615A30 /* UIView+QZZFrame.h in Headers */ = {isa = PBXBuildFile; fileRef = CECD838EF76126C732FEDEB998BF2793 /* UIView+QZZFrame.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -128,7 +127,6 @@
 		6532D05205B8E3BFCF166B68B5903E3C /* UIView+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 58105C591C52283DA0E1925651DFCA1C /* UIView+WebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6672D18D964E19E26ABA7FA08C2C1E3E /* UIImage+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E7E40F80A82585D48D0DABE8FC6DE95 /* UIImage+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6719703A687E4EFFBA7D1144A5423996 /* QZZHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD628F48F91760FC646B4DC7D1BBFCF /* QZZHelper.m */; };
-		694A66D53A1988F99739224603E71128 /* MoreSelectedTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = E411F90BAAB94A18FCE10C768BBFD209 /* MoreSelectedTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6A0B1A0FA7A75C861B9D401D0E8CC95E /* MJRefreshGifHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = C3A8FCD7E70162395B0D52B6A4DB38C5 /* MJRefreshGifHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6A872B967F394AAA7FF0899BE0908EB6 /* QZZVerificationTools.h in Headers */ = {isa = PBXBuildFile; fileRef = FA961F37A5448B697E56C2EAF95EF527 /* QZZVerificationTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C502B0F465AEE0BFF90B76AF20DB6C9 /* nav_search@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 40198E519782FEBA7CF3FAC05F25B364 /* nav_search@3x.png */; };
@@ -285,7 +283,6 @@
 		E74C749B6F13C98C50928BC47F3D49FD /* SDWebImageTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = B6FFE3DDDD208258D217105CB05B0CFC /* SDWebImageTransition.m */; };
 		E80DB5D9B2D35085282DF057BB540AFE /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D52239ED0FDA247DB51B828B4CDA14C /* MJRefreshBackFooter.m */; };
 		EA8231F9F2F765C3D749CA136BAA27CC /* UIButton+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A90419D53417E27AECAC7B7F16CF195B /* UIButton+Extension.m */; };
-		EB5B68845B3E9EC294DDFD8076F8F4B7 /* MoreSelectedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BDBE42EC485CA7E7291D4C58D3AAB72 /* MoreSelectedTableViewCell.xib */; };
 		EBEB72F80DCD10DEB82BF5F856D467FD /* MJRefreshConst.h in Headers */ = {isa = PBXBuildFile; fileRef = 80136EDF09CD0CC1FC3894A35CEEAAAA /* MJRefreshConst.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ED37441B7E54C2C919A131E0037A7891 /* QZZViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = FD514B195D954001549B9D3AE5B80040 /* QZZViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F02274B9A6F82197A38C504CF92847D2 /* UILabel+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AF19AA0A16C27787D34E0EC5EB7975B /* UILabel+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -584,7 +581,6 @@
 		1B372F79C4D2FAAF9851CBE07485EAFD /* OptionButtonModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OptionButtonModel.h; path = QZZPublicModel/Classes/PublicModels/OptionButtonModel.h; sourceTree = "<group>"; };
 		1B9EC8FDD7B7603EFAB39A58E1F91E9D /* QZZMainViewKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = QZZMainViewKit.modulemap; sourceTree = "<group>"; };
 		1BAFF5B2EC64946C15E4BBF1EC74E6B2 /* NavSearchBarView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = NavSearchBarView.h; sourceTree = "<group>"; };
-		1BDBE42EC485CA7E7291D4C58D3AAB72 /* MoreSelectedTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = MoreSelectedTableViewCell.xib; path = QZZMainViewKit/Assets/MoreSelectedTableViewCell.xib; sourceTree = "<group>"; };
 		1BE49D5CA707FF40E0F46237B66EF631 /* QZZFunctionalComponentsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QZZFunctionalComponentsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C4FD48388323BB4CD149C329963CAF5 /* UIView+QZZFrame.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+QZZFrame.m"; path = "QZZCategoryKit/Classes/category/UIView+QZZFrame.m"; sourceTree = "<group>"; };
 		1D6BDEF86CDFB32AD9D37329AAE980E1 /* MJRefreshAutoNormalFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshAutoNormalFooter.h; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoNormalFooter.h; sourceTree = "<group>"; };
@@ -856,13 +852,11 @@
 		E2DC9B6AE2CE6D453BD329F321D01342 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		E35AE1D124D6F5A84FA698109FCE6C42 /* UIImage+MultiFormat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+MultiFormat.m"; path = "SDWebImage/UIImage+MultiFormat.m"; sourceTree = "<group>"; };
 		E38CE4B0848C9196C6C45D5272B29C18 /* SDWebImageCodersManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageCodersManager.h; path = SDWebImage/SDWebImageCodersManager.h; sourceTree = "<group>"; };
-		E411F90BAAB94A18FCE10C768BBFD209 /* MoreSelectedTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MoreSelectedTableViewCell.h; sourceTree = "<group>"; };
 		E54E2C7CCA0CEFDCA76E8FA6D5DFD3B8 /* MJRefreshGifHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshGifHeader.m; path = MJRefresh/Custom/Header/MJRefreshGifHeader.m; sourceTree = "<group>"; };
 		E54FFE1758C98ED4E2E5EED4A4E79E9D /* FMResultSet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = src/fmdb/FMResultSet.m; sourceTree = "<group>"; };
 		E77D1D23CD8FD39B41F04C7A531C6EE2 /* MBProgressHUD.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = QZZToolsKit/Classes/Tools/MBProgressHUD.m; sourceTree = "<group>"; };
 		E83C44EE2B6FB31365495334F1681E8C /* UIImageView+WebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+WebCache.h"; path = "SDWebImage/UIImageView+WebCache.h"; sourceTree = "<group>"; };
 		E88273BF1BBFFD37CF15A1243CB933E1 /* SDWebImageCoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageCoder.m; path = SDWebImage/SDWebImageCoder.m; sourceTree = "<group>"; };
-		E8B4DB7066D3EDD33FDC505458CFEF53 /* MoreSelectedTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MoreSelectedTableViewCell.m; sourceTree = "<group>"; };
 		E9C3F55482D8B94E621B8BAA61F4CDF7 /* MJRefreshBackGifFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshBackGifFooter.m; path = MJRefresh/Custom/Footer/Back/MJRefreshBackGifFooter.m; sourceTree = "<group>"; };
 		EB884777ADAA4F426FF5C5684976C237 /* QZZViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = QZZViewController.m; sourceTree = "<group>"; };
 		EBADFE069B7ACAF92B0AAE18E9397F66 /* gotoTop@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "gotoTop@2x.png"; path = "QZZMainViewKit/Assets/gotoTop@2x.png"; sourceTree = "<group>"; };
@@ -1037,8 +1031,6 @@
 		04D0C096FBC09E01382F6354A4B2883D /* TanChuOptionsListView */ = {
 			isa = PBXGroup;
 			children = (
-				E411F90BAAB94A18FCE10C768BBFD209 /* MoreSelectedTableViewCell.h */,
-				E8B4DB7066D3EDD33FDC505458CFEF53 /* MoreSelectedTableViewCell.m */,
 				33865302A3CED4A6D537BF3504CA40E4 /* SelectedTableViewCell.h */,
 				5E3880AD63A12E5085DC7066544E715F /* SelectedTableViewCell.m */,
 			);
@@ -1587,7 +1579,6 @@
 				433DB34E0D56A4E2DF4FB2CBD3326341 /* KuanTextViewTableViewCell.xib */,
 				BD01CF914730599470BC113AD13577CA /* MoreSelectedOptionsListCell.xib */,
 				3DED2DA1637BA52C2D76868F501BF8DE /* MoreSelectedSearchOptionsListView.xib */,
-				1BDBE42EC485CA7E7291D4C58D3AAB72 /* MoreSelectedTableViewCell.xib */,
 				D953BC889E111CB0240440D6B3828F7F /* nav_back.png */,
 				8CEFB282F0EBCD687BAED5F5CA4D6AEB /* nav_back@2x.png */,
 				83C8B076CBF615EECDF6A060836C0019 /* nav_back@3x.png */,
@@ -1892,7 +1883,6 @@
 				58BA00B081711E4BC41BB570F8FBB9CE /* KuanTextViewTableViewCell.h in Headers */,
 				FE35FB92A415CDF1A8D55665830D5A72 /* MoreSelectedOptionsListCell.h in Headers */,
 				23B97EFF2AD1A10BFB479C96808077FF /* MoreSelectedSearchOptionsListView.h in Headers */,
-				694A66D53A1988F99739224603E71128 /* MoreSelectedTableViewCell.h in Headers */,
 				486075679752B91A1663E9C7FB3C3E06 /* NavSearchBarView.h in Headers */,
 				A188BA82E601C8367BD54B88D2A481CC /* OptionsListTableViewCell.h in Headers */,
 				F3C032520C0CAEF8A3D229BD207AF4A1 /* OptionsListView.h in Headers */,
@@ -2283,7 +2273,6 @@
 				A068F894E91EE1269DA1CA6BE4BC76E1 /* KuanTextViewTableViewCell.xib in Resources */,
 				FF35B2BFDFA405FDAC604E498B4C113B /* MoreSelectedOptionsListCell.xib in Resources */,
 				8469850A8BFC570104F276B4A835EDB9 /* MoreSelectedSearchOptionsListView.xib in Resources */,
-				EB5B68845B3E9EC294DDFD8076F8F4B7 /* MoreSelectedTableViewCell.xib in Resources */,
 				F4A600094294E91ED8D3F5552952841E /* nav_back.png in Resources */,
 				047404AE8308D53771D4F0D15B3B47FD /* nav_back@2x.png in Resources */,
 				1550F90E8107263E8A910980DF7D9D62 /* nav_back@3x.png in Resources */,
@@ -2489,7 +2478,6 @@
 				F31F877DFA36E2771C28DCE0452378EF /* KuanTextViewTableViewCell.m in Sources */,
 				927BC5F113F24D4A49FA08DE0340AB54 /* MoreSelectedOptionsListCell.m in Sources */,
 				DE1BBFEC5801665DCA26438968B1A64E /* MoreSelectedSearchOptionsListView.m in Sources */,
-				0F8ACF0781D348007E052857736E8655 /* MoreSelectedTableViewCell.m in Sources */,
 				E615718DD0CA8A8816D99564F4E6C543 /* NavSearchBarView.m in Sources */,
 				5E3D384485605DDF170D261A86B429EA /* OptionsListTableViewCell.m in Sources */,
 				60A77DF0A96BA4E078CB573CCB80EABB /* OptionsListView.m in Sources */,
