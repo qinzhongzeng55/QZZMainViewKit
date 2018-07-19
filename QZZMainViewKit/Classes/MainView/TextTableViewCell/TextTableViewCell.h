@@ -28,9 +28,9 @@
 ///设置lineView左边距
 - (void)settingLineLConstraint:(CGFloat)width;
 ///设置标题左边距
-- (void)settingTitleLConstraint:(CGFloat)width;
-///设置标题宽度
-- (void)settingTitleWidth:(CGFloat)width;
+- (void)settingTitleLConstraint:(CGFloat)left;
+///设置标题的SIZE
+- (void)settingTitleSize:(CGSize)size;
 ///隐藏lineView
 - (void)hiddenLineView:(BOOL)isHidden;
 ///设置lineView的背景颜色

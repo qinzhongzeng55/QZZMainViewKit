@@ -35,23 +35,45 @@
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Uc-ON-uKo">
+                        <rect key="frame" x="12" y="51" width="292" height="116"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="还有什么要补充的..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J2b-HA-NTW">
+                        <rect key="frame" x="17" y="61" width="126.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.78039215689999997" green="0.78039215689999997" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="/500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q4v-nO-ycl">
+                        <rect key="frame" x="144" y="80" width="30.5" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.78039215689999997" green="0.78039215689999997" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EYO-l3-OUJ">
+                        <rect key="frame" x="155" y="80" width="9" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.78039215689999997" green="0.78039215689999997" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EgX-aJ-Oi4">
-                        <rect key="frame" x="16" y="49" width="288" height="123"/>
+                        <rect key="frame" x="16" y="48" width="288" height="123"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pb0-27-5Po">
-                        <rect key="frame" x="139" y="78" width="42" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="J2b-HA-NTW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="17" id="I6L-KA-FKo"/>
                     <constraint firstItem="VeY-cU-BFf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Lmg-w7-4kl"/>
                     <constraint firstItem="VeY-cU-BFf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="O0F-HF-rAI"/>
                     <constraint firstItem="LHF-mj-gSS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="bev-Du-J4u"/>
+                    <constraint firstItem="J2b-HA-NTW" firstAttribute="top" secondItem="LHF-mj-gSS" secondAttribute="bottom" constant="15" id="fVR-T3-5Xl"/>
                     <constraint firstItem="LHF-mj-gSS" firstAttribute="top" secondItem="VeY-cU-BFf" secondAttribute="bottom" constant="10" id="sTb-r7-EhX"/>
                     <constraint firstAttribute="trailing" secondItem="VeY-cU-BFf" secondAttribute="trailing" id="zgz-aE-oJD"/>
                 </constraints>
@@ -59,8 +81,11 @@
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
                 <outlet property="containView" destination="EgX-aJ-Oi4" id="BH0-ZC-yAO"/>
-                <outlet property="contentLabel" destination="pb0-27-5Po" id="Vwa-kt-G9b"/>
+                <outlet property="contentTextView" destination="2Uc-ON-uKo" id="jRB-Bs-suP"/>
                 <outlet property="lineViewHConstraint" destination="dRA-1I-dmJ" id="wMd-J3-qdu"/>
+                <outlet property="placeHolderLConstraint" destination="I6L-KA-FKo" id="PrR-Fm-Zwk"/>
+                <outlet property="placeHolderTConstraint" destination="fVR-T3-5Xl" id="ySb-Me-fbS"/>
+                <outlet property="placeHudLabel" destination="J2b-HA-NTW" id="2YN-Dd-8Uf"/>
                 <outlet property="titleLabel" destination="LHF-mj-gSS" id="uuH-p3-wAP"/>
                 <outlet property="titleLabelHConstraint" destination="D5z-xC-mtn" id="zfE-bB-7yE"/>
                 <outlet property="titleLabelLConstraint" destination="bev-Du-J4u" id="ctC-Hg-ZDi"/>

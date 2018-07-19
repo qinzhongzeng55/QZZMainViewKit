@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *lineLConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleWConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleHContraint;
 @property (weak, nonatomic) IBOutlet UIView *lineView;
 
 @end
@@ -75,14 +76,14 @@
     self.lineLConstraint.constant = width;
 }
 #pragma mark - 设置标题左边距
-- (void)settingTitleLConstraint:(CGFloat)width{
+- (void)settingTitleLConstraint:(CGFloat)left{
     
-    self.titleLConstraint.constant = width;
+    self.titleLConstraint.constant = left;
 }
-#pragma mark - 设置标题宽度
-- (void)settingTitleWidth:(CGFloat)width{
-    
-    self.titleWConstraint.constant = width;
+#pragma mark - 设置标题的SIZE
+- (void)settingTitleSize:(CGSize)size{
+    self.titleWConstraint.constant = size.width;
+    self.titleHContraint.constant = size.height;
 }
 #pragma mark - 隐藏lineView
 - (void)hiddenLineView:(BOOL)isHidden{

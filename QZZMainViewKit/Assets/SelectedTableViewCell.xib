@@ -18,16 +18,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="52.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hQu-Ed-rLD">
-                        <rect key="frame" x="0.0" y="51.5" width="320" height="1"/>
-                        <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="1" id="LPg-wj-Soq"/>
-                        </constraints>
-                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="时间:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rcq-86-cBb">
                         <rect key="frame" x="12" y="0.0" width="112" height="51.5"/>
                         <constraints>
+                            <constraint firstAttribute="height" constant="51.5" id="AZC-n6-5Fh"/>
                             <constraint firstAttribute="width" constant="112" id="oYO-Fi-kPl"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -42,14 +36,21 @@
                         </constraints>
                     </imageView>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sZV-KT-bbz">
-                        <rect key="frame" x="124" y="0.0" width="166" height="51.5"/>
+                        <rect key="frame" x="124" y="0.0" width="166" height="51"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hQu-Ed-rLD">
+                        <rect key="frame" x="0.0" y="51" width="320" height="1"/>
+                        <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="LPg-wj-Soq"/>
+                        </constraints>
+                    </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAr-VC-jsj">
-                        <rect key="frame" x="124" y="0.0" width="166" height="51.5"/>
+                        <rect key="frame" x="124" y="0.0" width="166" height="51"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <state key="normal">
                             <color key="titleColor" red="0.78431372549019607" green="0.78431372549019607" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -75,6 +76,7 @@
                     <constraint firstItem="sZV-KT-bbz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="QFU-lS-YnC"/>
                     <constraint firstAttribute="bottom" secondItem="hQu-Ed-rLD" secondAttribute="bottom" id="SO5-2X-OZz"/>
                     <constraint firstItem="qW8-3V-SVs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Sdf-v4-3Rk"/>
+                    <constraint firstItem="hQu-Ed-rLD" firstAttribute="top" secondItem="sZV-KT-bbz" secondAttribute="bottom" id="UAj-98-7iz"/>
                     <constraint firstAttribute="bottom" secondItem="sXn-QR-oHh" secondAttribute="bottom" id="UXa-sK-8gf"/>
                     <constraint firstItem="hQu-Ed-rLD" firstAttribute="top" secondItem="rcq-86-cBb" secondAttribute="bottom" id="WBk-HV-Jef"/>
                     <constraint firstAttribute="trailing" secondItem="hQu-Ed-rLD" secondAttribute="trailing" id="WL0-Dg-Isd"/>
@@ -83,7 +85,6 @@
                     <constraint firstItem="SWg-Kz-kbH" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="hVY-bX-Lsj"/>
                     <constraint firstAttribute="trailing" secondItem="SWg-Kz-kbH" secondAttribute="trailing" constant="12" id="hcQ-4W-nXK"/>
                     <constraint firstItem="hQu-Ed-rLD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ifw-LR-sFS"/>
-                    <constraint firstItem="hQu-Ed-rLD" firstAttribute="top" secondItem="sZV-KT-bbz" secondAttribute="bottom" id="ikx-R2-nGi"/>
                     <constraint firstAttribute="trailing" secondItem="sZV-KT-bbz" secondAttribute="trailing" constant="30" id="ird-bS-BkO"/>
                     <constraint firstItem="sZV-KT-bbz" firstAttribute="leading" secondItem="sXn-QR-oHh" secondAttribute="trailing" id="jAr-nj-fqW"/>
                     <constraint firstItem="rcq-86-cBb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="sPB-pm-KAa"/>
@@ -97,6 +98,7 @@
                 <outlet property="lineView" destination="hQu-Ed-rLD" id="F8g-eL-KQc"/>
                 <outlet property="moreImageView" destination="SWg-Kz-kbH" id="a6k-7O-fdL"/>
                 <outlet property="selectedBtn" destination="cAr-VC-jsj" id="DO8-jL-gbL"/>
+                <outlet property="titleHContraint" destination="AZC-n6-5Fh" id="BUJ-S0-E9d"/>
                 <outlet property="titleLConstraint" destination="sw0-WF-PQ4" id="VKe-t0-rPf"/>
                 <outlet property="titleLabel" destination="rcq-86-cBb" id="hEa-Vh-say"/>
                 <outlet property="titleWContraint" destination="oYO-Fi-kPl" id="lJ7-I4-3Op"/>

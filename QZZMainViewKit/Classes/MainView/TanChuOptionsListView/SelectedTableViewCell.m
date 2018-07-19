@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *moreImageView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleWContraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleHContraint;
 @property (weak, nonatomic) IBOutlet UITextView *contentText;
 @end
 
@@ -39,9 +40,10 @@
         [self.delegate selectedBtnDidClick:self.model key:self.key];
     }
 }
-#pragma mark - 设置标题的宽度
-- (void)settingTitleWidth:(CGFloat)width{
-    self.titleWContraint.constant = width;
+#pragma mark - 设置标题的SIZE
+- (void)settingTitleSize:(CGSize)size{
+    self.titleWContraint.constant = size.width;
+    self.titleHContraint.constant = size.height;
 }
 #pragma mark - 隐藏>
 - (void)hiddenMoreImageView:(BOOL)isHidden{

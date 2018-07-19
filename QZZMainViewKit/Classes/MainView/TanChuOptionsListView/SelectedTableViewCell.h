@@ -32,8 +32,8 @@
 - (void)settingMoreImageView:(UIImage *)image;
 ///隐藏 >
 - (void)hiddenMoreImageView:(BOOL)isHidden;
-///设置标题的宽度
-- (void)settingTitleWidth:(CGFloat)width;
+///设置标题的SIZE
+- (void)settingTitleSize:(CGSize)size;
 ///设置标题左侧的距离
 - (void)settingTitleLeft:(CGFloat)left;
 ///设置标题的字体
