@@ -50,7 +50,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="7A5-Ii-dLc" firstAttribute="bottom" secondItem="NXI-CQ-uPm" secondAttribute="bottom" id="2p0-eR-dDi"/>
-                    <constraint firstItem="DOe-WB-Gcq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="EH6-T3-pEu"/>
+                    <constraint firstItem="DOe-WB-Gcq" firstAttribute="top" secondItem="7A5-Ii-dLc" secondAttribute="top" id="EH6-T3-pEu"/>
                     <constraint firstItem="7A5-Ii-dLc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="IOl-Ng-one"/>
                     <constraint firstAttribute="trailing" secondItem="pvw-fu-i87" secondAttribute="trailing" id="Md9-8A-XTS"/>
                     <constraint firstItem="NXI-CQ-uPm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="RcK-uI-7vT"/>

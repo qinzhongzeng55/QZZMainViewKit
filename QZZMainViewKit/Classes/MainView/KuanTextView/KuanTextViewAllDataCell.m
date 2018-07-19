@@ -264,18 +264,21 @@
         CGFloat H = size.height+16;
         make.bottom.equalTo(weakSelf.titleLabel.mas_bottom).offset(weakSelf.contentTextViewTop+H);
     }];
-    UIFont *tiShiLabelFont = self.textMaxLengthLabel.font;
-    CGSize tiShiLabelMaxSize = CGSizeMake(Screen_Width-self.contentContainViewLeft*2, Screen_Height);
-    CGSize tiShiLabelSize = [self boundingALLRectWithSize:self.textMaxLengthLabel.text Font:tiShiLabelFont Size:tiShiLabelMaxSize];
-    [self.textMaxLengthLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(weakSelf.containView).offset(-10);
-        make.bottom.equalTo(weakSelf.containView).offset(-10);
-        make.leading.equalTo(weakSelf.contentView).offset(Screen_Width - tiShiLabelSize.width-self.contentContainViewLeft-10);
-    }];
-    [self.textCurrentLengthLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(weakSelf.textMaxLengthLabel);
-        make.trailing.equalTo(weakSelf.textMaxLengthLabel.mas_leading);
-    }];
+    if (self.textMaxLengthLabel.text.length > 0) {
+        
+        UIFont *tiShiLabelFont = self.textMaxLengthLabel.font;
+        CGSize tiShiLabelMaxSize = CGSizeMake(Screen_Width-self.contentContainViewLeft*2, Screen_Height);
+        CGSize tiShiLabelSize = [self boundingALLRectWithSize:self.textMaxLengthLabel.text Font:tiShiLabelFont Size:tiShiLabelMaxSize];
+        [self.textMaxLengthLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.trailing.equalTo(weakSelf.containView).offset(-10);
+            make.bottom.equalTo(weakSelf.containView).offset(-10);
+            make.leading.equalTo(weakSelf.contentView).offset(Screen_Width - tiShiLabelSize.width-self.contentContainViewLeft-10);
+        }];
+        [self.textCurrentLengthLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.center.equalTo(weakSelf.textMaxLengthLabel);
+            make.trailing.equalTo(weakSelf.textMaxLengthLabel.mas_leading);
+        }];
+    }
     [self settingContainView:size];
     [self.contentView layoutIfNeeded];
 }
@@ -314,6 +317,7 @@
 - (void)setMaxLengtn:(NSInteger)maxLengtn{
     _maxLengtn = maxLengtn;
     self.textMaxLengthLabel.text = [NSString stringWithFormat:@"/%ld",(long)maxLengtn];
+    [self buJuTextView];
 }
 - (void)setModel:(TableViewCellModel *)model{
     
