@@ -24,7 +24,6 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.contentText.contentInset = UIEdgeInsetsMake(7, 0, -7, 0);
     self.moreImageView.image = [UIImage qzz_imagePathWithName:@"gotoOtherView" bundle:@"QZZMainViewKit" targetClass:[self class]];
 }
 
@@ -32,6 +31,17 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    UIFontDescriptor *ctfFont = self.contentText.font.fontDescriptor;
+    NSNumber *fontString = [ctfFont objectForKey:@"NSFontSizeAttribute"];
+    CGFloat margin = (self.contentView.frame.size.height - [fontString integerValue]-20)*0.5;
+    if ([fontString integerValue] > 17) {
+        self.contentText.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    }else{
+        self.contentText.contentInset = UIEdgeInsetsMake(margin, 0, -margin, 0);
+    }
 }
 #pragma mark - 点击弹出选择框
 - (IBAction)selectedBtnDidClick:(UIButton *)sender {

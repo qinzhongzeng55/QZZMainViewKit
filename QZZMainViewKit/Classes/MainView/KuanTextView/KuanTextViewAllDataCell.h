@@ -14,7 +14,8 @@
 @optional
 ///多行文本框结束编辑
 - (void)endEdittingWithIndexPath:(NSIndexPath *)key withModel:(TableViewCellModel *)model;
-
+///点击回车键时的回调
+- (void)returnBtnDidClick;
 @end
 
 @interface KuanTextViewAllDataCell : UITableViewCell
@@ -32,6 +33,10 @@
 - (void)settingContentTextColor:(UIColor *)color font:(UIFont *)font;
 ///设置占位文字
 - (void)settingPlaceHolderColor:(UIColor *)color font:(UIFont *)font;
+///设置当前字数文本
+- (void)settingCurrentNumLabelColor:(UIColor *)color font:(UIFont *)font;
+///设置最大字数文本
+- (void)settingMaxNumLabelColor:(UIColor *)color font:(UIFont *)font;
 ///是否隐藏字数label
 - (void)hiddenTextLengthLabel:(BOOL)isHidden;
 ///设置lineView的背景颜色

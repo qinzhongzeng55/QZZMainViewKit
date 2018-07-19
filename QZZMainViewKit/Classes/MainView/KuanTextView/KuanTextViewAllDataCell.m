@@ -54,6 +54,16 @@
 #pragma mark - UITextViewDelegate
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range
  replacementText:(NSString *)text{
+    
+    if ([text isEqualToString:@"\n"]) {
+        if ([self.contentTextView.text isEqualToString:@""] || self.contentTextView.text == nil) {
+            self.placeHudLabel.hidden = NO;
+        }
+        self.model.info = self.contentTextView.text;
+        if ([self.delegate respondsToSelector:@selector(returnBtnDidClick)]) {
+            [self.delegate returnBtnDidClick];
+        }
+    }
     UITextRange *selectedRange = [textView markedTextRange];
     //获取高亮部分
     UITextPosition *pos = [textView positionFromPosition:selectedRange.start offset:0];
@@ -114,7 +124,14 @@
             //rang是指从当前光标处进行替换处理(注意如果执行此句后面返回的是YES会触发didchange事件)
             [textView setText:[textView.text stringByReplacingCharactersInRange:range withString:s]];
             //既然是超出部分截取了，哪一定是最大限制了。
-            self.textCurrentLengthLabel.text = [NSString stringWithFormat:@"%ld",(long)self.maxLengtn];
+            NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+            paragraphStyle.lineSpacing = LineSpacing;// 字体的行间距
+            NSDictionary *attributes = @{
+                                         NSFontAttributeName:self.textMaxLengthLabel.font,
+                                         NSParagraphStyleAttributeName:paragraphStyle,
+                                         NSKernAttributeName:@(WordsSpacing)//字间距
+                                         };
+            self.textCurrentLengthLabel.attributedText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%ld",(long)self.maxLengtn] attributes:attributes];
         }
         return NO;
     }
@@ -146,9 +163,17 @@
         
         [textView setText:s];
     }
-    self.textCurrentLengthLabel.text = [NSString stringWithFormat:@"%ld",existTextNum];
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineSpacing = LineSpacing;// 字体的行间距
+    NSDictionary *attributes = @{
+                                 NSFontAttributeName:self.textMaxLengthLabel.font,
+                                 NSParagraphStyleAttributeName:paragraphStyle,
+                                 NSKernAttributeName:@(WordsSpacing)//字间距
+                                 };
+    self.textCurrentLengthLabel.attributedText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%ld",existTextNum] attributes:attributes];
     //不让显示负数 口口日(显示剩余字数)
     //    self.textCurrentLengthLabel.text = [NSString stringWithFormat:@"%ld",MAX(0,self.maxLengtn - existTextNum)];
+    
 }
 
 - (void)textViewDidBeginEditing:(UITextView *)textView{
@@ -180,9 +205,19 @@
     self.contentTextView.font = font;
 }
 ///设置占位文字
-- (void)settingPlaceHolderColor:(UIColor *)color  font:(UIFont *)font{
+- (void)settingPlaceHolderColor:(UIColor *)color font:(UIFont *)font{
     self.placeHudLabel.textColor = color;
     self.placeHudLabel.font = font;
+}
+///设置当前字数文本
+- (void)settingCurrentNumLabelColor:(UIColor *)color font:(UIFont *)font{
+    self.textCurrentLengthLabel.textColor = color;
+    self.textCurrentLengthLabel.font = font;
+}
+///设置最大字数文本
+- (void)settingMaxNumLabelColor:(UIColor *)color font:(UIFont *)font{
+    self.textMaxLengthLabel.textColor = color;
+    self.textMaxLengthLabel.font = font;
 }
 ///隐藏字数label
 - (void)hiddenTextLengthLabel:(BOOL)isHidden{
@@ -196,6 +231,7 @@
 ///设置lineView高度
 - (void)settinglineViewHeigth:(CGFloat)height{
     self.lineViewHConstraint.constant = height;
+    [self.contentView layoutIfNeeded];
 }
 ///隐藏lineView
 - (void)hiddenLineView{
@@ -225,6 +261,7 @@
     self.contentTextViewLeft = left;
     self.contentTextViewBottom = bottom;
     self.contentTextViewRight = right;
+    [self.contentView layoutIfNeeded];
 }
 ///设置文本框外边距
 - (void)settingContainViewConstantForTop:(CGFloat)top left:(CGFloat)left bottom:(CGFloat)bottom right:(CGFloat)right{
@@ -232,6 +269,7 @@
     self.contentContainViewLeft = left;
     self.contentContainViewBottom = bottom;
     self.contentContainViewRight = right;
+    [self.contentView layoutIfNeeded];
 }
 //设置占位文字边距
 - (void)settingPlaceHolderConstantForTop:(CGFloat)top left:(CGFloat)left{
@@ -254,22 +292,25 @@
     CGSize size = [self boundingALLRectWithSize:self.contentTextView.text Font:contentFont Size:contentTextViewMaxSize];
     __weak typeof(self) weakSelf = self;
     [self.contentTextView mas_makeConstraints:^(MASConstraintMaker *make) {
+        
         make.trailing.equalTo(weakSelf.contentView).offset(-weakSelf.contentTextViewRight);
         make.leading.equalTo(weakSelf.contentView).offset(weakSelf.contentTextViewLeft);
         make.top.equalTo(weakSelf.titleLabel.mas_bottom).offset(weakSelf.contentTextViewTop);
         make.bottom.equalTo(weakSelf.titleLabel.mas_bottom).offset(weakSelf.contentTextViewTop+size.height);
     }];
     [self.containView mas_makeConstraints:^(MASConstraintMaker *make) {
-        
         make.leading.equalTo(weakSelf.contentView).offset(weakSelf.contentContainViewLeft);
         make.trailing.equalTo(weakSelf.contentView).offset(-weakSelf.contentContainViewRight);
         make.top.equalTo(weakSelf.titleLabel.mas_bottom).offset(weakSelf.contentContainViewTop);
         CGFloat H = size.height;
-        make.bottom.equalTo(weakSelf.titleLabel.mas_bottom).offset(weakSelf.contentTextViewTop+H+weakSelf.contentTextViewBottom-weakSelf.contentContainViewBottom);
+        if (H < 40.f) {
+            H = 40;
+        }
+        make.bottom.equalTo(weakSelf.titleLabel.mas_bottom).offset(weakSelf.contentTextViewTop+H+weakSelf.contentTextViewBottom-weakSelf.contentContainViewBottom+24);
         make.bottom.equalTo(weakSelf.contentView).offset(-weakSelf.contentContainViewBottom);
         
     }];
-    if (self.textMaxLengthLabel.text.length > 0) {
+    if (self.textMaxLengthLabel.text.length > 0 && !self.textMaxLengthLabel.hidden) {
         
         UIFont *tiShiLabelFont = self.textMaxLengthLabel.font;
         CGSize tiShiLabelMaxSize = CGSizeMake(Screen_Width-self.contentContainViewLeft*2, DBL_MAX);
@@ -279,22 +320,23 @@
             make.bottom.equalTo(weakSelf.containView).offset(-10);
             make.leading.equalTo(weakSelf.contentView).offset(Screen_Width - tiShiLabelSize.width-self.contentContainViewLeft-10);
         }];
+        tiShiLabelSize = [self boundingALLRectWithSize:self.textCurrentLengthLabel.text Font:tiShiLabelFont Size:tiShiLabelMaxSize];
         [self.textCurrentLengthLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.center.equalTo(weakSelf.textMaxLengthLabel);
             make.trailing.equalTo(weakSelf.textMaxLengthLabel.mas_leading);
+            make.width.equalTo(@(tiShiLabelSize.width));
         }];
     }
-    [self settingContainView];
+    [self settingContainView:size];
     [self.contentView layoutIfNeeded];
 }
-- (void)settingContainView{
+- (void)settingContainView:(CGSize)size{
     
     [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        
         make.top.leading.trailing.bottom.equalTo(self);
     }];
 }
-- (CGSize)boundingALLRectWithSize:(NSString*) txt Font:(UIFont*) font Size:(CGSize) size{
+- (CGSize)boundingALLRectWithSize:(NSString*)txt Font:(UIFont*) font Size:(CGSize) size{
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:txt];
     NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc]init];
     [style setLineSpacing:LineSpacing];
@@ -327,20 +369,27 @@
 }
 - (void)setMaxLengtn:(NSInteger)maxLengtn{
     _maxLengtn = maxLengtn;
-    self.textMaxLengthLabel.text = [NSString stringWithFormat:@"/%ld",(long)maxLengtn];
-    [self buJuTextView];
+    //textview 改变字体的行间距
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineSpacing = LineSpacing;// 字体的行间距
+    NSDictionary *attributes = @{
+                                 NSFontAttributeName:self.textMaxLengthLabel.font,
+                                 NSParagraphStyleAttributeName:paragraphStyle,
+                                 NSKernAttributeName:@(WordsSpacing)//字间距
+                                 };
+    self.textMaxLengthLabel.attributedText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"/%ld",(long)maxLengtn] attributes:attributes];
 }
 - (void)setModel:(TableViewCellModel *)model{
     
     _model = model;
     self.titleLabel.text = [NSString stringWithFormat:@"%@",model.lableTitle];
-    //    textview 改变字体的行间距
+    //textview 改变字体的行间距
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.lineSpacing = LineSpacing;// 字体的行间距
     NSDictionary *attributes = @{
                                  NSFontAttributeName:self.contentTextView.font,
                                  NSParagraphStyleAttributeName:paragraphStyle,
-                                 NSKernAttributeName:@(WordsSpacing)
+                                 NSKernAttributeName:@(WordsSpacing)//字间距
                                  };
     if (model.info == nil || [model.info isEqualToString:@""] || [model.info isEqualToString:@"(null)"]) {
         self.placeHudLabel.hidden = NO;
