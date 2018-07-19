@@ -6,6 +6,7 @@
 //
 
 #import "KuanTextViewAllDataCell.h"
+#import <float.h>
 
 @interface KuanTextViewAllDataCell ()<UITextViewDelegate>
 
@@ -40,15 +41,16 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.contentTextView.textContainerInset = UIEdgeInsetsMake(0, 0, 0, 0);
-    self.contentTextView.delegate = self;
+    //设置textView
+    [self settingTextView];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
+    
     // Configure the view for the selected state
 }
+
 #pragma mark - UITextViewDelegate
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range
  replacementText:(NSString *)text{
@@ -248,27 +250,29 @@
 - (void)buJuTextView{
     
     UIFont *contentFont = self.contentTextView.font;
-    CGSize contentTextViewMaxSize = CGSizeMake(Screen_Width-self.contentTextViewLeft*2, Screen_Height);
+    CGSize contentTextViewMaxSize = CGSizeMake(Screen_Width-self.contentTextViewLeft*2,DBL_MAX);
     CGSize size = [self boundingALLRectWithSize:self.contentTextView.text Font:contentFont Size:contentTextViewMaxSize];
     __weak typeof(self) weakSelf = self;
     [self.contentTextView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.trailing.equalTo(weakSelf.contentView).offset(-weakSelf.contentTextViewRight);
+        make.trailing.equalTo(weakSelf.contentView).offset(-weakSelf.contentTextViewRight);
         make.leading.equalTo(weakSelf.contentView).offset(weakSelf.contentTextViewLeft);
         make.top.equalTo(weakSelf.titleLabel.mas_bottom).offset(weakSelf.contentTextViewTop);
-        
         make.bottom.equalTo(weakSelf.titleLabel.mas_bottom).offset(weakSelf.contentTextViewTop+size.height);
     }];
     [self.containView mas_makeConstraints:^(MASConstraintMaker *make) {
+        
         make.leading.equalTo(weakSelf.contentView).offset(weakSelf.contentContainViewLeft);
-            make.trailing.equalTo(weakSelf.contentView).offset(-weakSelf.contentContainViewRight);
+        make.trailing.equalTo(weakSelf.contentView).offset(-weakSelf.contentContainViewRight);
         make.top.equalTo(weakSelf.titleLabel.mas_bottom).offset(weakSelf.contentContainViewTop);
-        CGFloat H = size.height+20;
-        make.bottom.equalTo(weakSelf.titleLabel.mas_bottom).offset(weakSelf.contentTextViewTop+H);
+        CGFloat H = size.height;
+        make.bottom.equalTo(weakSelf.titleLabel.mas_bottom).offset(weakSelf.contentTextViewTop+H+weakSelf.contentTextViewBottom-weakSelf.contentContainViewBottom);
+        make.bottom.equalTo(weakSelf.contentView).offset(-weakSelf.contentContainViewBottom);
+        
     }];
     if (self.textMaxLengthLabel.text.length > 0) {
         
         UIFont *tiShiLabelFont = self.textMaxLengthLabel.font;
-        CGSize tiShiLabelMaxSize = CGSizeMake(Screen_Width-self.contentContainViewLeft*2, Screen_Height);
+        CGSize tiShiLabelMaxSize = CGSizeMake(Screen_Width-self.contentContainViewLeft*2, DBL_MAX);
         CGSize tiShiLabelSize = [self boundingALLRectWithSize:self.textMaxLengthLabel.text Font:tiShiLabelFont Size:tiShiLabelMaxSize];
         [self.textMaxLengthLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.trailing.equalTo(weakSelf.containView).offset(-10);
@@ -286,19 +290,20 @@
 - (void)settingContainView{
     
     [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        
         make.top.leading.trailing.bottom.equalTo(self);
     }];
 }
 - (CGSize)boundingALLRectWithSize:(NSString*) txt Font:(UIFont*) font Size:(CGSize) size{
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:txt];
     NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc]init];
-    [style setLineSpacing:0.0f];
+    [style setLineSpacing:LineSpacing];
     [attributedString addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, [txt length])];
     
     CGSize realSize = CGSizeZero;
     
 #if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_6_1
-    CGRect textRect = [txt boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:font,NSParagraphStyleAttributeName:style,NSKernAttributeName:@0.f} context:nil];
+    CGRect textRect = [txt boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:font,NSParagraphStyleAttributeName:style,NSKernAttributeName:@(WordsSpacing)} context:nil];
     realSize = textRect.size;
 #else
     realSize = [txt sizeWithFont:font constrainedToSize:size];
@@ -307,6 +312,11 @@
     realSize.width = ceilf(realSize.width);
     realSize.height = ceilf(realSize.height);
     return realSize;
+}
+#pragma mark - 设置textView
+- (void)settingTextView{
+    self.contentTextView.textContainerInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    self.contentTextView.delegate = self;
 }
 #pragma mark - setter,getter
 - (void)setIsEditting:(BOOL)isEditting{
@@ -324,14 +334,22 @@
     
     _model = model;
     self.titleLabel.text = [NSString stringWithFormat:@"%@",model.lableTitle];
+    //    textview 改变字体的行间距
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineSpacing = LineSpacing;// 字体的行间距
+    NSDictionary *attributes = @{
+                                 NSFontAttributeName:self.contentTextView.font,
+                                 NSParagraphStyleAttributeName:paragraphStyle,
+                                 NSKernAttributeName:@(WordsSpacing)
+                                 };
     if (model.info == nil || [model.info isEqualToString:@""] || [model.info isEqualToString:@"(null)"]) {
         self.placeHudLabel.hidden = NO;
         self.placeHudLabel.text = model.placeHoled;
     }else{
         self.placeHudLabel.hidden = YES;
         self.placeHudLabel.text = model.placeHoled;
-        self.contentTextView.text = model.info;
         self.contentTextView.textColor = [UIColor blackColor];
+        self.contentTextView.attributedText = [[NSAttributedString alloc] initWithString:model.info attributes:attributes];
     }
     [self buJuTextView];
 }

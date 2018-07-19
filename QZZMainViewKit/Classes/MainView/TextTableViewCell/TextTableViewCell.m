@@ -34,11 +34,6 @@
     
     // Configure the view for the selected state
 }
-- (void)layoutSubviews{
-    [super layoutSubviews];
-    CGFloat x = CGRectGetMaxX(self.titleLabel.frame);
-    self.contentText.frame = CGRectMake(x, 0, self.contentView.frame.size.width-x-35, self.contentView.frame.size.height-1);
-}
 #pragma mark - UITextFieldDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
 
@@ -79,16 +74,19 @@
 - (void)settingLineLConstraint:(CGFloat)width{
     
     self.lineLConstraint.constant = width;
+    [self layoutIfNeeded];
 }
 #pragma mark - 设置标题左边距
 - (void)settingTitleLConstraint:(CGFloat)left{
     
     self.titleLConstraint.constant = left;
+    [self layoutIfNeeded];
 }
 #pragma mark - 设置标题的SIZE
 - (void)settingTitleSize:(CGSize)size{
     self.titleWConstraint.constant = size.width;
     self.titleHContraint.constant = size.height;
+    [self layoutIfNeeded];
 }
 #pragma mark - 隐藏lineView
 - (void)hiddenLineView:(BOOL)isHidden{

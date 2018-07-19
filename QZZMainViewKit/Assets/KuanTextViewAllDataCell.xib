@@ -86,7 +86,7 @@
                 <outlet property="placeHolderLConstraint" destination="I6L-KA-FKo" id="PrR-Fm-Zwk"/>
                 <outlet property="placeHolderTConstraint" destination="fVR-T3-5Xl" id="ySb-Me-fbS"/>
                 <outlet property="placeHudLabel" destination="J2b-HA-NTW" id="2YN-Dd-8Uf"/>
-                <outlet property="textCurrentLengthLabel" destination="J2b-HA-NTW" id="j8X-hy-GLe"/>
+                <outlet property="textCurrentLengthLabel" destination="EYO-l3-OUJ" id="2fW-Rk-Nxl"/>
                 <outlet property="textMaxLengthLabel" destination="Q4v-nO-ycl" id="qoL-x7-NFC"/>
                 <outlet property="titleLabel" destination="LHF-mj-gSS" id="uuH-p3-wAP"/>
                 <outlet property="titleLabelHConstraint" destination="D5z-xC-mtn" id="zfE-bB-7yE"/>

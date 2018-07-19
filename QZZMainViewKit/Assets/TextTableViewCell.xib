@@ -18,13 +18,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DOe-WB-Gcq">
-                        <rect key="frame" x="92" y="0.0" width="198" height="42.5"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                        <textInputTraits key="textInputTraits"/>
-                    </textField>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="时间:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7A5-Ii-dLc">
                         <rect key="frame" x="12" y="0.0" width="80" height="42.5"/>
                         <constraints>
@@ -35,6 +28,12 @@
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DOe-WB-Gcq">
+                        <rect key="frame" x="92" y="0.0" width="193" height="42.5"/>
+                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pvw-fu-i87">
                         <rect key="frame" x="0.0" y="42.5" width="320" height="1"/>
                         <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -46,21 +45,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="30" height="42.5"/>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0D-Au-aRw">
-                        <rect key="frame" x="290" y="0.0" width="30" height="43"/>
+                        <rect key="frame" x="285" y="0.0" width="35" height="43"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="35" id="P9z-eB-gWf"/>
+                        </constraints>
                     </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="7A5-Ii-dLc" firstAttribute="bottom" secondItem="NXI-CQ-uPm" secondAttribute="bottom" id="2p0-eR-dDi"/>
+                    <constraint firstItem="DOe-WB-Gcq" firstAttribute="top" secondItem="7A5-Ii-dLc" secondAttribute="top" id="8kf-5z-OYE"/>
                     <constraint firstItem="7A5-Ii-dLc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="IOl-Ng-one"/>
                     <constraint firstAttribute="trailing" secondItem="pvw-fu-i87" secondAttribute="trailing" id="Md9-8A-XTS"/>
                     <constraint firstItem="NXI-CQ-uPm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="RcK-uI-7vT"/>
                     <constraint firstAttribute="bottom" secondItem="e0D-Au-aRw" secondAttribute="bottom" id="SGo-fL-Y7n"/>
+                    <constraint firstItem="e0D-Au-aRw" firstAttribute="leading" secondItem="DOe-WB-Gcq" secondAttribute="trailing" id="WxD-L6-Q9F"/>
+                    <constraint firstItem="DOe-WB-Gcq" firstAttribute="leading" secondItem="7A5-Ii-dLc" secondAttribute="trailing" id="XkG-Oi-B1i"/>
                     <constraint firstItem="pvw-fu-i87" firstAttribute="top" secondItem="7A5-Ii-dLc" secondAttribute="bottom" id="gYF-ZT-uQm"/>
                     <constraint firstAttribute="trailing" secondItem="e0D-Au-aRw" secondAttribute="trailing" id="hMg-Q7-2kv"/>
                     <constraint firstAttribute="bottom" secondItem="pvw-fu-i87" secondAttribute="bottom" id="jSE-8V-sO1"/>
                     <constraint firstItem="7A5-Ii-dLc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="jxa-aM-Pnc"/>
                     <constraint firstItem="pvw-fu-i87" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="pCh-Os-QuS"/>
                     <constraint firstItem="e0D-Au-aRw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="rV5-9G-Fzx"/>
+                    <constraint firstItem="DOe-WB-Gcq" firstAttribute="bottom" secondItem="7A5-Ii-dLc" secondAttribute="bottom" id="wDt-ZT-9MV"/>
                     <constraint firstItem="NXI-CQ-uPm" firstAttribute="top" secondItem="7A5-Ii-dLc" secondAttribute="top" id="zZv-KH-eDu"/>
                 </constraints>
             </tableViewCellContentView>

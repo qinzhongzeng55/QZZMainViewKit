@@ -44,6 +44,7 @@
 - (void)settingTitleSize:(CGSize)size{
     self.titleWContraint.constant = size.width;
     self.titleHContraint.constant = size.height;
+    [self layoutIfNeeded];
 }
 #pragma mark - 隐藏>
 - (void)hiddenMoreImageView:(BOOL)isHidden{
@@ -64,6 +65,7 @@
 #pragma mark - 设置标题左侧的距离
 - (void)settingTitleLeft:(CGFloat)left{
     self.titleLConstraint.constant = left;
+    [self layoutIfNeeded];
 }
 #pragma mark - 设置标题的字体
 - (void)settingTitleColor:(UIColor *)color font:(UIFont *)font{
@@ -72,8 +74,8 @@
 }
 #pragma mark - 设置内容的字体
 - (void)settingContentTextColor:(UIColor *)color font:(UIFont *)font{
-    [self.selectedBtn setTitleColor:color forState:UIControlStateNormal];
-    self.selectedBtn.titleLabel.font = font;
+    self.contentText.textColor = color;
+    self.contentText.font = font;
 }
 #pragma mark - setter,getter
 - (void)setModel:(TableViewCellModel *)model{
@@ -97,6 +99,6 @@
     
     _isDetail = isDetail;
     self.moreImageView.hidden = isDetail;
-    self.selectedBtn.enabled = !isDetail;
+    self.selectedBtn.hidden = isDetail;
 }
 @end
