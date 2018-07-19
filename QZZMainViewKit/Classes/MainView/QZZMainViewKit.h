@@ -22,7 +22,6 @@ FOUNDATION_EXPORT const unsigned char QZZMainViewKitVersionString[];
 
 #endif
 
-
 //******************************************************************
 #pragma mark -  ********************  常用宏定义  *******************
 //******************************************************************
@@ -221,6 +220,15 @@ _Pragma("clang diagnostic pop") \
 //******************************************************************
 #pragma mark -  *******************  导入公共头文件  *****************
 //******************************************************************
+//define this constant if you want to use Masonry without the 'mas_' prefix
+#define MAS_SHORTHAND
+
+//define this constant if you want to enable auto-boxing for default syntax
+#define MAS_SHORTHAND_GLOBALS
+
+//宏定义, 必须放到 头文件前, 不然不会生效
+
+#import <Masonry/Masonry.h>
 #import <QZZCategoryKit/UIImage+Extension.h>
 #import <QZZCategoryKit/NSArray+Log.h>
 #import <QZZCategoryKit/NSString+Emoji.h>
@@ -253,6 +261,7 @@ _Pragma("clang diagnostic pop") \
 #import <QZZMainViewKit/DatePickerView.h>
 #import <QZZMainViewKit/GotoOtherViewCell.h>
 #import <QZZMainViewKit/KuanTextViewTableViewCell.h>
+#import <QZZMainViewKit/KuanTextViewAllDataCell.h>
 #import <QZZMainViewKit/MoreSelectedSearchOptionsListView.h>
 #import <QZZMainViewKit/OptionsListView.h>
 #import <QZZMainViewKit/SearchOptionsListView.h>

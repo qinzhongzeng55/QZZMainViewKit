@@ -20,6 +20,8 @@
 @property (nonatomic, strong) UIView *EmptyContentView;
 ///新建按钮
 @property (nonatomic, strong) UIButton *gotoAddBtn;
+///刷新按钮
+@property (nonatomic, strong) UIButton *refreshBtn;
 ///加载失败页面
 @property (nonatomic, strong) UIView *errorView;
 ///回到顶部按钮
@@ -91,7 +93,10 @@
 - (void)hiddenGetError:(BOOL)isHidden;
 ///重新加载数据
 - (void)refreshBtnLoad;
-
+///重新布局失败时的页面
+- (void)layoutSubviewsForGetErrorView;
+///设置失败时页面的大小
+- (void)settingErrorViewFrame:(CGRect)frame;
 #pragma mark - 动态显示列表项
 - (void)starAnimationWithTableView:(UITableView *)tableView;
 #pragma mark - 显示提示框

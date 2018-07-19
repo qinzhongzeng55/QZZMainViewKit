@@ -21,7 +21,6 @@
 @property (nonatomic, assign) id<KuanTextViewTableViewCellDelegate> delegate;
 @property (nonatomic, assign) BOOL isEditting;
 @property (nonatomic, strong) TableViewCellModel *model;
-@property (nonatomic, assign) UIColor *color;
 @property (nonatomic, strong) NSIndexPath *key;
 
 ///最大字数
@@ -46,14 +45,10 @@
 - (void)showContentViewBorder:(BOOL)isShow;
 ///设置文本框边距
 - (void)settingContentTextViewConstantForTop:(CGFloat)top left:(CGFloat)left bottom:(CGFloat)bottom right:(CGFloat)right;
-///设置文本框外上边距
+///设置文本框外边距
 - (void)settingContainViewConstantForTop:(CGFloat)top left:(CGFloat)left bottom:(CGFloat)bottom right:(CGFloat)right;
-///设置占位文字上边距
-- (void)settingPlaceHolderTConstraint:(CGFloat)constraint;
-///设置占位文字左边距
-- (void)settingPlaceHolderLConstraint:(CGFloat)constraint;
-///设置标题上边距
-- (void)settingTitleLabelTConstraint:(CGFloat)constraint;
-///设置标题左边距
-- (void)settingTitleLabelLConstraint:(CGFloat)constraint;
+///设置占位文字边距
+- (void)settingPlaceHolderConstantForTop:(CGFloat)top left:(CGFloat)left;
+///设置标题边距
+- (void)settingTitleLabelConstantForTop:(CGFloat)top left:(CGFloat)left height:(CGFloat)height;
 @end

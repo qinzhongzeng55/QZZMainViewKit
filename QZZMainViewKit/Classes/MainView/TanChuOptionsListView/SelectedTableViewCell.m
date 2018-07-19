@@ -23,6 +23,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.contentText.contentInset = UIEdgeInsetsMake(7, 0, -7, 0);
     self.moreImageView.image = [UIImage qzz_imagePathWithName:@"gotoOtherView" bundle:@"QZZMainViewKit" targetClass:[self class]];
 }
 

@@ -109,7 +109,7 @@
     self.titleLabel.text = [NSString stringWithFormat:@"%@: ",model.lableTitle];
     if (model.info == nil || [model.info isEqualToString:@""]) {
         if (model.placeHoled == nil || [model.placeHoled isEqualToString:@""]) {
-//            self.contentText.placeholder = @"请填写";
+            //self.contentText.placeholder = @"请填写";
         }else{
             self.contentText.placeholder = model.placeHoled;
         }
@@ -122,6 +122,5 @@
     _isDetail = isDetail;
     self.contentText.enabled = !isDetail;
     self.userInteractionEnabled = !isDetail;
-    
 }
 @end

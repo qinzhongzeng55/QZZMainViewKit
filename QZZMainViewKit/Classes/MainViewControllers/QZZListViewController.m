@@ -13,6 +13,7 @@
 @property (nonatomic, strong) UILabel *titleLabelOfEmptyContentView;
 @property (nonatomic, strong) UILabel *titleLabelOfErrorView;
 @property (nonatomic, strong) UIImageView *bgImgOfEmptyContentView;
+@property (nonatomic, strong) UIImageView *bgImgOfErrorView;
 
 @end
 
@@ -322,22 +323,26 @@
 
 - (void)setupGetErrorView{
     CGFloat y = NAV_HEIGHT;
-    UIView *errorView = [[UIView alloc] initWithFrame:CGRectMake(0,y, Screen_Width, self.tableView.frame.size.height)];
+    UIView *errorView = [[UIView alloc] initWithFrame:CGRectMake(0,y, Screen_Width, Screen_Height-y)];
     errorView.backgroundColor = [UIColor colorWithWhite:255/255.0 alpha:1];
     self.errorView = errorView;
-    UIImageView *img = [[UIImageView alloc] initWithImage:[UIImage qzz_imagePathWithName:@"network_defeated" bundle:@"QZZMainViewKit" targetClass:[self class]]];
-    img.frame  = CGRectMake((Screen_Width - 169)*0.5, (errorView.bounds.size.height - 223-30)*0.5, 169, 223);
+    UIImageView *img = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"home_icon_defeated"]];
+    img.frame  = CGRectMake((Screen_Width - 169)*0.5, (errorView.bounds.size.height - 223-30-38)*0.5, 169, 223);
+    self.bgImgOfErrorView = img;
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(img.frame), Screen_Width, 30)];
     label.text = @"由于网络原因,加载失败";
     self.titleLabelOfErrorView = label;
     label.textAlignment = NSTextAlignmentCenter;
     label.textColor = QZZUIColorWithRGB(102, 102, 102);
     UIButton *refreshBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    refreshBtn.frame = CGRectMake((Screen_Width-120)*0.5, CGRectGetMaxY(label.frame)+20, 120, 38);
-    [refreshBtn setTitleColor:QZZUIColorWithRGB(58,156, 241) forState:UIControlStateNormal];
-    [refreshBtn setImage:[UIImage qzz_imagePathWithName:@"resetLoading" bundle:@"QZZMainViewKit" targetClass:[self class]] forState:UIControlStateNormal];
+    refreshBtn.frame = CGRectMake((Screen_Width-120)*0.5, CGRectGetMaxY(label.frame), 120, 38);
+    refreshBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
+    [refreshBtn setTitleColor:QZZUIColorWithRGB(58, 156, 241) forState:UIControlStateNormal];
+    [refreshBtn setTitle:@"重新加载" forState:UIControlStateNormal];
+    [refreshBtn setImage:[UIImage imageNamed:@"home_btn_loading"] forState:UIControlStateNormal];
     [refreshBtn addTarget:self action:@selector(refreshBtnLoad) forControlEvents:UIControlEventTouchUpInside];
     [errorView addSubview:refreshBtn];
+    self.refreshBtn = refreshBtn;
     [errorView addSubview:img];
     [errorView addSubview:label];
     self.errorView.hidden = YES;
@@ -345,6 +350,22 @@
 }
 - (void)refreshBtnLoad{
     DLog(@"重新加载数据中...");
+}
+///重新布局失败时的页面
+- (void)layoutSubviewsForGetErrorView{
+    
+    CGFloat y = NAV_HEIGHT;
+    self.errorView.frame = CGRectMake(0,y, Screen_Width, Screen_Height-y);
+    self.bgImgOfErrorView.frame = CGRectMake((Screen_Width - 169)*0.5, (self.errorView.frame.size.height - (223+30+38))*0.5, 169, 223);
+    self.titleLabelOfErrorView.frame = CGRectMake(0, CGRectGetMaxY(self.bgImgOfErrorView.frame), Screen_Width, 30);
+    self.refreshBtn.frame = CGRectMake((Screen_Width-120)*0.5, CGRectGetMaxY(self.titleLabelOfErrorView.frame)+10, 120, 38);
+}
+///设置失败时页面的大小
+- (void)settingErrorViewFrame:(CGRect)frame{
+    self.errorView.frame = frame;
+    self.bgImgOfErrorView.frame = CGRectMake((Screen_Width - 169)*0.5, (self.errorView.frame.size.height - (223+30+38))*0.5, 169, 223);
+    self.titleLabelOfErrorView.frame = CGRectMake(0, CGRectGetMaxY(self.bgImgOfErrorView.frame), Screen_Width, 30);
+    self.refreshBtn.frame = CGRectMake((Screen_Width-120)*0.5, CGRectGetMaxY(self.titleLabelOfErrorView.frame)+10, 120, 38);
 }
 #pragma mark - ------添加快捷功能按钮------
 - (void)loadKuaiJieCaoZuoView{

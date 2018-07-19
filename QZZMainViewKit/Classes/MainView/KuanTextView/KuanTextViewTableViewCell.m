@@ -48,58 +48,106 @@
     // Configure the view for the selected state
 }
 
-- (void)setModel:(TableViewCellModel *)model{
-    
-    _model = model;
-    self.titleLabel.text = [NSString stringWithFormat:@"%@",model.lableTitle];
-    if (model.info == nil || [model.info isEqualToString:@""]) {
-        self.placeHudLabel.hidden = NO;
-        self.placeHudLabel.text = model.placeHoled;
-        if (self.color) {
-            self.contentTextView.textColor = self.color;
-        }else{
-            self.contentTextView.textColor = [UIColor blackColor];
-        }
-    }else{
-        self.placeHudLabel.hidden = YES;
-        self.placeHudLabel.text = model.placeHoled;
-        self.contentTextView.text = model.info;
-        self.contentTextView.textColor = [UIColor blackColor];
-    }
-}
 #pragma mark - UITextViewDelegate
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range
+ replacementText:(NSString *)text{
+    UITextRange *selectedRange = [textView markedTextRange];
+    //获取高亮部分
+    UITextPosition *pos = [textView positionFromPosition:selectedRange.start offset:0];
+    //获取高亮部分内容
+    //NSString * selectedtext = [textView textInRange:selectedRange];
     
-    NSInteger lengtn = [textView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length;
-    self.textCurrentLengthLabel.text = [NSString stringWithFormat:@"%ld",(long)lengtn];
-    if (lengtn > 0) {
-        self.textCurrentLengthLabel.textColor = [UIColor colorWithWhite:51/255.0 alpha:1];
-    }else{
-        self.textCurrentLengthLabel.textColor = [UIColor colorWithWhite:199/255.0 alpha:1];
-    }
-    if (self.maxLengtn > 0) {
-        if (lengtn >= self.maxLengtn) {//超过字数限制
+    //如果有高亮且当前字数开始位置小于最大限制时允许输入
+    if (selectedRange && pos) {
+        NSInteger startOffset = [textView offsetFromPosition:textView.beginningOfDocument toPosition:selectedRange.start];
+        NSInteger endOffset = [textView offsetFromPosition:textView.beginningOfDocument toPosition:selectedRange.end];
+        NSRange offsetRange = NSMakeRange(startOffset, endOffset - startOffset);
+        
+        if (offsetRange.location < self.maxLengtn) {
+            return YES;
+        }else{
             return NO;
         }
     }
-    if ([text isEqualToString:@"\n"]) {
-        [textView endEditing:YES];
-        if ([self.delegate respondsToSelector:@selector(endEdittingWithIndexPath:withModel:)]) {
-            [self.delegate endEdittingWithIndexPath:self.key withModel:self.model];
+    
+    
+    NSString *comcatstr = [textView.text stringByReplacingCharactersInRange:range withString:text];
+    
+    NSInteger caninputlen = self.maxLengtn - comcatstr.length;
+    
+    if (caninputlen >= 0){
+        return YES;
+    }else{
+        NSInteger len = text.length + caninputlen;
+        //防止当text.length + caninputlen < 0时，使得rg.length为一个非法最大正数出错
+        NSRange rg = {0,MAX(len,0)};
+        
+        if (rg.length > 0){
+            NSString *s = @"";
+            //判断是否只普通的字符或asc码(对于中文和表情返回NO)
+            BOOL asc = [text canBeConvertedToEncoding:NSASCIIStringEncoding];
+            if (asc) {
+                s = [text substringWithRange:rg];//因为是ascii码直接取就可以了不会错
+            }else{
+                __block NSInteger idx = 0;
+                __block NSString  *trimString = @"";//截取出的字串
+                //使用字符串遍历，这个方法能准确知道每个emoji是占一个unicode还是两个
+                [text enumerateSubstringsInRange:NSMakeRange(0, [text length])
+                                         options:NSStringEnumerationByComposedCharacterSequences
+                                      usingBlock: ^(NSString* substring, NSRange substringRange, NSRange enclosingRange, BOOL* stop) {
+                                          
+                                          if (idx >= rg.length) {
+                                              *stop = YES; //取出所需要就break，提高效率
+                                              return ;
+                                          }
+                                          
+                                          trimString = [trimString stringByAppendingString:substring];
+                                          
+                                          idx++;
+                                      }];
+                
+                s = trimString;
+            }
+            //rang是指从当前光标处进行替换处理(注意如果执行此句后面返回的是YES会触发didchange事件)
+            [textView setText:[textView.text stringByReplacingCharactersInRange:range withString:s]];
+            //既然是超出部分截取了，哪一定是最大限制了。
+            self.textCurrentLengthLabel.text = [NSString stringWithFormat:@"%ld",(long)self.maxLengtn];
         }
         return NO;
     }
-    return YES;
+    
 }
-- (void)textViewDidChange:(UITextView *)textView{
 
+- (void)textViewDidChange:(UITextView *)textView{
+    
+    UITextRange *selectedRange = [textView markedTextRange];
+    //获取高亮部分
+    UITextPosition *pos = [textView positionFromPosition:selectedRange.start offset:0];
+    
+    //如果在变化中是高亮部分在变，就不要计算字符了
+    if (selectedRange && pos) {
+        return;
+    }
+    
+    NSString  *nsTextContent = textView.text;
+    NSInteger existTextNum = nsTextContent.length;
     if (textView.text.length > 0) {
         self.placeHudLabel.hidden = YES;
     }else{
-    
+        
         self.placeHudLabel.hidden = NO;
     }
+    if (existTextNum > self.maxLengtn){
+        //截取到最大位置的字符(由于超出截部分在should时被处理了所在这里这了提高效率不再判断)
+        NSString *s = [nsTextContent substringToIndex:self.maxLengtn];
+        
+        [textView setText:s];
+    }
+    self.textCurrentLengthLabel.text = [NSString stringWithFormat:@"%ld",existTextNum];
+    //不让显示负数 口口日(显示剩余字数)
+    //    self.textCurrentLengthLabel.text = [NSString stringWithFormat:@"%ld",MAX(0,self.maxLengtn - existTextNum)];
 }
+
 - (void)textViewDidBeginEditing:(UITextView *)textView{
 
     self.placeHudLabel.hidden = YES;
@@ -129,6 +177,7 @@
 }
 
 #pragma mark - method
+///设置标题字体及字体颜色
 - (void)settingTitleColor:(UIColor *)color font:(UIFont *)font{
     
     self.titleLabel.textColor = color;
@@ -145,15 +194,6 @@
     self.placeHudLabel.textColor = color;
     self.placeHudLabel.font = font;
 }
-///设置字体大小
-- (void)settingFontSize:(CGFloat)size{
-    self.placeHudLabel.font = [UIFont systemFontOfSize:size];
-    self.textCurrentLengthLabel.font = [UIFont systemFontOfSize:size];
-    self.textMaxLengthLabel.font = [UIFont systemFontOfSize:size];
-    self.contentTextView.font = [UIFont systemFontOfSize:size];
-}
-
-
 ///隐藏字数label
 - (void)hiddenTextLengthLabel:(BOOL)isHidden{
     self.textCurrentLengthLabel.hidden = isHidden;
@@ -186,32 +226,25 @@
     self.contentTextViewBConstraint.constant = bottom;
     self.contentTextViewRConstraint.constant = right;
 }
-///设置文本框外上边距
+///设置文本框外边距
 - (void)settingContainViewConstantForTop:(CGFloat)top left:(CGFloat)left bottom:(CGFloat)bottom right:(CGFloat)right{
     self.containViewTConstraint.constant = top;
     self.containViewLConstraint.constant = left;
     self.containViewBConstraint.constant = bottom;
     self.containViewRConstraint.constant = right;
 }
-//设置占位文字上边距
-- (void)settingPlaceHolderTConstraint:(CGFloat)constraint{
-    self.placeHolderTConstraint.constant = constraint;
+//设置占位文字边距
+- (void)settingPlaceHolderConstantForTop:(CGFloat)top left:(CGFloat)left{
+    self.placeHolderTConstraint.constant = top;
+    self.placeHolderLConstraint.constant = left;
     [self.contentView layoutIfNeeded];
 }
-///设置占位文字左边距
-- (void)settingPlaceHolderLConstraint:(CGFloat)constraint{
-    self.placeHolderLConstraint.constant = constraint;
-    [self.contentView layoutIfNeeded];
-}
-//设置标题上边距
-- (void)settingTitleLabelTConstraint:(CGFloat)constraint{
-    self.titleLabelTConstraint.constant = constraint;
-    [self.contentView layoutIfNeeded];
-}
-///设置标题左边距
-- (void)settingTitleLabelLConstraint:(CGFloat)constraint{
-    self.titleLabelLConstraint.constant = constraint;
-    self.containViewRConstraint.constant = constraint;
+//设置标题边距
+- (void)settingTitleLabelConstantForTop:(CGFloat)top left:(CGFloat)left height:(CGFloat)height{
+    self.titleLabelTConstraint.constant = top;
+    self.titleLabelLConstraint.constant = left;
+    self.containViewRConstraint.constant = left;
+    self.titleLabelHConstraint.constant = height;
     [self.contentView layoutIfNeeded];
 }
 #pragma mark - setter,getter
@@ -219,10 +252,23 @@
     
     _isEditting = isEditting;
     self.contentTextView.editable = isEditting;
-    self.userInteractionEnabled = isEditting;
 }
 - (void)setMaxLengtn:(NSInteger)maxLengtn{
     _maxLengtn = maxLengtn;
     self.textMaxLengthLabel.text = [NSString stringWithFormat:@"/%ld",(long)maxLengtn];
+}
+- (void)setModel:(TableViewCellModel *)model{
+    
+    _model = model;
+    self.titleLabel.text = [NSString stringWithFormat:@"%@",model.lableTitle];
+    if (model.info == nil || [model.info isEqualToString:@""]) {
+        self.placeHudLabel.hidden = NO;
+        self.placeHudLabel.text = model.placeHoled;
+    }else{
+        self.placeHudLabel.hidden = YES;
+        self.placeHudLabel.text = model.placeHoled;
+        self.contentTextView.text = model.info;
+        self.contentTextView.textColor = [UIColor blackColor];
+    }
 }
 @end
