@@ -49,6 +49,7 @@
 		17F033046E658F3BFD0011DCB768CF54 /* MJRefreshBackNormalFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = DFCB30A1881CE7064CA8080907AFC25D /* MJRefreshBackNormalFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1843E6DF520A5EFE9C83C38E18578E42 /* MJRefreshAutoStateFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EE6119BCD2A9582B244645802F0BFDE /* MJRefreshAutoStateFooter.m */; };
 		184AA0B9A5A723F3185AF0F88C2A4F49 /* QZZCategoryKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8946E51372800D048A64741F0B3AAFA5 /* QZZCategoryKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1898453B210053B8009EA3CF /* KuanTextViewAllDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 80C7B3CB0FFA77382793A0EB616A36C9 /* KuanTextViewAllDataCell.m */; };
 		1948CD22602EA8D876D3C6E4D5C81EAA /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7704C04936F268FE82481986B1EC4974 /* ImageIO.framework */; };
 		19967FC5C8C9E99A2AC285F32EBA6768 /* SDImageCacheConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 54EAB01FACA94C8F14EACFC3B9B33D7F /* SDImageCacheConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1B513DAE7E97D226AFD75A886E2CF6D4 /* UIImage+ForceDecode.m in Sources */ = {isa = PBXBuildFile; fileRef = 96145A2CFDC16E11F2C1E4BDD6A6E7B5 /* UIImage+ForceDecode.m */; };
@@ -2655,6 +2656,7 @@
 				2524EC4EF024A6C067A0FA082084CFB5 /* MJRefreshBackStateFooter.m in Sources */,
 				F68EA720B0ED1BF96CEBF07977A1C0A2 /* MJRefreshComponent.m in Sources */,
 				8069223DDD6D0F2E1A87D8E66966709B /* MJRefreshConst.m in Sources */,
+				1898453B210053B8009EA3CF /* KuanTextViewAllDataCell.m in Sources */,
 				3829CBCC3598DB13C2AD3B7383D1F24A /* MJRefreshFooter.m in Sources */,
 				FD31283E2A43955C5BA6FA9008EE8D7C /* MJRefreshGifHeader.m in Sources */,
 				8DC3FC2342EC2E944B3A3E83E2683130 /* MJRefreshHeader.m in Sources */,

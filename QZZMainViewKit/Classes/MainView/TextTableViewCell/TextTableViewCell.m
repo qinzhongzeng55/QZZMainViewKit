@@ -34,6 +34,11 @@
     
     // Configure the view for the selected state
 }
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    CGFloat x = CGRectGetMaxX(self.titleLabel.frame);
+    self.contentText.frame = CGRectMake(x, 0, self.contentView.frame.size.width-x-35, self.contentView.frame.size.height-1);
+}
 #pragma mark - UITextFieldDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
 

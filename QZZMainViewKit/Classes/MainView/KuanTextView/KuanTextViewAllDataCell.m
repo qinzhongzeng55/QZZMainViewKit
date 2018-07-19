@@ -40,6 +40,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.contentTextView.textContainerInset = UIEdgeInsetsMake(0, 0, 0, 0);
     self.contentTextView.delegate = self;
 }
 
@@ -261,7 +262,7 @@
         make.leading.equalTo(weakSelf.contentView).offset(weakSelf.contentContainViewLeft);
             make.trailing.equalTo(weakSelf.contentView).offset(-weakSelf.contentContainViewRight);
         make.top.equalTo(weakSelf.titleLabel.mas_bottom).offset(weakSelf.contentContainViewTop);
-        CGFloat H = size.height+16;
+        CGFloat H = size.height+20;
         make.bottom.equalTo(weakSelf.titleLabel.mas_bottom).offset(weakSelf.contentTextViewTop+H);
     }];
     if (self.textMaxLengthLabel.text.length > 0) {
@@ -279,10 +280,10 @@
             make.trailing.equalTo(weakSelf.textMaxLengthLabel.mas_leading);
         }];
     }
-    [self settingContainView:size];
+    [self settingContainView];
     [self.contentView layoutIfNeeded];
 }
-- (void)settingContainView:(CGSize)size{
+- (void)settingContainView{
     
     [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.leading.trailing.bottom.equalTo(self);

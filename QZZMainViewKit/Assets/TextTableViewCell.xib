@@ -18,8 +18,9 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DOe-WB-Gcq">
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DOe-WB-Gcq">
                         <rect key="frame" x="92" y="0.0" width="198" height="42.5"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <textInputTraits key="textInputTraits"/>
@@ -42,7 +43,7 @@
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NXI-CQ-uPm">
-                        <rect key="frame" x="0.0" y="0.0" width="92" height="42.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="30" height="42.5"/>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0D-Au-aRw">
                         <rect key="frame" x="290" y="0.0" width="30" height="43"/>
@@ -50,22 +51,16 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="7A5-Ii-dLc" firstAttribute="bottom" secondItem="NXI-CQ-uPm" secondAttribute="bottom" id="2p0-eR-dDi"/>
-                    <constraint firstItem="DOe-WB-Gcq" firstAttribute="top" secondItem="7A5-Ii-dLc" secondAttribute="top" id="EH6-T3-pEu"/>
                     <constraint firstItem="7A5-Ii-dLc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="IOl-Ng-one"/>
                     <constraint firstAttribute="trailing" secondItem="pvw-fu-i87" secondAttribute="trailing" id="Md9-8A-XTS"/>
                     <constraint firstItem="NXI-CQ-uPm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="RcK-uI-7vT"/>
                     <constraint firstAttribute="bottom" secondItem="e0D-Au-aRw" secondAttribute="bottom" id="SGo-fL-Y7n"/>
-                    <constraint firstItem="DOe-WB-Gcq" firstAttribute="leading" secondItem="7A5-Ii-dLc" secondAttribute="trailing" id="Ss1-9N-eCv"/>
-                    <constraint firstItem="e0D-Au-aRw" firstAttribute="leading" secondItem="DOe-WB-Gcq" secondAttribute="trailing" id="XEz-ab-ztW"/>
-                    <constraint firstAttribute="trailing" secondItem="DOe-WB-Gcq" secondAttribute="trailing" constant="30" id="Y0P-Xc-XJk"/>
                     <constraint firstItem="pvw-fu-i87" firstAttribute="top" secondItem="7A5-Ii-dLc" secondAttribute="bottom" id="gYF-ZT-uQm"/>
                     <constraint firstAttribute="trailing" secondItem="e0D-Au-aRw" secondAttribute="trailing" id="hMg-Q7-2kv"/>
-                    <constraint firstItem="pvw-fu-i87" firstAttribute="top" secondItem="DOe-WB-Gcq" secondAttribute="bottom" id="hWO-2o-rD6"/>
                     <constraint firstAttribute="bottom" secondItem="pvw-fu-i87" secondAttribute="bottom" id="jSE-8V-sO1"/>
                     <constraint firstItem="7A5-Ii-dLc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="jxa-aM-Pnc"/>
                     <constraint firstItem="pvw-fu-i87" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="pCh-Os-QuS"/>
                     <constraint firstItem="e0D-Au-aRw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="rV5-9G-Fzx"/>
-                    <constraint firstItem="DOe-WB-Gcq" firstAttribute="leading" secondItem="NXI-CQ-uPm" secondAttribute="trailing" id="xXK-un-OSf"/>
                     <constraint firstItem="NXI-CQ-uPm" firstAttribute="top" secondItem="7A5-Ii-dLc" secondAttribute="top" id="zZv-KH-eDu"/>
                 </constraints>
             </tableViewCellContentView>
