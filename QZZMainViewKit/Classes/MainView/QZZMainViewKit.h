@@ -264,6 +264,7 @@ _Pragma("clang diagnostic pop") \
 #import <QZZMainViewKit/DatePickerView.h>
 #import <QZZMainViewKit/GotoOtherViewCell.h>
 #import <QZZMainViewKit/KuanTextViewAllDataCell.h>
+#import <QZZMainViewKit/KuanTextViewTableViewCell.h>
 #import <QZZMainViewKit/MoreSelectedSearchOptionsListView.h>
 #import <QZZMainViewKit/OptionsListView.h>
 #import <QZZMainViewKit/SearchOptionsListView.h>

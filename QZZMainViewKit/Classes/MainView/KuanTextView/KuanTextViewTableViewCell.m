@@ -18,8 +18,14 @@
 @property (weak, nonatomic) IBOutlet UILabel *textMaxLengthLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *lineViewHConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *placeHolderTConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *placeHolderLConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLabelHConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLabelTConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLabelLConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentTextViewBConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentTextViewTConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentTextViewLConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentTextViewRConstraint;
 @end
 @implementation KuanTextViewTableViewCell
 
@@ -190,24 +196,33 @@
 }
 
 #pragma mark - method
-- (void)settingTitleColor:(UIColor *)color{
+///设置标题字体及字体颜色
+- (void)settingTitleColor:(UIColor *)color font:(UIFont *)font;{
     
     self.titleLabel.textColor = color;
+    self.titleLabel.font = font;
 }
-///设置占位文字颜色
-- (void)settingPlaceHolderColor:(UIColor *)color{
+///设置占位文字
+- (void)settingPlaceHolderColor:(UIColor *)color font:(UIFont *)font{
     self.placeHudLabel.textColor = color;
+    self.placeHudLabel.font = font;
+}
+///设置当前字数文本
+- (void)settingCurrentNumLabelColor:(UIColor *)color font:(UIFont *)font{
+    self.textCurrentLengthLabel.textColor = color;
+    self.textCurrentLengthLabel.font = font;
+}
+///设置最大字数文本
+- (void)settingMaxNumLabelColor:(UIColor *)color font:(UIFont *)font{
     self.textMaxLengthLabel.textColor = color;
+    self.textMaxLengthLabel.font = font;
 }
-///设置字体大小
-- (void)settingFontSize:(CGFloat)size{
-    self.placeHudLabel.font = [UIFont systemFontOfSize:size];
-    self.textCurrentLengthLabel.font = [UIFont systemFontOfSize:size];
-    self.textMaxLengthLabel.font = [UIFont systemFontOfSize:size];
-    self.contentTextView.font = [UIFont systemFontOfSize:size];
+///设置内容文字
+- (void)settingContentTextColor:(UIColor *)color font:(UIFont *)font{
+    
+    self.contentTextView.textColor = color;
+    self.contentTextView.font = font;
 }
-
-
 ///隐藏字数label
 - (void)hiddenTextLengthLabel:(BOOL)isHidden{
     self.textCurrentLengthLabel.hidden = isHidden;
@@ -226,12 +241,26 @@
     self.contentTextViewBConstraint.constant = 0;
     [self.contentView layoutIfNeeded];
 }
-- (void)settingContentTextViewBConstraint:(CGFloat)constraint{
-    self.contentTextViewBConstraint.constant = constraint;
+///设置文本框边距
+- (void)settingContentTextViewConstantForTop:(CGFloat)top left:(CGFloat)left bottom:(CGFloat)bottom right:(CGFloat)right{
+    self.contentTextViewTConstraint.constant = top;
+    self.contentTextViewLConstraint.constant = left;
+    self.contentTextViewBConstraint.constant = bottom;
+    self.contentTextViewRConstraint.constant = right;
     [self.contentView layoutIfNeeded];
 }
-- (void)settingPlaceHolderTConstraint:(CGFloat)constraint{
-    self.placeHolderTConstraint.constant = constraint;
+//设置占位文字边距
+- (void)settingPlaceHolderConstantForTop:(CGFloat)top left:(CGFloat)left{
+    self.placeHolderTConstraint.constant = top;
+    self.placeHolderLConstraint.constant = left;
+    [self.contentView layoutIfNeeded];
+}
+//设置标题边距
+- (void)settingTitleLabelConstantForTop:(CGFloat)top left:(CGFloat)left height:(CGFloat)height{
+    self.titleLabelTConstraint.constant = top;
+    self.titleLabelLConstraint.constant = left;
+    self.contentTextViewLConstraint.constant = left;
+    self.titleLabelHConstraint.constant = height;
     [self.contentView layoutIfNeeded];
 }
 #pragma mark - setter,getter
