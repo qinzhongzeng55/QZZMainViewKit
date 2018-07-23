@@ -47,7 +47,11 @@ static NSString *identifier = @"ScrollOptionsCellID";
     }
     self.flowLayout.itemSize = CGSizeMake(W, self.bounds.size.height);
     self.lineContainScrollView.frame = CGRectMake(0, self.bounds.size.height-3, Screen_Width, 2);
-    self.scrollLineView.frame = CGRectMake((W-self.lineWidth)*0.5, 0, self.lineWidth, 2);
+    CGFloat x = W-self.lineWidth;
+    if (x < 0) {
+        x = 0;
+    }
+    self.scrollLineView.frame = CGRectMake(x*0.5, 0, self.lineWidth, 2);
 }
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
@@ -134,7 +138,11 @@ static NSString *identifier = @"ScrollOptionsCellID";
     if (self.lineWidth == 0) {
         self.lineWidth = W;
     }
-    UIView *lineView= [[UIView alloc] initWithFrame:CGRectMake((W-self.lineWidth)*0.5, 0, self.lineWidth, 2)];
+    CGFloat x = W-self.lineWidth;
+    if (x < 0) {
+        x = 0;
+    }
+    UIView *lineView= [[UIView alloc] initWithFrame:CGRectMake(x*0.5, 0, self.lineWidth, 2)];
     lineView.layer.cornerRadius = 1;
     lineView.layer.masksToBounds = YES;
     lineView.backgroundColor = self.lineColor == nil ? QZZUIColorWithRGB(58, 156, 241) : self.lineColor;

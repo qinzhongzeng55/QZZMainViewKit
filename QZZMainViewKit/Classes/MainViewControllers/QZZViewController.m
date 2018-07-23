@@ -11,6 +11,10 @@
 
 @interface QZZViewController ()
 
+@property (nonatomic, strong) UILabel *titleLabelOfEmptyContentView;
+@property (nonatomic, strong) UIImageView *bgImgOfEmptyContentView;
+@property (nonatomic, strong) UILabel *titleLabelOfErrorView;
+@property (nonatomic, strong) UIImageView *bgImgOfErrorView;
 @end
 
 @implementation QZZViewController
@@ -99,7 +103,116 @@
     
     [self.navigationController popViewControllerAnimated:YES];
 }
+#pragma mark - ---设置无数据页面---
+- (void)hiddenEmptyContentView:(BOOL)isHidden{
+    
+    self.EmptyContentView.hidden = isHidden;
+}
+- (void)settingBgImgWithImgNameOfEmptyContentView:(NSString *)imgName{
+    
+    self.bgImgOfEmptyContentView.image = [UIImage imageNamed:imgName];
+}
+- (void)settingTitleOfEmptyContentView:(NSString *)title{
+    
+    self.titleLabelOfEmptyContentView.text = title;
+}
+- (void)settingTitleColorOfEmptyContentView:(UIColor *)color{
+    
+    self.titleLabelOfEmptyContentView.textColor = color;
+}
+- (void)hiddenGotoAddBtn:(BOOL)isHidden{
+    
+    self.gotoAddBtn.hidden = isHidden;
+}
+- (void)setupEmptyContentView{
+    CGFloat y = NAV_HEIGHT;
+    UIView *EmptyContentView = [[UIView alloc] initWithFrame:CGRectMake(0,y, Screen_Width, Screen_Height-y)];
+    EmptyContentView.backgroundColor = QZZUIColorWithWhite(255);
+    self.EmptyContentView = EmptyContentView;
+    UIImageView *img = [[UIImageView alloc] initWithImage:[UIImage qzz_imagePathWithName:@"data_empty" bundle:@"QZZMainViewKit" targetClass:[self class]]];
+    img.frame  = CGRectMake((Screen_Width - 213)*0.5, (EmptyContentView.bounds.size.height - 213-30-58)*0.5, 213, 213);
+    self.bgImgOfEmptyContentView = img;
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(img.frame), Screen_Width, 30)];
+    label.text = @"您还没有客户,快去新建吧";
+    label.textAlignment = NSTextAlignmentCenter;
+    label.textColor = QZZUIColorWithRGB(102, 102, 102);
+    self.titleLabelOfEmptyContentView = label;
+    UIButton *addBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    addBtn.frame = CGRectMake((Screen_Width-120)*0.5, CGRectGetMaxY(label.frame)+20, 120, 38);
+    [addBtn setBackgroundColor:QZZUIColorWithRGB(58,156, 241)];
+    [addBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [addBtn setTitle:@"新建客户" forState:UIControlStateNormal];
+    addBtn.layer.cornerRadius = 5;
+    addBtn.layer.masksToBounds = YES;
+    [addBtn addTarget:self action:@selector(gotoAdd) forControlEvents:UIControlEventTouchUpInside];
+    self.gotoAddBtn = addBtn;
+    [EmptyContentView addSubview:img];
+    [EmptyContentView addSubview:label];
+    [EmptyContentView addSubview:addBtn];
+    self.EmptyContentView.hidden = YES;
+    [self.view addSubview:self.EmptyContentView];
+}
+- (void)gotoAdd{
+    DLog(@"去新建...");
+}
+///重新布局空页面
+- (void)layoutSubviewsForEmptyContentView{
+    self.bgImgOfEmptyContentView.frame = CGRectMake((Screen_Width - 213)*0.5, (self.EmptyContentView.bounds.size.height - 213-30-58)*0.5, 213, 213);
+    self.titleLabelOfEmptyContentView.frame = CGRectMake(0, CGRectGetMaxY(self.bgImgOfEmptyContentView.frame), Screen_Width, 30);
+    self.gotoAddBtn.frame = CGRectMake((Screen_Width-120)*0.5, CGRectGetMaxY(self.titleLabelOfEmptyContentView.frame)+20, 120, 38);
+}
+#pragma mark - 加载失败时的页面
+- (void)hiddenGetError:(BOOL)isHidden{
+    
+    self.errorView.hidden = isHidden;
+}
 
+- (void)setupGetErrorView{
+    CGFloat y = NAV_HEIGHT;
+    UIView *errorView = [[UIView alloc] initWithFrame:CGRectMake(0,y, Screen_Width, Screen_Height-y)];
+    errorView.backgroundColor = [UIColor colorWithWhite:255/255.0 alpha:1];
+    self.errorView = errorView;
+    UIImageView *img = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"home_icon_defeated"]];
+    img.frame  = CGRectMake((Screen_Width - 169)*0.5, (errorView.bounds.size.height - 223-30-38)*0.5, 169, 223);
+    self.bgImgOfErrorView = img;
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(img.frame), Screen_Width, 30)];
+    label.text = @"由于网络原因,加载失败";
+    self.titleLabelOfErrorView = label;
+    label.textAlignment = NSTextAlignmentCenter;
+    label.textColor = QZZUIColorWithRGB(102, 102, 102);
+    UIButton *refreshBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    refreshBtn.frame = CGRectMake((Screen_Width-120)*0.5, CGRectGetMaxY(label.frame), 120, 38);
+    refreshBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
+    [refreshBtn setTitleColor:QZZUIColorWithRGB(58, 156, 241) forState:UIControlStateNormal];
+    [refreshBtn setTitle:@"重新加载" forState:UIControlStateNormal];
+    [refreshBtn setImage:[UIImage imageNamed:@"home_btn_loading"] forState:UIControlStateNormal];
+    [refreshBtn addTarget:self action:@selector(refreshBtnLoad) forControlEvents:UIControlEventTouchUpInside];
+    [errorView addSubview:refreshBtn];
+    self.refreshBtn = refreshBtn;
+    [errorView addSubview:img];
+    [errorView addSubview:label];
+    self.errorView.hidden = YES;
+    [self.view addSubview:self.errorView];
+}
+- (void)refreshBtnLoad{
+    DLog(@"重新加载数据中...");
+}
+///重新布局失败时的页面
+- (void)layoutSubviewsForGetErrorView{
+    
+    CGFloat y = NAV_HEIGHT;
+    self.errorView.frame = CGRectMake(0,y, Screen_Width, Screen_Height-y);
+    self.bgImgOfErrorView.frame = CGRectMake((Screen_Width - 169)*0.5, (self.errorView.frame.size.height - (223+30+38))*0.5, 169, 223);
+    self.titleLabelOfErrorView.frame = CGRectMake(0, CGRectGetMaxY(self.bgImgOfErrorView.frame), Screen_Width, 30);
+    self.refreshBtn.frame = CGRectMake((Screen_Width-120)*0.5, CGRectGetMaxY(self.titleLabelOfErrorView.frame)+10, 120, 38);
+}
+///设置失败时页面的大小
+- (void)settingErrorViewFrame:(CGRect)frame{
+    self.errorView.frame = frame;
+    self.bgImgOfErrorView.frame = CGRectMake((Screen_Width - 169)*0.5, (self.errorView.frame.size.height - (223+30+38))*0.5, 169, 223);
+    self.titleLabelOfErrorView.frame = CGRectMake(0, CGRectGetMaxY(self.bgImgOfErrorView.frame), Screen_Width, 30);
+    self.refreshBtn.frame = CGRectMake((Screen_Width-120)*0.5, CGRectGetMaxY(self.titleLabelOfErrorView.frame)+10, 120, 38);
+}
 #pragma mark - 设置状态栏样式
 - (UIStatusBarStyle)preferredStatusBarStyle{
     

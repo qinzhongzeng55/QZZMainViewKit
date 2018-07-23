@@ -9,7 +9,7 @@ PODS:
   - QZZFunctionalComponentsKit (0.1.1):
     - MJRefresh
     - QZZToolsKit
-  - QZZMainViewKit (0.1.17):
+  - QZZMainViewKit (0.1.20):
     - Masonry
     - QZZFunctionalComponentsKit
     - QZZPublicModel
@@ -52,7 +52,7 @@ SPEC CHECKSUMS:
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
   QZZCategoryKit: d6fd2f7e7a522d325fd8544c8f17df0d01197e37
   QZZFunctionalComponentsKit: 9c738a8742897d6d667aa4dd1b21e3c6543c1f8b
-  QZZMainViewKit: a34aa744eebcbc0db9c8ec10fbb29cbeec873597
+  QZZMainViewKit: e392989af1af3b53f9e7b6c2feeef42f124b2965
   QZZPublicModel: 4186c3dad883ed94b1c3039822558c63bdd22bf2
   QZZToolsKit: a620d9e08b618d86bb1e1a26dfbe82cb0051dbac
   SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5

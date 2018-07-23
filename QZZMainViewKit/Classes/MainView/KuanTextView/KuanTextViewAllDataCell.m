@@ -126,8 +126,9 @@
             //既然是超出部分截取了，哪一定是最大限制了。
             NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
             paragraphStyle.lineSpacing = LineSpacing;// 字体的行间距
+            paragraphStyle.alignment = NSTextAlignmentRight;
             NSDictionary *attributes = @{
-                                         NSFontAttributeName:self.textMaxLengthLabel.font,
+                                         NSFontAttributeName:self.textCurrentLengthLabel.font,
                                          NSParagraphStyleAttributeName:paragraphStyle,
                                          NSKernAttributeName:@(WordsSpacing)//字间距
                                          };
@@ -139,7 +140,9 @@
 }
 
 - (void)textViewDidChange:(UITextView *)textView{
-    
+    if(self.contentTextView.text.length == 1){
+        [self buJuTextView];
+    }
     UITextRange *selectedRange = [textView markedTextRange];
     //获取高亮部分
     UITextPosition *pos = [textView positionFromPosition:selectedRange.start offset:0];
@@ -165,8 +168,9 @@
     }
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.lineSpacing = LineSpacing;// 字体的行间距
+    paragraphStyle.alignment = NSTextAlignmentRight;
     NSDictionary *attributes = @{
-                                 NSFontAttributeName:self.textMaxLengthLabel.font,
+                                 NSFontAttributeName:self.textCurrentLengthLabel.font,
                                  NSParagraphStyleAttributeName:paragraphStyle,
                                  NSKernAttributeName:@(WordsSpacing)//字间距
                                  };
@@ -291,14 +295,14 @@
     CGSize contentTextViewMaxSize = CGSizeMake(Screen_Width-self.contentTextViewLeft*2,DBL_MAX);
     CGSize size = [self boundingALLRectWithSize:self.contentTextView.text Font:contentFont Size:contentTextViewMaxSize];
     __weak typeof(self) weakSelf = self;
-    [self.contentTextView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.contentTextView mas_updateConstraints:^(MASConstraintMaker *make) {
         
         make.trailing.equalTo(weakSelf.contentView).offset(-weakSelf.contentTextViewRight);
         make.leading.equalTo(weakSelf.contentView).offset(weakSelf.contentTextViewLeft);
         make.top.equalTo(weakSelf.titleLabel.mas_bottom).offset(weakSelf.contentTextViewTop);
         make.bottom.equalTo(weakSelf.titleLabel.mas_bottom).offset(weakSelf.contentTextViewTop+size.height);
     }];
-    [self.containView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.containView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(weakSelf.contentView).offset(weakSelf.contentContainViewLeft);
         make.trailing.equalTo(weakSelf.contentView).offset(-weakSelf.contentContainViewRight);
         make.top.equalTo(weakSelf.titleLabel.mas_bottom).offset(weakSelf.contentContainViewTop);
@@ -315,16 +319,21 @@
         UIFont *tiShiLabelFont = self.textMaxLengthLabel.font;
         CGSize tiShiLabelMaxSize = CGSizeMake(Screen_Width-self.contentContainViewLeft*2, DBL_MAX);
         CGSize tiShiLabelSize = [self boundingALLRectWithSize:self.textMaxLengthLabel.text Font:tiShiLabelFont Size:tiShiLabelMaxSize];
-        [self.textMaxLengthLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        [self.textMaxLengthLabel mas_updateConstraints:^(MASConstraintMaker *make) {
             make.trailing.equalTo(weakSelf.containView).offset(-10);
-            make.bottom.equalTo(weakSelf.containView).offset(-10);
+            make.bottom.equalTo(weakSelf.containView).offset(-5);
             make.leading.equalTo(weakSelf.contentView).offset(Screen_Width - tiShiLabelSize.width-self.contentContainViewLeft-10);
         }];
         tiShiLabelSize = [self boundingALLRectWithSize:self.textCurrentLengthLabel.text Font:tiShiLabelFont Size:tiShiLabelMaxSize];
-        [self.textCurrentLengthLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.center.equalTo(weakSelf.textMaxLengthLabel);
-            make.trailing.equalTo(weakSelf.textMaxLengthLabel.mas_leading);
-            make.width.equalTo(@(tiShiLabelSize.width));
+        [self.textCurrentLengthLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+            CGFloat offsetY = -5;
+            if (self.contentTextView.text.length > 0) {
+                offsetY = 0;
+            }
+            make.centerY.equalTo(weakSelf.textMaxLengthLabel.mas_centerY).offset(offsetY);
+            make.trailing.equalTo(weakSelf.textMaxLengthLabel.mas_leading).offset(-6);
+            make.height.equalTo(weakSelf.textMaxLengthLabel);
+            make.width.equalTo(@100);
         }];
     }
     [self settingContainView:size];
@@ -372,6 +381,7 @@
     //textview 改变字体的行间距
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.lineSpacing = LineSpacing;// 字体的行间距
+    paragraphStyle.alignment = NSTextAlignmentLeft;
     NSDictionary *attributes = @{
                                  NSFontAttributeName:self.textMaxLengthLabel.font,
                                  NSParagraphStyleAttributeName:paragraphStyle,
@@ -398,7 +408,16 @@
         self.placeHudLabel.hidden = YES;
         self.placeHudLabel.text = model.placeHoled;
         self.contentTextView.textColor = [UIColor blackColor];
-        self.contentTextView.attributedText = [[NSAttributedString alloc] initWithString:model.info attributes:attributes];
+        self.contentTextView.attributedText = [[NSAttributedString alloc] initWithString:model.info   attributes:attributes];
+        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+        paragraphStyle.lineSpacing = LineSpacing;// 字体的行间距
+        paragraphStyle.alignment = NSTextAlignmentRight;
+        NSDictionary *attributes = @{
+                                     NSFontAttributeName:self.textCurrentLengthLabel.font,
+                                     NSParagraphStyleAttributeName:paragraphStyle,
+                                     NSKernAttributeName:@(WordsSpacing)//字间距
+                                     };
+        self.textCurrentLengthLabel.attributedText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%ld",(long)self.contentTextView.text.length] attributes:attributes];
     }
     [self buJuTextView];
 }

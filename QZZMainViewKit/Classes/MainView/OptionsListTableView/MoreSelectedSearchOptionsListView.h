@@ -11,7 +11,7 @@
 #import "QZZMainViewKit.h"
 
 ///选项选中后执行的block
-typedef void (^OptionMoreSelectedBlock)(NSMutableArray *selectedArray,NSIndexPath *key);
+typedef void (^OptionMoreSelectedBlock)(NSMutableArray *selectedNamesArray,NSMutableArray *selectedValuesArray,NSIndexPath *key);
 
 @interface MoreSelectedSearchOptionsListView : UIView
 
@@ -26,6 +26,9 @@ typedef void (^OptionMoreSelectedBlock)(NSMutableArray *selectedArray,NSIndexPat
 ///搜索结果数据
 @property (nonatomic, strong) NSMutableArray *searchResultArray;
 @property (nonatomic, strong) NSIndexPath *key;
+///方便编辑页面时自动勾选上
+@property (nonatomic, strong) NSMutableArray *selectedValuesArray;
+@property (nonatomic, strong) NSMutableArray *selectedNamesArray;
 
 ///设置头部View的背景颜色
 - (void)settingBackgroundColorOfTopView:(UIColor *)color;

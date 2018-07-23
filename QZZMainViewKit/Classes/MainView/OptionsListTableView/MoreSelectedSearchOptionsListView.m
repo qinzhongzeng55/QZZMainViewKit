@@ -18,7 +18,6 @@
 @property (weak, nonatomic) IBOutlet UIView *topView;
 @property (weak, nonatomic) IBOutlet UIButton *queDingBtn;
 
-@property (nonatomic, strong) NSMutableArray *selectedArray;
 @property (nonatomic, strong) UIImage *normalSelectedBtnImage;
 @property (nonatomic, strong) UIImage *selectedBtnImage;
 @property (nonatomic, assign) CGFloat selectedBtnLeft;
@@ -35,7 +34,8 @@
 - (void)awakeFromNib{
     
     [super awakeFromNib];
-    self.selectedArray = [NSMutableArray array];
+    self.selectedNamesArray = [NSMutableArray array];
+    self.selectedValuesArray = [NSMutableArray array];
     [self.shadeView addTarget:self action:@selector(endEdit) forControlEvents:UIControlEventTouchUpInside];
     //设置圆角
     self.containView.layer.cornerRadius = 3;
@@ -49,10 +49,19 @@
 #pragma mark - MoreSelectedOptionsListCellDelegate
 //选中该选项
 - (void)selectedThisOption:(NSIndexPath *)key{
-    if ([self.selectedArray containsObject:key]) {
-        [self.selectedArray removeObject:key];
+    OptionButtonModel *model = self.dataArray[key.row];
+    if (self.isSearch) {
+        model = self.searchResultArray[key.row];
+    }
+    if ([self.selectedValuesArray containsObject:model.optionValue]) {
+        [self.selectedValuesArray removeObject:model.optionValue];
     }else{
-        [self.selectedArray addObject:key];
+        [self.selectedValuesArray addObject:model.optionValue];
+    }
+    if ([self.selectedNamesArray containsObject:model.optionBtnLabel]) {
+        [self.selectedNamesArray removeObject:model.optionBtnLabel];
+    }else{
+        [self.selectedNamesArray addObject:model.optionBtnLabel];
     }
     [self.tableView reloadData];
 }
@@ -77,6 +86,11 @@
     }
     if (indexPath.row < array.count) {
         OptionButtonModel *model = array[indexPath.row];
+        if ([self.selectedValuesArray containsObject:model.optionValue]) {
+            cell.isSelected = YES;
+        }else{
+            cell.isSelected = NO;
+        }
         cell.model = model;
     }
     if(indexPath.row == self.dataArray.count-1){
@@ -89,7 +103,6 @@
     [cell settingSelectedBtnWidth:(self.selectedBtnWidth == 0 ? 44 : self.selectedBtnWidth)];
     [cell settingContentTextColor:(self.optionsTitleColor == nil ? QZZUIColorWithHexStringNoTransparent(@"#333333") : self.optionsTitleColor) font:(self.optionsTitleFont == nil ? [UIFont systemFontOfSize:17] : self.optionsTitleFont)];
     [cell settingLineViewColor:(self.lineViewColor == nil ? QZZUIColorWithHexStringNoTransparent(@"#EEEEEE") : self.lineViewColor)];
-    cell.isSelected = [self.selectedArray containsObject:indexPath];
     cell.selectedBackgroundView = [UIView new];
     return cell;
 }
@@ -110,8 +123,6 @@
 #pragma mark - 根据关键字搜索
 - (void)searchWithKeyText:(NSString *)text{
     NSString *searchText = allTrim(text);
-    //清空选中的indexPath
-    self.selectedArray = [NSMutableArray array];
     DLog(@"搜索: ->%@",searchText);
     NSMutableArray *tempArray = [NSMutableArray array];
     if (self.dataArray.count <= 0 || [searchText isEqualToString:@""]) {
@@ -153,7 +164,7 @@
 }
 - (IBAction)confrimBtnDidClick:(id)sender {
     if (self.OptionSelectedBlock) {
-        self.OptionSelectedBlock(self.selectedArray,self.key);
+        self.OptionSelectedBlock(self.selectedNamesArray,self.selectedValuesArray,self.key);
     }
     [self removeFromSuperview];
 }
@@ -243,6 +254,10 @@
 - (void)setSearchPlaceholder:(NSString *)searchPlaceholder{
     _searchPlaceholder = searchPlaceholder;
     self.searchBar.placeholder = searchPlaceholder;
+}
+- (void)setSelectedValuesArray:(NSMutableArray *)selectedValuesArray{
+    _selectedValuesArray = selectedValuesArray;
+    [self.tableView reloadData];
 }
 #pragma mark - 设置提示信息
 - (void)settingTiShi:(NSString *)tiShi{
