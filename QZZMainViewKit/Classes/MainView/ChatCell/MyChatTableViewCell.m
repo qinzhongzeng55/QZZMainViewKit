@@ -35,7 +35,7 @@
     [UILabel changeSpace:self.TextLabel withLineSpace:kWebLineSpacing WordSpace:kWebWordsSpacing];
     [self buJuTextView];
 }
-
+#pragma mark - 布局子控件
 - (void)buJuTextView{
     UIFont *contentFont = self.TextLabel.font;
     CGSize contentTextViewMaxSize = CGSizeMake(Screen_Width-114, Screen_Height);
@@ -79,5 +79,14 @@
         }
         make.top.leading.trailing.bottom.equalTo(self);
     }];
+}
+
+#pragma mark - 设置头像
+- (void)settingIconImage:(UIImage *)image{
+    self.iconImageView.image = image;
+}
+#pragma mark - 设置聊天内容背景图片
+- (void)settingChatContentBGImage:(UIImage *)image{
+    self.bgImageView.image = image;
 }
 @end

@@ -13,4 +13,9 @@
 @interface MyChatTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) ChatInfoModel *model;
+
+///设置头像
+- (void)settingIconImage:(UIImage *)image;
+///设置聊天内容背景图片
+- (void)settingChatContentBGImage:(UIImage *)image;
 @end
