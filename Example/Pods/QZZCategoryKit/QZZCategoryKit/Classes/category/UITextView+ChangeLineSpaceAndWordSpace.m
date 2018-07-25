@@ -1,47 +1,46 @@
 //
-//  UILabel+ChangeLineSpaceAndWordSpace.m
-//  
+//  UITextView+ChangeLineSpaceAndWordSpace.m
+//  Pods-QZZCategoryKit_Example
 //
-//  Created by qinzhongzeng on 2017/2/23.
-//  Copyright © 2017年 bejingyimeng. All rights reserved.
+//  Created by 秦忠增 on 2018/7/25.
 //
 
-#import "UILabel+ChangeLineSpaceAndWordSpace.h"
+#import "UITextView+ChangeLineSpaceAndWordSpace.h"
 
-@implementation UILabel (ChangeLineSpaceAndWordSpace)
+@implementation UITextView (ChangeLineSpaceAndWordSpace)
 
-+ (void)changeLineSpace:(UILabel *)label WithSpace:(float)space {
++ (void)changeLineSpace:(UITextView *)textView WithSpace:(float)space {
     
-    NSString *labelText = label.text;
+    NSString *labelText = textView.text;
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:labelText];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     [paragraphStyle setLineSpacing:space];
     [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [labelText length])];
-    label.attributedText = attributedString;
-    [label sizeToFit];
+    textView.attributedText = attributedString;
+    [textView sizeToFit];
     
 }
 
-+ (void)changeWordSpace:(UILabel *)label WithSpace:(float)space {
++ (void)changeWordSpace:(UITextView *)textView WithSpace:(float)space {
     
-    NSString *labelText = label.text;
+    NSString *labelText = textView.text;
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:labelText attributes:@{NSKernAttributeName:@(space)}];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [labelText length])];
-    label.attributedText = attributedString;
-    [label sizeToFit];
+    textView.attributedText = attributedString;
+    [textView sizeToFit];
     
 }
 
-+ (void)changeSpace:(UILabel *)label withLineSpace:(float)lineSpace WordSpace:(float)wordSpace {
++ (void)changeSpace:(UITextView *)textView withLineSpace:(float)lineSpace WordSpace:(float)wordSpace {
     
-    NSString *labelText = label.text;
+    NSString *labelText = textView.text;
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:labelText attributes:@{NSKernAttributeName:@(wordSpace)}];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     [paragraphStyle setLineSpacing:lineSpace];
     [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [labelText length])];
-    label.attributedText = attributedString;
-    [label sizeToFit];
+    textView.attributedText = attributedString;
+    [textView sizeToFit];
     
 }
 

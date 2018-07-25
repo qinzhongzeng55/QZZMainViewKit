@@ -26,9 +26,9 @@ FOUNDATION_EXPORT const unsigned char QZZMainViewKitVersionString[];
 #pragma mark -  ********************  常用宏定义  *******************
 //******************************************************************
 ///文本行间距
-#define LineSpacing 10.f
+#define kWebLineSpacing 10.f
 ///文本字间距
-#define WordsSpacing 0.5f
+#define kWebWordsSpacing 0.5f
 //******************************************************************
 #pragma mark -  ********************  调试打印 *******************
 //******************************************************************
@@ -238,6 +238,7 @@ _Pragma("clang diagnostic pop") \
 #import <QZZCategoryKit/UIButton+Extension.h>
 #import <QZZCategoryKit/UIImage+ImageEffects.h>
 #import <QZZCategoryKit/UILabel+ChangeLineSpaceAndWordSpace.h>
+#import <QZZCategoryKit/UITextView+ChangeLineSpaceAndWordSpace.h>
 #import <QZZCategoryKit/UILabel+Extension.h>
 #import <QZZCategoryKit/UIView+QZZFrame.h>
 
@@ -250,6 +251,7 @@ _Pragma("clang diagnostic pop") \
 #import <QZZToolsKit/QZZWebImage.h>
 #import <QZZToolsKit/QZZHelper.h>
 #import <QZZToolsKit/QZZDBManager.h>
+#import <QZZToolsKit/AutomaticSizeTools.h>
 
 #import <QZZFunctionalComponentsKit/UITableView+XSAnimationKit.h>
 #import <QZZFunctionalComponentsKit/TableViewAnimationKitHeaders.h>

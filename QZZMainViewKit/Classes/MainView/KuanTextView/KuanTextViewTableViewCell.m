@@ -41,21 +41,6 @@
 
     // Configure the view for the selected state
 }
-
-- (void)setModel:(TableViewCellModel *)model{
-    
-    _model = model;
-    self.titleLabel.text = [NSString stringWithFormat:@"%@",model.lableTitle];
-    if (model.info == nil || [model.info isEqualToString:@""]) {
-        self.placeHudLabel.hidden = NO;
-        self.placeHudLabel.text = model.placeHoled;
-    }else{
-        self.placeHudLabel.hidden = YES;
-        self.placeHudLabel.text = model.placeHoled;
-        self.contentTextView.text = model.info;
-        self.contentTextView.textColor = [UIColor blackColor];
-    }
-}
 #pragma mark - UITextViewDelegate
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range
  replacementText:(NSString *)text
@@ -273,5 +258,19 @@
 - (void)setMaxLengtn:(NSInteger)maxLengtn{
     _maxLengtn = maxLengtn;
     self.textMaxLengthLabel.text = [NSString stringWithFormat:@"/%ld",(long)maxLengtn];
+}
+- (void)setModel:(TableViewCellModel *)model{
+    
+    _model = model;
+    self.titleLabel.text = [NSString stringWithFormat:@"%@",model.lableTitle];
+    if (model.info == nil || [model.info isEqualToString:@""]) {
+        self.placeHudLabel.hidden = NO;
+        self.placeHudLabel.text = model.placeHoled;
+    }else{
+        self.placeHudLabel.hidden = YES;
+        self.placeHudLabel.text = model.placeHoled;
+        self.contentTextView.text = model.info;
+        self.contentTextView.textColor = [UIColor blackColor];
+    }
 }
 @end

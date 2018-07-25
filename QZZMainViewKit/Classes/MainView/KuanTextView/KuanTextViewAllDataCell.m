@@ -124,15 +124,8 @@
             //rang是指从当前光标处进行替换处理(注意如果执行此句后面返回的是YES会触发didchange事件)
             [textView setText:[textView.text stringByReplacingCharactersInRange:range withString:s]];
             //既然是超出部分截取了，哪一定是最大限制了。
-            NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-            paragraphStyle.lineSpacing = LineSpacing;// 字体的行间距
-            paragraphStyle.alignment = NSTextAlignmentRight;
-            NSDictionary *attributes = @{
-                                         NSFontAttributeName:self.textCurrentLengthLabel.font,
-                                         NSParagraphStyleAttributeName:paragraphStyle,
-                                         NSKernAttributeName:@(WordsSpacing)//字间距
-                                         };
-            self.textCurrentLengthLabel.attributedText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%ld",(long)self.maxLengtn] attributes:attributes];
+            self.textCurrentLengthLabel.text = [NSString stringWithFormat:@"%ld",(long)self.maxLengtn];
+            [UILabel changeSpace:self.textCurrentLengthLabel withLineSpace:kWebLineSpacing WordSpace:kWebWordsSpacing];
         }
         return NO;
     }
@@ -166,15 +159,8 @@
         
         [textView setText:s];
     }
-    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-    paragraphStyle.lineSpacing = LineSpacing;// 字体的行间距
-    paragraphStyle.alignment = NSTextAlignmentRight;
-    NSDictionary *attributes = @{
-                                 NSFontAttributeName:self.textCurrentLengthLabel.font,
-                                 NSParagraphStyleAttributeName:paragraphStyle,
-                                 NSKernAttributeName:@(WordsSpacing)//字间距
-                                 };
-    self.textCurrentLengthLabel.attributedText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%ld",existTextNum] attributes:attributes];
+    self.textCurrentLengthLabel.text = [NSString stringWithFormat:@"%ld",existTextNum];
+    [UILabel changeSpace:self.textCurrentLengthLabel withLineSpace:kWebLineSpacing WordSpace:kWebWordsSpacing];
     //不让显示负数 口口日(显示剩余字数)
     //    self.textCurrentLengthLabel.text = [NSString stringWithFormat:@"%ld",MAX(0,self.maxLengtn - existTextNum)];
     
@@ -293,7 +279,7 @@
     
     UIFont *contentFont = self.contentTextView.font;
     CGSize contentTextViewMaxSize = CGSizeMake(Screen_Width-self.contentTextViewLeft*2,DBL_MAX);
-    CGSize size = [self boundingALLRectWithSize:self.contentTextView.text Font:contentFont Size:contentTextViewMaxSize];
+    CGSize size = [[AutomaticSizeTools sharedAutomaticSizeTools] boundingALLRectWithSize:self.contentTextView.text Font:contentFont MaxSize:contentTextViewMaxSize LineSpacing:kWebLineSpacing WordsSpacing:kWebWordsSpacing];
     __weak typeof(self) weakSelf = self;
     [self.contentTextView mas_updateConstraints:^(MASConstraintMaker *make) {
         
@@ -318,13 +304,13 @@
         
         UIFont *tiShiLabelFont = self.textMaxLengthLabel.font;
         CGSize tiShiLabelMaxSize = CGSizeMake(Screen_Width-self.contentContainViewLeft*2, DBL_MAX);
-        CGSize tiShiLabelSize = [self boundingALLRectWithSize:self.textMaxLengthLabel.text Font:tiShiLabelFont Size:tiShiLabelMaxSize];
+        CGSize tiShiLabelSize = [[AutomaticSizeTools sharedAutomaticSizeTools] boundingALLRectWithSize:self.textMaxLengthLabel.text Font:tiShiLabelFont MaxSize:tiShiLabelMaxSize LineSpacing:kWebLineSpacing WordsSpacing:kWebWordsSpacing];
         [self.textMaxLengthLabel mas_updateConstraints:^(MASConstraintMaker *make) {
             make.trailing.equalTo(weakSelf.containView).offset(-10);
             make.bottom.equalTo(weakSelf.containView).offset(-5);
             make.leading.equalTo(weakSelf.contentView).offset(Screen_Width - tiShiLabelSize.width-self.contentContainViewLeft-10);
         }];
-        tiShiLabelSize = [self boundingALLRectWithSize:self.textCurrentLengthLabel.text Font:tiShiLabelFont Size:tiShiLabelMaxSize];
+        tiShiLabelSize = [[AutomaticSizeTools sharedAutomaticSizeTools] boundingALLRectWithSize:self.textCurrentLengthLabel.text Font:tiShiLabelFont MaxSize:tiShiLabelMaxSize LineSpacing:kWebLineSpacing WordsSpacing:kWebWordsSpacing];
         [self.textCurrentLengthLabel mas_updateConstraints:^(MASConstraintMaker *make) {
             CGFloat offsetY = -5;
             if (self.contentTextView.text.length > 0) {
@@ -345,25 +331,6 @@
         make.top.leading.trailing.bottom.equalTo(self);
     }];
 }
-- (CGSize)boundingALLRectWithSize:(NSString*)txt Font:(UIFont*) font Size:(CGSize) size{
-    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:txt];
-    NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc]init];
-    [style setLineSpacing:LineSpacing];
-    [attributedString addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, [txt length])];
-    
-    CGSize realSize = CGSizeZero;
-    
-#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_6_1
-    CGRect textRect = [txt boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:font,NSParagraphStyleAttributeName:style,NSKernAttributeName:@(WordsSpacing)} context:nil];
-    realSize = textRect.size;
-#else
-    realSize = [txt sizeWithFont:font constrainedToSize:size];
-#endif
-    
-    realSize.width = ceilf(realSize.width);
-    realSize.height = ceilf(realSize.height);
-    return realSize;
-}
 #pragma mark - 设置textView
 - (void)settingTextView{
     self.contentTextView.textContainerInset = UIEdgeInsetsMake(0, 0, 0, 0);
@@ -378,29 +345,13 @@
 }
 - (void)setMaxLengtn:(NSInteger)maxLengtn{
     _maxLengtn = maxLengtn;
-    //textview 改变字体的行间距
-    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-    paragraphStyle.lineSpacing = LineSpacing;// 字体的行间距
-    paragraphStyle.alignment = NSTextAlignmentLeft;
-    NSDictionary *attributes = @{
-                                 NSFontAttributeName:self.textMaxLengthLabel.font,
-                                 NSParagraphStyleAttributeName:paragraphStyle,
-                                 NSKernAttributeName:@(WordsSpacing)//字间距
-                                 };
-    self.textMaxLengthLabel.attributedText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"/%ld",(long)maxLengtn] attributes:attributes];
+    self.textMaxLengthLabel.text = [NSString stringWithFormat:@"/%ld",(long)maxLengtn];
+    [UILabel changeSpace:self.textMaxLengthLabel withLineSpace:kWebLineSpacing WordSpace:kWebWordsSpacing];
 }
 - (void)setModel:(TableViewCellModel *)model{
     
     _model = model;
     self.titleLabel.text = [NSString stringWithFormat:@"%@",model.lableTitle];
-    //textview 改变字体的行间距
-    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-    paragraphStyle.lineSpacing = LineSpacing;// 字体的行间距
-    NSDictionary *attributes = @{
-                                 NSFontAttributeName:self.contentTextView.font,
-                                 NSParagraphStyleAttributeName:paragraphStyle,
-                                 NSKernAttributeName:@(WordsSpacing)//字间距
-                                 };
     if (model.info == nil || [model.info isEqualToString:@""] || [model.info isEqualToString:@"(null)"]) {
         self.placeHudLabel.hidden = NO;
         self.placeHudLabel.text = model.placeHoled;
@@ -408,16 +359,10 @@
         self.placeHudLabel.hidden = YES;
         self.placeHudLabel.text = model.placeHoled;
         self.contentTextView.textColor = [UIColor blackColor];
-        self.contentTextView.attributedText = [[NSAttributedString alloc] initWithString:model.info   attributes:attributes];
-        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-        paragraphStyle.lineSpacing = LineSpacing;// 字体的行间距
-        paragraphStyle.alignment = NSTextAlignmentRight;
-        NSDictionary *attributes = @{
-                                     NSFontAttributeName:self.textCurrentLengthLabel.font,
-                                     NSParagraphStyleAttributeName:paragraphStyle,
-                                     NSKernAttributeName:@(WordsSpacing)//字间距
-                                     };
-        self.textCurrentLengthLabel.attributedText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%ld",(long)self.contentTextView.text.length] attributes:attributes];
+        self.contentTextView.text = model.info;
+        self.textCurrentLengthLabel.text = [NSString stringWithFormat:@"%ld",(long)self.contentTextView.text.length];
+        [UILabel changeSpace:self.textCurrentLengthLabel withLineSpace:kWebLineSpacing WordSpace:kWebWordsSpacing];
+        [UITextView changeSpace:self.contentTextView withLineSpace:kWebLineSpacing WordSpace:kWebWordsSpacing];
     }
     [self buJuTextView];
 }
