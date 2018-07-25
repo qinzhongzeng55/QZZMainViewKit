@@ -89,4 +89,8 @@
 - (void)settingChatContentBGImage:(UIImage *)image{
     self.bgImageView.image = image;
 }
+#pragma mark - 设置聊天内容字体
+- (void)settingChatContentFont:(UIFont *)font{
+    self.TextLabel.font = font;
+}
 @end

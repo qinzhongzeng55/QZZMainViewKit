@@ -1,6 +1,6 @@
 //
 //  UITextView+ChangeLineSpaceAndWordSpace.h
-//  Pods-QZZCategoryKit_Example
+//  
 //
 //  Created by 秦忠增 on 2018/7/25.
 //
@@ -23,4 +23,9 @@
  *  改变行间距和字间距
  */
 + (void)changeSpace:(UITextView *)textView withLineSpace:(float)lineSpace WordSpace:(float)wordSpace;
+
+/**
+ *  改变字体对齐方式 行间距和字间距
+ */
++ (void)changeSpace:(UITextView *)textView withLineSpace:(float)lineSpace WordSpace:(float)wordSpace textAlignment:(NSTextAlignment)textAlignment;
 @end

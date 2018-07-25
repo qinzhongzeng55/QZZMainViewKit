@@ -25,4 +25,8 @@
  */
 + (void)changeSpace:(UILabel *)label withLineSpace:(float)lineSpace WordSpace:(float)wordSpace;
 
+/**
+ *  改变字体对齐方式 行间距和字间距
+ */
++ (void)changeSpace:(UILabel *)label withLineSpace:(float)lineSpace WordSpace:(float)wordSpace textAlignment:(NSTextAlignment)textAlignment;
 @end

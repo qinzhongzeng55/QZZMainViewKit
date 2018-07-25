@@ -125,7 +125,7 @@
             [textView setText:[textView.text stringByReplacingCharactersInRange:range withString:s]];
             //既然是超出部分截取了，哪一定是最大限制了。
             self.textCurrentLengthLabel.text = [NSString stringWithFormat:@"%ld",(long)self.maxLengtn];
-            [UILabel changeSpace:self.textCurrentLengthLabel withLineSpace:kWebLineSpacing WordSpace:kWebWordsSpacing];
+            [UILabel changeSpace:self.textCurrentLengthLabel withLineSpace:kWebLineSpacing WordSpace:kWebWordsSpacing textAlignment:NSTextAlignmentRight];
         }
         return NO;
     }
@@ -160,7 +160,7 @@
         [textView setText:s];
     }
     self.textCurrentLengthLabel.text = [NSString stringWithFormat:@"%ld",existTextNum];
-    [UILabel changeSpace:self.textCurrentLengthLabel withLineSpace:kWebLineSpacing WordSpace:kWebWordsSpacing];
+    [UILabel changeSpace:self.textCurrentLengthLabel withLineSpace:kWebLineSpacing WordSpace:kWebWordsSpacing textAlignment:NSTextAlignmentRight];
     //不让显示负数 口口日(显示剩余字数)
     //    self.textCurrentLengthLabel.text = [NSString stringWithFormat:@"%ld",MAX(0,self.maxLengtn - existTextNum)];
     
@@ -361,7 +361,7 @@
         self.contentTextView.textColor = [UIColor blackColor];
         self.contentTextView.text = model.info;
         self.textCurrentLengthLabel.text = [NSString stringWithFormat:@"%ld",(long)self.contentTextView.text.length];
-        [UILabel changeSpace:self.textCurrentLengthLabel withLineSpace:kWebLineSpacing WordSpace:kWebWordsSpacing];
+        [UILabel changeSpace:self.textCurrentLengthLabel withLineSpace:kWebLineSpacing WordSpace:kWebWordsSpacing textAlignment:NSTextAlignmentRight];
         [UITextView changeSpace:self.contentTextView withLineSpace:kWebLineSpacing WordSpace:kWebWordsSpacing];
     }
     [self buJuTextView];

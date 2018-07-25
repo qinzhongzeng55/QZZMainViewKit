@@ -14,6 +14,8 @@
 
 @property (nonatomic, strong) ChatInfoModel *model;
 
+///设置聊天内容字体
+- (void)settingChatContentFont:(UIFont *)font;
 ///设置头像
 - (void)settingIconImage:(UIImage *)image;
 ///设置聊天内容背景图片
