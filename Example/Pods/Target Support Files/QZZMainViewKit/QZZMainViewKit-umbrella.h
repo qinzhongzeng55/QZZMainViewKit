@@ -11,6 +11,8 @@
 #endif
 
 #import "QZZAlertView.h"
+#import "MyChatTableViewCell.h"
+#import "OtherChatTableViewCell.h"
 #import "DatePickerView.h"
 #import "GongNengOptionsView.h"
 #import "SelectedOptionsBtnCell.h"

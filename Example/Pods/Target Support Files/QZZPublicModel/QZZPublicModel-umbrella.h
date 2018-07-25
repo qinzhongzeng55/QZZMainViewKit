@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "ChatInfoModel.h"
 #import "OptionButtonModel.h"
 #import "TableViewCellModel.h"
 
