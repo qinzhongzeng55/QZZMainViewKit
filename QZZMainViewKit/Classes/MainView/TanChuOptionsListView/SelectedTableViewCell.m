@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleWContraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleHContraint;
+@property (weak, nonatomic) IBOutlet UIButton *selectedBtn;
 @property (weak, nonatomic) IBOutlet UITextView *contentText;
 @end
 
@@ -86,6 +87,10 @@
     self.contentText.textColor = color;
     self.contentText.font = font;
 }
+#pragma mark - 隐藏选择按钮
+- (void)hiddenSelectedBtn:(BOOL)isHidden{
+    self.selectedBtn.hidden = isHidden;
+}
 #pragma mark - setter,getter
 - (void)setModel:(TableViewCellModel *)model{
     _model = model;
@@ -108,5 +113,6 @@
     
     _isDetail = isDetail;
     self.moreImageView.hidden = isDetail;
+    self.selectedBtn.hidden = isDetail;
 }
 @end

@@ -40,4 +40,6 @@
 - (void)settingTitleColor:(UIColor *)color font:(UIFont *)font;
 ///设置内容的字体
 - (void)settingContentTextColor:(UIColor *)color font:(UIFont *)font;
+///隐藏选择按钮
+- (void)hiddenSelectedBtn:(BOOL)isHidden;
 @end

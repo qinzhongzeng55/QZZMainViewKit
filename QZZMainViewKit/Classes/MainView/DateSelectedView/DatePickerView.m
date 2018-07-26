@@ -56,8 +56,9 @@
     self.datePicker.maximumDate = maxDate;
 }
 #pragma mark - 设置标题
-- (void)settingTitle:(NSString *)title{
+- (void)settingTitle:(NSString *)title font:(UIFont *)font{
     self.TitleLabel.text = title;
+    self.TitleLabel.font = font;
 }
 #pragma mark - 设置头部View的背景颜色
 - (void)settingBackgroundColorOfTopView:(UIColor *)color{
@@ -68,8 +69,9 @@
     self.topImageView.image = image;
 }
 #pragma mark - 设置选择按钮的背景颜色
-- (void)settingBackgroundColorOfQueDingBtn:(UIColor *)color{
+- (void)settingQueDingBtnTextColor:(UIColor *)color font:(UIFont *)font{
     self.selectedBtn.backgroundColor = color;
+    self.selectedBtn.titleLabel.font = font;
 }
 #pragma mark - 设置选择按钮的背景图片
 - (void)settingBackgroundImageOfQueDingBtn:(UIImage *)image{

@@ -57,15 +57,24 @@
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qW8-3V-SVs">
                         <rect key="frame" x="290" y="0.0" width="30" height="52.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="WEr-4Z-iNF"/>
+                        </constraints>
                         <connections>
                             <action selector="selectedBtnDidClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Ety-JE-7il"/>
                         </connections>
                     </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehP-1Q-V1F">
+                        <rect key="frame" x="124" y="0.0" width="166" height="51"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="qW8-3V-SVs" secondAttribute="trailing" id="7q8-Nw-iFv"/>
+                    <constraint firstItem="qW8-3V-SVs" firstAttribute="leading" secondItem="ehP-1Q-V1F" secondAttribute="trailing" id="KKQ-gu-heq"/>
                     <constraint firstItem="sXn-QR-oHh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="LlL-UY-eSa"/>
                     <constraint firstItem="sZV-KT-bbz" firstAttribute="top" secondItem="rcq-86-cBb" secondAttribute="top" id="QFU-lS-YnC"/>
+                    <constraint firstItem="ehP-1Q-V1F" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Qjg-8i-hwS"/>
+                    <constraint firstItem="hQu-Ed-rLD" firstAttribute="top" secondItem="ehP-1Q-V1F" secondAttribute="bottom" id="Rzd-lh-BJA"/>
                     <constraint firstAttribute="bottom" secondItem="hQu-Ed-rLD" secondAttribute="bottom" id="SO5-2X-OZz"/>
                     <constraint firstItem="qW8-3V-SVs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Sdf-v4-3Rk"/>
                     <constraint firstItem="hQu-Ed-rLD" firstAttribute="top" secondItem="sZV-KT-bbz" secondAttribute="bottom" id="UAj-98-7iz"/>
@@ -78,6 +87,7 @@
                     <constraint firstItem="hQu-Ed-rLD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ifw-LR-sFS"/>
                     <constraint firstAttribute="trailing" secondItem="sZV-KT-bbz" secondAttribute="trailing" constant="30" id="ird-bS-BkO"/>
                     <constraint firstItem="sZV-KT-bbz" firstAttribute="leading" secondItem="sXn-QR-oHh" secondAttribute="trailing" id="jAr-nj-fqW"/>
+                    <constraint firstItem="ehP-1Q-V1F" firstAttribute="leading" secondItem="rcq-86-cBb" secondAttribute="trailing" id="rNH-ta-d2j"/>
                     <constraint firstItem="rcq-86-cBb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="sPB-pm-KAa"/>
                     <constraint firstItem="rcq-86-cBb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="sw0-WF-PQ4"/>
                     <constraint firstItem="sZV-KT-bbz" firstAttribute="leading" secondItem="rcq-86-cBb" secondAttribute="trailing" id="tOv-nd-ewf"/>
@@ -88,6 +98,7 @@
                 <outlet property="contentText" destination="sZV-KT-bbz" id="ia3-1T-cYx"/>
                 <outlet property="lineView" destination="hQu-Ed-rLD" id="F8g-eL-KQc"/>
                 <outlet property="moreImageView" destination="SWg-Kz-kbH" id="a6k-7O-fdL"/>
+                <outlet property="selectedBtn" destination="ehP-1Q-V1F" id="TM3-Rg-OeM"/>
                 <outlet property="titleHContraint" destination="AZC-n6-5Fh" id="BUJ-S0-E9d"/>
                 <outlet property="titleLConstraint" destination="sw0-WF-PQ4" id="VKe-t0-rPf"/>
                 <outlet property="titleLabel" destination="rcq-86-cBb" id="hEa-Vh-say"/>

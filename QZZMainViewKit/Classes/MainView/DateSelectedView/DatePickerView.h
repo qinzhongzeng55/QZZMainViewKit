@@ -21,13 +21,13 @@ typedef void (^selectedDateBlock)(NSDate *selectedDate);
 ///设置日期选择器的最大时间
 - (void)settingMaxDate:(NSDate *)maxDate;
 ///设置标题
-- (void)settingTitle:(NSString *)title;
+- (void)settingTitle:(NSString *)title font:(UIFont *)font;
 ///设置头部lineView的背景颜色
 - (void)settingBackgroundColorOfTopView:(UIColor *)color;
 ///设置头部图片
 - (void)settingTopImageView:(UIImage *)image;
 ///设置确定按钮的字体颜色
-- (void)settingBackgroundColorOfQueDingBtn:(UIColor *)color;
+- (void)settingQueDingBtnTextColor:(UIColor *)color font:(UIFont *)font;
 ///设置选择按钮的背景图片
 - (void)settingBackgroundImageOfQueDingBtn:(UIImage *)image;
 @end
