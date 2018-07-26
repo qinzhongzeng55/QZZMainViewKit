@@ -12,7 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UIView *lineView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UIButton *selectedBtn;
 @property (weak, nonatomic) IBOutlet UIImageView *moreImageView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleWContraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLConstraint;
@@ -109,6 +108,5 @@
     
     _isDetail = isDetail;
     self.moreImageView.hidden = isDetail;
-    self.selectedBtn.hidden = isDetail;
 }
 @end

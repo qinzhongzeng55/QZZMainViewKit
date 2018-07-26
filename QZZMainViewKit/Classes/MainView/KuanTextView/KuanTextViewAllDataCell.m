@@ -280,6 +280,15 @@
     UIFont *contentFont = self.contentTextView.font;
     CGSize contentTextViewMaxSize = CGSizeMake(Screen_Width-self.contentTextViewLeft*2,DBL_MAX);
     CGSize size = [[AutomaticSizeTools sharedAutomaticSizeTools] boundingALLRectWithSize:self.contentTextView.text Font:contentFont MaxSize:contentTextViewMaxSize LineSpacing:kWebLineSpacing WordsSpacing:kWebWordsSpacing];
+    //当内容为一行时
+    UIFontDescriptor *ctfFont = contentFont.fontDescriptor;
+    NSNumber *fontString = [ctfFont objectForKey:@"NSFontSizeAttribute"];
+    if (size.height <= ([fontString integerValue]+kWebLineSpacing+8)) {
+        size = CGSizeMake(size.width, size.height - kWebLineSpacing);
+        [UITextView changeSpace:self.contentTextView withLineSpace:0 WordSpace:kWebWordsSpacing];
+    }else{
+        [UITextView changeSpace:self.contentTextView withLineSpace:kWebLineSpacing WordSpace:kWebWordsSpacing];
+    }
     __weak typeof(self) weakSelf = self;
     [self.contentTextView mas_updateConstraints:^(MASConstraintMaker *make) {
         
@@ -312,7 +321,7 @@
         }];
         tiShiLabelSize = [[AutomaticSizeTools sharedAutomaticSizeTools] boundingALLRectWithSize:self.textCurrentLengthLabel.text Font:tiShiLabelFont MaxSize:tiShiLabelMaxSize LineSpacing:kWebLineSpacing WordsSpacing:kWebWordsSpacing];
         [self.textCurrentLengthLabel mas_updateConstraints:^(MASConstraintMaker *make) {
-            CGFloat offsetY = -5;
+            CGFloat offsetY = -kWebLineSpacing*0.5;
             if (self.contentTextView.text.length > 0) {
                 offsetY = 0;
             }
