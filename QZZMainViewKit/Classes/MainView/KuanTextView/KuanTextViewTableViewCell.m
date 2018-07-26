@@ -43,8 +43,7 @@
 }
 #pragma mark - UITextViewDelegate
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range
- replacementText:(NSString *)text
-{
+ replacementText:(NSString *)text{
     UITextRange *selectedRange = [textView markedTextRange];
     //获取高亮部分
     UITextPosition *pos = [textView positionFromPosition:selectedRange.start offset:0];
@@ -120,8 +119,7 @@
     
 }
 
-- (void)textViewDidChange:(UITextView *)textView
-{
+- (void)textViewDidChange:(UITextView *)textView{
     
     UITextRange *selectedRange = [textView markedTextRange];
     //获取高亮部分
@@ -263,7 +261,7 @@
     
     _model = model;
     self.titleLabel.text = [NSString stringWithFormat:@"%@",model.lableTitle];
-    if (model.info == nil || [model.info isEqualToString:@""]) {
+    if ([QZZVerificationTools isEmptyString:model.info]) {
         self.placeHudLabel.hidden = NO;
         self.placeHudLabel.text = model.placeHoled;
     }else{

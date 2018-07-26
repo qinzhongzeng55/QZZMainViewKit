@@ -361,7 +361,7 @@
     
     _model = model;
     self.titleLabel.text = [NSString stringWithFormat:@"%@",model.lableTitle];
-    if (model.info == nil || [model.info isEqualToString:@""] || [model.info isEqualToString:@"(null)"]) {
+    if ([QZZVerificationTools isEmptyString:model.info]) {
         self.placeHudLabel.hidden = NO;
         self.placeHudLabel.text = model.placeHoled;
     }else{

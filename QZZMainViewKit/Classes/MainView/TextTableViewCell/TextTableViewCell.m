@@ -54,22 +54,16 @@
 
 - (void)textViewDidChange:(UITextView *)textView{
     
-    if (textView.text.length == 0) {
-        self.contentText.text = @"";
-    }
 }
 
 - (void)textViewDidBeginEditing:(UITextView *)textView{
     if ([QZZVerificationTools isEmptyString:self.model.info]) {
-        
         self.contentText.text = @"";
     }
 }
 
 - (void)textViewDidEndEditing:(UITextView *)textView{
-    if ([self.contentText.text isEqualToString:@""] || self.contentText.text == nil) {
-        return;
-    }
+    
     self.model.info = self.contentText.text;
     self.contentText.textColor = [UIColor blackColor];
     [self.contentText resignFirstResponder];
@@ -125,13 +119,13 @@
     
     _model = model;
     self.titleLabel.text = [NSString stringWithFormat:@"%@: ",model.lableTitle];
-    if (model.info == nil || [model.info isEqualToString:@""]) {
-        if (model.placeHoled == nil || [model.placeHoled isEqualToString:@""]) {
+    if ([QZZVerificationTools isEmptyString:model.info]) {
+        if ([QZZVerificationTools isEmptyString:model.placeHoled]) {
             //self.contentText.placeholder = @"请填写";
         }else{
             self.contentText.text = model.placeHoled;
         }
-        self.contentText.textColor = [UIColor colorWithWhite:200/255.0 alpha:1];
+        self.contentText.textColor = [UIColor colorWithWhite:191/255.0 alpha:1];
     }else{
         self.contentText.text = model.info;
         self.contentText.textColor = [UIColor colorWithWhite:102/255.0 alpha:1];

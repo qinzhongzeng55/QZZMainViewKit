@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <QZZPublicModel/TableViewCellModel.h>
-#import <QZZCategoryKit/UIImage+Extension.h>
+#import "QZZMainViewKit.h"
 
 @protocol SelectedTableViewCellDelegate <NSObject>
 

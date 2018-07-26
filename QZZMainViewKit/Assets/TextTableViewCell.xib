@@ -39,7 +39,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="92" height="42.5"/>
                     </button>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xQv-XQ-Gng">
-                        <rect key="frame" x="92" y="0.0" width="216" height="43.5"/>
+                        <rect key="frame" x="92" y="0.0" width="216" height="42.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -52,7 +52,7 @@
                     <constraint firstItem="7A5-Ii-dLc" firstAttribute="bottom" secondItem="NXI-CQ-uPm" secondAttribute="bottom" id="2p0-eR-dDi"/>
                     <constraint firstItem="Nlb-4n-1K4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="D4h-2Y-ELI"/>
                     <constraint firstAttribute="trailing" secondItem="Nlb-4n-1K4" secondAttribute="trailing" id="Gcq-Z6-hQ9"/>
-                    <constraint firstItem="pvw-fu-i87" firstAttribute="bottom" secondItem="xQv-XQ-Gng" secondAttribute="bottom" id="I04-F0-Q9E"/>
+                    <constraint firstItem="pvw-fu-i87" firstAttribute="top" secondItem="xQv-XQ-Gng" secondAttribute="bottom" id="I04-F0-Q9E"/>
                     <constraint firstItem="7A5-Ii-dLc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="IOl-Ng-one"/>
                     <constraint firstItem="xQv-XQ-Gng" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Jc7-bk-Tqf"/>
                     <constraint firstItem="xQv-XQ-Gng" firstAttribute="leading" secondItem="7A5-Ii-dLc" secondAttribute="trailing" id="MOc-h3-i9G"/>

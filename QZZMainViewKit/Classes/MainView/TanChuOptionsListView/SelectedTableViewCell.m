@@ -95,9 +95,8 @@
 - (void)setModel:(TableViewCellModel *)model{
     _model = model;
     self.titleLabel.text = [NSString stringWithFormat:@"%@:  ",model.lableTitle];
-    if (model.info == nil || [model.info isEqualToString:@""] || [model.info isKindOfClass:[NSNull class]]) {
-        
-        if (model.placeHoled == nil || [model.placeHoled isEqualToString:@""]) {
+    if ([QZZVerificationTools isEmptyString:model.info]) {
+        if ([QZZVerificationTools isEmptyString:model.placeHoled]) {
             //self.contentText.text = @"请选择";
         }else{
             self.contentText.text = model.placeHoled;
