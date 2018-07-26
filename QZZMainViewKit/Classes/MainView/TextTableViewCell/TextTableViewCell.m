@@ -1,6 +1,6 @@
 //
 //  TextTableViewCell.m
-//  
+//
 //
 //  Created by qinzhongzeng on 16/7/29.
 //  Copyright © 2016年 bejingyimeng. All rights reserved.
@@ -8,10 +8,10 @@
 
 #import "TextTableViewCell.h"
 
-@interface TextTableViewCell ()<UITextFieldDelegate>
+@interface TextTableViewCell ()<UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UITextField *contentText;
+@property (weak, nonatomic) IBOutlet UITextView *contentText;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *lineLConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleWConstraint;
@@ -24,9 +24,6 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.contentText.delegate = self;
-    [self.contentText addTarget:self action:@selector(getModelinfo:) forControlEvents:UIControlEventEditingDidEnd];
-    [self.contentText addTarget:self action:@selector(resignResponder) forControlEvents:UIControlEventEditingDidEndOnExit];
-    [self.contentText addTarget:self action:@selector(beginEditingContent) forControlEvents:UIControlEventEditingDidBegin];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -34,34 +31,51 @@
     
     // Configure the view for the selected state
 }
-#pragma mark - UITextFieldDelegate
-- (BOOL)textFieldShouldReturn:(UITextField *)textField{
-
-    [textField endEditing:YES];
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    UIFontDescriptor *ctfFont = self.contentText.font.fontDescriptor;
+    NSNumber *fontString = [ctfFont objectForKey:@"NSFontSizeAttribute"];
+    CGFloat margin = (self.contentView.frame.size.height - [fontString integerValue]-20)*0.5;
+    if ([fontString integerValue] > 17) {
+        self.contentText.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    }else{
+        self.contentText.contentInset = UIEdgeInsetsMake(margin, 0, -margin, 0);
+    }
+}
+#pragma mark - UITextViewDelegate
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range
+ replacementText:(NSString *)text{
+    if ([text isEqualToString:@"\n"]) {
+        [self endEditing:YES];
+        self.contentText.text = [textView.text stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    }
     return YES;
 }
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
 
-    return YES;
-}
-
-- (void)beginEditingContent{
+- (void)textViewDidChange:(UITextView *)textView{
     
-    
-}
-
--(void)getModelinfo:(UITextField *)textField
-{
-    self.model.info = self.contentText.text;
-    if([self.delegate respondsToSelector:@selector(endEdittingWithModel:key:)]){
-        
-        [self.delegate endEdittingWithModel:self.model key:self.key];
+    if (textView.text.length == 0) {
+        self.contentText.text = @"";
     }
 }
 
-- (void)resignResponder{
-    
+- (void)textViewDidBeginEditing:(UITextView *)textView{
+    if ([QZZVerificationTools isEmptyString:self.model.info]) {
+        
+        self.contentText.text = @"";
+    }
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView{
+    if ([self.contentText.text isEqualToString:@""] || self.contentText.text == nil) {
+        return;
+    }
+    self.model.info = self.contentText.text;
+    self.contentText.textColor = [UIColor blackColor];
     [self.contentText resignFirstResponder];
+    if ([self.delegate respondsToSelector:@selector(endEdittingWithModel:key:)]) {
+        [self.delegate endEdittingWithModel:self.model key:self.key];
+    }
 }
 #pragma mark - method
 #pragma mark - 设置键盘类型
@@ -115,16 +129,18 @@
         if (model.placeHoled == nil || [model.placeHoled isEqualToString:@""]) {
             //self.contentText.placeholder = @"请填写";
         }else{
-            self.contentText.placeholder = model.placeHoled;
+            self.contentText.text = model.placeHoled;
         }
+        self.contentText.textColor = [UIColor colorWithWhite:200/255.0 alpha:1];
     }else{
         self.contentText.text = model.info;
+        self.contentText.textColor = [UIColor colorWithWhite:102/255.0 alpha:1];
     }
 }
 - (void)setIsDetail:(BOOL)isDetail{
     
     _isDetail = isDetail;
-    self.contentText.enabled = !isDetail;
+    self.contentText.editable = !isDetail;
     self.userInteractionEnabled = !isDetail;
 }
 @end

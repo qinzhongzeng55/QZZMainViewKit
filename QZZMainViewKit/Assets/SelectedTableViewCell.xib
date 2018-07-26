@@ -66,6 +66,9 @@
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehP-1Q-V1F">
                         <rect key="frame" x="124" y="0.0" width="166" height="51"/>
+                        <connections>
+                            <action selector="selectedBtnDidClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="hpV-gy-2AY"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>

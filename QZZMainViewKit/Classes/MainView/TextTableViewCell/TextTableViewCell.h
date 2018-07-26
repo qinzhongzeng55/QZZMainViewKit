@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <QZZPublicModel/TableViewCellModel.h>
+#import "QZZMainViewKit.h"
 
 @protocol TextTableViewCellDelegate <NSObject>
 

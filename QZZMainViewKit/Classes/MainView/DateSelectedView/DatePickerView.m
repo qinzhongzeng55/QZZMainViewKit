@@ -69,8 +69,12 @@
     self.topImageView.image = image;
 }
 #pragma mark - 设置选择按钮的背景颜色
-- (void)settingQueDingBtnTextColor:(UIColor *)color font:(UIFont *)font{
+- (void)settingBackgroundColorOfQueDingBtn:(UIColor *)color{
     self.selectedBtn.backgroundColor = color;
+}
+#pragma mark - 设置选择按钮的字体及颜色
+- (void)settingQueDingBtnTextColor:(UIColor *)color font:(UIFont *)font{
+    self.selectedBtn.titleLabel.textColor = color;
     self.selectedBtn.titleLabel.font = font;
 }
 #pragma mark - 设置选择按钮的背景图片

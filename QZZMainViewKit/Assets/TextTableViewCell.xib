@@ -28,12 +28,6 @@
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DOe-WB-Gcq">
-                        <rect key="frame" x="92" y="0.0" width="193" height="42.5"/>
-                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <textInputTraits key="textInputTraits"/>
-                    </textField>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pvw-fu-i87">
                         <rect key="frame" x="0.0" y="42.5" width="320" height="1"/>
                         <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -42,36 +36,34 @@
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NXI-CQ-uPm">
-                        <rect key="frame" x="0.0" y="0.0" width="30" height="42.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="92" height="42.5"/>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0D-Au-aRw">
-                        <rect key="frame" x="285" y="0.0" width="35" height="43"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="35" id="P9z-eB-gWf"/>
-                        </constraints>
-                    </button>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xQv-XQ-Gng">
+                        <rect key="frame" x="92" y="0.0" width="228" height="43.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="7A5-Ii-dLc" firstAttribute="bottom" secondItem="NXI-CQ-uPm" secondAttribute="bottom" id="2p0-eR-dDi"/>
-                    <constraint firstItem="DOe-WB-Gcq" firstAttribute="top" secondItem="7A5-Ii-dLc" secondAttribute="top" id="8kf-5z-OYE"/>
+                    <constraint firstAttribute="bottom" secondItem="xQv-XQ-Gng" secondAttribute="bottom" id="I04-F0-Q9E"/>
                     <constraint firstItem="7A5-Ii-dLc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="IOl-Ng-one"/>
+                    <constraint firstItem="xQv-XQ-Gng" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Jc7-bk-Tqf"/>
+                    <constraint firstItem="xQv-XQ-Gng" firstAttribute="leading" secondItem="7A5-Ii-dLc" secondAttribute="trailing" id="MOc-h3-i9G"/>
                     <constraint firstAttribute="trailing" secondItem="pvw-fu-i87" secondAttribute="trailing" id="Md9-8A-XTS"/>
                     <constraint firstItem="NXI-CQ-uPm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="RcK-uI-7vT"/>
-                    <constraint firstAttribute="bottom" secondItem="e0D-Au-aRw" secondAttribute="bottom" id="SGo-fL-Y7n"/>
-                    <constraint firstItem="e0D-Au-aRw" firstAttribute="leading" secondItem="DOe-WB-Gcq" secondAttribute="trailing" id="WxD-L6-Q9F"/>
-                    <constraint firstItem="DOe-WB-Gcq" firstAttribute="leading" secondItem="7A5-Ii-dLc" secondAttribute="trailing" id="XkG-Oi-B1i"/>
                     <constraint firstItem="pvw-fu-i87" firstAttribute="top" secondItem="7A5-Ii-dLc" secondAttribute="bottom" id="gYF-ZT-uQm"/>
-                    <constraint firstAttribute="trailing" secondItem="e0D-Au-aRw" secondAttribute="trailing" id="hMg-Q7-2kv"/>
+                    <constraint firstAttribute="trailing" secondItem="xQv-XQ-Gng" secondAttribute="trailing" id="hO6-kj-io1"/>
                     <constraint firstAttribute="bottom" secondItem="pvw-fu-i87" secondAttribute="bottom" id="jSE-8V-sO1"/>
                     <constraint firstItem="7A5-Ii-dLc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="jxa-aM-Pnc"/>
                     <constraint firstItem="pvw-fu-i87" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="pCh-Os-QuS"/>
-                    <constraint firstItem="e0D-Au-aRw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="rV5-9G-Fzx"/>
-                    <constraint firstItem="DOe-WB-Gcq" firstAttribute="bottom" secondItem="7A5-Ii-dLc" secondAttribute="bottom" id="wDt-ZT-9MV"/>
+                    <constraint firstItem="7A5-Ii-dLc" firstAttribute="trailing" secondItem="NXI-CQ-uPm" secondAttribute="trailing" id="tBC-HY-x5d"/>
                     <constraint firstItem="NXI-CQ-uPm" firstAttribute="top" secondItem="7A5-Ii-dLc" secondAttribute="top" id="zZv-KH-eDu"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="contentText" destination="DOe-WB-Gcq" id="f9x-Ts-b9k"/>
+                <outlet property="contentText" destination="xQv-XQ-Gng" id="CFG-Xu-Ku0"/>
                 <outlet property="lineLConstraint" destination="pCh-Os-QuS" id="p5l-3s-CiU"/>
                 <outlet property="lineView" destination="pvw-fu-i87" id="Q6O-2X-bB6"/>
                 <outlet property="titleHContraint" destination="jS0-eM-9OX" id="CZf-wc-zMX"/>
