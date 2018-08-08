@@ -51,8 +51,8 @@
             
             UIButton *cancleButton = (UIButton *)obj;
             [cancleButton setTitle:@"取消" forState:UIControlStateNormal];
-            //            [cancleButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-            //            [cancleButton setTitleColor:[UIColor blueColor] forState:UIControlStateHighlighted];
+            //[cancleButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            //[cancleButton setTitleColor:[UIColor blueColor] forState:UIControlStateHighlighted];
             
         }
     }

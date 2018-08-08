@@ -36,7 +36,7 @@
     UIFontDescriptor *ctfFont = self.contentText.font.fontDescriptor;
     NSNumber *fontString = [ctfFont objectForKey:@"NSFontSizeAttribute"];
     CGFloat margin = (self.contentView.frame.size.height - [fontString integerValue]-20)*0.5;
-    if ([fontString integerValue] > 17) {
+    if ([fontString integerValue] > 22) {
         self.contentText.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
     }else{
         self.contentText.contentInset = UIEdgeInsetsMake(margin, 0, -margin, 0);
