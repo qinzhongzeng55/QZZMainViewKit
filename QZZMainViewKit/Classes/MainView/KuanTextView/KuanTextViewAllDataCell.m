@@ -126,7 +126,11 @@
             [textView setText:[textView.text stringByReplacingCharactersInRange:range withString:s]];
             //既然是超出部分截取了，哪一定是最大限制了。
             self.textCurrentLengthLabel.text = [NSString stringWithFormat:@"%ld",(long)self.maxLengtn];
-            [UILabel changeSpace:self.textCurrentLengthLabel withLineSpace:kWebLineSpacing WordSpace:kWebWordsSpacing textAlignment:NSTextAlignmentRight];
+            CGSize tiShiLabelMaxSize = CGSizeMake(Screen_Width-self.contentContainViewLeft*2, DBL_MAX);
+            CGSize size = [[AutomaticSizeTools sharedAutomaticSizeTools] calculateSizeForLabel:self.textCurrentLengthLabel MaxWidth:tiShiLabelMaxSize.width LineSpacing:kWebLineSpacing WordsSpacing:kWebWordsSpacing textAlignment:NSTextAlignmentRight];
+            [self.textCurrentLengthLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.width.equalTo(@(size.width));
+            }];
         }
         return NO;
     }
@@ -160,10 +164,17 @@
         
         [textView setText:s];
     }
-    self.textCurrentLengthLabel.text = [NSString stringWithFormat:@"%ld",existTextNum];
-    [UILabel changeSpace:self.textCurrentLengthLabel withLineSpace:kWebLineSpacing WordSpace:kWebWordsSpacing textAlignment:NSTextAlignmentRight];
-    //不让显示负数 口口日(显示剩余字数)
-    //    self.textCurrentLengthLabel.text = [NSString stringWithFormat:@"%ld",MAX(0,self.maxLengtn - existTextNum)];
+    if (self.isShowAllowance) {
+        //不让显示负数 口口日(显示剩余字数)
+        self.textCurrentLengthLabel.text = [NSString stringWithFormat:@"%ld",MAX(0,self.maxLengtn - existTextNum)];
+    }else{
+        self.textCurrentLengthLabel.text = [NSString stringWithFormat:@"%ld",existTextNum];
+    }
+    CGSize tiShiLabelMaxSize = CGSizeMake(Screen_Width-self.contentContainViewLeft*2, DBL_MAX);
+    CGSize size = [[AutomaticSizeTools sharedAutomaticSizeTools] calculateSizeForLabel:self.textCurrentLengthLabel MaxWidth:tiShiLabelMaxSize.width LineSpacing:kWebLineSpacing WordsSpacing:kWebWordsSpacing textAlignment:NSTextAlignmentRight];
+    [self.textCurrentLengthLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(@(size.width));
+    }];
     
 }
 
@@ -319,16 +330,12 @@
             make.bottom.equalTo(weakSelf.containView).offset(-5);
             make.leading.equalTo(weakSelf.contentView).offset(Screen_Width - tiShiLabelSize.width-self.contentContainViewLeft-10);
         }];
-        tiShiLabelSize = [[AutomaticSizeTools sharedAutomaticSizeTools] calculateSizeForLabel:self.textCurrentLengthLabel MaxWidth:tiShiLabelMaxSize.width LineSpacing:kWebLineSpacing WordsSpacing:kWebWordsSpacing];
+        tiShiLabelSize = [[AutomaticSizeTools sharedAutomaticSizeTools] calculateSizeForLabel:self.textCurrentLengthLabel MaxWidth:tiShiLabelMaxSize.width LineSpacing:kWebLineSpacing WordsSpacing:kWebWordsSpacing textAlignment:NSTextAlignmentRight];
         [self.textCurrentLengthLabel mas_updateConstraints:^(MASConstraintMaker *make) {
-            CGFloat offsetY = -kWebLineSpacing*0.5;
-            if (self.contentTextView.text.length > 0) {
-                offsetY = 0;
-            }
-            make.centerY.equalTo(weakSelf.textMaxLengthLabel.mas_centerY).offset(offsetY);
+            make.centerY.equalTo(weakSelf.textMaxLengthLabel.mas_centerY);
             make.trailing.equalTo(weakSelf.textMaxLengthLabel.mas_leading).offset(-6);
             make.height.equalTo(weakSelf.textMaxLengthLabel);
-            make.width.equalTo(@100);
+            make.width.equalTo(@(tiShiLabelSize.width));
         }];
     }
     [self settingContainView:size];
@@ -367,12 +374,15 @@
     }else{
         self.placeHudLabel.hidden = YES;
         self.placeHudLabel.text = model.placeHoled;
-        self.contentTextView.textColor = [UIColor blackColor];
         self.contentTextView.text = model.info;
-        self.textCurrentLengthLabel.text = [NSString stringWithFormat:@"%ld",(long)self.contentTextView.text.length];
-        [UILabel changeSpace:self.textCurrentLengthLabel withLineSpace:kWebLineSpacing WordSpace:kWebWordsSpacing textAlignment:NSTextAlignmentRight];
-        [UITextView changeSpace:self.contentTextView withLineSpace:kWebLineSpacing WordSpace:kWebWordsSpacing];
     }
+    if (self.isShowAllowance) {
+        self.textCurrentLengthLabel.text = [NSString stringWithFormat:@"%ld",(self.maxLengtn-self.contentTextView.text.length)];
+    }else{
+        self.textCurrentLengthLabel.text = [NSString stringWithFormat:@"%ld",(long)self.contentTextView.text.length];
+    }
+    [UILabel changeSpace:self.textCurrentLengthLabel withLineSpace:kWebLineSpacing WordSpace:kWebWordsSpacing textAlignment:NSTextAlignmentRight];
+    [UITextView changeSpace:self.contentTextView withLineSpace:kWebLineSpacing WordSpace:kWebWordsSpacing];
     [self buJuTextView];
 }
 @end

@@ -25,6 +25,8 @@
 @property (nonatomic, strong) NSIndexPath *key;
 ///最大字数
 @property (nonatomic, assign) NSInteger maxLengtn;
+///是否显示余量
+@property (nonatomic, assign) BOOL isShowAllowance;
 
 ///设置标题字体及字体颜色
 - (void)settingTitleColor:(UIColor *)color font:(UIFont *)font;

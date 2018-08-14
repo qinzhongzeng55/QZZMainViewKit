@@ -29,4 +29,8 @@
 - (void)settingColorOfQueDingBtn:(UIColor *)color;
 ///设置确定按钮
 - (void)settingQueDingBtnTitle:(NSString *)title font:(UIFont *)font;
+///设置取消按钮
+- (void)settingCancelBtnTitle:(NSString *)title font:(UIFont *)font;
+///设置文本左右间距
+- (void)settingTitleTextConstraint:(CGFloat)constant;
 @end

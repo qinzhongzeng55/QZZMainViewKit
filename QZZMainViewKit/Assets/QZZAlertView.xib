@@ -138,6 +138,8 @@
                 <outlet property="alertView" destination="UgP-kd-bKw" id="3zx-GJ-bdN"/>
                 <outlet property="cacleBtn" destination="q7H-jP-Hkz" id="LtR-IV-6dS"/>
                 <outlet property="queDingBtn" destination="P3h-qM-R0P" id="OSn-Ym-V79"/>
+                <outlet property="titleLConstraint" destination="GYe-Iz-Ezg" id="5wv-Ut-n8n"/>
+                <outlet property="titleRConstraint" destination="q5B-ht-lAr" id="YAU-fc-1WT"/>
             </connections>
             <point key="canvasLocation" x="24.5" y="51.5"/>
         </view>

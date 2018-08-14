@@ -1,6 +1,6 @@
 {
   "name": "QZZMainViewKit",
-  "version": "0.1.35",
+  "version": "0.1.36",
   "summary": "A short description of QZZMainViewKit.",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/qinzhongzeng55/QZZMainViewKit",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/qinzhongzeng55/QZZMainViewKit.git",
-    "tag": "0.1.35"
+    "tag": "0.1.36"
   },
   "platforms": {
     "ios": "9.0"

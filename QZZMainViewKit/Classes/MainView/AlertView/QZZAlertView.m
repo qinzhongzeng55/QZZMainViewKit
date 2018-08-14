@@ -14,6 +14,8 @@
 @property (weak, nonatomic) IBOutlet UIView *TopLineView;
 @property (weak, nonatomic) IBOutlet UIView *alertView;
 @property (weak, nonatomic) IBOutlet UILabel *TitleTextLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleRConstraint;
 @end
 
 @implementation QZZAlertView
@@ -49,6 +51,11 @@
     self.TitleTextLabel.text = title;
     self.TitleTextLabel.font = font;
 }
+///设置取消按钮
+- (void)settingCancelBtnTitle:(NSString *)title font:(UIFont *)font{
+    [self.cacleBtn setTitle:title forState:UIControlStateNormal];
+    self.cacleBtn.titleLabel.font = font;
+}
 //设置确定按钮
 - (void)settingQueDingBtnTitle:(NSString *)title font:(UIFont *)font{
     [self.queDingBtn setTitle:title forState:UIControlStateNormal];
@@ -61,5 +68,10 @@
 //设置确定按钮的字体颜色
 - (void)settingColorOfQueDingBtn:(UIColor *)color{
     [self.queDingBtn setTitleColor:color forState:UIControlStateNormal];
+}
+///设置文本左右间距
+- (void)settingTitleTextConstraint:(CGFloat)constant{
+    self.titleLConstraint.constant = constant;
+    self.titleRConstraint.constant = constant;
 }
 @end
