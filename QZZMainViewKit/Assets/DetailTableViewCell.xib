@@ -21,7 +21,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="时间:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7A5-Ii-dLc">
                         <rect key="frame" x="12" y="0.0" width="296" height="43.5"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="44" id="5Ja-fq-Oov"/>
+                            <constraint firstAttribute="height" constant="43.5" id="2Bo-uw-15R"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -47,19 +47,18 @@
                     <constraint firstItem="vea-hP-Mxc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="bXc-km-77V"/>
                     <constraint firstAttribute="bottom" secondItem="7A5-Ii-dLc" secondAttribute="bottom" id="gYF-ZT-uQm"/>
                     <constraint firstAttribute="bottom" secondItem="pvw-fu-i87" secondAttribute="bottom" id="jSE-8V-sO1"/>
+                    <constraint firstItem="pvw-fu-i87" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ji5-QR-zxw"/>
                     <constraint firstItem="7A5-Ii-dLc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="jxa-aM-Pnc"/>
                     <constraint firstAttribute="trailing" secondItem="vea-hP-Mxc" secondAttribute="trailing" id="mdr-sP-c2f"/>
-                    <constraint firstItem="pvw-fu-i87" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="pCh-Os-QuS"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="lineLConstraint" destination="pCh-Os-QuS" id="p5l-3s-CiU"/>
-                <outlet property="lineView" destination="pvw-fu-i87" id="Q6O-2X-bB6"/>
-                <outlet property="lineViewLConstraint" destination="pCh-Os-QuS" id="IDv-Na-6wa"/>
-                <outlet property="titleLConstraint" destination="jxa-aM-Pnc" id="U8y-Z8-9r6"/>
-                <outlet property="titleLabel" destination="7A5-Ii-dLc" id="VDO-WO-fBd"/>
-                <outlet property="titleLabelHConstraint" destination="5Ja-fq-Oov" id="Ncl-Dz-XcA"/>
-                <outlet property="titleRConstraint" destination="8o1-W7-gbs" id="ODX-af-mUO"/>
+                <outlet property="lineView" destination="pvw-fu-i87" id="fLO-Yb-aWG"/>
+                <outlet property="lineViewLConstraint" destination="ji5-QR-zxw" id="H6b-ks-pwb"/>
+                <outlet property="titleLabel" destination="7A5-Ii-dLc" id="F4R-gw-NZp"/>
+                <outlet property="titleLabelHConstraint" destination="2Bo-uw-15R" id="z0Y-Jp-ReG"/>
+                <outlet property="titleLabelLConstraint" destination="jxa-aM-Pnc" id="2Z3-ig-0lM"/>
+                <outlet property="titleLabelRConstraint" destination="8o1-W7-gbs" id="IsT-SS-CI4"/>
             </connections>
         </tableViewCell>
     </objects>

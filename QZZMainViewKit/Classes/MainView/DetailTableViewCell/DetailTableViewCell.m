@@ -11,9 +11,9 @@
 @interface DetailTableViewCell ()
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleRConstraint;
 @property (weak, nonatomic) IBOutlet UIView *lineView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLabelLConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLabelRConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *lineViewLConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLabelHConstraint;
 
@@ -39,12 +39,12 @@
 #pragma mark - 设置标题左边距
 - (void)settingTitleLConstraint:(CGFloat)left{
     
-    self.titleLConstraint.constant = left;
+    self.titleLabelLConstraint.constant = left;
     [self layoutIfNeeded];
 }
 #pragma mark - 设置标题右边距
 - (void)settingTitleRConstraint:(CGFloat)right{
-    self.titleRConstraint.constant = right;
+    self.titleLabelRConstraint.constant = right;
     [self layoutIfNeeded];
 }
 #pragma mark - 隐藏lineView
@@ -67,7 +67,7 @@
     //自动计算文本高度
     [UILabel changeSpace:self.titleLabel withLineSpace:kWebLineSpacing WordSpace:kWebWordsSpacing];
     UIFont *titleFont = self.titleLabel.font;
-    CGSize titleMaxSize = CGSizeMake(Screen_Width-self.titleLConstraint.constant-self.titleRConstraint.constant, Screen_Height);
+    CGSize titleMaxSize = CGSizeMake(Screen_Width-self.titleLabelLConstraint.constant-self.titleLabelRConstraint.constant, Screen_Height);
     CGSize size = [[AutomaticSizeTools sharedAutomaticSizeTools] boundingALLRectWithSize:self.titleLabel.text Font:titleFont MaxSize:titleMaxSize LineSpacing:kWebLineSpacing WordsSpacing:kWebWordsSpacing];
     self.titleLabelHConstraint.constant = size.height;
     //设置字体颜色
