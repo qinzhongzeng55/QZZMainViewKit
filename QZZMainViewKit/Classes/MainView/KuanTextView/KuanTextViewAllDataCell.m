@@ -282,18 +282,8 @@
 }
 - (void)buJuTextView{
     
-    UIFont *contentFont = self.contentTextView.font;
     CGSize contentTextViewMaxSize = CGSizeMake(Screen_Width-self.contentTextViewLeft*3,DBL_MAX);
-    CGSize size = [[AutomaticSizeTools sharedAutomaticSizeTools] boundingALLRectWithSize:self.contentTextView.text Font:contentFont MaxSize:contentTextViewMaxSize LineSpacing:kWebLineSpacing WordsSpacing:kWebWordsSpacing];
-    //当内容为一行时
-    UIFontDescriptor *ctfFont = contentFont.fontDescriptor;
-    NSNumber *fontString = [ctfFont objectForKey:@"NSFontSizeAttribute"];
-    if (size.height <= ([fontString integerValue]+kWebLineSpacing+8)) {
-        size = CGSizeMake(size.width, size.height - kWebLineSpacing);
-        [UITextView changeSpace:self.contentTextView withLineSpace:0 WordSpace:kWebWordsSpacing];
-    }else{
-        [UITextView changeSpace:self.contentTextView withLineSpace:kWebLineSpacing WordSpace:kWebWordsSpacing];
-    }
+    CGSize size = [[AutomaticSizeTools sharedAutomaticSizeTools] calculateSizeForTextView:self.contentTextView MaxWidth:contentTextViewMaxSize.width LineSpacing:kWebLineSpacing WordsSpacing:kWebWordsSpacing];
     __weak typeof(self) weakSelf = self;
     [self.contentTextView mas_updateConstraints:^(MASConstraintMaker *make) {
         
@@ -322,15 +312,14 @@
     }];
     if (self.textMaxLengthLabel.text.length > 0 && !self.textMaxLengthLabel.hidden) {
         
-        UIFont *tiShiLabelFont = self.textMaxLengthLabel.font;
         CGSize tiShiLabelMaxSize = CGSizeMake(Screen_Width-self.contentContainViewLeft*2, DBL_MAX);
-        CGSize tiShiLabelSize = [[AutomaticSizeTools sharedAutomaticSizeTools] boundingALLRectWithSize:self.textMaxLengthLabel.text Font:tiShiLabelFont MaxSize:tiShiLabelMaxSize LineSpacing:kWebLineSpacing WordsSpacing:kWebWordsSpacing];
+        CGSize tiShiLabelSize = [[AutomaticSizeTools sharedAutomaticSizeTools] calculateSizeForLabel:self.textMaxLengthLabel MaxWidth:tiShiLabelMaxSize.width LineSpacing:kWebLineSpacing WordsSpacing:kWebWordsSpacing];
         [self.textMaxLengthLabel mas_updateConstraints:^(MASConstraintMaker *make) {
             make.trailing.equalTo(weakSelf.containView).offset(-10);
             make.bottom.equalTo(weakSelf.containView).offset(-5);
             make.leading.equalTo(weakSelf.contentView).offset(Screen_Width - tiShiLabelSize.width-self.contentContainViewLeft-10);
         }];
-        tiShiLabelSize = [[AutomaticSizeTools sharedAutomaticSizeTools] boundingALLRectWithSize:self.textCurrentLengthLabel.text Font:tiShiLabelFont MaxSize:tiShiLabelMaxSize LineSpacing:kWebLineSpacing WordsSpacing:kWebWordsSpacing];
+        tiShiLabelSize = [[AutomaticSizeTools sharedAutomaticSizeTools] calculateSizeForLabel:self.textCurrentLengthLabel MaxWidth:tiShiLabelMaxSize.width LineSpacing:kWebLineSpacing WordsSpacing:kWebWordsSpacing];
         [self.textCurrentLengthLabel mas_updateConstraints:^(MASConstraintMaker *make) {
             CGFloat offsetY = -kWebLineSpacing*0.5;
             if (self.contentTextView.text.length > 0) {

@@ -11,15 +11,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailTableViewCell" id="KGk-i7-Jjw" customClass="DetailTableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailTableViewCell" rowHeight="68" id="KGk-i7-Jjw" customClass="DetailTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="68"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="67.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="时间:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7A5-Ii-dLc">
-                        <rect key="frame" x="12" y="0.0" width="296" height="43.5"/>
+                        <rect key="frame" x="12" y="10" width="296" height="43.5"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="43.5" id="2Bo-uw-15R"/>
                         </constraints>
@@ -28,24 +28,24 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pvw-fu-i87">
-                        <rect key="frame" x="0.0" y="42.5" width="320" height="1"/>
+                        <rect key="frame" x="0.0" y="29" width="320" height="1"/>
                         <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="Kff-7U-RWf"/>
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vea-hP-Mxc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
                     </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="vea-hP-Mxc" secondAttribute="bottom" id="2BG-fU-yEa"/>
                     <constraint firstAttribute="trailing" secondItem="7A5-Ii-dLc" secondAttribute="trailing" constant="12" id="8o1-W7-gbs"/>
                     <constraint firstItem="vea-hP-Mxc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="HEN-PG-P50"/>
-                    <constraint firstItem="7A5-Ii-dLc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="IOl-Ng-one"/>
+                    <constraint firstItem="7A5-Ii-dLc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="IOl-Ng-one"/>
                     <constraint firstAttribute="trailing" secondItem="pvw-fu-i87" secondAttribute="trailing" id="Md9-8A-XTS"/>
                     <constraint firstItem="vea-hP-Mxc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="bXc-km-77V"/>
-                    <constraint firstAttribute="bottom" secondItem="7A5-Ii-dLc" secondAttribute="bottom" id="gYF-ZT-uQm"/>
+                    <constraint firstAttribute="bottom" secondItem="7A5-Ii-dLc" secondAttribute="bottom" constant="10" id="gYF-ZT-uQm"/>
                     <constraint firstAttribute="bottom" secondItem="pvw-fu-i87" secondAttribute="bottom" id="jSE-8V-sO1"/>
                     <constraint firstItem="pvw-fu-i87" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ji5-QR-zxw"/>
                     <constraint firstItem="7A5-Ii-dLc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="jxa-aM-Pnc"/>
@@ -56,10 +56,13 @@
                 <outlet property="lineView" destination="pvw-fu-i87" id="fLO-Yb-aWG"/>
                 <outlet property="lineViewLConstraint" destination="ji5-QR-zxw" id="H6b-ks-pwb"/>
                 <outlet property="titleLabel" destination="7A5-Ii-dLc" id="F4R-gw-NZp"/>
+                <outlet property="titleLabelBConstraint" destination="gYF-ZT-uQm" id="f1a-63-6aj"/>
                 <outlet property="titleLabelHConstraint" destination="2Bo-uw-15R" id="z0Y-Jp-ReG"/>
                 <outlet property="titleLabelLConstraint" destination="jxa-aM-Pnc" id="2Z3-ig-0lM"/>
                 <outlet property="titleLabelRConstraint" destination="8o1-W7-gbs" id="IsT-SS-CI4"/>
+                <outlet property="titleLabelTConstraint" destination="IOl-Ng-one" id="JhP-ln-0oW"/>
             </connections>
+            <point key="canvasLocation" x="25" y="64"/>
         </tableViewCell>
     </objects>
 </document>

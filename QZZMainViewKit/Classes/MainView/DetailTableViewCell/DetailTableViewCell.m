@@ -12,6 +12,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIView *lineView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLabelTConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLabelBConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLabelLConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLabelRConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *lineViewLConstraint;
@@ -23,6 +25,8 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.titleLabelTConstraint.constant = kWebLineSpacing;
+    self.titleLabelBConstraint.constant = kWebLineSpacing;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -63,12 +67,12 @@
 - (void)setModel:(TableViewCellModel *)model{
     
     _model = model;
-    self.titleLabel.text = [NSString stringWithFormat:@"%@:%@ ",model.lableTitle,model.info];
-    //自动计算文本高度
-    [UILabel changeSpace:self.titleLabel withLineSpace:kWebLineSpacing WordSpace:kWebWordsSpacing];
-    UIFont *titleFont = self.titleLabel.font;
+    self.titleLabel.text = model.lableTitle;
+    if (![QZZVerificationTools isEmptyString:model.info]) {
+        self.titleLabel.text = [NSString stringWithFormat:@"%@:%@ ",model.lableTitle,model.info];
+    }
     CGSize titleMaxSize = CGSizeMake(Screen_Width-self.titleLabelLConstraint.constant-self.titleLabelRConstraint.constant, Screen_Height);
-    CGSize size = [[AutomaticSizeTools sharedAutomaticSizeTools] boundingALLRectWithSize:self.titleLabel.text Font:titleFont MaxSize:titleMaxSize LineSpacing:kWebLineSpacing WordsSpacing:kWebWordsSpacing];
+    CGSize size = [[AutomaticSizeTools sharedAutomaticSizeTools] calculateSizeForLabel:self.titleLabel MaxWidth:titleMaxSize.width LineSpacing:kWebLineSpacing WordsSpacing:kWebWordsSpacing];
     self.titleLabelHConstraint.constant = size.height;
     //设置字体颜色
     NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:self.titleLabel.text];
