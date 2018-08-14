@@ -14,6 +14,7 @@
 #import "MyChatTableViewCell.h"
 #import "OtherChatTableViewCell.h"
 #import "DatePickerView.h"
+#import "DetailTableViewCell.h"
 #import "GongNengOptionsView.h"
 #import "SelectedOptionsBtnCell.h"
 #import "GotoOtherViewCell.h"

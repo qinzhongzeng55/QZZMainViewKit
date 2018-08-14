@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLabelHConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLabelTConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLabelLConstraint;
+@property (weak, nonatomic) IBOutlet UIView *lineView;
 
 
 @property (nonatomic, assign) CGFloat contentTextViewLeft;
@@ -223,10 +224,14 @@
     self.lineViewHConstraint.constant = height;
     [self.contentView layoutIfNeeded];
 }
-///隐藏lineView
+///隐藏顶部的lineView
 - (void)hiddenLineView{
     self.lineViewHConstraint.constant = 0;
     [self.contentView layoutIfNeeded];
+}
+///隐藏底部的lineView
+- (void)hiddenBottomLineView:(BOOL)isHidden{
+    self.lineView.hidden = isHidden;
 }
 ///隐藏titleLabel
 - (void)hiddenTitleLabel{
@@ -278,7 +283,7 @@
 - (void)buJuTextView{
     
     UIFont *contentFont = self.contentTextView.font;
-    CGSize contentTextViewMaxSize = CGSizeMake(Screen_Width-self.contentTextViewLeft*2,DBL_MAX);
+    CGSize contentTextViewMaxSize = CGSizeMake(Screen_Width-self.contentTextViewLeft*3,DBL_MAX);
     CGSize size = [[AutomaticSizeTools sharedAutomaticSizeTools] boundingALLRectWithSize:self.contentTextView.text Font:contentFont MaxSize:contentTextViewMaxSize LineSpacing:kWebLineSpacing WordsSpacing:kWebWordsSpacing];
     //当内容为一行时
     UIFontDescriptor *ctfFont = contentFont.fontDescriptor;

@@ -12,6 +12,9 @@
 + (void)changeLineSpace:(UITextView *)textView WithSpace:(float)space {
     
     NSString *labelText = textView.text;
+    if (labelText == nil) {
+        return;
+    }
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:labelText attributes:@{NSFontAttributeName:textView.font}];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     [paragraphStyle setLineSpacing:space];
@@ -24,6 +27,9 @@
 + (void)changeWordSpace:(UITextView *)textView WithSpace:(float)space {
     
     NSString *labelText = textView.text;
+    if (labelText == nil) {
+        return;
+    }
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:labelText attributes:@{NSKernAttributeName:@(space),NSFontAttributeName:textView.font}];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [labelText length])];
@@ -35,6 +41,9 @@
 + (void)changeSpace:(UITextView *)textView withLineSpace:(float)lineSpace WordSpace:(float)wordSpace {
     
     NSString *labelText = textView.text;
+    if (labelText == nil) {
+        return;
+    }
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:labelText attributes:@{NSKernAttributeName:@(wordSpace),NSFontAttributeName:textView.font}];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     [paragraphStyle setLineSpacing:lineSpace];
@@ -46,6 +55,9 @@
 + (void)changeSpace:(UITextView *)textView withLineSpace:(float)lineSpace WordSpace:(float)wordSpace textAlignment:(NSTextAlignment)textAlignment{
     
     NSString *labelText = textView.text;
+    if (labelText == nil) {
+        return;
+    }
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:labelText attributes:@{NSKernAttributeName:@(wordSpace),NSFontAttributeName:textView.font}];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     [paragraphStyle setLineSpacing:lineSpace];

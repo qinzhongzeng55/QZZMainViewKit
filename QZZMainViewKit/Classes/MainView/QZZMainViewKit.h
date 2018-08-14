@@ -278,7 +278,7 @@ _Pragma("clang diagnostic pop") \
 #import <QZZMainViewKit/GongNengOptionsView.h>
 #import <QZZMainViewKit/MyChatTableViewCell.h>
 #import <QZZMainViewKit/OtherChatTableViewCell.h>
-
+#import <QZZMainViewKit/DetailTableViewCell.h>
 
 
 

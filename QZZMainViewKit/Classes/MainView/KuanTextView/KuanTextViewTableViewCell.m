@@ -26,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentTextViewTConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentTextViewLConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentTextViewRConstraint;
+@property (weak, nonatomic) IBOutlet UIView *lineView;
 @end
 @implementation KuanTextViewTableViewCell
 
@@ -212,10 +213,14 @@
     self.textMaxLengthLabel.hidden = isHidden;
 }
 
-///隐藏lineView
+///隐藏顶部的lineView
 - (void)hiddenLineView{
     self.lineViewHConstraint.constant = 0;
     [self.contentView layoutIfNeeded];
+}
+///隐藏底部的lineView
+- (void)hiddenBottomLineView:(BOOL)isHidden{
+    self.lineView.hidden = isHidden;
 }
 ///隐藏titleLabel
 - (void)hiddenTitleLabel{

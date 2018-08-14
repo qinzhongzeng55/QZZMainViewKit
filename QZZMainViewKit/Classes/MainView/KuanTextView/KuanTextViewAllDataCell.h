@@ -44,6 +44,8 @@
 - (void)settinglineViewHeigth:(CGFloat)height;
 ///隐藏顶部的lineView
 - (void)hiddenLineView;
+///隐藏底部的lineView
+- (void)hiddenBottomLineView:(BOOL)isHidden;
 ///隐藏titleLabel
 - (void)hiddenTitleLabel;
 ///是否显示文本框边框

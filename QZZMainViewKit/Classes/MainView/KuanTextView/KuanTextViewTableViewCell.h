@@ -37,8 +37,10 @@
 - (void)settingContentTextColor:(UIColor *)color font:(UIFont *)font;
 ///是否隐藏字数label
 - (void)hiddenTextLengthLabel:(BOOL)isHidden;
-///隐藏lineView
+///隐藏顶部的lineView
 - (void)hiddenLineView;
+///隐藏底部的lineView
+- (void)hiddenBottomLineView:(BOOL)isHidden;
 ///隐藏titleLabel
 - (void)hiddenTitleLabel;
 ///是否显示文本框边框

@@ -13,6 +13,9 @@
 + (void)changeLineSpace:(UILabel *)label WithSpace:(float)space {
     
     NSString *labelText = label.text;
+    if (labelText == nil) {
+        return;
+    }
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:labelText attributes:@{NSFontAttributeName:label.font}];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     [paragraphStyle setLineSpacing:space];
@@ -25,6 +28,9 @@
 + (void)changeWordSpace:(UILabel *)label WithSpace:(float)space {
     
     NSString *labelText = label.text;
+    if (labelText == nil) {
+        return;
+    }
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:labelText attributes:@{NSKernAttributeName:@(space),NSFontAttributeName:label.font}];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [labelText length])];
@@ -36,6 +42,9 @@
 + (void)changeSpace:(UILabel *)label withLineSpace:(float)lineSpace WordSpace:(float)wordSpace {
     
     NSString *labelText = label.text;
+    if (labelText == nil) {
+        return;
+    }
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:labelText attributes:@{NSKernAttributeName:@(wordSpace),NSFontAttributeName:label.font}];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     [paragraphStyle setLineSpacing:lineSpace];
@@ -47,6 +56,9 @@
 + (void)changeSpace:(UILabel *)label withLineSpace:(float)lineSpace WordSpace:(float)wordSpace textAlignment:(NSTextAlignment)textAlignment{
     
     NSString *labelText = label.text;
+    if (labelText == nil) {
+        return;
+    }
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:labelText attributes:@{NSKernAttributeName:@(wordSpace),NSFontAttributeName:label.font}];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     [paragraphStyle setLineSpacing:lineSpace];
