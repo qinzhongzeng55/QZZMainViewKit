@@ -295,17 +295,23 @@
         make.trailing.equalTo(weakSelf.contentView).offset(-weakSelf.contentTextViewRight);
         make.leading.equalTo(weakSelf.contentView).offset(weakSelf.contentTextViewLeft);
         make.top.equalTo(weakSelf.titleLabel.mas_bottom).offset(weakSelf.contentTextViewTop);
-        make.bottom.equalTo(weakSelf.titleLabel.mas_bottom).offset(weakSelf.contentTextViewTop+size.height);
+        CGFloat H = size.height;
+        if (H < 60.f) {
+            H = 60;
+        } make.bottom.equalTo(weakSelf.titleLabel.mas_bottom).offset(weakSelf.contentTextViewTop+H);
     }];
     [self.containView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(weakSelf.contentView).offset(weakSelf.contentContainViewLeft);
         make.trailing.equalTo(weakSelf.contentView).offset(-weakSelf.contentContainViewRight);
         make.top.equalTo(weakSelf.titleLabel.mas_bottom).offset(weakSelf.contentContainViewTop);
         CGFloat H = size.height;
-        if (H < 40.f) {
-            H = 40;
+        if (H < 60.f) {
+            H = 60;
         }
-        make.bottom.equalTo(weakSelf.titleLabel.mas_bottom).offset(weakSelf.contentTextViewTop+H+weakSelf.contentTextViewBottom-weakSelf.contentContainViewBottom+24);
+        CGFloat bottom = 24;
+        if(self.textMaxLengthLabel.hidden){
+            bottom = 0;
+        } make.bottom.equalTo(weakSelf.titleLabel.mas_bottom).offset(weakSelf.contentTextViewTop+H+weakSelf.contentTextViewBottom-weakSelf.contentContainViewBottom+bottom);
         make.bottom.equalTo(weakSelf.contentView).offset(-weakSelf.contentContainViewBottom);
         
     }];

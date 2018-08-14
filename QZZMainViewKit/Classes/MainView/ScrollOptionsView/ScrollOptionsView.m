@@ -16,7 +16,9 @@
 @property (nonatomic, strong) UIScrollView *lineContainScrollView;
 
 @property (nonatomic, strong) UIColor *optionsTitleColor;
+@property (nonatomic, strong) UIColor *optionsTitleSelecteColor;
 @property (nonatomic, strong) UIFont *optionsTitleFont;
+@property (nonatomic, assign) CGFloat maxWidth;
 @end
 
 static NSString *identifier = @"ScrollOptionsCellID";
@@ -30,28 +32,18 @@ static NSString *identifier = @"ScrollOptionsCellID";
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
+    
     // Configure the view for the selected state
 }
 
 - (void)layoutSubviews{
     [super layoutSubviews];
-    CGFloat W = 0;
-    if (self.dataArray.count > 4) {
-        W = Screen_Width*0.25;
-    }else{
-        W = Screen_Width/self.dataArray.count;
-    }
     if (self.lineWidth == 0) {
-        self.lineWidth = W;
+        self.lineWidth = self.maxWidth;
     }
-    self.flowLayout.itemSize = CGSizeMake(W, self.bounds.size.height);
+    self.flowLayout.itemSize = CGSizeMake(self.lineWidth, self.bounds.size.height);
     self.lineContainScrollView.frame = CGRectMake(0, self.bounds.size.height-3, Screen_Width, 2);
-    CGFloat x = W-self.lineWidth;
-    if (x < 0) {
-        x = 0;
-    }
-    self.scrollLineView.frame = CGRectMake(x*0.5, 0, self.lineWidth, 2);
+    self.scrollLineView.frame = CGRectMake(0, 0, self.lineWidth, 2);
 }
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
@@ -68,18 +60,17 @@ static NSString *identifier = @"ScrollOptionsCellID";
     cell.delegate = self;
     //设置是否被选中
     [cell settingSelectedForOptionBtn:self.selectedKey == indexPath];
-    [cell settingOptionTitleColor:(self.optionsTitleColor == nil ? QZZUIColorWithHexStringNoTransparent(@"#333333") : self.optionsTitleColor) font:(self.optionsTitleFont == nil ? [UIFont systemFontOfSize:17] : self.optionsTitleFont)];
+    [cell settingOptionTitleColor:(self.optionsTitleColor == nil ? QZZUIColorWithHexStringNoTransparent(@"#333333") : self.optionsTitleColor) selectedColor:(self.optionsTitleSelecteColor == nil ? QZZUIColorWithHexStringNoTransparent(@"#333333") : self.optionsTitleSelecteColor) font:(self.optionsTitleFont == nil ? [UIFont systemFontOfSize:17] : self.optionsTitleFont)];
     return cell;
 }
 #pragma mark - UICollectionViewDelegate
 //设置item的大小
 //item的默认大小：50*50
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    if (self.dataArray.count > 3) {
-        
-        return CGSizeMake(self.lineWidth, 48);
+    if (self.lineWidth == 0) {
+        self.lineWidth = self.maxWidth;
     }
-    return CGSizeMake(Screen_Width/self.dataArray.count, 48);
+    return CGSizeMake(self.lineWidth, 48);
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
@@ -130,14 +121,14 @@ static NSString *identifier = @"ScrollOptionsCellID";
     scrollView.delegate = self;
     scrollView.showsHorizontalScrollIndicator = NO;
     CGFloat W = 0;
-    if (self.dataArray.count > 3) {
-        W = Screen_Width/3;
+    if (self.dataArray.count > 4) {
+        W = Screen_Width*0.25;
     }else{
         W = Screen_Width/self.dataArray.count;
     }
-    if (self.lineWidth == 0) {
-        self.lineWidth = W;
-    }
+    //    if (self.lineWidth == 0) {
+    //        self.lineWidth = W;
+    //    }
     CGFloat x = W-self.lineWidth;
     if (x < 0) {
         x = 0;
@@ -173,10 +164,27 @@ static NSString *identifier = @"ScrollOptionsCellID";
     self.flowLayout.minimumInteritemSpacing = 0;
 }
 #pragma mark - 设置选项字体
-- (void)settingOptionTitleColor:(UIColor *)color font:(UIFont *)font{
+- (void)settingOptionTitleColor:(UIColor *)color selectedColor:(UIColor *)selectedColor font:(UIFont *)font;{
     self.optionsTitleFont = font;
     self.optionsTitleColor = color;
+    self.optionsTitleSelecteColor = selectedColor;
+    [self settingMaxWidth];
     [self.collectionView reloadData];
+}
+#pragma mark - 获取最大宽度
+- (void)settingMaxWidth{
+    for (NSString *title in self.dataArray) {
+        UIFont *contentFont = self.optionsTitleFont;
+        CGSize contentTextMaxSize = CGSizeMake(Screen_Width,48);
+        CGSize size = [[AutomaticSizeTools sharedAutomaticSizeTools] boundingALLRectWithSize:title Font:contentFont MaxSize:contentTextMaxSize LineSpacing:kWebLineSpacing WordsSpacing:kWebWordsSpacing];
+        if (self.maxWidth == 0) {
+            self.maxWidth = size.width+12;
+        }else{
+            if (size.width > self.maxWidth) {
+                self.maxWidth = size.width+12;
+            }
+        }
+    }
 }
 #pragma mark - setter,getter
 - (void)setDataArray:(NSMutableArray *)dataArray{

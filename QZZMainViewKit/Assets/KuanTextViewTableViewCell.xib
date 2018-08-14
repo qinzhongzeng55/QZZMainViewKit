@@ -39,8 +39,8 @@
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="还有什么要补充的..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BLg-B4-2eK">
-                        <rect key="frame" x="17" y="61" width="126.5" height="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="还有什么要补充的..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BLg-B4-2eK">
+                        <rect key="frame" x="17" y="61" width="341" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.7803921568627451" green="0.7803921568627451" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -61,6 +61,7 @@
                 <constraints>
                     <constraint firstItem="DME-D6-aRl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="1Ch-4X-vmJ"/>
                     <constraint firstItem="BLg-B4-2eK" firstAttribute="top" secondItem="DME-D6-aRl" secondAttribute="bottom" constant="15" id="4VR-VK-X2Y"/>
+                    <constraint firstAttribute="trailing" secondItem="BLg-B4-2eK" secondAttribute="trailing" constant="17" id="7gY-3e-gOI"/>
                     <constraint firstItem="n5A-ON-pwD" firstAttribute="top" secondItem="DME-D6-aRl" secondAttribute="bottom" constant="10" id="AeT-0p-aO6"/>
                     <constraint firstAttribute="bottom" secondItem="0aE-i9-jyy" secondAttribute="bottom" constant="10" id="IwP-9Q-mhB"/>
                     <constraint firstItem="DME-D6-aRl" firstAttribute="top" secondItem="GJ4-kI-WFB" secondAttribute="bottom" constant="10" id="Rvs-yY-m9O"/>

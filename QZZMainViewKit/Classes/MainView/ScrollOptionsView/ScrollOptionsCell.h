@@ -26,5 +26,5 @@
 ///设置这个选项是否被选中
 - (void)settingSelectedForOptionBtn:(BOOL)isSelected;
 ///设置选项字体
-- (void)settingOptionTitleColor:(UIColor *)color font:(UIFont *)font;
+- (void)settingOptionTitleColor:(UIColor *)color selectedColor:(UIColor *)selectedColor font:(UIFont *)font;
 @end

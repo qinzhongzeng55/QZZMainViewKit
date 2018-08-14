@@ -240,7 +240,6 @@ _Pragma("clang diagnostic pop") \
 #import <QZZCategoryKit/UILabel+ChangeLineSpaceAndWordSpace.h>
 #import <QZZCategoryKit/UITextView+ChangeLineSpaceAndWordSpace.h>
 #import <QZZCategoryKit/UILabel+Extension.h>
-#import <QZZCategoryKit/UIView+QZZFrame.h>
 
 #import <QZZToolsKit/QZZCoreArchive.h>
 #import <QZZToolsKit/QZZFileOperation.h>

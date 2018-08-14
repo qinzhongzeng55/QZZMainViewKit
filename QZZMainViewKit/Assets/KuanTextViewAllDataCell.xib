@@ -47,8 +47,8 @@
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="还有什么要补充的..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J2b-HA-NTW">
-                        <rect key="frame" x="17" y="61" width="126.5" height="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="还有什么要补充的..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J2b-HA-NTW">
+                        <rect key="frame" x="17" y="61" width="286" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.78039215689999997" green="0.78039215689999997" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -72,6 +72,7 @@
                     <constraint firstItem="J2b-HA-NTW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="17" id="I6L-KA-FKo"/>
                     <constraint firstItem="VeY-cU-BFf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Lmg-w7-4kl"/>
                     <constraint firstItem="VeY-cU-BFf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="O0F-HF-rAI"/>
+                    <constraint firstAttribute="trailing" secondItem="J2b-HA-NTW" secondAttribute="trailing" constant="17" id="XbF-gz-m1K"/>
                     <constraint firstItem="LHF-mj-gSS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="bev-Du-J4u"/>
                     <constraint firstItem="J2b-HA-NTW" firstAttribute="top" secondItem="LHF-mj-gSS" secondAttribute="bottom" constant="15" id="fVR-T3-5Xl"/>
                     <constraint firstItem="LHF-mj-gSS" firstAttribute="top" secondItem="VeY-cU-BFf" secondAttribute="bottom" constant="10" id="sTb-r7-EhX"/>

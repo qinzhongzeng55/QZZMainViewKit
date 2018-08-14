@@ -23,11 +23,11 @@
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
 //默认选中
 @property (nonatomic, strong) NSIndexPath *selectedKey;
-///线长度
+///线长度(请在设置选项字体前设置lineWidth)
 @property (nonatomic, assign) CGFloat lineWidth;
 @property (nonatomic, strong) UIColor *lineColor;
 ///滚动到指定的列
 - (void)scrollToIndexPath:(NSIndexPath *)key;
 ///设置选项字体
-- (void)settingOptionTitleColor:(UIColor *)color font:(UIFont *)font;
+- (void)settingOptionTitleColor:(UIColor *)color selectedColor:(UIColor *)selectedColor font:(UIFont *)font;
 @end

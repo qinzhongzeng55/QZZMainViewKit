@@ -45,6 +45,17 @@
 #pragma mark - UITextViewDelegate
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range
  replacementText:(NSString *)text{
+    if (self.maxCount > 0) {
+        if (textView.text.length >= self.maxCount && ![text isEqualToString:@""]) {
+            [self endEditing:YES];
+            return YES;
+        }
+    }
+    if(textView.text.length > 0){
+        self.contentText.textColor = self.textColor;
+    }else{
+        self.contentText.textColor = self.placehodlerColor;
+    }
     if ([text isEqualToString:@"\n"]) {
         [self endEditing:YES];
         self.contentText.text = [textView.text stringByReplacingOccurrencesOfString:@"\n" withString:@""];
@@ -65,13 +76,15 @@
 - (void)textViewDidEndEditing:(UITextView *)textView{
     
     self.model.info = self.contentText.text;
-    self.contentText.textColor = [UIColor blackColor];
     [self.contentText resignFirstResponder];
     if ([self.delegate respondsToSelector:@selector(endEdittingWithModel:key:)]) {
         [self.delegate endEdittingWithModel:self.model key:self.key];
     }
 }
 #pragma mark - method
+- (void)resignResponder{
+    [self.contentText resignFirstResponder];
+}
 #pragma mark - 设置键盘类型
 - (void)settingKeyboardType:(UIKeyboardType)KeyboardType{
     
@@ -110,8 +123,7 @@
     self.titleLabel.font = font;
 }
 #pragma mark - 设置内容的字体
-- (void)settingContentTextColor:(UIColor *)color font:(UIFont *)font{
-    self.contentText.textColor = color;
+- (void)settingContentTextFont:(UIFont *)font{
     self.contentText.font = font;
 }
 #pragma mark - setter,getter
@@ -125,10 +137,10 @@
         }else{
             self.contentText.text = model.placeHoled;
         }
-        self.contentText.textColor = [UIColor colorWithWhite:191/255.0 alpha:1];
+        self.contentText.textColor = self.placehodlerColor;
     }else{
         self.contentText.text = model.info;
-        self.contentText.textColor = [UIColor colorWithWhite:102/255.0 alpha:1];
+        self.contentText.textColor = self.textColor;
     }
 }
 - (void)setIsDetail:(BOOL)isDetail{
