@@ -32,4 +32,6 @@
 - (void)endEditing;
 ///设置搜索框左右两侧的间距
 - (void)settingSearchBarLRConstratint:(CGFloat)constraint;
+///设置字体大小
+- (void)settingTextSize:(CGFloat)textSize;
 @end

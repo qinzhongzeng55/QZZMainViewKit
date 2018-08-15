@@ -42,8 +42,6 @@ static NSString *identifier = @"ScrollOptionsCellID";
         self.lineWidth = self.maxWidth;
     }
     self.flowLayout.itemSize = CGSizeMake(self.lineWidth, self.bounds.size.height);
-    self.lineContainScrollView.frame = CGRectMake(0, self.bounds.size.height-3, Screen_Width, 2);
-    self.scrollLineView.frame = CGRectMake(0, 0, self.lineWidth, 2);
 }
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
@@ -81,6 +79,12 @@ static NSString *identifier = @"ScrollOptionsCellID";
 #pragma mark - ScrollOptionsCellDelegate
 ///选择这个选项(放大滑动效果)
 - (void)selectedThisOption:(NSIndexPath *)key{
+    [self showScrollLineView:key];
+    if ([self.delegate respondsToSelector:@selector(selectedThisOption:)]) {
+        [self.delegate selectedThisOption:key];
+    }
+}
+- (void)showScrollLineView:(NSIndexPath *)key{
     CGFloat W = 0;
     if (self.dataArray.count > 3) {
         W = Screen_Width/3;
@@ -110,38 +114,35 @@ static NSString *identifier = @"ScrollOptionsCellID";
         self.selectedKey = key;
     }
     [self.collectionView reloadData];
-    if ([self.delegate respondsToSelector:@selector(selectedThisOption:)]) {
-        [self.delegate selectedThisOption:key];
-    }
 }
 #pragma mark - 实现滑动下划线
 - (void)setupScrollLineView{
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 47, Screen_Width, 2)];
-    scrollView.showsVerticalScrollIndicator = NO;
-    scrollView.delegate = self;
-    scrollView.showsHorizontalScrollIndicator = NO;
-    CGFloat W = 0;
-    if (self.dataArray.count > 4) {
-        W = Screen_Width*0.25;
-    }else{
-        W = Screen_Width/self.dataArray.count;
+    if (self.dataArray.count > 0) {
+        
+        UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 47, Screen_Width, 2)];
+        scrollView.showsVerticalScrollIndicator = NO;
+        scrollView.delegate = self;
+        scrollView.showsHorizontalScrollIndicator = NO;
+        CGFloat W = 0;
+        if (self.dataArray.count > 4) {
+            W = Screen_Width*0.25;
+        }else{
+            W = Screen_Width/self.dataArray.count;
+        }
+        CGFloat x = W-self.lineWidth;
+        if (x < 0) {
+            x = 0;
+        }
+        UIView *lineView= [[UIView alloc] initWithFrame:CGRectMake(x*0.5, 0, self.lineWidth, 2)];
+        lineView.layer.cornerRadius = 1;
+        lineView.layer.masksToBounds = YES;
+        lineView.backgroundColor = self.lineColor == nil ? QZZUIColorWithRGB(58, 156, 241) : self.lineColor;
+        [scrollView addSubview:lineView];
+        scrollView.contentSize = CGSizeMake(W * self.dataArray.count, 2);
+        self.scrollLineView =  lineView;
+        self.lineContainScrollView = scrollView;
+        [self.contentView addSubview:scrollView];
     }
-    //    if (self.lineWidth == 0) {
-    //        self.lineWidth = W;
-    //    }
-    CGFloat x = W-self.lineWidth;
-    if (x < 0) {
-        x = 0;
-    }
-    UIView *lineView= [[UIView alloc] initWithFrame:CGRectMake(x*0.5, 0, self.lineWidth, 2)];
-    lineView.layer.cornerRadius = 1;
-    lineView.layer.masksToBounds = YES;
-    lineView.backgroundColor = self.lineColor == nil ? QZZUIColorWithRGB(58, 156, 241) : self.lineColor;
-    [scrollView addSubview:lineView];
-    scrollView.contentSize = CGSizeMake(W * self.dataArray.count, 2);
-    self.scrollLineView =  lineView;
-    self.lineContainScrollView = scrollView;
-    [self.contentView addSubview:scrollView];
 }
 ///滚动到指定的列
 - (void)scrollToIndexPath:(NSIndexPath *)key{
@@ -164,7 +165,7 @@ static NSString *identifier = @"ScrollOptionsCellID";
     self.flowLayout.minimumInteritemSpacing = 0;
 }
 #pragma mark - 设置选项字体
-- (void)settingOptionTitleColor:(UIColor *)color selectedColor:(UIColor *)selectedColor font:(UIFont *)font;{
+- (void)settingOptionTitleColor:(UIColor *)color selectedColor:(UIColor *)selectedColor font:(UIFont *)font{
     self.optionsTitleFont = font;
     self.optionsTitleColor = color;
     self.optionsTitleSelecteColor = selectedColor;
@@ -189,13 +190,23 @@ static NSString *identifier = @"ScrollOptionsCellID";
 #pragma mark - setter,getter
 - (void)setDataArray:(NSMutableArray *)dataArray{
     _dataArray = dataArray;
+    [self.collectionView reloadData];
     [self settingCollectionView];
     [self setupScrollLineView];
 }
 
 - (void)setSelectedKey:(NSIndexPath *)selectedKey{
     _selectedKey = selectedKey;
-    [self selectedThisOption:selectedKey];
     [self.collectionView reloadData];
+}
+- (void)setLineWidth:(CGFloat)lineWidth{
+    _lineWidth = lineWidth;
+    CGFloat x = 0;
+    if (self.selectedKey.item == 0) {
+        x = 0;
+    }else{
+        x = self.selectedKey.item*self.lineWidth;
+    }
+    self.scrollLineView.frame = CGRectMake(x, 0, self.lineWidth, 2);
 }
 @end

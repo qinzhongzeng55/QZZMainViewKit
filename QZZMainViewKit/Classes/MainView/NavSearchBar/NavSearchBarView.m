@@ -53,11 +53,9 @@
             [cancleButton setTitle:@"取消" forState:UIControlStateNormal];
             //[cancleButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             //[cancleButton setTitleColor:[UIColor blueColor] forState:UIControlStateHighlighted];
-            
         }
     }
 }
-
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
     
     [searchBar setShowsCancelButton:NO animated:YES];
@@ -65,6 +63,13 @@
     searchBar.text = @"";
     [self.searchBar resignFirstResponder];
     [self endEditing:YES];
+}
+#pragma mark - 设置字体大小
+- (void)settingTextSize:(CGFloat)textSize{
+    UITextField * searchField = [self.searchBar valueForKey:@"_searchField"];
+    //设置占位文字大小
+    [searchField setValue:[UIFont boldSystemFontOfSize:textSize] forKeyPath:@"_placeholderLabel.font"];
+    searchField.font = [UIFont boldSystemFontOfSize:textSize];
 }
 #pragma mark - 设置搜索框样式
 - (void)settingSearchBar{
