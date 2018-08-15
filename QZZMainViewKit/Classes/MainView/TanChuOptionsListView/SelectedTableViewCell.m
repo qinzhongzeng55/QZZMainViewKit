@@ -82,11 +82,6 @@
     self.titleLabel.textColor = color;
     self.titleLabel.font = font;
 }
-#pragma mark - 设置内容的字体
-- (void)settingContentTextColor:(UIColor *)color font:(UIFont *)font{
-    self.contentText.textColor = color;
-    self.contentText.font = font;
-}
 #pragma mark - 隐藏选择按钮
 - (void)hiddenSelectedBtn:(BOOL)isHidden{
     self.selectedBtn.hidden = isHidden;
@@ -101,17 +96,12 @@
         }else{
             self.contentText.text = model.placeHoled;
         }
-        self.contentText.textColor = [UIColor colorWithWhite:200/255.0 alpha:1];
+        self.contentText.textColor = self.placehodlerColor ? self.placehodlerColor : [UIColor colorWithWhite:200/255.0 alpha:1];
+        self.contentText.font = self.placehodlerFont;
     }else{
         self.contentText.text = model.info;
-        self.contentText.textColor = [UIColor colorWithWhite:102/255.0 alpha:1];
+        self.contentText.textColor = self.contentTextColor ? self.contentTextColor :[UIColor colorWithWhite:102/255.0 alpha:1];
+        self.contentText.font = self.contentTextFont;
     }
-}
-
-- (void)setIsDetail:(BOOL)isDetail{
-    
-    _isDetail = isDetail;
-    self.moreImageView.hidden = isDetail;
-    self.selectedBtn.hidden = isDetail;
 }
 @end

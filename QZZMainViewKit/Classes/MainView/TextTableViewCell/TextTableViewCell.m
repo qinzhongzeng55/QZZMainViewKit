@@ -52,9 +52,11 @@
         }
     }
     if(textView.text.length > 0){
-        self.contentText.textColor = self.textColor;
+        self.contentText.textColor = self.contentTextColor;
+        self.contentText.font = self.contentTextFont;
     }else{
         self.contentText.textColor = self.placehodlerColor;
+        self.contentText.font = self.placehodlerFont;
     }
     if ([text isEqualToString:@"\n"]) {
         [self endEditing:YES];
@@ -122,10 +124,6 @@
     self.titleLabel.textColor = color;
     self.titleLabel.font = font;
 }
-#pragma mark - 设置内容的字体
-- (void)settingContentTextFont:(UIFont *)font{
-    self.contentText.font = font;
-}
 #pragma mark - setter,getter
 - (void)setModel:(TableViewCellModel *)model{
     
@@ -137,16 +135,12 @@
         }else{
             self.contentText.text = model.placeHoled;
         }
-        self.contentText.textColor = self.placehodlerColor;
+        self.contentText.textColor = self.placehodlerColor ? self.placehodlerColor : [UIColor colorWithWhite:200/255.0 alpha:1];
+        self.contentText.font = self.placehodlerFont;
     }else{
         self.contentText.text = model.info;
-        self.contentText.textColor = self.textColor;
+        self.contentText.textColor = self.contentTextColor ? self.contentTextColor :[UIColor colorWithWhite:102/255.0 alpha:1];
+        self.contentText.font = self.contentTextFont;
     }
-}
-- (void)setIsDetail:(BOOL)isDetail{
-    
-    _isDetail = isDetail;
-    self.contentText.editable = !isDetail;
-    self.userInteractionEnabled = !isDetail;
 }
 @end

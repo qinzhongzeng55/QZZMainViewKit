@@ -21,7 +21,14 @@
 @property (nonatomic, assign) id<SelectedTableViewCellDelegate> delegate;
 @property (nonatomic, strong) NSIndexPath *key;
 @property (nonatomic, strong) TableViewCellModel *model;
-@property (nonatomic, assign) BOOL isDetail;
+///占位文字颜色
+@property (nonatomic, strong) UIColor *placehodlerColor;
+///占位文字字体
+@property (nonatomic, strong) UIFont *placehodlerFont;
+///内容文本颜色
+@property (nonatomic, strong) UIColor *contentTextColor;
+///内容字体
+@property (nonatomic, strong) UIFont *contentTextFont;
 
 ///隐藏lineView
 - (void)hiddenLineView:(BOOL)isHidden;
@@ -37,8 +44,6 @@
 - (void)settingTitleLeft:(CGFloat)left;
 ///设置标题的字体
 - (void)settingTitleColor:(UIColor *)color font:(UIFont *)font;
-///设置内容的字体
-- (void)settingContentTextColor:(UIColor *)color font:(UIFont *)font;
 ///隐藏选择按钮
 - (void)hiddenSelectedBtn:(BOOL)isHidden;
 @end
