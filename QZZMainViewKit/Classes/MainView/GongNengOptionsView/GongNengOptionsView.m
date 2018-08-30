@@ -15,6 +15,7 @@
 @property (nonatomic, assign) CGFloat imgViewWidthOfOptionsBtn;
 @property (nonatomic, strong) UIFont *labelFont;
 @property (nonatomic, assign) CGFloat labelTop;
+@property (nonatomic, assign) CGFloat labelBottom;
 @property (nonatomic, assign) CGFloat titlelabelHeight;
 @property (nonatomic, strong) UIColor *textColor;
 @end
@@ -59,6 +60,7 @@ static NSString *identifier = @"SelectedOptionsBtnCellID";
     [cell settingLabelFont:(self.labelFont == nil ? [UIFont systemFontOfSize:17] : self.labelFont)];
     [cell settingTextColor:(self.textColor == nil ? [UIColor colorWithWhite:51/255.0 alpha:1] :self.textColor)];
     [cell settingTitleLabelTop:(self.labelTop == 0 ? 5 : self.labelTop)];
+    [cell settingTitleLabelBottom:(self.labelBottom == 0 ? 5 : self.labelBottom)];
     [cell settingTitlelabelHeight:(self.titlelabelHeight == 0 ? 24 : self.titlelabelHeight)];
     cell.delegate = self;
     cell.key = indexPath;
@@ -90,6 +92,11 @@ static NSString *identifier = @"SelectedOptionsBtnCellID";
 #pragma mark - 设置文本头部距离
 - (void)settingTitleLabelTopOfOptionsBtn:(CGFloat)top{
     self.labelTop = top;
+    [self reloadData];
+}
+#pragma mark - 设置文本底部距离
+- (void)settingTitleLabelBottomOfOptionsBtn:(CGFloat)bottom{
+    self.labelBottom = bottom;
     [self reloadData];
 }
 #pragma mark - 设置文本高度

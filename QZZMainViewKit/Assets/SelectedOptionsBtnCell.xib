@@ -28,6 +28,7 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GGW-sO-vdX">
                         <rect key="frame" x="0.0" y="51" width="120" height="24"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="24" id="1L4-2f-sy2"/>
                         </constraints>
@@ -44,7 +45,7 @@
                     </button>
                 </subviews>
             </view>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="GGW-sO-vdX" firstAttribute="top" secondItem="FnT-f2-pQx" secondAttribute="bottom" constant="1" id="FrG-Ue-yLc"/>
                 <constraint firstItem="GGW-sO-vdX" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Nyy-B3-JnG"/>
@@ -58,6 +59,7 @@
                 <outlet property="OptionTextLabel" destination="GGW-sO-vdX" id="YHA-Z6-Eqt"/>
                 <outlet property="TextLabelHConstraint" destination="1L4-2f-sy2" id="3Bz-1l-fSo"/>
                 <outlet property="imageViewWConstraint" destination="CsR-5I-JfT" id="IJd-is-RXW"/>
+                <outlet property="titleLabelBConstraint" destination="ugY-EC-vvD" id="elV-PS-JbO"/>
                 <outlet property="titleLabelTConstraint" destination="FrG-Ue-yLc" id="g5A-18-O2I"/>
             </connections>
             <point key="canvasLocation" x="55" y="74"/>

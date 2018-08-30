@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *OptionImageView;
 @property (weak, nonatomic) IBOutlet UILabel *OptionTextLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageViewWConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLabelBConstraint;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLabelTConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *TextLabelHConstraint;
@@ -44,6 +45,10 @@
 #pragma mark - 设置文本头部距离
 - (void)settingTitleLabelTop:(CGFloat)top{
     self.titleLabelTConstraint.constant = top;
+}
+#pragma mark - 设置文本底部距离
+- (void)settingTitleLabelBottom:(CGFloat)bottom{
+    self.titleLabelBConstraint.constant = bottom;
 }
 #pragma mark - 设置文本高度
 - (void)settingTitlelabelHeight:(CGFloat)height{

@@ -146,7 +146,9 @@ static NSString *identifier = @"ScrollOptionsCellID";
 }
 ///滚动到指定的列
 - (void)scrollToIndexPath:(NSIndexPath *)key{
-    [self.collectionView scrollToItemAtIndexPath:key atScrollPosition:UICollectionViewScrollPositionNone animated:YES];
+    self.selectedKey = key;
+    [self showScrollLineView:key];
+    [self.collectionView scrollToItemAtIndexPath:key atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
 }
 #pragma mark - settingCollectionView
 - (void)settingCollectionView{

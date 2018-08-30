@@ -27,6 +27,8 @@
 - (void)settingTextColorOfOptionsBtn:(UIColor *)color;
 ///设置文本头部距离
 - (void)settingTitleLabelTopOfOptionsBtn:(CGFloat)top;
+///设置文本底部距离
+- (void)settingTitleLabelBottomOfOptionsBtn:(CGFloat)bottom;
 ///设置文本高度
 - (void)settingTitlelabelHeight:(CGFloat)height;
 @end
