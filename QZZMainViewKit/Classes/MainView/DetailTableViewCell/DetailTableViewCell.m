@@ -85,5 +85,6 @@
                            value:(self.contentTextColor == nil ? color : self.contentTextColor)
                            range:NSMakeRange(model.lableTitle.length+1, model.info.length)];
     }
+    self.titleLabel.attributedText = attrString;
 }
 @end

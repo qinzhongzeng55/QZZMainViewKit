@@ -148,7 +148,10 @@ static NSString *identifier = @"ScrollOptionsCellID";
 - (void)scrollToIndexPath:(NSIndexPath *)key{
     self.selectedKey = key;
     [self showScrollLineView:key];
-    [self.collectionView scrollToItemAtIndexPath:key atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
+    __weak typeof(self) weakSelf = self;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.15 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [weakSelf.collectionView scrollToItemAtIndexPath:key atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
+    });
 }
 #pragma mark - settingCollectionView
 - (void)settingCollectionView{
