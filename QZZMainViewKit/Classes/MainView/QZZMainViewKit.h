@@ -86,7 +86,7 @@ _Pragma("clang diagnostic pop") \
 
 
 ///去除首尾空格
-#define allTrim(object) [object stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet] ]
+#define allTrim(object) [object stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]
 
 ///把角度转换成PI的方式
 #define degressToRadius(ang) (M_PI*(ang)/180.0f)
@@ -120,7 +120,7 @@ _Pragma("clang diagnostic pop") \
  @param alpha 透明度值
  @return 生成的颜色对象
  */
-#define QZZUIColorWithRGBAndAlpha(red,green,blue,alpha) [UIColor colorWithRed: red / 255.0 green: green / 255.0 blue: blue / 255.0 alpha: alpha]
+#define QZZUIColorWithRGBAndAlpha(red,green,blue,colorAlpha) [UIColor colorWithRed: red / 255.0 green: green / 255.0 blue: blue / 255.0 alpha: colorAlpha]
 
 /**
  根据十六进制的字符串来生成颜色对象
@@ -131,7 +131,7 @@ _Pragma("clang diagnostic pop") \
  @param alpha 透明度的值
  @return 生成的颜色对象
  */
-#define QZZUIColorWithHexString(hexString,alpha) [UIColor colorWithHexString: hexString alpha: alpha]
+#define QZZUIColorWithHexString(hexString,colorAlpha) [UIColor colorWithHexString:hexString alpha:colorAlpha];
 
 /**
  根据十六进制的字符串来生成不透明的颜色对象
@@ -146,7 +146,7 @@ _Pragma("clang diagnostic pop") \
 
 #define QZZUIColorWithWhite(w) [UIColor colorWithWhite:w/255.0 alpha:1]
 
-#define QZZUIColorWithWhiteAndAlpha(w,alpha) [UIColor colorWithWhite:w/255.0 alpha:alpha]
+#define QZZUIColorWithWhiteAndAlpha(w,colorAlpha) [UIColor colorWithWhite:w/255.0 alpha:colorAlpha]
 
 
 //******************************************************************
@@ -280,7 +280,7 @@ _Pragma("clang diagnostic pop") \
 #import <QZZMainViewKit/OtherChatTableViewCell.h>
 #import <QZZMainViewKit/DetailTableViewCell.h>
 #import <QZZMainViewKit/QZZDatePickerView.h>
-
+#import <QZZMainViewKit/QZZWaveProgressView.h>
 
 
 

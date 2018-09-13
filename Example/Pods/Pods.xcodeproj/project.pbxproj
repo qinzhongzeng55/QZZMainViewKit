@@ -1295,10 +1295,10 @@
 		20384F1FBCF6EC34F639E0EB04E8DC95 /* ScrollOptionsView */ = {
 			isa = PBXGroup;
 			children = (
-				34825B6A426FB49B3C4DA897EDEC3D15 /* ScrollOptionsCell.h */,
-				6425206567A3EE4F2FC5284E8BA1A46D /* ScrollOptionsCell.m */,
 				37FAA5789A952192DB47987269B6A5EE /* ScrollOptionsView.h */,
 				94C08C3EB669E65453846068DC4028F9 /* ScrollOptionsView.m */,
+				34825B6A426FB49B3C4DA897EDEC3D15 /* ScrollOptionsCell.h */,
+				6425206567A3EE4F2FC5284E8BA1A46D /* ScrollOptionsCell.m */,
 			);
 			path = ScrollOptionsView;
 			sourceTree = "<group>";

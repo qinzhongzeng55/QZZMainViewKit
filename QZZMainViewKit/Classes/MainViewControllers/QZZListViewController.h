@@ -30,6 +30,8 @@
 @property (nonatomic, strong) NavSearchBarView *navSearchBarView;
 ///动态显示列表项时的样式
 @property (nonatomic, assign) XSTableViewAnimationType animationType;
+
+
 #pragma mark - 加载子控件
 - (void)guolv;
 - (void)loadRefresh;

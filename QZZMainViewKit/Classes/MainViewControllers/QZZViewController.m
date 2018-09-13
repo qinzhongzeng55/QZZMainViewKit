@@ -8,8 +8,7 @@
 
 #import "QZZViewController.h"
 
-
-@interface QZZViewController ()
+@interface QZZViewController ()<NavSearchBarViewDelegate>
 
 @property (nonatomic, strong) UILabel *titleLabelOfEmptyContentView;
 @property (nonatomic, strong) UIImageView *bgImgOfEmptyContentView;
@@ -22,6 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = QZZUIColorWithWhite(238);
+    //加载子视图
+    [self loadSubViews];
     //设置导航栏
     [self setupNavType];
     //解决滚动视图无故偏移
@@ -51,6 +52,49 @@
     //显示阴影视图
     self.contentLineImageView.hidden = NO;
 }
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    [self.view endEditing:YES];
+    [self endEditing];
+    __weak typeof(self) weakSelf = self;
+    [UIView animateWithDuration:  0.32 animations:^{
+        weakSelf.gotoTopBtn.transform = CGAffineTransformMakeTranslation(0, 120);
+        weakSelf.gotoTopBtn.hidden = YES;
+    }];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    //滚动超过一屏时显示回到顶部按钮
+    [self showGotoTopBtn:scrollView];
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    [self showGotoTopBtn:scrollView];
+}
+
+///滚动超过一屏时显示回到顶部按钮
+- (void)showGotoTopBtn:(UIScrollView *)scrollView{
+    CGFloat y = NAV_HEIGHT;
+    CGFloat h = TABBAR_HEIGHT;
+    if(scrollView.contentOffset.y >= (Screen_Height-y-h)*0.5){
+        __weak typeof(self) weakSelf = self;
+        [UIView animateWithDuration: 0.32 animations:^{
+            weakSelf.gotoTopBtn.hidden = NO;
+            weakSelf.gotoTopBtn.transform = CGAffineTransformIdentity;
+        }];
+    }else{
+        self.gotoTopBtn.hidden = YES;
+    }
+}
+#pragma mark - NavSearchBarViewDelegate
+///根据关键字搜索数据
+- (void)loadDataList{
+    [self updateData];
+}
+///更新数据
+- (void)updateData{
+    
+}
 #pragma mark - 解决滚动视图无故偏移
 - (void)adjustsScrollViewScrollViewInsets{
     //解决滚动视图无故偏移
@@ -76,7 +120,14 @@
     btn.imageEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0);
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
 }
-
+- (void)setupNavSearchBar{
+    self.navSearchBarView.frame = CGRectMake(0, 0, Screen_Width-136, 44);
+    self.navigationItem.titleView = self.navSearchBarView;
+}
+///设置搜索框左右两侧的间距
+- (void)settingSearchBarLRConstratint:(CGFloat)constraint{
+    [self.navSearchBarView settingSearchBarLRConstratint:constraint];
+}
 #pragma mark - ********获取阴影视图********
 - (UIImageView *)findHairlineImageViewUnder:(UIView *)view {
     
@@ -101,7 +152,7 @@
  */
 - (void)backItemDidClick{
     
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController popViewControllerAnimated:NO];
 }
 #pragma mark - ---设置无数据页面---
 - (void)hiddenEmptyContentView:(BOOL)isHidden{
@@ -222,7 +273,42 @@
         return UIStatusBarStyleDefault;
     }
 }
+#pragma mark - ------加载控件------
+- (void)loadSubViews{
+    
+    //加载快捷功能(例如:回到顶部等)
+    [self loadKuaiJieCaoZuoView];
+}
+#pragma mark - ------添加快捷功能按钮------
+- (void)loadKuaiJieCaoZuoView{
+    //加载回到顶部按钮
+    [self setupGotoTopBtn];
+}
 
+#pragma mark ---加载回到顶部按钮---
+- (void)setupGotoTopBtn{
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    CGFloat h = TABBAR_HEIGHT;
+    button.frame = CGRectMake(Screen_Width-50-32, Screen_Height-50-h-10, 50.f, 50.f);
+    [button setBackgroundImage:[UIImage qzz_imagePathWithName:@"gotoTop" bundle:@"QZZMainViewKit" targetClass:[self class]] forState:UIControlStateNormal];
+    button.layer.cornerRadius = 25;
+    button.layer.masksToBounds = YES;
+    [button addTarget:self action:@selector(gotoTopBtnDidClick) forControlEvents:UIControlEventTouchUpInside];
+    button.hidden = YES;
+    self.gotoTopBtn = button;
+    [self.view addSubview:button];
+}
+
+- (void)gotoTopBtnDidClick{
+
+}
+#pragma mark - 结束编辑状态
+- (void)endEditing{
+    [self.view endEditing:YES];
+    [self.navSearchBarView endEditing];
+}
+#pragma mark - 加载提示框
 - (void)tishi:(NSString *)title{
     CGFloat y = NAV_HEIGHT;
     __block UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake((Screen_Width / 2 - 150), y+10, 300, 30)];
@@ -244,5 +330,13 @@
             label = nil;
         }];
     }];
+}
+#pragma mark - setter,getter
+- (NavSearchBarView *)navSearchBarView{
+    if (_navSearchBarView == nil) {
+        _navSearchBarView = QZZGetNibFile_SecondaryBundle(@"QZZMainViewKit",@"NavSearchBarView");
+        _navSearchBarView.delegate = self;
+    }
+    return _navSearchBarView;
 }
 @end

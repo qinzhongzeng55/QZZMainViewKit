@@ -14,12 +14,12 @@
 #import "QZZWeakProxy.h"
 
 @interface QZZWaveProgressView ()
-@property (nonatomic,assign)CGFloat yHeight;
-@property (nonatomic,assign)CGFloat offset;
-@property (nonatomic,strong)CADisplayLink * timer;
-@property (nonatomic,strong)CAShapeLayer * firstWaveLayer;
-@property (nonatomic,strong)CAShapeLayer * secondWaveLayer;
 
+@property (nonatomic,assign) CGFloat yHeight;
+@property (nonatomic,assign) CGFloat offset;
+@property (nonatomic,strong) CADisplayLink *timer;
+@property (nonatomic,strong) CAShapeLayer *firstWaveLayer;
+@property (nonatomic,strong) CAShapeLayer *secondWaveLayer;
 @end
 
 @implementation QZZWaveProgressView
@@ -30,28 +30,11 @@
         self.bounds = CGRectMake(0, 0, MIN(frame.size.width, frame.size.height), MIN(frame.size.width, frame.size.height));
         self.layer.cornerRadius = MIN(frame.size.width, frame.size.height) * 0.5;
         self.layer.masksToBounds = YES;
-        self.layer.borderColor = [UIColor colorWithRed:205/255.0 green:202/255.0 blue:253/255.0 alpha:1].CGColor;
-        self.layer.borderWidth = 2.0f;
-        UIView *view = [[UIView alloc] init];
-        view.layer.borderColor = [UIColor colorWithRed:214/255.0 green:212/255.0 blue:253/255.0 alpha:1].CGColor;
-        view.alpha = 0.15;
-        view.layer.borderWidth = 1.0f;
-        view.frame = CGRectMake(4, 4, MIN(frame.size.width - 8, frame.size.height - 8), MIN(frame.size.width - 8, frame.size.height - 8));
-        view.layer.cornerRadius = MIN(frame.size.width - 8, frame.size.height - 8) * 0.5;
-        view.layer.masksToBounds = YES;
-        UIView *view1 = [[UIView alloc] init];
-        view1.backgroundColor = [UIColor whiteColor];
-        view1.alpha  = 0.15;
-        view1.frame = CGRectMake(8, 8, MIN(frame.size.width - 16, frame.size.height - 16), MIN(frame.size.width - 16, frame.size.height - 16));
-        view1.layer.cornerRadius = MIN(frame.size.width - 16, frame.size.height - 16) * 0.5;
-        view1.layer.masksToBounds = YES;
-        [self addSubview:view];
-        [self addSubview:view1];
         self.waveHeight = 5.0;
         self.firstWaveColor = QZZDefaultFirstWaveColor;
         self.secondWaveColor = QZZDefaultSecondWaveColor;
         self.yHeight = self.bounds.size.height;
-        self.speed=1.0;
+        self.speed = 1.0;
         [self.layer addSublayer:self.firstWaveLayer];
         if (!self.isShowSingleWave) {
             [self.layer addSublayer:self.secondWaveLayer];
@@ -60,10 +43,16 @@
     }
     return self;
 }
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    self.progressLabel.frame = CGRectMake(0, 0, self.bounds.size.width, 36);
+    self.layer.cornerRadius = MIN(self.bounds.size.width, self.bounds.size.height) * 0.5;
+    self.progressLabel.center = self.center;
+}
 - (void)setProgress:(CGFloat)progress{
     _progress = progress;
-    _progressLabel.text = [NSString stringWithFormat:@"%ld分",(long)[[NSNumber numberWithFloat:progress * 100] integerValue]];
-//    _progressLabel.textColor=[UIColor colorWithWhite:progress*1.8 alpha:1];
+    _progressLabel.text = [NSString stringWithFormat:@"%ld%%",(long)[[NSNumber numberWithFloat:progress * 100] integerValue]];
+//    _progressLabel.textColor = [UIColor colorWithWhite:progress*1.8 alpha:1];
     self.yHeight = self.bounds.size.height * (1 - progress);
     [self stopWaveAnimation];
     if(progress > 0.0){
@@ -140,7 +129,6 @@
     }
     return _firstWaveLayer;
 }
-
 - (CAShapeLayer *)secondWaveLayer{
     if (!_secondWaveLayer) {
         _secondWaveLayer = [CAShapeLayer layer];
@@ -149,10 +137,9 @@
     }
     return _secondWaveLayer;
 }
-
 - (UILabel *)progressLabel{
     if (!_progressLabel) {
-        _progressLabel=[[UILabel alloc] init];
+        _progressLabel = [[UILabel alloc] init];
         _progressLabel.frame = CGRectMake(0, 0, self.bounds.size.width, 36);
         _progressLabel.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
         _progressLabel.font = [UIFont boldSystemFontOfSize:32];
@@ -160,7 +147,6 @@
     }
     return _progressLabel;
 }
-
 - (void)dealloc{
     [self.timer invalidate];
     self.timer = nil;
