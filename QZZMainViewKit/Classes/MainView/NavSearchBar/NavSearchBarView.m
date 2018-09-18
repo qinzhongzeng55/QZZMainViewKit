@@ -107,6 +107,10 @@
         [self.delegate loadDataList];
     }
 }
+#pragma mark - 开始编辑
+- (void)beginEditing{
+    [self.searchBar becomeFirstResponder];
+}
 #pragma mark - 结束编辑
 - (void)endEditing{
     [self endEditing:YES];

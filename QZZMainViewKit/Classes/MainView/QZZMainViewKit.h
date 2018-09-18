@@ -171,9 +171,9 @@ _Pragma("clang diagnostic pop") \
 #pragma mark -  *****************  导航栏和tabbar  ****************
 //******************************************************************
 ///导航栏高度
-#define NAV_HEIGHT (iPhoneX == 1) ? 88.0f : 64.0f
+#define NAV_HEIGHT (iPhoneXXS == 1 || iPhoneXRXSMax == 1) ? 88.0f : 64.0f
 ///tabBar高度
-#define TABBAR_HEIGHT (iPhoneX == 1) ? 83.0f : 49.0f
+#define TABBAR_HEIGHT (iPhoneXXS == 1 || iPhoneXRXSMax == 1) ? 83.0f : 49.0f
 ///底部安全高度
 #define BottomSafeHeight 34
 
@@ -217,8 +217,11 @@ _Pragma("clang diagnostic pop") \
 // iPhone6 Plus/6s Plus/7 Plus 5.5英寸 屏幕宽高：414*736点 屏幕模式：3x 分辨率：1242*2208像素
 #define iPhone6Plusor6sPlusor7Plus ([UIScreen mainScreen].bounds.size.height == 736.0) ? YES : NO
 
-// iPhoneX 屏幕宽高：375*812点 屏幕模式：3x 分辨率：1125*2436像素
-#define iPhoneX ([UIScreen mainScreen].bounds.size.height == 812.0) ? YES : NO
+// iPhoneX/XS 屏幕宽高：375*812点 屏幕模式：3x 分辨率：1125*2436像素
+#define iPhoneXXS ([UIScreen mainScreen].bounds.size.height == 812.0) ? YES : NO
+
+// iPhoneXR/XS Max 屏幕宽高：414*896点 XS Max屏幕模式：3x 分辨率：1242*2688像素 XR屏幕模式：2x 分辨率：828*1792像素
+#define iPhoneXRXSMax ([UIScreen mainScreen].bounds.size.height == 896.0) ? YES : NO
 
 //******************************************************************
 #pragma mark -  *******************  导入公共头文件  *****************

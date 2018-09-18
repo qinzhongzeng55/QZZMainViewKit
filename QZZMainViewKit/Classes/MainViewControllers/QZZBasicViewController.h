@@ -16,7 +16,7 @@
 #import <UIKit/UIKit.h>
 #import "QZZMainViewKit.h"
 
-@interface QZZBasicViewController : UIViewController
+@interface QZZBasicViewController : UIViewController<UISearchBarDelegate>
 
 ///更新数据
 - (void)updateData;
@@ -64,5 +64,4 @@
 @property (nonatomic,assign) BOOL isStatusBarLight;
 ///获取阴影视图
 - (UIImageView *)findHairlineImageViewUnder:(UIView *)view;
-
 @end

@@ -8,7 +8,7 @@
 
 #import "QZZBasicViewController.h"
 
-@interface QZZBasicViewController ()<UISearchBarDelegate>
+@interface QZZBasicViewController ()
 
 
 @end

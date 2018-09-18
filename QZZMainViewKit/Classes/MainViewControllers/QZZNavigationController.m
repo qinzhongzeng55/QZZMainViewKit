@@ -35,7 +35,11 @@
         imageName = [NSString stringWithFormat:@"nav_bg_%@",@"750"];
     }else if (iPhone6Plusor6sPlusor7Plus) {
         imageName = [NSString stringWithFormat:@"nav_bg_%@",@"1242"];
-    }else if(iPhoneX){
+    }else if(iPhoneXXS){
+        imageName = [NSString stringWithFormat:@"nav_bg_%@",@"1125"];
+    }else if (iPhoneXRXSMax){
+        imageName = [NSString stringWithFormat:@"nav_bg_%@",@"2688"];
+    }else{
         imageName = [NSString stringWithFormat:@"nav_bg_%@",@"1125"];
     }
     [navBar setBackgroundImage:[UIImage qzz_imagePathWithName:imageName bundle:@"QZZMainViewKit" targetClass:[self class]] forBarMetrics:UIBarMetricsDefault];

@@ -28,6 +28,8 @@
 - (void)settingBackgroundImage:(UIImage *)image;
 ///更新数据
 - (void)loadDataList;
+///开始编辑
+- (void)beginEditing;
 ///结束编辑
 - (void)endEditing;
 ///设置搜索框左右两侧的间距
