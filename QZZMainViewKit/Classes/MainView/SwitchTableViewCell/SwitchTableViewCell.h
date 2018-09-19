@@ -23,13 +23,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) id<SwitchTableViewCellDelegate> delegate;
 @property (nonatomic, strong) NSIndexPath *key;
 
-
+///设置选项标题
+- (void)settingOptionTitle:(NSString *)title;
 ///隐藏lineView
 - (void)hiddenLineView:(BOOL)isHidden;
 ///设置lineView的背景颜色
 - (void)settingLineViewColor:(UIColor *)color;
 ///设置标题左侧的距离
-- (void)settingTitleLeft:(CGFloat)left;
+- (void)settingTitleLeft:(CGFloat)left height:(CGFloat)height;
 ///设置标题的字体
 - (void)settingTitleColor:(UIColor *)color font:(UIFont *)font;
 @end
