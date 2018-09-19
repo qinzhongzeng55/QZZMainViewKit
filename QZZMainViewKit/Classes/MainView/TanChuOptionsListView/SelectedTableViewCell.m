@@ -64,7 +64,7 @@
 - (void)settingMoreImageView:(UIImage *)image{
     self.moreImageView.image = image;
 }
-#pragma mark - 隐藏底部的line
+#pragma mark - 隐藏底部的lineView
 - (void)hiddenLineView:(BOOL)isHidden{
     self.lineView.hidden = isHidden;
 }

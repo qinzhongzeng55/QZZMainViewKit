@@ -31,6 +31,7 @@
 #import "QZZMainViewKit.h"
 #import "ScrollOptionsCell.h"
 #import "ScrollOptionsView.h"
+#import "SwitchTableViewCell.h"
 #import "SelectedTableViewCell.h"
 #import "TextTableViewCell.h"
 #import "UITableViewCell+QZZAdd.h"

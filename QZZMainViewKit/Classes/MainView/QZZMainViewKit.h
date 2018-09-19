@@ -284,6 +284,7 @@ _Pragma("clang diagnostic pop") \
 #import <QZZMainViewKit/DetailTableViewCell.h>
 #import <QZZMainViewKit/QZZDatePickerView.h>
 #import <QZZMainViewKit/QZZWaveProgressView.h>
+#import <QZZMainViewKit/SwitchTableViewCell.h>
 
 
 

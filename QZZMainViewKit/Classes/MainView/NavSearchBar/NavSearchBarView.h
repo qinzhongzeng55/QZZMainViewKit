@@ -20,7 +20,7 @@
 @interface NavSearchBarView : UIView
 
 @property (nonatomic, assign) id<NavSearchBarViewDelegate> delegate;
-///所属的关键字
+///搜索的关键字
 @property (nonatomic, copy) NSString *searchString;
 ///设置占位文字
 - (void)settingPlaceHolder:(NSString *)placeHolder;
