@@ -89,7 +89,7 @@
 #pragma mark - setter,getter
 - (void)setModel:(TableViewCellModel *)model{
     _model = model;
-    self.titleLabel.text = [NSString stringWithFormat:@"%@:  ",model.lableTitle];
+    self.titleLabel.text = model.lableTitle;//[NSString stringWithFormat:@"%@:  ",model.lableTitle];
     if ([QZZVerificationTools isEmptyString:model.info]) {
         if ([QZZVerificationTools isEmptyString:model.placeHoled]) {
             //self.contentText.text = @"请选择";
