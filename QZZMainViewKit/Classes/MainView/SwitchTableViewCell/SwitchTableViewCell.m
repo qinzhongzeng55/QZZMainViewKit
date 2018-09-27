@@ -21,7 +21,8 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    // 默认关闭
+    self.switchBtn.on = NO;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -31,9 +32,13 @@
 }
 #pragma mark - 开关值改变回调
 - (IBAction)switchValueChanged:(id)sender {
-    if ([self.delegate respondsToSelector:@selector(switchValueChanged:isOn:)]) {
-        [self.delegate switchValueChanged:self.key isOn:self.switchBtn.isOn];
+    if ([self.delegate respondsToSelector:@selector(switchValueChanged:withSwitch:)]) {
+        [self.delegate switchValueChanged:self.key withSwitch:self.switchBtn];
     }
+}
+#pragma mark - 设置开关
+- (void)settingSwitchOn:(BOOL)isOn{
+    self.switchBtn.on = isOn;
 }
 #pragma mark - 设置选项标题
 - (void)settingOptionTitle:(NSString *)title{

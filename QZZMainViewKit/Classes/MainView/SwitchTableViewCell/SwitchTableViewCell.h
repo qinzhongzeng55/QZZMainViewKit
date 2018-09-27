@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @optional
 ///开关值改变回调
-- (void)switchValueChanged:(NSIndexPath *)key isOn:(BOOL)isOn;
+- (void)switchValueChanged:(NSIndexPath *)key withSwitch:(UISwitch *)switchBtn;
 
 @end
 
@@ -23,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) id<SwitchTableViewCellDelegate> delegate;
 @property (nonatomic, strong) NSIndexPath *key;
 
+///设置开关
+- (void)settingSwitchOn:(BOOL)isOn;
 ///设置选项标题
 - (void)settingOptionTitle:(NSString *)title;
 ///隐藏lineView

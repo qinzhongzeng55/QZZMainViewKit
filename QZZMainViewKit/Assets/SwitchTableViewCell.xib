@@ -32,7 +32,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Igu-dp-pO1">
+                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Igu-dp-pO1">
                         <rect key="frame" x="259" y="8.5" width="51" height="31"/>
                         <connections>
                             <action selector="switchValueChanged:" destination="KGk-i7-Jjw" eventType="valueChanged" id="VVq-rL-FfV"/>
