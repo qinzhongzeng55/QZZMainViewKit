@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'QZZMainViewKit'
-  s.version          = '0.1.47'
+  s.version          = '0.1.46'
   s.summary          = 'A short description of QZZMainViewKit.'
 
 # This description is used to generate tags and improve search results.
