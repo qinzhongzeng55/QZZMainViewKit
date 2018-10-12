@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4NG-wv-tjO">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="53"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="52.5"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="时间:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rcq-86-cBb">
                         <rect key="frame" x="12" y="0.0" width="112" height="51.5"/>
@@ -39,21 +39,21 @@
                         </constraints>
                     </imageView>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sZV-KT-bbz">
-                        <rect key="frame" x="124" y="0.0" width="166" height="51"/>
+                        <rect key="frame" x="124" y="0.0" width="166" height="51.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hQu-Ed-rLD">
-                        <rect key="frame" x="0.0" y="51" width="320" height="1"/>
+                        <rect key="frame" x="0.0" y="51.5" width="320" height="1"/>
                         <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="LPg-wj-Soq"/>
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sXn-QR-oHh">
-                        <rect key="frame" x="0.0" y="0.0" width="124" height="52"/>
+                        <rect key="frame" x="0.0" y="0.0" width="124" height="52.5"/>
                         <connections>
                             <action selector="selectedBtnDidClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="0cm-gG-mfQ"/>
                         </connections>
@@ -68,7 +68,7 @@
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehP-1Q-V1F">
-                        <rect key="frame" x="124" y="0.0" width="166" height="51"/>
+                        <rect key="frame" x="124" y="0.0" width="166" height="51.5"/>
                         <connections>
                             <action selector="selectedBtnDidClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="hpV-gy-2AY"/>
                         </connections>
@@ -108,6 +108,8 @@
                 <outlet property="contentText" destination="sZV-KT-bbz" id="ia3-1T-cYx"/>
                 <outlet property="lineView" destination="hQu-Ed-rLD" id="F8g-eL-KQc"/>
                 <outlet property="moreImageView" destination="SWg-Kz-kbH" id="a6k-7O-fdL"/>
+                <outlet property="moreImgHConstraint" destination="V4P-Lu-gBi" id="yFW-1p-K1K"/>
+                <outlet property="moreImgWConstraint" destination="6lr-ud-7Xk" id="Rf4-pN-LYg"/>
                 <outlet property="selectedBtn" destination="ehP-1Q-V1F" id="TM3-Rg-OeM"/>
                 <outlet property="titleHContraint" destination="AZC-n6-5Fh" id="BUJ-S0-E9d"/>
                 <outlet property="titleLConstraint" destination="sw0-WF-PQ4" id="VKe-t0-rPf"/>

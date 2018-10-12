@@ -18,6 +18,8 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleHContraint;
 @property (weak, nonatomic) IBOutlet UIButton *selectedBtn;
 @property (weak, nonatomic) IBOutlet UITextView *contentText;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *moreImgWConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *moreImgHConstraint;
 @end
 
 @implementation SelectedTableViewCell
@@ -63,6 +65,11 @@
 #pragma mark - 设置>图片
 - (void)settingMoreImageView:(UIImage *)image{
     self.moreImageView.image = image;
+}
+#pragma mark - 设置>图片size
+- (void)settingMoreImageSize:(CGSize)size{
+    self.moreImgWConstraint.constant = size.width;
+    self.moreImgHConstraint.constant = size.height;
 }
 #pragma mark - 隐藏底部的lineView
 - (void)hiddenLineView:(BOOL)isHidden{

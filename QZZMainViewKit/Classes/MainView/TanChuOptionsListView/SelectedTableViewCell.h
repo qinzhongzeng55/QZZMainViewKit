@@ -36,6 +36,8 @@
 - (void)settingLineViewColor:(UIColor *)color;
 ///设置>图片
 - (void)settingMoreImageView:(UIImage *)image;
+///设置>图片size
+- (void)settingMoreImageSize:(CGSize)size;
 ///隐藏 >
 - (void)hiddenMoreImageView:(BOOL)isHidden;
 ///设置标题的SIZE
