@@ -25,6 +25,10 @@
 @property (assign, nonatomic) NSInteger RowsCountForData;
 ///每页数据的条数
 @property (assign, nonatomic) NSInteger rowsNumInOnePage;
+///数据请求的地址
+@property (copy, nonatomic) NSString *urlString;
+///请求参数
+@property (strong, nonatomic) NSMutableDictionary *params;
 ///当前页码
 @property (assign, nonatomic) NSInteger currentPage;
 ///上拉加载

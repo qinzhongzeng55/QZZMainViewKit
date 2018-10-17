@@ -9,7 +9,8 @@
 #import "QZZAlertView.h"
 
 @interface QZZAlertView()
-@property (weak, nonatomic) IBOutlet UIButton *cacleBtn;
+
+@property (weak, nonatomic) IBOutlet UIButton *cancelBtn;
 @property (weak, nonatomic) IBOutlet UIButton *queDingBtn;
 @property (weak, nonatomic) IBOutlet UIView *TopLineView;
 @property (weak, nonatomic) IBOutlet UIView *alertView;
@@ -53,8 +54,8 @@
 }
 ///设置取消按钮
 - (void)settingCancelBtnTitle:(NSString *)title font:(UIFont *)font{
-    [self.cacleBtn setTitle:title forState:UIControlStateNormal];
-    self.cacleBtn.titleLabel.font = font;
+    [self.cancelBtn setTitle:title forState:UIControlStateNormal];
+    self.cancelBtn.titleLabel.font = font;
 }
 //设置确定按钮
 - (void)settingQueDingBtnTitle:(NSString *)title font:(UIFont *)font{
@@ -68,6 +69,10 @@
 //设置确定按钮的字体颜色
 - (void)settingColorOfQueDingBtn:(UIColor *)color{
     [self.queDingBtn setTitleColor:color forState:UIControlStateNormal];
+}
+//设置取消按钮的字体颜色
+- (void)settingColorOfCancelBtn:(UIColor *)color{
+    [self.cancelBtn setTitleColor:color forState:UIControlStateNormal];
 }
 ///设置文本左右间距
 - (void)settingTitleTextConstraint:(CGFloat)constant{

@@ -27,6 +27,8 @@
 - (void)settingColorOfTopLineView:(UIColor *)color;
 ///设置确定按钮的字体颜色
 - (void)settingColorOfQueDingBtn:(UIColor *)color;
+//设置取消按钮的字体颜色
+- (void)settingColorOfCancelBtn:(UIColor *)color;
 ///设置确定按钮
 - (void)settingQueDingBtnTitle:(NSString *)title font:(UIFont *)font;
 ///设置取消按钮

@@ -56,7 +56,13 @@
 }
 
 - (void)upRefreshData{
-
+    if ([self.urlString isEqualToString:@""] || self.urlString == nil) {//url地址为空
+        NSLog(@"url地址为空");
+        [QZZProgressHUD showMessage:@"没有更多数据了"];
+        MJRefreshFooter *footer = self.tableViewForRefresh.mj_footer;
+        [footer endRefreshing];
+        return;
+    }
     NSInteger page = 0;//总页数
     if (self.rowsInOnePage > 0) {//设置了每页的行数
         
@@ -87,6 +93,13 @@
     
     //下拉刷新之后初始化当前页码
     self.currentPage = 1;//设置当前页码
+    if ([self.urlString isEqualToString:@""] || self.urlString == nil) {
+        NSLog(@"url地址为空");
+        [QZZProgressHUD showMessage:@"没有更多数据了"];
+        MJRefreshHeader *header =  self.tableViewForRefresh.mj_header;
+        [header endRefreshing];
+        return;
+    }
     [QZZProgressHUD showLoadingMessage:@"加载中..." toView:[UIApplication sharedApplication].keyWindow];
     if (self.downLoadDataBlock) {
         self.downLoadDataBlock(self.currentPage);

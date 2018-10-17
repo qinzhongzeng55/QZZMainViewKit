@@ -169,6 +169,13 @@
     return _searchBar;
 }
 
+- (void)setUrlString:(NSString *)urlString{
+    
+    _urlString = urlString;
+    self.upLoadRefresh.urlString = urlString;
+    self.downLoadRefresh.urlString = urlString;
+}
+
 - (void)setRowsCountForData:(NSInteger)RowsCountForData{
     
     _RowsCountForData = RowsCountForData;
@@ -188,6 +195,12 @@
     _rowsNumInOnePage = rowsNumInOnePage;
     self.upLoadRefresh.rowsInOnePage = rowsNumInOnePage;
     self.downLoadRefresh.rowsInOnePage = rowsNumInOnePage;
+}
+
+- (void)setParams:(NSMutableDictionary *)params{
+    _params = params;
+    self.upLoadRefresh.params = params;
+    self.downLoadRefresh.params = params;
 }
 
 - (void)setUpLoadDataBlock:(QZZRefreshUpLoadBlock)upLoadDataBlock{

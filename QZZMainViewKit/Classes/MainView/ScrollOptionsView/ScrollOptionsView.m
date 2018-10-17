@@ -47,10 +47,11 @@ static NSString *identifier = @"ScrollOptionsCellID";
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return self.dataArray.count;
 }
-
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    
     ScrollOptionsCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    if (cell == nil) {
+        cell = QZZGetNibFile_SecondaryBundle(@"QZZMainViewKit", @"ScrollOptionsCell");
+    }
     if (indexPath.item < self.dataArray.count) {
         [cell settingTitleLabelText:self.dataArray[indexPath.item]];
     }
@@ -118,11 +119,6 @@ static NSString *identifier = @"ScrollOptionsCellID";
 #pragma mark - 实现滑动下划线
 - (void)setupScrollLineView{
     if (self.dataArray.count > 0) {
-        
-        UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 47, Screen_Width, 2)];
-        scrollView.showsVerticalScrollIndicator = NO;
-        scrollView.delegate = self;
-        scrollView.showsHorizontalScrollIndicator = NO;
         CGFloat W = 0;
         if (self.dataArray.count > 4) {
             W = Screen_Width*0.25;
@@ -133,15 +129,9 @@ static NSString *identifier = @"ScrollOptionsCellID";
         if (x < 0) {
             x = 0;
         }
-        UIView *lineView= [[UIView alloc] initWithFrame:CGRectMake(x*0.5, 0, self.lineWidth, 2)];
-        lineView.layer.cornerRadius = 1;
-        lineView.layer.masksToBounds = YES;
-        lineView.backgroundColor = self.lineColor == nil ? QZZUIColorWithRGB(58, 156, 241) : self.lineColor;
-        [scrollView addSubview:lineView];
-        scrollView.contentSize = CGSizeMake(W * self.dataArray.count, 2);
-        self.scrollLineView =  lineView;
-        self.lineContainScrollView = scrollView;
-        [self.contentView addSubview:scrollView];
+        self.scrollLineView.frame = CGRectMake(x*0.5, 0, self.lineWidth, 2);
+        self.lineContainScrollView.contentSize = CGSizeMake(W * self.dataArray.count, 2);
+        [self.contentView addSubview:self.lineContainScrollView];
     }
 }
 ///滚动到指定的列
@@ -155,9 +145,6 @@ static NSString *identifier = @"ScrollOptionsCellID";
 }
 #pragma mark - settingCollectionView
 - (void)settingCollectionView{
-    
-    //默认选中第一个
-    self.selectedKey = [NSIndexPath indexPathForItem:0 inSection:0];
     self.collectionView.backgroundColor = [UIColor whiteColor];
     [self.collectionView registerNib:[UINib nibWithNibName:@"ScrollOptionsCell" bundle:[NSBundle bundleWithPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"QZZMainViewKit.bundle"]]] forCellWithReuseIdentifier:identifier];
     self.collectionView.dataSource = self;
@@ -195,9 +182,12 @@ static NSString *identifier = @"ScrollOptionsCellID";
 #pragma mark - setter,getter
 - (void)setDataArray:(NSMutableArray *)dataArray{
     _dataArray = dataArray;
+    [self settingMaxWidth];
     [self.collectionView reloadData];
-    [self settingCollectionView];
+    //默认选中第一个
+    self.selectedKey = [NSIndexPath indexPathForItem:0 inSection:0];
     [self setupScrollLineView];
+    
 }
 
 - (void)setSelectedKey:(NSIndexPath *)selectedKey{
@@ -213,5 +203,26 @@ static NSString *identifier = @"ScrollOptionsCellID";
         x = self.selectedKey.item*self.lineWidth;
     }
     self.scrollLineView.frame = CGRectMake(x, 0, self.lineWidth, 2);
+}
+- (UIView *)scrollLineView{
+    if (_scrollLineView == nil) {
+        UIView *lineView= [[UIView alloc] init];
+        lineView.layer.cornerRadius = 1;
+        lineView.layer.masksToBounds = YES;
+        lineView.backgroundColor = self.lineColor == nil ? QZZUIColorWithRGB(58, 156, 241) : self.lineColor;
+        _scrollLineView = lineView;
+        [self.lineContainScrollView addSubview:_scrollLineView];
+    }
+    return _scrollLineView;
+}
+- (UIScrollView *)lineContainScrollView{
+    if (_lineContainScrollView == nil) {
+        UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 47, Screen_Width, 2)];
+        scrollView.showsVerticalScrollIndicator = NO;
+        scrollView.delegate = self;
+        scrollView.showsHorizontalScrollIndicator = NO;
+        _lineContainScrollView = scrollView;
+    }
+    return _lineContainScrollView;
 }
 @end
