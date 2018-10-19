@@ -39,6 +39,7 @@
 @property (copy, nonatomic) QZZRefreshUpLoadBlock upLoadDataBlock;
 ///下拉刷新的回调
 @property (copy, nonatomic) QZZRefreshDownLoadBlock downLoadDataBlock;
+
 #pragma mark - 去除导航栏阴影
 ///导航栏的阴影视图
 @property (nonatomic, strong) UIImageView *contentLineImageView;

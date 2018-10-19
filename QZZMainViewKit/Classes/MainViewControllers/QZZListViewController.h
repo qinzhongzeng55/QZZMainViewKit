@@ -88,11 +88,15 @@
 - (void)gotoAdd;
 ///重新布局空页面
 - (void)layoutSubviewsForEmptyContentView;
+///设置空页面的大小
+- (void)settingEmptyContentViewFrame:(CGRect)frame;
 #pragma mark - 加载失败时的页面
 ///加载加载失败时的页面
 - (void)setupGetErrorView;
 //设置是否隐藏加载失败时的页面
 - (void)hiddenGetError:(BOOL)isHidden;
+///设置加载失败时的背景视图的背景图片
+- (void)settingBgImgWithImgNameOfErrorView:(NSString *)imgName;
 ///重新加载数据
 - (void)refreshBtnLoad;
 ///重新布局失败时的页面

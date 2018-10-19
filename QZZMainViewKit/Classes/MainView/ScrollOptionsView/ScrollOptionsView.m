@@ -167,7 +167,7 @@ static NSString *identifier = @"ScrollOptionsCellID";
 #pragma mark - 获取最大宽度
 - (void)settingMaxWidth{
     for (NSString *title in self.dataArray) {
-        UIFont *contentFont = self.optionsTitleFont;
+        UIFont *contentFont = self.optionsTitleFont == nil ? [UIFont systemFontOfSize:17] : self.optionsTitleFont;
         CGSize contentTextMaxSize = CGSizeMake(Screen_Width,48);
         CGSize size = [[AutomaticSizeTools sharedAutomaticSizeTools] boundingALLRectWithSize:title Font:contentFont MaxSize:contentTextMaxSize LineSpacing:kWebLineSpacing WordsSpacing:kWebWordsSpacing];
         if (self.maxWidth == 0) {

@@ -287,7 +287,7 @@
     img.frame  = CGRectMake((Screen_Width - 213)*0.5, (EmptyContentView.bounds.size.height - 213-30-58)*0.5, 213, 213);
     self.bgImgOfEmptyContentView = img;
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(img.frame), Screen_Width, 30)];
-    label.text = @"您还没有客户,快去新建吧";
+    label.text = @"没有数据,快去添加吧";
     label.textAlignment = NSTextAlignmentCenter;
     label.textColor = QZZUIColorWithRGB(102, 102, 102);
     self.titleLabelOfEmptyContentView = label;
@@ -295,7 +295,7 @@
     addBtn.frame = CGRectMake((Screen_Width-120)*0.5, CGRectGetMaxY(label.frame)+20, 120, 38);
     [addBtn setBackgroundColor:QZZUIColorWithRGB(58,156, 241)];
     [addBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [addBtn setTitle:@"新建客户" forState:UIControlStateNormal];
+    [addBtn setTitle:@"添加" forState:UIControlStateNormal];
     addBtn.layer.cornerRadius = 5;
     addBtn.layer.masksToBounds = YES;
     [addBtn addTarget:self action:@selector(gotoAdd) forControlEvents:UIControlEventTouchUpInside];
@@ -315,6 +315,13 @@
     self.titleLabelOfEmptyContentView.frame = CGRectMake(0, CGRectGetMaxY(self.bgImgOfEmptyContentView.frame), Screen_Width, 30);
     self.gotoAddBtn.frame = CGRectMake((Screen_Width-120)*0.5, CGRectGetMaxY(self.titleLabelOfEmptyContentView.frame)+20, 120, 38);
 }
+///设置空页面的大小
+- (void)settingEmptyContentViewFrame:(CGRect)frame{
+    self.EmptyContentView.frame = frame;
+    self.bgImgOfEmptyContentView.frame = CGRectMake((Screen_Width - 213)*0.5, (self.EmptyContentView.bounds.size.height - 213-30-58)*0.5, 213, 213);
+    self.titleLabelOfEmptyContentView.frame = CGRectMake(0, CGRectGetMaxY(self.bgImgOfEmptyContentView.frame), Screen_Width, 30);
+    self.gotoAddBtn.frame = CGRectMake((Screen_Width-120)*0.5, CGRectGetMaxY(self.titleLabelOfEmptyContentView.frame)+20, 120, 38);
+}
 #pragma mark - 加载失败时的页面
 - (void)hiddenGetError:(BOOL)isHidden{
     
@@ -326,7 +333,7 @@
     UIView *errorView = [[UIView alloc] initWithFrame:CGRectMake(0,y, Screen_Width, Screen_Height-y)];
     errorView.backgroundColor = [UIColor colorWithWhite:255/255.0 alpha:1];
     self.errorView = errorView;
-    UIImageView *img = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"home_icon_defeated"]];
+    UIImageView *img = [[UIImageView alloc] initWithImage:[UIImage qzz_imagePathWithName:@"home_icon_defeated" bundle:@"QZZMainViewKit" targetClass:[self class]]];
     img.frame  = CGRectMake((Screen_Width - 169)*0.5, (errorView.bounds.size.height - 223-30-38)*0.5, 169, 223);
     self.bgImgOfErrorView = img;
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(img.frame), Screen_Width, 30)];
@@ -339,7 +346,7 @@
     refreshBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
     [refreshBtn setTitleColor:QZZUIColorWithRGB(58, 156, 241) forState:UIControlStateNormal];
     [refreshBtn setTitle:@"重新加载" forState:UIControlStateNormal];
-    [refreshBtn setImage:[UIImage imageNamed:@"home_btn_loading"] forState:UIControlStateNormal];
+    [refreshBtn setImage:[UIImage qzz_imagePathWithName:@"home_icon_defeated" bundle:@"home_btn_loading" targetClass:[self class]] forState:UIControlStateNormal];
     [refreshBtn addTarget:self action:@selector(refreshBtnLoad) forControlEvents:UIControlEventTouchUpInside];
     [errorView addSubview:refreshBtn];
     self.refreshBtn = refreshBtn;
@@ -350,6 +357,10 @@
 }
 - (void)refreshBtnLoad{
     DLog(@"重新加载数据中...");
+}
+///设置加载失败时的背景视图的背景图片
+- (void)settingBgImgWithImgNameOfErrorView:(NSString *)imgName{
+    self.bgImgOfErrorView.image = [UIImage imageNamed:imgName];
 }
 ///重新布局失败时的页面
 - (void)layoutSubviewsForGetErrorView{
