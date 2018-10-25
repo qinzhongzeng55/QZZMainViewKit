@@ -308,6 +308,9 @@
 }
 - (void)gotoAdd{
     DLog(@"去新建...");
+    [self.view endEditing:YES];
+    self.searchString = @"";
+    self.searchBar.text = @"";
 }
 ///重新布局空页面
 - (void)layoutSubviewsForEmptyContentView{
@@ -346,7 +349,7 @@
     refreshBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
     [refreshBtn setTitleColor:QZZUIColorWithRGB(58, 156, 241) forState:UIControlStateNormal];
     [refreshBtn setTitle:@"重新加载" forState:UIControlStateNormal];
-    [refreshBtn setImage:[UIImage qzz_imagePathWithName:@"home_icon_defeated" bundle:@"home_btn_loading" targetClass:[self class]] forState:UIControlStateNormal];
+    [refreshBtn setImage:[UIImage qzz_imagePathWithName:@"home_btn_loading" bundle:@"QZZMainViewKit" targetClass:[self class]] forState:UIControlStateNormal];
     [refreshBtn addTarget:self action:@selector(refreshBtnLoad) forControlEvents:UIControlEventTouchUpInside];
     [errorView addSubview:refreshBtn];
     self.refreshBtn = refreshBtn;

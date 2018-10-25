@@ -164,6 +164,7 @@
         _searchBar.delegate = self;
         _searchBar.placeholder = @"请输入关键字";
         _searchBar.searchBarStyle = UISearchBarStyleMinimal;
+        _searchBar.enablesReturnKeyAutomatically = NO;
         _searchBar.backgroundImage = [UIImage new];
     }
     return _searchBar;
