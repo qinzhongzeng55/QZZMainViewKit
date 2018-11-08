@@ -87,6 +87,9 @@ _Pragma("clang diagnostic pop") \
 
 ///去除首尾空格
 #define allTrim(object) [object stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]
+///去除所有空格
+#define replaceAllSpace(object) [object stringByReplacingOccurrencesOfString:@" " withString:@""]
+
 
 ///把角度转换成PI的方式
 #define degressToRadius(ang) (M_PI*(ang)/180.0f)

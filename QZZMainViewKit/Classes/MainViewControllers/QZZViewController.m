@@ -223,8 +223,8 @@
     UIView *errorView = [[UIView alloc] initWithFrame:CGRectMake(0,y, Screen_Width, Screen_Height-y)];
     errorView.backgroundColor = [UIColor colorWithWhite:255/255.0 alpha:1];
     self.errorView = errorView;
-    UIImageView *img = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"home_icon_defeated"]];
-    img.frame  = CGRectMake((Screen_Width - 169)*0.5, (errorView.bounds.size.height - 223-30-38)*0.5, 169, 223);
+    UIImageView *img = [[UIImageView alloc] initWithImage:[UIImage qzz_imagePathWithName:@"home_icon_defeated" bundle:@"QZZMainViewKit" targetClass:[self class]]];
+    img.frame  = CGRectMake((Screen_Width - 169)*0.5, (errorView.bounds.size.height - 223 - 30 - 38)*0.5, 169, 223);
     self.bgImgOfErrorView = img;
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(img.frame), Screen_Width, 30)];
     label.text = @"由于网络原因,加载失败";
@@ -236,7 +236,7 @@
     refreshBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
     [refreshBtn setTitleColor:QZZUIColorWithRGB(58, 156, 241) forState:UIControlStateNormal];
     [refreshBtn setTitle:@"重新加载" forState:UIControlStateNormal];
-    [refreshBtn setImage:[UIImage imageNamed:@"home_btn_loading"] forState:UIControlStateNormal];
+    [refreshBtn setImage:[UIImage qzz_imagePathWithName:@"home_btn_loading" bundle:@"QZZMainViewKit" targetClass:[self class]] forState:UIControlStateNormal];
     [refreshBtn addTarget:self action:@selector(refreshBtnLoad) forControlEvents:UIControlEventTouchUpInside];
     [errorView addSubview:refreshBtn];
     self.refreshBtn = refreshBtn;
@@ -275,9 +275,7 @@
 }
 #pragma mark - ------加载控件------
 - (void)loadSubViews{
-    
-    //加载快捷功能(例如:回到顶部等)
-    [self loadKuaiJieCaoZuoView];
+
 }
 #pragma mark - ------添加快捷功能按钮------
 - (void)loadKuaiJieCaoZuoView{
