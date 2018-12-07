@@ -24,17 +24,25 @@ typedef NS_ENUM(NSInteger, QZZDatePickerMode) {
 
 @property (nonatomic, copy) NSString *time;
 /** 月 */
-@property (nonatomic, copy) NSString *str111;
+@property (nonatomic, copy) NSString *month;
 /** 年 */
-@property (nonatomic,copy) NSString *str222;
+@property (nonatomic,copy) NSString *year;
 /** datepicker */
 @property (nonatomic, strong) UIDatePicker *datePickerView;
 /** pickerview */
 @property (nonatomic, strong) UIPickerView *datePicker;
+///是否是横屏
+@property (nonatomic, assign) BOOL isLandScape;
+///按钮字体颜色
+@property (nonatomic, strong) UIColor *tinColor;
+///按钮字体
+@property (nonatomic, strong) UIFont *tinfont;
 
 @property (weak, nonatomic) id<QZZDatePickerDelegate> delegate;
 
 + (instancetype)pickerViewWithType:(QZZDatePickerMode)type;
+
+- (instancetype)initWithFrame:(CGRect)frame type:(QZZDatePickerMode)type;
 
 - (void)show;
 

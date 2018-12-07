@@ -23,7 +23,8 @@ const CGFloat QZZDatePickerViewButtonHeight = 35.0;
 @property (strong,nonatomic) NSString *timeSelectedString;
 @property (strong,nonatomic) NSString *yearStr;
 @property (strong,nonatomic) NSString *monthStr;
-
+@property (nonatomic, strong) UIButton *cancelButton;
+@property (nonatomic, strong) UIButton *confirmButton;
 @property (strong, nonatomic) UIView *mainView;
 @property (strong, nonatomic) UIView *bottomView;
 
@@ -63,7 +64,7 @@ const CGFloat QZZDatePickerViewButtonHeight = 35.0;
     
     CGFloat bottomViewY = CGRectGetHeight([UIScreen mainScreen].bounds) - QZZDatePickerViewBottomViewHeight;
     CGRect bottomFrame = CGRectMake(0, bottomViewY, CGRectGetWidth([UIScreen mainScreen].bounds), QZZDatePickerViewBottomViewHeight);
-//
+    //
     if (animated) {
         [UIView animateWithDuration:0.3 animations:^ {
             self.alpha = 1.0;
@@ -109,7 +110,7 @@ const CGFloat QZZDatePickerViewButtonHeight = 35.0;
     
     [self setupBottomView];
     
-//    [self setupPicker];
+    //    [self setupPicker];
 }
 
 - (void)setupMainView {
@@ -141,9 +142,13 @@ const CGFloat QZZDatePickerViewButtonHeight = 35.0;
     
     UIColor *buttonTitleColor = [UIColor colorWithRed:0.0 green:122/255.0 blue:1.0 alpha:1.0];
     
+    CGFloat x = 12;
+    if (self.isLandScape) {
+        x = 44;
+    }
     // Cancel
     UIButton *cancelButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, QZZDatePickerViewButtonWidth, QZZDatePickerViewButtonHeight)];
-    
+    self.cancelButton = cancelButton;
     NSString *cancelText = @"取消";
     
     cancelButton.titleLabel.text = cancelText;
@@ -153,9 +158,10 @@ const CGFloat QZZDatePickerViewButtonHeight = 35.0;
     [cancelButton addTarget:self action:@selector(cancelClicked:) forControlEvents:UIControlEventTouchUpInside];
     
     // Confirm
-    CGFloat confirmButtonX = CGRectGetWidth([UIScreen mainScreen].bounds) - QZZDatePickerViewButtonWidth;
+    CGFloat confirmButtonX = CGRectGetWidth([UIScreen mainScreen].bounds) - QZZDatePickerViewButtonWidth-12;
     UIButton *confirmButton = [[UIButton alloc] initWithFrame:CGRectMake(confirmButtonX, 0, QZZDatePickerViewButtonWidth, QZZDatePickerViewButtonHeight)];
     NSString *confirmText = @"确定";
+    self.confirmButton = confirmButton;
     confirmButton.titleLabel.text = confirmText;
     [confirmButton setTitle:confirmText forState:UIControlStateNormal];
     [confirmButton setTitleColor:buttonTitleColor forState:UIControlStateNormal];
@@ -170,10 +176,10 @@ const CGFloat QZZDatePickerViewButtonHeight = 35.0;
 - (void)setTime:(NSString *)time {
     
     if (time.length > 5) {
-        _str111 = [time substringFromIndex:6];
-        _str222 = [time substringToIndex:4];
+        _month = [time substringFromIndex:5];
+        _year = [time substringToIndex:4];
     }else {
-        _str222 = time;
+        _year = time;
     }
     
     [self setupPicker];
@@ -187,7 +193,7 @@ const CGFloat QZZDatePickerViewButtonHeight = 35.0;
         }
         _datePickerView = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, QZZDatePickerViewButtonHeight, CGRectGetWidth([UIScreen mainScreen].bounds), QZZDatePickerViewBottomViewHeight - QZZDatePickerViewButtonHeight)];
         _datePickerView.datePickerMode = UIDatePickerModeDate;
-
+        
         [_bottomView addSubview:_datePickerView];
         
         
@@ -210,11 +216,11 @@ const CGFloat QZZDatePickerViewButtonHeight = 35.0;
         _datePicker.delegate = self;
         [_bottomView addSubview:_datePicker];
         
-        int a = [_str111 intValue];
-        int b = [_str222 intValue];
+        int a = [_month intValue];
+        int b = [_year intValue];
         [self.datePicker selectRow:a-1 inComponent:1 animated:NO];
         [self.datePicker selectRow:b-1900 inComponent:0 animated:NO];
-
+        
         
     }else if (_type == QZZDatePickerModeYear) {
         if (_datePicker) {
@@ -236,7 +242,7 @@ const CGFloat QZZDatePickerViewButtonHeight = 35.0;
         _datePicker.delegate = self;
         [_bottomView addSubview:_datePicker];
         
-        int b = [_str222 intValue];
+        int b = [_year intValue];
         [self.datePicker selectRow:b-1900 inComponent:0 animated:NO];
     }
 }
@@ -300,7 +306,7 @@ const CGFloat QZZDatePickerViewButtonHeight = 35.0;
 #pragma mark - 懒加载
 /**
  月份
-
+ 
  @return 月份数组
  */
 -(NSMutableArray *)monthArr{
@@ -321,7 +327,7 @@ const CGFloat QZZDatePickerViewButtonHeight = 35.0;
 
 /**
  最大和最小年份
-
+ 
  @return 数组
  */
 -(NSMutableArray *)yearArr{
@@ -364,5 +370,25 @@ const CGFloat QZZDatePickerViewButtonHeight = 35.0;
         [_delegate QZZDatePickerViewDidDismissWithConfirm:self string:self.timeSelectedString];
     }
 }
-
+#pragma mark - setter,getter
+- (void)setIsLandScape:(BOOL)isLandScape{
+    _isLandScape = isLandScape;
+    CGFloat x = 12;
+    if (isLandScape) {
+        if (([UIScreen mainScreen].bounds.size.width == 812.0) || ([UIScreen mainScreen].bounds.size.width == 896.0)) {
+            x = 32;
+        }
+    }
+    self.cancelButton.frame = CGRectMake(x, 0, QZZDatePickerViewButtonWidth, QZZDatePickerViewButtonHeight);
+}
+- (void)setTinColor:(UIColor *)tinColor{
+    _tinColor = tinColor;
+    [self.cancelButton setTitleColor:tinColor forState:UIControlStateNormal];
+    [self.confirmButton setTitleColor:tinColor forState:UIControlStateNormal];
+}
+- (void)setTinfont:(UIFont *)tinfont{
+    _tinfont = tinfont;
+    self.cancelButton.titleLabel.font = tinfont;
+    self.confirmButton.titleLabel.font = tinfont;
+}
 @end
