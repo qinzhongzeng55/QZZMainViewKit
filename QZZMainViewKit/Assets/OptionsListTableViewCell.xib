@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,38 +26,40 @@
                             <constraint firstAttribute="height" constant="1" id="nze-B8-u5g"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hah-xk-qBc">
-                        <rect key="frame" x="139" y="11" width="42" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hah-xk-qBc">
+                        <rect key="frame" x="12" y="10" width="277" height="23.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="46H-FZ-pFQ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <connections>
-                            <action selector="selectedThisOption:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="WCu-l3-b0D"/>
-                        </connections>
-                    </button>
                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZFH-pp-QOi">
-                        <rect key="frame" x="299" y="13" width="9" height="17"/>
+                        <rect key="frame" x="299" y="13.5" width="9" height="17"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="9" id="8os-6Q-a3q"/>
                             <constraint firstAttribute="height" constant="17" id="MpI-Rc-cba"/>
                         </constraints>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="46H-FZ-pFQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                        <connections>
+                            <action selector="selectedThisOption:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="WCu-l3-b0D"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="46H-FZ-pFQ" secondAttribute="bottom" id="60q-Im-T6S"/>
-                    <constraint firstItem="hah-xk-qBc" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="6Vn-UF-L0F"/>
                     <constraint firstAttribute="trailing" secondItem="46H-FZ-pFQ" secondAttribute="trailing" id="8xQ-bG-0HA"/>
+                    <constraint firstItem="hah-xk-qBc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="DII-bZ-uPY"/>
+                    <constraint firstAttribute="bottom" secondItem="hah-xk-qBc" secondAttribute="bottom" constant="10" id="EvQ-0l-2rz"/>
                     <constraint firstItem="ZFH-pp-QOi" firstAttribute="centerY" secondItem="hah-xk-qBc" secondAttribute="centerY" id="HfM-Oi-1xz"/>
                     <constraint firstAttribute="trailing" secondItem="Ck1-UW-3z6" secondAttribute="trailing" id="L78-Js-rey"/>
+                    <constraint firstItem="hah-xk-qBc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="NU5-eW-BlA"/>
                     <constraint firstAttribute="bottom" secondItem="Ck1-UW-3z6" secondAttribute="bottom" id="U2B-v1-IAn"/>
                     <constraint firstItem="46H-FZ-pFQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Urh-Xw-hkF"/>
-                    <constraint firstItem="hah-xk-qBc" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="asI-B2-ko9"/>
                     <constraint firstItem="46H-FZ-pFQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="fMI-ro-Tup"/>
                     <constraint firstAttribute="trailing" secondItem="ZFH-pp-QOi" secondAttribute="trailing" constant="12" id="kAh-3u-sI0"/>
                     <constraint firstItem="Ck1-UW-3z6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ljb-eU-nNd"/>
+                    <constraint firstItem="ZFH-pp-QOi" firstAttribute="leading" secondItem="hah-xk-qBc" secondAttribute="trailing" constant="10" id="o8X-u1-9Hg"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>

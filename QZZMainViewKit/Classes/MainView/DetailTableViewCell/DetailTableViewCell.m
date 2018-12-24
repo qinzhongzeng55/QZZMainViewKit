@@ -25,8 +25,6 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.titleLabelTConstraint.constant = kWebLineSpacing;
-    self.titleLabelBConstraint.constant = kWebLineSpacing;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -36,19 +34,23 @@
 }
 #pragma mark - 设置lineView左边距
 - (void)settingLineLConstraint:(CGFloat)left{
-    
     self.lineViewLConstraint.constant = left;
     [self layoutIfNeeded];
 }
 #pragma mark - 设置标题左边距
 - (void)settingTitleLConstraint:(CGFloat)left{
-    
     self.titleLabelLConstraint.constant = left;
     [self layoutIfNeeded];
 }
 #pragma mark - 设置标题右边距
 - (void)settingTitleRConstraint:(CGFloat)right{
     self.titleLabelRConstraint.constant = right;
+    [self layoutIfNeeded];
+}
+#pragma mark - 设置标题上下边距
+- (void)settingTitleTAndBConstraint:(CGFloat)constant{
+    self.titleLabelTConstraint.constant = constant;
+    self.titleLabelBConstraint.constant = constant;
     [self layoutIfNeeded];
 }
 #pragma mark - 隐藏lineView
@@ -65,7 +67,6 @@
 }
 #pragma mark - setter,getter
 - (void)setModel:(TableViewCellModel *)model{
-    
     _model = model;
     self.titleLabel.text = model.lableTitle;
     if (![QZZVerificationTools isEmptyString:model.info]) {
@@ -73,7 +74,7 @@
     }
     CGSize titleMaxSize = CGSizeMake(Screen_Width-self.titleLabelLConstraint.constant-self.titleLabelRConstraint.constant, Screen_Height);
     CGSize size = [[AutomaticSizeTools sharedAutomaticSizeTools] calculateSizeForLabel:self.titleLabel MaxWidth:titleMaxSize.width LineSpacing:kWebLineSpacing WordsSpacing:kWebWordsSpacing];
-    self.titleLabelHConstraint.constant = size.height;
+    self.titleLabelHConstraint.constant = size.height+10;
     //设置字体颜色
     NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:self.titleLabel.text];
     UIColor *color = QZZUIColorWithHexStringNoTransparent(@"#333333");

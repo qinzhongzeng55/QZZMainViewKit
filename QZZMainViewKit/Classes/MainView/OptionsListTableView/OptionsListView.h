@@ -33,7 +33,7 @@ typedef void (^OptionSelectedBlock)(OptionButtonModel *model,NSIndexPath *key);
 - (void)settingMoreImageView:(UIImage *)image;
 ///设置选项的字体
 - (void)settingContentTextColor:(UIColor *)color font:(UIFont *)font;
-///设置弹框的字体
+///设置弹框标题的字体
 - (void)settingTitleColor:(UIColor *)color font:(UIFont *)font;
 ///设置头部图片
 - (void)settingTopImageView:(UIImage *)image;

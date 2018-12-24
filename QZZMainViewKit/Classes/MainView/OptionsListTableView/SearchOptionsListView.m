@@ -173,6 +173,11 @@
     self.optionsTitleColor = color;
     [self.tableView reloadData];
 }
+#pragma mark - 设置占位标题字体
+- (void)settingTitleFont:(UIFont *)font{
+    UITextField * searchField = [self.searchBar valueForKey:@"_searchField"];
+    [searchField setValue:font forKeyPath:@"_placeholderLabel.font"];
+}
 #pragma mark - 设置头部view的高度
 - (void)settingTopViewHeight:(CGFloat)height{
     self.TopViewHConstraint.constant = height;
