@@ -469,6 +469,8 @@
 - (void)setDataArray:(NSMutableArray *)dataArray{
     
     _dataArray = dataArray;
+    self.gotoTopBtn.transform = CGAffineTransformIdentity;
+    self.gotoTopBtn.hidden = YES;
     [self reloadData];
     [self starAnimationWithTableView:self.tableView];
 }

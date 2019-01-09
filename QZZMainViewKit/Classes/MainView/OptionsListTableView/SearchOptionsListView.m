@@ -174,7 +174,7 @@
     [self.tableView reloadData];
 }
 #pragma mark - 设置占位标题字体
-- (void)settingTitleFont:(UIFont *)font{
+- (void)settingSearchFieldPlaceholderFont:(UIFont *)font{
     UITextField * searchField = [self.searchBar valueForKey:@"_searchField"];
     [searchField setValue:font forKeyPath:@"_placeholderLabel.font"];
 }

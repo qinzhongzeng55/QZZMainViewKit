@@ -34,7 +34,7 @@ typedef void (^OptionSelectedBlock)(OptionButtonModel *model,NSIndexPath *key);
 ///设置选项的字体
 - (void)settingContentTextColor:(UIColor *)color font:(UIFont *)font;
 ///设置占位标题字体
-- (void)settingTitleFont:(UIFont *)font;
+- (void)settingSearchFieldPlaceholderFont:(UIFont *)font;
 ///设置头部view的高度
 - (void)settingTopViewHeight:(CGFloat)height;
 ///设置containView的圆角角度
