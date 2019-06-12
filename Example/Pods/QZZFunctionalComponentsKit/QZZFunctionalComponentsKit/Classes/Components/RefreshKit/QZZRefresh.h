@@ -13,8 +13,6 @@
 typedef void(^QZZRefreshDownLoadBlock)(NSInteger currentPage);
 ///上拉加载的回调
 typedef void(^QZZRefreshUpLoadBlock)(NSInteger currentPage);
-///下拉刷新时参数改变的回调
-typedef void(^QZZRefreshUpdateParameterBlock)(NSMutableDictionary *parameters);
 
 @interface QZZRefresh : NSObject
 //  ==================注释说明====================
@@ -33,7 +31,7 @@ typedef void(^QZZRefreshUpdateParameterBlock)(NSMutableDictionary *parameters);
 @property (assign, nonatomic) NSString *urlString;
 @property (copy, nonatomic) QZZRefreshDownLoadBlock downLoadDataBlock;
 @property (copy, nonatomic) QZZRefreshUpLoadBlock upLoadDataBlock;
-///请求参数,已包含参数: page 页数 rows 每页的行数
+///请求参数
 @property (strong, nonatomic) NSMutableDictionary *params;
 //  =============================================
 //                        /\
@@ -42,7 +40,6 @@ typedef void(^QZZRefreshUpdateParameterBlock)(NSMutableDictionary *parameters);
 //                        ||
 #warning            记得设置以上参数
 //  =============================================
-@property (nonatomic, copy) QZZRefreshUpdateParameterBlock updateParameterBlock;
 ///当前页码
 @property (assign, nonatomic) NSInteger currentPage;
 @property (strong, nonatomic) UIColor *color;

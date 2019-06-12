@@ -54,7 +54,7 @@
 
 #pragma mark - UITextViewDelegate
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range
- replacementText:(NSString *)text{
+replacementText:(NSString *)text{
     
     if ([text isEqualToString:@"\n"]) {
         if ([self.contentTextView.text isEqualToString:@""] || self.contentTextView.text == nil) {
@@ -138,30 +138,25 @@
 }
 
 - (void)textViewDidChange:(UITextView *)textView{
-    if(self.contentTextView.text.length == 1){
-        [self buJuTextView];
-    }
+
     UITextRange *selectedRange = [textView markedTextRange];
     //获取高亮部分
     UITextPosition *pos = [textView positionFromPosition:selectedRange.start offset:0];
     
+    NSString  *nsTextContent = textView.text;
+    NSInteger existTextNum = nsTextContent.length;
+    if (self.contentTextView.text.length > 0) {
+        self.placeHudLabel.hidden = YES;
+    }else{
+        self.placeHudLabel.hidden = NO;
+    }
     //如果在变化中是高亮部分在变，就不要计算字符了
     if (selectedRange && pos) {
         return;
     }
-    
-    NSString  *nsTextContent = textView.text;
-    NSInteger existTextNum = nsTextContent.length;
-    if (textView.text.length > 0) {
-        self.placeHudLabel.hidden = YES;
-    }else{
-        
-        self.placeHudLabel.hidden = NO;
-    }
     if (existTextNum > self.maxLengtn){
         //截取到最大位置的字符(由于超出截部分在should时被处理了所在这里这了提高效率不再判断)
         NSString *s = [nsTextContent substringToIndex:self.maxLengtn];
-        
         [textView setText:s];
     }
     if (self.isShowAllowance) {

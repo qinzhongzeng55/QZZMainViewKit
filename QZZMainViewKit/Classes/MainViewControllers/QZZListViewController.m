@@ -113,6 +113,7 @@
     [btn addTarget:self action:@selector(backItemDidClick) forControlEvents:UIControlEventTouchUpInside];
     btn.frame = CGRectMake(0, 0, 40, 40);
     btn.imageEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0);
+    self.navBackBtn = btn;
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
 }
 - (void)setupNavSearchBar{
@@ -122,6 +123,27 @@
 ///设置搜索框左右两侧的间距
 - (void)settingSearchBarLRConstratint:(CGFloat)constraint{
     [self.navSearchBarView settingSearchBarLRConstratint:constraint];
+}
+///设置导航栏的背景图片
+- (void)settingNavBgImage:(UIImage *)bgImage{
+    [self.navigationController.navigationBar setBackgroundImage:bgImage forBarMetrics:UIBarMetricsDefault];
+}
+///设置导航栏投影图片
+- (void)settingNavShadowImage:(UIImage *)shadowImage{
+    [self.navigationController.navigationBar setShadowImage:shadowImage];
+}
+///清除导航栏上的阴影图片
+- (void)clearNavShadowImage{
+    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+}
+///清除导航栏的背景图片
+- (void)clearNavBgImage{
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    [self clearNavShadowImage];
+}
+///设置导航栏的返回按钮是否是白的
+- (void)settingLightNavBackBtn:(BOOL)isLight{
+    [self.navBackBtn setImage:[UIImage qzz_imagePathWithName:(isLight ? @"nav_back" : @"black_nav_back") bundle:@"QZZMainViewKit" targetClass:[self class]] forState:UIControlStateNormal];
 }
 #pragma mark - ----------method----------
 #pragma mark  ------返回按钮点击-----

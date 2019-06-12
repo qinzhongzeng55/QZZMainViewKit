@@ -21,7 +21,7 @@
 @implementation QZZRefresh
 
 - (instancetype)init{
-
+    
     if (self = [super init]) {
         [self setup];
     }
@@ -31,7 +31,7 @@
  *  初始化
  */
 - (void)setup{
-
+    
     _currentPage = 1;
 }
 
@@ -109,7 +109,7 @@
 }
 
 - (void)setCurrentPage:(NSInteger)currentPage{
-
+    
     _currentPage = currentPage;
     NSLog(@"设置当前页面属性:-->%ld",currentPage);
 }

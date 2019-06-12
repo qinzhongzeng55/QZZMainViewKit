@@ -30,7 +30,8 @@
 @property (nonatomic, strong) NavSearchBarView *navSearchBarView;
 ///动态显示列表项时的样式
 @property (nonatomic, assign) XSTableViewAnimationType animationType;
-
+///导航栏的返回按钮
+@property (nonatomic, strong) UIButton *navBackBtn;
 
 #pragma mark - 加载子控件
 - (void)guolv;
@@ -71,6 +72,16 @@
 - (void)setupNavSearchBar;
 ///设置搜索框左右两侧的间距
 - (void)settingSearchBarLRConstratint:(CGFloat)constraint;
+///设置导航栏的背景图片
+- (void)settingNavBgImage:(UIImage *)bgImage;
+///设置导航栏投影图片
+- (void)settingNavShadowImage:(UIImage *)shadowImage;
+///清除导航栏上的阴影图片
+- (void)clearNavShadowImage;
+///清除导航栏的背景图片
+- (void)clearNavBgImage;
+///设置导航栏的返回按钮是否是白的
+- (void)settingLightNavBackBtn:(BOOL)isLight;
 #pragma mark -无数据时的视图
 ///加载无数据时的视图
 - (void)setupEmptyContentView;

@@ -120,16 +120,11 @@
     
 }
 
-- (void)textViewDidChange:(UITextView *)textView{
+- (void)textViewDidChange:(UITextView *)textView {
     
     UITextRange *selectedRange = [textView markedTextRange];
     //获取高亮部分
     UITextPosition *pos = [textView positionFromPosition:selectedRange.start offset:0];
-    
-    //如果在变化中是高亮部分在变，就不要计算字符了
-    if (selectedRange && pos) {
-        return;
-    }
     
     NSString  *nsTextContent = textView.text;
     NSInteger existTextNum = nsTextContent.length;
@@ -138,6 +133,10 @@
     }else{
         
         self.placeHudLabel.hidden = NO;
+    }
+    //如果在变化中是高亮部分在变，就不要计算字符了
+    if (selectedRange && pos) {
+        return;
     }
     if (existTextNum > self.maxLengtn)
     {
@@ -151,12 +150,12 @@
 //    self.textCurrentLengthLabel.text = [NSString stringWithFormat:@"%ld",MAX(0,self.maxLengtn - existTextNum)];
 }
 
-- (void)textViewDidBeginEditing:(UITextView *)textView{
+- (void)textViewDidBeginEditing:(UITextView *)textView {
 
     self.placeHudLabel.hidden = YES;
 }
 
-- (void)textViewDidEndEditing:(UITextView *)textView{
+- (void)textViewDidEndEditing:(UITextView *)textView {
     if ([self.contentTextView.text isEqualToString:@""] || self.contentTextView.text == nil) {
         self.placeHudLabel.hidden = NO;
     }
