@@ -40,7 +40,7 @@
 - (void)buJuTextView{
     
     UIFont *contentFont = self.TextLabel.font;
-    CGSize contentTextViewMaxSize = CGSizeMake(Screen_Width-114, Screen_Height);
+    CGSize contentTextViewMaxSize = CGSizeMake(Screen_Width-130, Screen_Height);
     CGSize size = [[AutomaticSizeTools sharedAutomaticSizeTools] boundingALLRectWithSize:self.TextLabel.text Font:contentFont MaxSize:contentTextViewMaxSize LineSpacing:kWebLineSpacing WordsSpacing:kWebWordsSpacing];
     UIFontDescriptor *ctfFont = contentFont.fontDescriptor;
     NSNumber *fontString = [ctfFont objectForKey:@"NSFontSizeAttribute"];
@@ -53,12 +53,12 @@
     __weak typeof(self) weakSelf = self;
     [self.TextLabel mas_updateConstraints:^(MASConstraintMaker *make) {
         
-        make.leading.equalTo(weakSelf.iconImageView.mas_trailing).offset(20);
+        make.leading.equalTo(weakSelf.iconImageView.mas_trailing).offset(26);
         make.top.equalTo(weakSelf.iconImageView.mas_top).offset(18);
         make.size.equalTo(@(size));
     }];
     [self.bgImageView mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(weakSelf.TextLabel).offset(-10);
+        make.leading.equalTo(weakSelf.TextLabel).offset(-20);
         make.trailing.equalTo(weakSelf.TextLabel).offset(10);
         make.top.equalTo(weakSelf.TextLabel).offset(-8);
         CGFloat H = size.height+16;

@@ -267,7 +267,6 @@ _Pragma("clang diagnostic pop") \
 #import <QZZPublicModel/TableViewCellModel.h>
 
 #import <QZZMainViewKit/UITableViewCell+QZZAdd.h>
-#import <QZZMainViewKit/QZZNavigationController.h>
 #import <QZZMainViewKit/QZZViewController.h>
 
 #import <QZZMainViewKit/QZZAlertView.h>

@@ -140,7 +140,6 @@
 		56FD08990FA358410069F3FAAE721174 /* FLAnimatedImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 811E51568CE8F2F070DC7D6CE6976850 /* FLAnimatedImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		57A60770F20892D44A143027DB05F5CF /* nav_search.png in Resources */ = {isa = PBXBuildFile; fileRef = 97589EE65D28ED5DACD4330735CC68D3 /* nav_search.png */; };
 		59725CD38D009179C3F1E1FA16CABBEC /* UIButton+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3830DF40A3D5CBB365EE116D90F5B233 /* UIButton+Extension.m */; };
-		5AD42CCA5149A5D65B94C68B03908466 /* QZZNavigationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 408E7E3308A23DC4CDFF96CDC7EEC9A5 /* QZZNavigationController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5C7A65E002936168AF821540B94BE8EA /* QZZDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 221CF3C515912F88124D1F2A4CB71925 /* QZZDBManager.m */; };
 		5F91CAB7B9353C3AC648DC18D27C7F9D /* SwitchTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B850058D382E334932BC6C74E4EEEE /* SwitchTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		634E11CA470DB7ADB8F054E30E042B25 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A607C08A9F788485A8B4A3B721BF13D9 /* Foundation.framework */; };
@@ -298,7 +297,6 @@
 		CE72276F4D480D7ADD0BA26415B79DBF /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 9589C7738D94694795562A69D6B428B7 /* UIImage+ImageEffects.m */; };
 		CE93C54413259B4AC3683B6EB874D466 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12D5508D6C9A24ECB828AF68770CD534 /* UIKit.framework */; };
 		CFA9EFCF5BC05BC9AAA3CEA83E7B744F /* MBProgressHUD+MJ.h in Headers */ = {isa = PBXBuildFile; fileRef = E4BB5C6FBE963F34E137BA53FE632A1C /* MBProgressHUD+MJ.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CFBBB8629B9CCF7D019D66EE6D134CC6 /* QZZNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3966F47748FDC0C38B982467F5040FA0 /* QZZNavigationController.m */; };
 		D08551040EB107CC67B8015A0943D393 /* UITableView+XSAnimationKit.h in Headers */ = {isa = PBXBuildFile; fileRef = BE340AA07973BF48721C369C3D20301C /* UITableView+XSAnimationKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D0CCA29D563BD5C9A80FA6D02BCBD5BB /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 720E8EC9F3832C59667C50E5490D8264 /* UIView+MJExtension.m */; };
 		D25AB6DE9BC78587C162A985475D1F28 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A607C08A9F788485A8B4A3B721BF13D9 /* Foundation.framework */; };
@@ -557,7 +555,7 @@
 		0CE3718A97E2256B7FBDD7230DBF71DC /* TableViewCellModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TableViewCellModel.m; path = QZZPublicModel/Classes/PublicModels/TableViewCellModel.m; sourceTree = "<group>"; };
 		0DF3CFCDEE583E515BC3854C9EB13B4A /* SDAnimatedImageRep.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDAnimatedImageRep.m; path = SDWebImage/SDAnimatedImageRep.m; sourceTree = "<group>"; };
 		0F6DC16AB040D5A4D02F69C375588E38 /* NSButton+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSButton+WebCache.m"; path = "SDWebImage/NSButton+WebCache.m"; sourceTree = "<group>"; };
-		10BBAE40F4EEB43D88B909228085D187 /* QZZFunctionalComponentsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = QZZFunctionalComponentsKit.framework; path = QZZFunctionalComponentsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		10BBAE40F4EEB43D88B909228085D187 /* QZZFunctionalComponentsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QZZFunctionalComponentsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		10E1C0765B8594BCF8FCB3B0E5EF68D3 /* MJRefreshHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshHeader.h; path = MJRefresh/Base/MJRefreshHeader.h; sourceTree = "<group>"; };
 		11F914FBE64F9B655A2B391473B7CA51 /* MJRefreshAutoFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshAutoFooter.h; path = MJRefresh/Base/MJRefreshAutoFooter.h; sourceTree = "<group>"; };
 		1246BCB1B419EF99213DC402ABE650EB /* QZZWaveProgressView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = QZZWaveProgressView.m; sourceTree = "<group>"; };
@@ -587,12 +585,12 @@
 		1DCF7F3647301AC4197C7BC570D31A4A /* MASLayoutConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASLayoutConstraint.m; path = Masonry/MASLayoutConstraint.m; sourceTree = "<group>"; };
 		1EB80B6623CCF868A6DAFCC7104018C4 /* ChatInfoModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ChatInfoModel.m; path = QZZPublicModel/Classes/PublicModels/ChatInfoModel.m; sourceTree = "<group>"; };
 		1FFC83E9D0ECFE6BE5490EFB79F4B91B /* QZZCategoryKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = QZZCategoryKit.xcconfig; sourceTree = "<group>"; };
-		1FFED36A657123030ABB700256D73F15 /* Masonry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Masonry.framework; path = Masonry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FFED36A657123030ABB700256D73F15 /* Masonry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Masonry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2032E20A6E9371D083A75D55F598D0EC /* UIImageView+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+WebCache.m"; path = "SDWebImage/UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		204D52F87F00ED97DE5BD7DBAB21EDED /* QZZMainViewKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = QZZMainViewKit.xcconfig; sourceTree = "<group>"; };
 		2053D0D79305AFC55EC512EC8AFDD6D1 /* NSImage+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSImage+WebCache.m"; path = "SDWebImage/NSImage+WebCache.m"; sourceTree = "<group>"; };
 		20DF1D9A0055D59E5586EC7A732E43C5 /* Pods-QZZMainViewKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-QZZMainViewKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		211DA6B5B0628F5EA04680FFB946D94C /* Pods_QZZMainViewKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_QZZMainViewKit_Example.framework; path = "Pods-QZZMainViewKit_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		211DA6B5B0628F5EA04680FFB946D94C /* Pods_QZZMainViewKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QZZMainViewKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21201CA6E2D631785F1BC0127FC5C831 /* NSString+Emoji.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+Emoji.h"; path = "QZZCategoryKit/Classes/category/NSString+Emoji.h"; sourceTree = "<group>"; };
 		21E8184D8D723ACF43309044DF8CD1C2 /* FLAnimatedImage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FLAnimatedImage.xcconfig; sourceTree = "<group>"; };
 		21F889EF1C6F556D347F5392AEF4CBB3 /* SDWebImageCoderHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageCoderHelper.m; path = SDWebImage/SDWebImageCoderHelper.m; sourceTree = "<group>"; };
@@ -605,7 +603,7 @@
 		23FE10A611E584C2A2211768D6F8D2FE /* FMDatabasePool.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMDatabasePool.m; path = src/fmdb/FMDatabasePool.m; sourceTree = "<group>"; };
 		244447F77D0DDF1CF3456C577AF3B90B /* SDImageCacheConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageCacheConfig.m; path = SDWebImage/SDImageCacheConfig.m; sourceTree = "<group>"; };
 		251173E2B64CF4B2C7E9AFC92ED9D05D /* NSArray+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MASAdditions.h"; path = "Masonry/NSArray+MASAdditions.h"; sourceTree = "<group>"; };
-		2523ECF9FA234647087AD86FCDF9B4A1 /* Pods_QZZMainViewKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_QZZMainViewKit_Tests.framework; path = "Pods-QZZMainViewKit_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2523ECF9FA234647087AD86FCDF9B4A1 /* Pods_QZZMainViewKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QZZMainViewKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2560109FF3817B11345800D6250623E8 /* GotoOtherViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = GotoOtherViewCell.m; sourceTree = "<group>"; };
 		26CD2C7DF55C305955A8D927D96A59B4 /* Pods-QZZMainViewKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-QZZMainViewKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		26D73EFF997F2B40A0ADE2AEF14D8A0F /* QZZNSDateTools.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QZZNSDateTools.m; path = QZZToolsKit/Classes/Tools/QZZNSDateTools.m; sourceTree = "<group>"; };
@@ -642,7 +640,6 @@
 		380F355C4777C2AAFEECFD5CE5017D29 /* QZZViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = QZZViewController.h; sourceTree = "<group>"; };
 		3830DF40A3D5CBB365EE116D90F5B233 /* UIButton+Extension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+Extension.m"; path = "QZZCategoryKit/Classes/category/UIButton+Extension.m"; sourceTree = "<group>"; };
 		39262209AE56EF122D611A29DDE12F0B /* UITableViewCell+QZZAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+QZZAdd.h"; sourceTree = "<group>"; };
-		3966F47748FDC0C38B982467F5040FA0 /* QZZNavigationController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = QZZNavigationController.m; sourceTree = "<group>"; };
 		39959DC180DB8F4A454E839085A56222 /* Masonry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Masonry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		39AF4F425CB1E04C42CB58537F74DA84 /* UILabel+Extension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UILabel+Extension.m"; path = "QZZCategoryKit/Classes/category/UILabel+Extension.m"; sourceTree = "<group>"; };
 		3B8A328F7A3FFED7DE80DAE37B15622B /* SDImageCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageCache.h; path = SDWebImage/SDImageCache.h; sourceTree = "<group>"; };
@@ -657,7 +654,6 @@
 		3EF1CC633371E80F1EEB19E959D17B25 /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F4C7DA67D7BD095379662C4F733ECED /* QZZCategoryKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "QZZCategoryKit-prefix.pch"; sourceTree = "<group>"; };
 		3FC4040048205AB7AF053B52B92998EE /* MJRefresh.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MJRefresh.modulemap; sourceTree = "<group>"; };
-		408E7E3308A23DC4CDFF96CDC7EEC9A5 /* QZZNavigationController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = QZZNavigationController.h; sourceTree = "<group>"; };
 		40CE40DC3BEAE2C71E8B0239D2501238 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDatabaseAdditions.h; path = src/fmdb/FMDatabaseAdditions.h; sourceTree = "<group>"; };
 		41B7057600692751A51C72887DDC813F /* MASConstraint+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MASConstraint+Private.h"; path = "Masonry/MASConstraint+Private.h"; sourceTree = "<group>"; };
 		42F8E5C5212036769C65AA61EA4B3B21 /* MJRefreshBackStateFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshBackStateFooter.m; path = MJRefresh/Custom/Footer/Back/MJRefreshBackStateFooter.m; sourceTree = "<group>"; };
@@ -734,7 +730,7 @@
 		7D6C62F09463068E234FEAAD92944A02 /* SDWebImageDownloaderOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageDownloaderOperation.m; path = SDWebImage/SDWebImageDownloaderOperation.m; sourceTree = "<group>"; };
 		7F5249A06303D05B42B0CA629E664FA8 /* QZZWaveProgressView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = QZZWaveProgressView.h; sourceTree = "<group>"; };
 		7FD193927AC5EE5D058C0B296FAA1CAB /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+ImageEffects.h"; path = "QZZCategoryKit/Classes/category/UIImage+ImageEffects.h"; sourceTree = "<group>"; };
-		8044D29A48E5336DA8304DAFCC8E055A /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		8044D29A48E5336DA8304DAFCC8E055A /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		80B4B40F737A88293D006D5E1DD60D4C /* UIImage+Extension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+Extension.h"; path = "QZZCategoryKit/Classes/category/UIImage+Extension.h"; sourceTree = "<group>"; };
 		80B850058D382E334932BC6C74E4EEEE /* SwitchTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SwitchTableViewCell.h; sourceTree = "<group>"; };
 		811E51568CE8F2F070DC7D6CE6976850 /* FLAnimatedImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FLAnimatedImage.h; path = FLAnimatedImage/FLAnimatedImage.h; sourceTree = "<group>"; };
@@ -772,7 +768,7 @@
 		9589C7738D94694795562A69D6B428B7 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ImageEffects.m"; path = "QZZCategoryKit/Classes/category/UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		968DADC55EF20D2231A1FCAA053BB8F6 /* NSArray+Log.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+Log.m"; path = "QZZCategoryKit/Classes/category/NSArray+Log.m"; sourceTree = "<group>"; };
 		96ED8B2A3D9197238D44FBFD67FCE000 /* MJRefreshFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshFooter.h; path = MJRefresh/Base/MJRefreshFooter.h; sourceTree = "<group>"; };
-		972D4B55759801EF26DEAE67AAFB2F45 /* QZZToolsKit.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = QZZToolsKit.bundle; path = "QZZToolsKit-QZZToolsKit.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		972D4B55759801EF26DEAE67AAFB2F45 /* QZZToolsKit.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QZZToolsKit.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		97589EE65D28ED5DACD4330735CC68D3 /* nav_search.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = nav_search.png; path = QZZMainViewKit/Assets/nav_search.png; sourceTree = "<group>"; };
 		981BCABFAEB086BD09535022E016017B /* MASCompositeConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASCompositeConstraint.h; path = Masonry/MASCompositeConstraint.h; sourceTree = "<group>"; };
 		9862DC41527CD4EAACFF50ED737244A8 /* QZZPublicModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QZZPublicModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -780,9 +776,9 @@
 		98D916A870D6F577ED8E7B2E66902301 /* MJRefreshAutoFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshAutoFooter.m; path = MJRefresh/Base/MJRefreshAutoFooter.m; sourceTree = "<group>"; };
 		98EBFB331812D2717B8FB91B11DADBB1 /* MJRefreshBackGifFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshBackGifFooter.m; path = MJRefresh/Custom/Footer/Back/MJRefreshBackGifFooter.m; sourceTree = "<group>"; };
 		997011DC3B8824B0763BD4CA9CB761C8 /* QZZMainViewKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = QZZMainViewKit.modulemap; sourceTree = "<group>"; };
-		9B0282B22F4830C173A48962C5441325 /* QZZMainViewKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = QZZMainViewKit.framework; path = QZZMainViewKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B0282B22F4830C173A48962C5441325 /* QZZMainViewKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QZZMainViewKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D81C76AE491F94D333C4C314F30BB59 /* MASConstraintMaker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraintMaker.h; path = Masonry/MASConstraintMaker.h; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DD25DB2C070373890570D20E37D09CC /* QZZPublicModel-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "QZZPublicModel-Info.plist"; sourceTree = "<group>"; };
 		9DF6C71E8A58C7CA7D37AF4261BB5DF1 /* MoreSelectedSearchOptionsListView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MoreSelectedSearchOptionsListView.m; sourceTree = "<group>"; };
 		9E60F941A893EC4F3499C87EA32B0CE9 /* Pods-QZZMainViewKit_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-QZZMainViewKit_Example-umbrella.h"; sourceTree = "<group>"; };
@@ -795,7 +791,7 @@
 		A144D73472EB35F0B9A1246A0E9C9077 /* QZZFunctionalComponentsKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "QZZFunctionalComponentsKit-Info.plist"; sourceTree = "<group>"; };
 		A150C94D2C40E7EBF606D5FBE31F1B01 /* QZZToolsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QZZToolsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2772E13A8C3BBC40B3794DA54B42453 /* SelectedOptionsBtnCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SelectedOptionsBtnCell.h; sourceTree = "<group>"; };
-		A3A80BA70CFB7F75C5391BEBBBA8C9DA /* FMDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FMDB.framework; path = FMDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3A80BA70CFB7F75C5391BEBBBA8C9DA /* FMDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FMDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A434877ED2101C30BCE0D6ECACD17101 /* QZZToolsKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = QZZToolsKit.xcconfig; sourceTree = "<group>"; };
 		A454B11FBA8C3D74A51F2D20D67EBD82 /* SDWebImageDownloaderOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDownloaderOperation.h; path = SDWebImage/SDWebImageDownloaderOperation.h; sourceTree = "<group>"; };
 		A45C20CD6673AAA71FEEF8436D8007AC /* FLAnimatedImageView+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "FLAnimatedImageView+WebCache.m"; path = "QZZToolsKit/Classes/Tools/FLAnimatedImageView+WebCache.m"; sourceTree = "<group>"; };
@@ -823,20 +819,20 @@
 		AE4997147F5044C645AE7E20AFEF9F78 /* QZZCategoryKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = QZZCategoryKit.modulemap; sourceTree = "<group>"; };
 		AE56A4FCE7550CCBC6789F2FEC3293D3 /* SearchOptionsListView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SearchOptionsListView.h; sourceTree = "<group>"; };
 		AF0B8558CB62900A493E93EAD9A738FB /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSLayoutConstraint+MASDebugAdditions.h"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
-		AF0D82A8F9993EEF50EC3EF8360FE783 /* QZZPublicModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = QZZPublicModel.framework; path = QZZPublicModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF0D82A8F9993EEF50EC3EF8360FE783 /* QZZPublicModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QZZPublicModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0AC59A449213507FDCFA42C13592EB7 /* MJRefreshBackGifFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshBackGifFooter.h; path = MJRefresh/Custom/Footer/Back/MJRefreshBackGifFooter.h; sourceTree = "<group>"; };
 		B0B0AB371CACB95F6D16F8BCF194F024 /* UIView+MJExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+MJExtension.h"; path = "MJRefresh/UIView+MJExtension.h"; sourceTree = "<group>"; };
-		B0B214D775196BA7CA8E17E53048A493 /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SDWebImage.framework; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0B214D775196BA7CA8E17E53048A493 /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B10B00C3809252D5358337B03DF38AE2 /* MASViewConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewConstraint.h; path = Masonry/MASViewConstraint.h; sourceTree = "<group>"; };
 		B149BA98CFA1AC0E8020C764328BB582 /* FLAnimatedImage-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FLAnimatedImage-dummy.m"; sourceTree = "<group>"; };
 		B24D9C8175656F6889F2DF33B97F97A5 /* MJRefresh.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = MJRefresh.bundle; path = MJRefresh/MJRefresh.bundle; sourceTree = "<group>"; };
 		B312FB870879315BC3066488F44FF983 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+WebCache.h"; path = "SDWebImage/UIImageView+WebCache.h"; sourceTree = "<group>"; };
-		B3713931AD4777DC7792FF091B3FF0BC /* QZZToolsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = QZZToolsKit.framework; path = QZZToolsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3713931AD4777DC7792FF091B3FF0BC /* QZZToolsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QZZToolsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B44514418F496E7045ED6602F565C890 /* QZZBasicViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = QZZBasicViewController.m; sourceTree = "<group>"; };
 		B6644ED40E703F3680ADFC68AEF060B0 /* QZZWebImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QZZWebImage.h; path = QZZToolsKit/Classes/Tools/QZZWebImage.h; sourceTree = "<group>"; };
 		B69804F1E9967D5490E80A257FCF41D7 /* MJRefreshBackStateFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshBackStateFooter.h; path = MJRefresh/Custom/Footer/Back/MJRefreshBackStateFooter.h; sourceTree = "<group>"; };
 		B6CD33457BBC449D48865BC1C9F670F4 /* NSArray+Log.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+Log.h"; path = "QZZCategoryKit/Classes/category/NSArray+Log.h"; sourceTree = "<group>"; };
-		B750B96A4C58559197B022AC550E7F7A /* QZZCategoryKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = QZZCategoryKit.framework; path = QZZCategoryKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B750B96A4C58559197B022AC550E7F7A /* QZZCategoryKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QZZCategoryKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9C65950447F6DBA63C09B06F8887628 /* resetLoading@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "resetLoading@2x.png"; path = "QZZMainViewKit/Assets/resetLoading@2x.png"; sourceTree = "<group>"; };
 		BA9D614FEEEF67A7AA8DC92BA952F794 /* SelectedTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SelectedTableViewCell.h; sourceTree = "<group>"; };
 		BAA5288E7496D888E6F75CEDEDE10B72 /* Pods-QZZMainViewKit_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-QZZMainViewKit_Tests-dummy.m"; sourceTree = "<group>"; };
@@ -862,7 +858,7 @@
 		C49C7EF0EF548991663E8E594EE2D400 /* TableViewCellModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TableViewCellModel.h; path = QZZPublicModel/Classes/PublicModels/TableViewCellModel.h; sourceTree = "<group>"; };
 		C6789A3DC769E7316A94D96BBBAAF60D /* MJRefresh.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MJRefresh.xcconfig; sourceTree = "<group>"; };
 		C7A112CC2B5A863F4B92B53D78C7D512 /* FLAnimatedImage-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FLAnimatedImage-prefix.pch"; sourceTree = "<group>"; };
-		C8626C22C691EAFC7C5682792845C054 /* QZZMainViewKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = QZZMainViewKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		C8626C22C691EAFC7C5682792845C054 /* QZZMainViewKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = QZZMainViewKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		C8CFE2725F21970A50BCBC7A3963C870 /* MJRefreshGifHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshGifHeader.h; path = MJRefresh/Custom/Header/MJRefreshGifHeader.h; sourceTree = "<group>"; };
 		C91E523123B78DB1EC4F168525EFD6C1 /* QZZListViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = QZZListViewController.m; sourceTree = "<group>"; };
 		C99678391087DC8531630D9BE4650452 /* Pods-QZZMainViewKit_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-QZZMainViewKit_Example-frameworks.sh"; sourceTree = "<group>"; };
@@ -890,7 +886,7 @@
 		D969D0AF979090BBB9E901C320ACEF7E /* UILabel+ChangeLineSpaceAndWordSpace.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UILabel+ChangeLineSpaceAndWordSpace.m"; path = "QZZCategoryKit/Classes/category/UILabel+ChangeLineSpaceAndWordSpace.m"; sourceTree = "<group>"; };
 		D9E62FF753AE5791648B96F13038F641 /* DatePickerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DatePickerView.h; sourceTree = "<group>"; };
 		DA05BBEF40AE4DD3B7FA641034556C6F /* FMDB-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FMDB-prefix.pch"; sourceTree = "<group>"; };
-		DAF3CA1692F5C8135B5D503813C15487 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		DAF3CA1692F5C8135B5D503813C15487 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		DB2C79143D60C2810A59A0EE31A8E2EA /* UIImage+ForceDecode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ForceDecode.m"; path = "SDWebImage/UIImage+ForceDecode.m"; sourceTree = "<group>"; };
 		DB5242A4A65B342B53F975C268BF2CF6 /* UIButton+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+WebCache.m"; path = "SDWebImage/UIButton+WebCache.m"; sourceTree = "<group>"; };
 		DB57E4D4435478A07B67B8A5DB3A2908 /* TextTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TextTableViewCell.h; sourceTree = "<group>"; };
@@ -906,7 +902,7 @@
 		E391BCC1B1D82334F9C63D4FAF669407 /* View+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "View+MASAdditions.h"; path = "Masonry/View+MASAdditions.h"; sourceTree = "<group>"; };
 		E44698D3024A5FE09A3E09EBAB8BB951 /* QZZProgressHUD.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QZZProgressHUD.m; path = QZZToolsKit/Classes/Tools/QZZProgressHUD.m; sourceTree = "<group>"; };
 		E49D3301DD1166C33C118626556CCD73 /* Pods-QZZMainViewKit_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-QZZMainViewKit_Tests.modulemap"; sourceTree = "<group>"; };
-		E49D6D248DD1CEE584E6776B9164A1B2 /* MJRefresh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MJRefresh.framework; path = MJRefresh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E49D6D248DD1CEE584E6776B9164A1B2 /* MJRefresh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MJRefresh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4BB5C6FBE963F34E137BA53FE632A1C /* MBProgressHUD+MJ.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MBProgressHUD+MJ.h"; path = "QZZToolsKit/Classes/Tools/MBProgressHUD+MJ.h"; sourceTree = "<group>"; };
 		E502592A8DFC537A5588E6EA8A08A60A /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+WebCacheOperation.h"; path = "SDWebImage/UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		E54141063BE25B88F3FF3A477F3F7BEB /* ScrollOptionsCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ScrollOptionsCell.h; sourceTree = "<group>"; };
@@ -929,7 +925,7 @@
 		ECD2657378337CD1D15993F3020D2CF1 /* MASViewConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewConstraint.m; path = Masonry/MASViewConstraint.m; sourceTree = "<group>"; };
 		ECFB74E91FBA35BFE138800A64B806B3 /* QZZFunctionalComponentsKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = QZZFunctionalComponentsKit.modulemap; sourceTree = "<group>"; };
 		EDBC3047DD839AF49E583B771A820E46 /* NavSearchBarView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = NavSearchBarView.m; sourceTree = "<group>"; };
-		EDD0CA95AA032A0472E118FDB119D4C4 /* QZZMainViewKit.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = QZZMainViewKit.bundle; path = "QZZMainViewKit-QZZMainViewKit.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDD0CA95AA032A0472E118FDB119D4C4 /* QZZMainViewKit.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QZZMainViewKit.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDFB24F39AC533AEA0DA3BB5B1EB4E64 /* MBProgressHUD.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = QZZToolsKit/Classes/Tools/MBProgressHUD.h; sourceTree = "<group>"; };
 		EE1D7C37CAA4B2FBBE7BA8E036BA238B /* ScrollOptionsCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = ScrollOptionsCell.xib; path = QZZMainViewKit/Assets/ScrollOptionsCell.xib; sourceTree = "<group>"; };
 		EE31BBBDFAA1D0132A51534098269497 /* QZZToolsKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "QZZToolsKit-prefix.pch"; sourceTree = "<group>"; };
@@ -954,7 +950,7 @@
 		F90ABA520B2EF865F62553EA3D689A99 /* SDWebImageGIFCoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageGIFCoder.m; path = SDWebImage/SDWebImageGIFCoder.m; sourceTree = "<group>"; };
 		F96BE5866CA54D551B20778F8B28C7FA /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
 		FA9C949AB2092DB9AFC1F10FDCE34E8B /* SelectedOptionsBtnCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = SelectedOptionsBtnCell.xib; path = QZZMainViewKit/Assets/SelectedOptionsBtnCell.xib; sourceTree = "<group>"; };
-		FAA5F2D71B90788C908800A94534AA92 /* FLAnimatedImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FLAnimatedImage.framework; path = FLAnimatedImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAA5F2D71B90788C908800A94534AA92 /* FLAnimatedImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FLAnimatedImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBEC359DDDC7ED4B9A011362D785ED54 /* MJRefreshConst.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshConst.h; path = MJRefresh/MJRefreshConst.h; sourceTree = "<group>"; };
 		FC47D8B7C035DD071F867FB25F9873B1 /* ScrollOptionsCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ScrollOptionsCell.m; sourceTree = "<group>"; };
 		FD3A500B5D91E669A785A7767E02C129 /* gotoOtherView.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = gotoOtherView.png; path = QZZMainViewKit/Assets/gotoOtherView.png; sourceTree = "<group>"; };
@@ -1099,7 +1095,6 @@
 				F34051B1AA987C3605D3F11E1C5A50E6 /* QZZWeakProxy.h */,
 				18BC221935BC71A5F30D9F89C1959F95 /* QZZWeakProxy.m */,
 			);
-			name = WaterWaveProgressView;
 			path = WaterWaveProgressView;
 			sourceTree = "<group>";
 		};
@@ -1111,7 +1106,6 @@
 				936F9AFB4FBAA5B1B25E9AFCAC79A637 /* ScrollOptionsView.h */,
 				A7CE6A7509C61D1014E4732D01B79E66 /* ScrollOptionsView.m */,
 			);
-			name = ScrollOptionsView;
 			path = ScrollOptionsView;
 			sourceTree = "<group>";
 		};
@@ -1175,7 +1169,6 @@
 				BA9D614FEEEF67A7AA8DC92BA952F794 /* SelectedTableViewCell.h */,
 				6BB707D96F877043F4004F0628F34FC0 /* SelectedTableViewCell.m */,
 			);
-			name = TanChuOptionsListView;
 			path = TanChuOptionsListView;
 			sourceTree = "<group>";
 		};
@@ -1185,7 +1178,6 @@
 				0AF2A0AA0E6E6D9974990DD712B3566A /* NavSearchBarView.h */,
 				EDBC3047DD839AF49E583B771A820E46 /* NavSearchBarView.m */,
 			);
-			name = NavSearchBar;
 			path = NavSearchBar;
 			sourceTree = "<group>";
 		};
@@ -1195,7 +1187,6 @@
 				7C35C921A4CBDDE432D654E0492003F3 /* Core */,
 				F791057F5D03A2CA5DB1E64FAB1ED7AB /* Support Files */,
 			);
-			name = SDWebImage;
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
@@ -1208,7 +1199,6 @@
 				AD588E91F64E2FA71B32673A7BACB7B8 /* FLAnimatedImageView.m */,
 				D373A0B7F0D1BC836AB56B6F1B6AEB6D /* Support Files */,
 			);
-			name = FLAnimatedImage;
 			path = FLAnimatedImage;
 			sourceTree = "<group>";
 		};
@@ -1231,7 +1221,6 @@
 				80B850058D382E334932BC6C74E4EEEE /* SwitchTableViewCell.h */,
 				F1379E2D69F5F28849C4252B5FC8EA66 /* SwitchTableViewCell.m */,
 			);
-			name = SwitchTableViewCell;
 			path = SwitchTableViewCell;
 			sourceTree = "<group>";
 		};
@@ -1242,8 +1231,6 @@
 				B44514418F496E7045ED6602F565C890 /* QZZBasicViewController.m */,
 				7CED7D697DE7AEBD2AB1A17ED883ACF4 /* QZZListViewController.h */,
 				C91E523123B78DB1EC4F168525EFD6C1 /* QZZListViewController.m */,
-				408E7E3308A23DC4CDFF96CDC7EEC9A5 /* QZZNavigationController.h */,
-				3966F47748FDC0C38B982467F5040FA0 /* QZZNavigationController.m */,
 				380F355C4777C2AAFEECFD5CE5017D29 /* QZZViewController.h */,
 				E81A9F0B25ED195966FB00C006E48254 /* QZZViewController.m */,
 			);
@@ -1292,7 +1279,6 @@
 				22352A05BCEB340B3BE51107D4689019 /* UITextView+ChangeLineSpaceAndWordSpace.m */,
 				8ED2A73DBFDCB70FC0B50493F64691C7 /* Support Files */,
 			);
-			name = QZZCategoryKit;
 			path = QZZCategoryKit;
 			sourceTree = "<group>";
 		};
@@ -1329,7 +1315,6 @@
 				0CE3718A97E2256B7FBDD7230DBF71DC /* TableViewCellModel.m */,
 				188E3BF92EAA8D5485B745FD0B0C0D56 /* Support Files */,
 			);
-			name = QZZPublicModel;
 			path = QZZPublicModel;
 			sourceTree = "<group>";
 		};
@@ -1438,7 +1423,6 @@
 				C180CBCF0C4B8B4E0F78903F3B47AA8D /* Resources */,
 				ABF24C3A49BAFC613D0392610A8B3F3C /* Support Files */,
 			);
-			name = MJRefresh;
 			path = MJRefresh;
 			sourceTree = "<group>";
 		};
@@ -1461,7 +1445,6 @@
 				515237DEE475CE8A223813A4E23D8C16 /* DetailTableViewCell.h */,
 				02C54E03321C6A1B4540AF0AFD06F454 /* DetailTableViewCell.m */,
 			);
-			name = DetailTableViewCell;
 			path = DetailTableViewCell;
 			sourceTree = "<group>";
 		};
@@ -1491,7 +1474,6 @@
 				0919AA314672FC34C3B0F2F4B91DCB81 /* OtherChatTableViewCell.h */,
 				9FF1B0019E99D319B43F392C13657C3E /* OtherChatTableViewCell.m */,
 			);
-			name = ChatCell;
 			path = ChatCell;
 			sourceTree = "<group>";
 		};
@@ -1542,7 +1524,6 @@
 				AACC84D075A6722F933A1688FBD32AF4 /* ViewController+MASAdditions.m */,
 				1F592691F888186DA3E6FDBE6A10BDD5 /* Support Files */,
 			);
-			name = Masonry;
 			path = Masonry;
 			sourceTree = "<group>";
 		};
@@ -1554,7 +1535,6 @@
 				3BC840C3BAA6EF6F1B1F1C4B708C585F /* KuanTextViewTableViewCell.h */,
 				9E741B815E03287F4DA6E8845D5FB405 /* KuanTextViewTableViewCell.m */,
 			);
-			name = KuanTextView;
 			path = KuanTextView;
 			sourceTree = "<group>";
 		};
@@ -1572,7 +1552,6 @@
 				AE56A4FCE7550CCBC6789F2FEC3293D3 /* SearchOptionsListView.h */,
 				6F5708B0DAB56098F3FC537DA4FB9F06 /* SearchOptionsListView.m */,
 			);
-			name = OptionsListTableView;
 			path = OptionsListTableView;
 			sourceTree = "<group>";
 		};
@@ -1668,7 +1647,6 @@
 				B91212E0C12ED0864B3322F6D8D679F8 /* Resources */,
 				C22FC159DD3E254F73F0006141E50472 /* Support Files */,
 			);
-			name = QZZToolsKit;
 			path = QZZToolsKit;
 			sourceTree = "<group>";
 		};
@@ -1678,7 +1656,6 @@
 				CC9A4C9729E1A24F3011EC16E88CE6FC /* GotoOtherViewCell.h */,
 				2560109FF3817B11345800D6250623E8 /* GotoOtherViewCell.m */,
 			);
-			name = GotoOtherView;
 			path = GotoOtherView;
 			sourceTree = "<group>";
 		};
@@ -1690,7 +1667,6 @@
 				A2772E13A8C3BBC40B3794DA54B42453 /* SelectedOptionsBtnCell.h */,
 				F715476CB68E6D4B42802492F063B865 /* SelectedOptionsBtnCell.m */,
 			);
-			name = GongNengOptionsView;
 			path = GongNengOptionsView;
 			sourceTree = "<group>";
 		};
@@ -1783,7 +1759,6 @@
 				DB57E4D4435478A07B67B8A5DB3A2908 /* TextTableViewCell.h */,
 				855ADD4E42EF9C9726B8A21DAD22063E /* TextTableViewCell.m */,
 			);
-			name = TextTableViewCell;
 			path = TextTableViewCell;
 			sourceTree = "<group>";
 		};
@@ -1823,7 +1798,6 @@
 				E876ADC2C824985DA765396D85F500EB /* UITableView+XSAnimationKit.m */,
 				B45703AD7015A5523F02844FB6099522 /* Support Files */,
 			);
-			name = QZZFunctionalComponentsKit;
 			path = QZZFunctionalComponentsKit;
 			sourceTree = "<group>";
 		};
@@ -1856,7 +1830,6 @@
 				616D59F9F394B8F6E0D05E217385B390 /* standard */,
 				91EF998240A586877027C867594556A6 /* Support Files */,
 			);
-			name = FMDB;
 			path = FMDB;
 			sourceTree = "<group>";
 		};
@@ -1868,7 +1841,6 @@
 				27F16359FEB30D3FB4E10C64A8BD6815 /* QZZDatePickerView.h */,
 				8F6E5BB714B4CED0B1650D955FD220F2 /* QZZDatePickerView.m */,
 			);
-			name = DateSelectedView;
 			path = DateSelectedView;
 			sourceTree = "<group>";
 		};
@@ -1943,7 +1915,6 @@
 				D6AE34D9D810800C921105268E0D3999 /* QZZAlertView.h */,
 				36F105BCD7DF0481A54C5713F98C4A9C /* QZZAlertView.m */,
 			);
-			name = AlertView;
 			path = AlertView;
 			sourceTree = "<group>";
 		};
@@ -2117,7 +2088,6 @@
 				19E82FE7DC93242FF35FF5F115B49EC6 /* QZZListViewController.h in Headers */,
 				86721535038CB7F585CC16C2C0D689FF /* QZZMainViewKit-umbrella.h in Headers */,
 				DC77C47E79C3454B8405144F4EFC8593 /* QZZMainViewKit.h in Headers */,
-				5AD42CCA5149A5D65B94C68B03908466 /* QZZNavigationController.h in Headers */,
 				8528243344298243738E710A6ABD0411 /* QZZViewController.h in Headers */,
 				73551C7CEBAF7C5E1A6AFB78A39EE10E /* QZZWaveProgressView.h in Headers */,
 				93AE58CC46BEC0BA70DC7EEAC359EAA3 /* QZZWeakProxy.h in Headers */,
@@ -2730,7 +2700,6 @@
 				7E6D9E72348B8B23D53A760F63BA6EA3 /* QZZDatePickerView.m in Sources */,
 				ACBA2BE9867A487AC17E86D0237C1136 /* QZZListViewController.m in Sources */,
 				A5C2B9BC01E04C7A33D3BA41B0E454C8 /* QZZMainViewKit-dummy.m in Sources */,
-				CFBBB8629B9CCF7D019D66EE6D134CC6 /* QZZNavigationController.m in Sources */,
 				E27087BE0D54FFFBEAA0625BE5FC5E76 /* QZZViewController.m in Sources */,
 				6FE2866AF99A50CF5EB27C16F181B5F1 /* QZZWaveProgressView.m in Sources */,
 				13443CDB690DDFF68750F315DE32B994 /* QZZWeakProxy.m in Sources */,
@@ -3558,8 +3527,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};

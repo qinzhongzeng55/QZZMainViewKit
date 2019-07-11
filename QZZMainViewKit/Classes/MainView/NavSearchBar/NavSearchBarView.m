@@ -56,13 +56,20 @@
         }
     }
 }
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
+    NSLog(@"搜索框中的关键字:--->%@",searchBar.text);
+    self.searchString = searchBar.text;
+    [searchBar setShowsCancelButton:NO animated:YES];
+    [self endEditing:YES];
+    [self loadDataList];
+}
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
-    
     [searchBar setShowsCancelButton:NO animated:YES];
     self.searchString = @"";
     searchBar.text = @"";
     [self.searchBar resignFirstResponder];
     [self endEditing:YES];
+    [self loadDataList];
 }
 #pragma mark - 设置字体大小
 - (void)settingTextSize:(CGFloat)textSize{
