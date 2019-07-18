@@ -499,7 +499,7 @@
 
 - (NavSearchBarView *)navSearchBarView{
     if (_navSearchBarView == nil) {
-        _navSearchBarView = QZZGetNibFile_SecondaryBundle(@"QZZMainViewKit",@"NavSearchBarView");
+        _navSearchBarView = QZZGetNibFile_DaryBundle(@"QZZMainViewKit",@"NavSearchBarView");
         _navSearchBarView.delegate = self;
     }
     return _navSearchBarView;

@@ -78,7 +78,7 @@
     static NSString *identifier = @"OptionListCell";
     MoreSelectedOptionsListCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil) {
-        cell = QZZGetNibFile_SecondaryBundle(@"QZZMainViewKit",@"MoreSelectedOptionsListCell");
+        cell = QZZGetNibFile_DaryBundle(@"QZZMainViewKit",@"MoreSelectedOptionsListCell");
     }
     NSMutableArray *array = self.dataArray;
     if(self.isSearch){

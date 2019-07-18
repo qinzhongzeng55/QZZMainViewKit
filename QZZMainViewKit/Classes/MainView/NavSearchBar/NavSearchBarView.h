@@ -22,6 +22,11 @@
 @property (nonatomic, assign) id<NavSearchBarViewDelegate> delegate;
 ///搜索的关键字
 @property (nonatomic, copy) NSString *searchString;
+
+///风格颜色，可用于修改输入框的光标颜色，取消按钮和选择栏被选中时候都会变成设置的颜色
+- (void)settingTintColor:(UIColor *)color;
+///设置搜索框中文本框的文本偏移量
+- (void)settingSearchTextPositionAdjustment:(UIOffset)offset;
 ///设置占位文字
 - (void)settingPlaceHolder:(NSString *)placeHolder;
 //设置搜索框背景

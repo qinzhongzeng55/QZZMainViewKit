@@ -5,7 +5,7 @@
 //  Created by qinzhongzeng on 16/8/22.
 //  Copyright © 2016年 bejingyimeng. All rights reserved.
 //
-#import "QZZBasicViewController.h"
+#import <QZZMainViewKit/QZZBasicViewController.h>
 #import "NavSearchBarView.h"
 
 @interface QZZListViewController : QZZBasicViewController <UITableViewDelegate,UITableViewDataSource>

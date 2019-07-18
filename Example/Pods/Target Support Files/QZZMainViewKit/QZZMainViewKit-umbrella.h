@@ -39,7 +39,6 @@
 #import "QZZWeakProxy.h"
 #import "QZZBasicViewController.h"
 #import "QZZListViewController.h"
-#import "QZZNavigationController.h"
 #import "QZZViewController.h"
 
 FOUNDATION_EXPORT double QZZMainViewKitVersionNumber;

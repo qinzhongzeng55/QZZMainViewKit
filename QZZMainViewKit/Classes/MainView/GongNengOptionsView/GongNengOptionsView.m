@@ -8,6 +8,7 @@
 
 #import "GongNengOptionsView.h"
 #import "SelectedOptionsBtnCell.h"
+#import "QZZMainViewKit.h"
 
 @interface GongNengOptionsView  ()<UICollectionViewDelegate,UICollectionViewDataSource,SelectedOptionsBtnCellDelegate>
 
@@ -38,7 +39,7 @@ static NSString *identifier = @"SelectedOptionsBtnCellID";
 - (void)settingCollectionView{
     self.delegate = self;
     self.dataSource = self;
-    [self registerNib:[UINib nibWithNibName:@"SelectedOptionsBtnCell" bundle:[NSBundle bundleWithPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"QZZMainViewKit.bundle"]]] forCellWithReuseIdentifier:identifier];
+    [self registerNib:[UINib nibWithNibName:@"SelectedOptionsBtnCell" bundle:[NSBundle bundleWithPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Frameworks/QZZMainViewKit.framework/QZZMainViewKit.bundle"]]] forCellWithReuseIdentifier:identifier];
 //    [self registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:identifier];
     
     self.backgroundColor = [UIColor whiteColor];
@@ -51,6 +52,9 @@ static NSString *identifier = @"SelectedOptionsBtnCellID";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     SelectedOptionsBtnCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    if (cell == nil){
+        cell = QZZGetNibFile_DaryBundle(@"QZZMainViewKit", @"SelectedOptionsBtnCell");
+    }
     if (indexPath.row < self.dataArray.count) {
         
         OptionButtonModel *model = self.dataArray[indexPath.row];

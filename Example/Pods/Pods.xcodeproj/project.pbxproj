@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0056F37B50FB88EB58E03BFB15E2462F /* QZZRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD3CD33B3A305455772EFAF26872CC7 /* QZZRefresh.m */; };
-		008FD81435C414CA4F9783449B5C3581 /* GongNengOptionsView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FB089292D592603BF266661C8B2A73B /* GongNengOptionsView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0099735337A59CA6281C7CAE6484BB2B /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = DB5242A4A65B342B53F975C268BF2CF6 /* UIButton+WebCache.m */; };
 		0116999205A46198CC6443778A8BAE52 /* MJRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B7E9784CC1E7A62CC8C8528BC59D40 /* MJRefreshHeader.m */; };
 		02B23F263CA5D68E13D8A10321045F6C /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0548BC733C985A4D4E035F67B13265 /* MBProgressHUD.m */; };
@@ -46,6 +45,8 @@
 		165D06EC4E6044CD1FAA390BD8A70A62 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C5E9D18F7893A918421CFF2A6B07EC /* UIView+WebCacheOperation.m */; };
 		168CF8F79891F12298AF2282A5634455 /* SDAnimatedImageRep.h in Headers */ = {isa = PBXBuildFile; fileRef = BC0C33F3BDE896A33156823713712C99 /* SDAnimatedImageRep.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		17415FCCD39492562EBE90DF8A8BD49B /* home_btn_loading@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3AC51E99540ED0D78CAA0BC90030E0C /* home_btn_loading@2x.png */; };
+		180D304622D85B1A005AC434 /* GongNengOptionsView.h in Headers */ = {isa = PBXBuildFile; fileRef = 180D304422D85B19005AC434 /* GongNengOptionsView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		180D304722D85B1A005AC434 /* GongNengOptionsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 180D304522D85B1A005AC434 /* GongNengOptionsView.m */; };
 		1818FDA244E7E2068DFEDD90265C7C2C /* QZZCategoryKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE89641D121CDDB89576A642DC6DE85 /* QZZCategoryKit-dummy.m */; };
 		19242EE4E661AAA2EAE136B2511DCE6A /* QZZToolsKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 081974198515203546FB070833CE93AC /* QZZToolsKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		194758B45C794127AD2E672BF3F6BD7D /* AutomaticSizeTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 19A0EFECA7C769E116AD8B10185B294A /* AutomaticSizeTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -186,7 +187,6 @@
 		804FDD96EE5FD0759CB244457045B921 /* data_empty@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D400FECF1290AD81159721075D56FA01 /* data_empty@2x.png */; };
 		812F6528C3FB59B7CE502FD461FB4C36 /* OtherChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FF1B0019E99D319B43F392C13657C3E /* OtherChatTableViewCell.m */; };
 		8159E33040BBE2823C6853FF37EC95F5 /* TextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 855ADD4E42EF9C9726B8A21DAD22063E /* TextTableViewCell.m */; };
-		81AADE8DBD887D3AA5CA3F50EAA69BE9 /* GongNengOptionsView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9126777AE584433F6FB01BD004293FF /* GongNengOptionsView.m */; };
 		826139509D42879821CBF3B5CA0B08C9 /* QZZHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CE63C8B9E5AF5F0441F5DBB6A7CF05AD /* QZZHelper.m */; };
 		82DE2A1F1491121B8EAD4A7DBA9B4A9B /* ReplaceMe.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AD7F7A433DF7C9699DE0DEF2ACF3D1 /* ReplaceMe.m */; };
 		8528243344298243738E710A6ABD0411 /* QZZViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 380F355C4777C2AAFEECFD5CE5017D29 /* QZZViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -574,6 +574,8 @@
 		17C1E9A0D93D80E8124E9AFF30AEDDF3 /* ResourceBundle-QZZMainViewKit-QZZMainViewKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-QZZMainViewKit-QZZMainViewKit-Info.plist"; sourceTree = "<group>"; };
 		180002F08F14E2E551531BF22DD29DF5 /* Masonry-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Masonry-prefix.pch"; sourceTree = "<group>"; };
 		180C9C12957A3F9B129732704E40900C /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/ImageIO.framework; sourceTree = DEVELOPER_DIR; };
+		180D304422D85B19005AC434 /* GongNengOptionsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GongNengOptionsView.h; sourceTree = "<group>"; };
+		180D304522D85B1A005AC434 /* GongNengOptionsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GongNengOptionsView.m; sourceTree = "<group>"; };
 		18A4283E4754103E1A1B689CECE0DFBF /* QZZProgressHUD.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QZZProgressHUD.h; path = QZZToolsKit/Classes/Tools/QZZProgressHUD.h; sourceTree = "<group>"; };
 		18BC221935BC71A5F30D9F89C1959F95 /* QZZWeakProxy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = QZZWeakProxy.m; sourceTree = "<group>"; };
 		190F816FA3AFEC59DD00C0D4E731A0CF /* KuanTextViewTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = KuanTextViewTableViewCell.xib; path = QZZMainViewKit/Assets/KuanTextViewTableViewCell.xib; sourceTree = "<group>"; };
@@ -754,7 +756,6 @@
 		8D23B567267739EF3C1674545ED044F7 /* QZZPublicModel-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "QZZPublicModel-prefix.pch"; sourceTree = "<group>"; };
 		8DBBC05B11AE2FB5BC6D1F60995A8A25 /* Pods-QZZMainViewKit_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-QZZMainViewKit_Tests-Info.plist"; sourceTree = "<group>"; };
 		8F6E5BB714B4CED0B1650D955FD220F2 /* QZZDatePickerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = QZZDatePickerView.m; sourceTree = "<group>"; };
-		8FB089292D592603BF266661C8B2A73B /* GongNengOptionsView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = GongNengOptionsView.h; sourceTree = "<group>"; };
 		9019C182515705AD7A3D90D3DDFC25F3 /* MJRefreshBackFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshBackFooter.h; path = MJRefresh/Base/MJRefreshBackFooter.h; sourceTree = "<group>"; };
 		918CC70EE4913F0D1F20C4B73A1E0FCB /* SDWebImageTransition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageTransition.h; path = SDWebImage/SDWebImageTransition.h; sourceTree = "<group>"; };
 		919587FC403C6126EAE23E1241DE7DC5 /* Pods-QZZMainViewKit_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-QZZMainViewKit_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -916,7 +917,6 @@
 		E81A9F0B25ED195966FB00C006E48254 /* QZZViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = QZZViewController.m; sourceTree = "<group>"; };
 		E87172DC3B3E74BE96E09BB46B463FAB /* QZZBasicViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = QZZBasicViewController.h; sourceTree = "<group>"; };
 		E876ADC2C824985DA765396D85F500EB /* UITableView+XSAnimationKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITableView+XSAnimationKit.m"; path = "QZZFunctionalComponentsKit/Classes/Components/TableViewAnimationKit/UITableView+XSAnimationKit.m"; sourceTree = "<group>"; };
-		E9126777AE584433F6FB01BD004293FF /* GongNengOptionsView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = GongNengOptionsView.m; sourceTree = "<group>"; };
 		E9A58402B2AFAC0878531A065B7A3B64 /* QZZCellProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = QZZCellProtocol.h; sourceTree = "<group>"; };
 		EAEECCF1ED1399296838A3D5C861318E /* MASConstraintMaker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraintMaker.m; path = Masonry/MASConstraintMaker.m; sourceTree = "<group>"; };
 		EB32871B90F4595D2F83F670E80D5BBB /* gotoOtherView@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "gotoOtherView@2x.png"; path = "QZZMainViewKit/Assets/gotoOtherView@2x.png"; sourceTree = "<group>"; };
@@ -1662,8 +1662,8 @@
 		855840F37A76EE763F9AEE184BE7CB91 /* GongNengOptionsView */ = {
 			isa = PBXGroup;
 			children = (
-				8FB089292D592603BF266661C8B2A73B /* GongNengOptionsView.h */,
-				E9126777AE584433F6FB01BD004293FF /* GongNengOptionsView.m */,
+				180D304422D85B19005AC434 /* GongNengOptionsView.h */,
+				180D304522D85B1A005AC434 /* GongNengOptionsView.m */,
 				A2772E13A8C3BBC40B3794DA54B42453 /* SelectedOptionsBtnCell.h */,
 				F715476CB68E6D4B42802492F063B865 /* SelectedOptionsBtnCell.m */,
 			);
@@ -2070,7 +2070,6 @@
 			files = (
 				DEE20B736D6B41728AA7CC86C5A8196C /* DatePickerView.h in Headers */,
 				D7BC78E9EE5EC9B4F1F817A81D3D039B /* DetailTableViewCell.h in Headers */,
-				008FD81435C414CA4F9783449B5C3581 /* GongNengOptionsView.h in Headers */,
 				9AAEDAE2BACEC0932474DADC0B74219C /* GotoOtherViewCell.h in Headers */,
 				E77C91FBA2E3D8411942876F2CDB854A /* KuanTextViewAllDataCell.h in Headers */,
 				EC139741C1A368EA776FE38F1F0C2B15 /* KuanTextViewTableViewCell.h in Headers */,
@@ -2093,6 +2092,7 @@
 				93AE58CC46BEC0BA70DC7EEAC359EAA3 /* QZZWeakProxy.h in Headers */,
 				962E8637A8F66EED49BF7E5DC74E802B /* ScrollOptionsCell.h in Headers */,
 				7583DE155270D68641F701DB55AC43D8 /* ScrollOptionsView.h in Headers */,
+				180D304622D85B1A005AC434 /* GongNengOptionsView.h in Headers */,
 				B24E7434A5724BE8E8612A5FAD0DE087 /* SearchOptionsListView.h in Headers */,
 				3C36A7B12887010804D260B193E2DC15 /* SelectedOptionsBtnCell.h in Headers */,
 				F88F4BBB85CB35F48868E29D2D5A56E4 /* SelectedTableViewCell.h in Headers */,
@@ -2684,7 +2684,6 @@
 			files = (
 				F4836A921190DB952B5CBC40C3250B31 /* DatePickerView.m in Sources */,
 				9238A4030F6BF9AF18B3013BFA3D0181 /* DetailTableViewCell.m in Sources */,
-				81AADE8DBD887D3AA5CA3F50EAA69BE9 /* GongNengOptionsView.m in Sources */,
 				AC4A38031C40A865DB42479C25E11881 /* GotoOtherViewCell.m in Sources */,
 				D3D516DFE9F12160C79933F27BDC641A /* KuanTextViewAllDataCell.m in Sources */,
 				327BD495A52005A8B6BBED9042CEEE32 /* KuanTextViewTableViewCell.m in Sources */,
@@ -2693,6 +2692,7 @@
 				36668B89F2C53E02E4E724B48F4537A1 /* MyChatTableViewCell.m in Sources */,
 				BB57C6764850D9BC838D92C1ED37D5F7 /* NavSearchBarView.m in Sources */,
 				DF38A25183D5D842B1069BFBB5434F3A /* OptionsListTableViewCell.m in Sources */,
+				180D304722D85B1A005AC434 /* GongNengOptionsView.m in Sources */,
 				B7BB5DB4D24D564E78A9732D7B57D16E /* OptionsListView.m in Sources */,
 				812F6528C3FB59B7CE502FD461FB4C36 /* OtherChatTableViewCell.m in Sources */,
 				99BC8D788C1ED015DD0A286FAEFFA2B7 /* QZZAlertView.m in Sources */,

@@ -60,7 +60,7 @@
     static NSString *identifier = @"OptionListCell";
     OptionsListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil) {
-        cell = QZZGetNibFile_SecondaryBundle(@"QZZMainViewKit",@"OptionsListTableViewCell");
+        cell = QZZGetNibFile_DaryBundle(@"QZZMainViewKit",@"OptionsListTableViewCell");
     }
     if (indexPath.row < self.dataArray.count) {
         OptionButtonModel *model = self.dataArray[indexPath.row];

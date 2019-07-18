@@ -169,7 +169,7 @@ _Pragma("clang diagnostic pop") \
 #define QZZGetNibFile_MainBundle(NibName) [[[NSBundle bundleForClass:[self class]] loadNibNamed:NibName owner:nil options:nil] lastObject]
 ///获取二级bundle中通过xib创建的view(BundleName---二级bundle名称不带".bundle")
 #define QZZGetNibFile_SecondaryBundle(BundleName,NibName) [[[NSBundle bundleWithPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.bundle",BundleName]]] loadNibNamed:NibName owner:nil options:nil] lastObject]
-
+#define QZZGetNibFile_DaryBundle(BundleName,NibName) [[[NSBundle bundleWithPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:[NSString stringWithFormat:@"Frameworks/%@.framework/%@.bundle",BundleName,BundleName]]] loadNibNamed:NibName owner:nil options:nil] lastObject]
 //******************************************************************
 #pragma mark -  *****************  导航栏和tabbar  ****************
 //******************************************************************

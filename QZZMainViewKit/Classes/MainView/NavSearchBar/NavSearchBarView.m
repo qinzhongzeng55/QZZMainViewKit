@@ -94,6 +94,14 @@
     self.searchBar.scopeBarBackgroundImage = [UIImage new];
     self.bgImageView.image = [UIImage qzz_imagePathWithName:@"nav_search_bg" bundle:@"QZZMainViewKit" targetClass:[self class]];
 }
+#pragma mark - 设置搜索框中文本框的文本偏移量
+- (void)settingSearchTextPositionAdjustment:(UIOffset)offset{
+    self.searchBar.searchTextPositionAdjustment = offset;
+}
+#pragma mark - 风格颜色
+- (void)settingTintColor:(UIColor *)color{
+    self.searchBar.tintColor = color;
+}
 #pragma mark - 设置占位文字
 - (void)settingPlaceHolder:(NSString *)placeHolder{
     self.searchBar.placeholder = placeHolder;
