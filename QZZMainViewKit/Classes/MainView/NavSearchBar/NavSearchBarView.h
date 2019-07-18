@@ -25,6 +25,8 @@
 
 ///风格颜色，可用于修改输入框的光标颜色，取消按钮和选择栏被选中时候都会变成设置的颜色
 - (void)settingTintColor:(UIColor *)color;
+///设置搜索框中的🔍图标
+- (void)settingSearchBarIcon:(UIImage *)image;
 ///设置搜索框中文本框的文本偏移量
 - (void)settingSearchTextPositionAdjustment:(UIOffset)offset;
 ///设置占位文字

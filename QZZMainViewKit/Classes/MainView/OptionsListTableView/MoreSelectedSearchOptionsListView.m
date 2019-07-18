@@ -75,10 +75,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    static NSString *identifier = @"OptionListCell";
+    static NSString *identifier = @"MoreSelectedOptionsListCellID";
     MoreSelectedOptionsListCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil) {
-        cell = QZZGetNibFile_DaryBundle(@"QZZMainViewKit",@"MoreSelectedOptionsListCell");
+        cell = QZZGetNibFile_SecondaryBundle(@"QZZMainViewKit",@"MoreSelectedOptionsListCell");
     }
     NSMutableArray *array = self.dataArray;
     if(self.isSearch){

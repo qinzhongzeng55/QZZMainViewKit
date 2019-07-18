@@ -57,10 +57,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    static NSString *identifier = @"OptionListCell";
+    static NSString *identifier = @"OptionsListTableViewCellID";
     OptionsListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil) {
-        cell = QZZGetNibFile_DaryBundle(@"QZZMainViewKit",@"OptionsListTableViewCell");
+        cell = QZZGetNibFile_SecondaryBundle(@"QZZMainViewKit",@"OptionsListTableViewCell");
     }
     if (indexPath.row < self.dataArray.count) {
         OptionButtonModel *model = self.dataArray[indexPath.row];

@@ -84,7 +84,7 @@
     self.searchBar.backgroundImage = [UIImage new];
     self.searchBar.showsCancelButton = NO;
     self.searchBar.placeholder = @"请输入要搜索的关键字";
-    UITextField * searchField = [self.searchBar valueForKey:@"_searchField"];
+    UITextField *searchField = [self.searchBar valueForKey:@"_searchField"];
     //设置占位文字颜色
     [searchField setValue:[UIColor colorWithWhite:204/255.0 alpha:1] forKeyPath:@"_placeholderLabel.textColor"];
     //设置占位文字大小
@@ -93,6 +93,10 @@
     self.searchBar.showsScopeBar = NO;
     self.searchBar.scopeBarBackgroundImage = [UIImage new];
     self.bgImageView.image = [UIImage qzz_imagePathWithName:@"nav_search_bg" bundle:@"QZZMainViewKit" targetClass:[self class]];
+}
+#pragma mark - 设置搜索框中的🔍图标
+- (void)settingSearchBarIcon:(UIImage *)image{
+    [self.searchBar setImage:image forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
 }
 #pragma mark - 设置搜索框中文本框的文本偏移量
 - (void)settingSearchTextPositionAdjustment:(UIOffset)offset{

@@ -50,7 +50,7 @@ static NSString *identifier = @"ScrollOptionsCellID";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     ScrollOptionsCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     if (cell == nil) {
-        cell = QZZGetNibFile_DaryBundle(@"QZZMainViewKit", @"ScrollOptionsCell");
+        cell = QZZGetNibFile_SecondaryBundle(@"QZZMainViewKit", @"ScrollOptionsCell");
     }
     if (indexPath.item < self.dataArray.count) {
         [cell settingTitleLabelText:self.dataArray[indexPath.item]];
@@ -146,7 +146,7 @@ static NSString *identifier = @"ScrollOptionsCellID";
 #pragma mark - settingCollectionView
 - (void)settingCollectionView{
     self.collectionView.backgroundColor = [UIColor whiteColor];
-    [self.collectionView registerNib:[UINib nibWithNibName:@"ScrollOptionsCell" bundle:[NSBundle bundleWithPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Frameworks/QZZMainViewKit.framework/QZZMainViewKit.bundle"]]] forCellWithReuseIdentifier:identifier];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"ScrollOptionsCell" bundle:[NSBundle bundleWithPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"QZZMainViewKit.bundle"]]] forCellWithReuseIdentifier:identifier];
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     self.collectionView.bounces = NO;
