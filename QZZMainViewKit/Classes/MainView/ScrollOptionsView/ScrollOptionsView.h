@@ -28,7 +28,19 @@
  */
 @property (nonatomic, assign) CGFloat lineWidth;
 @property (nonatomic, strong) UIColor *lineColor;
+///lineView左右两侧的间隔
+@property (nonatomic, assign) CGFloat lineMargin;
+///lineView高度
+@property (nonatomic, assign) CGFloat lineHeight;
+///item高度
+@property (nonatomic, assign) CGFloat itemHeight;
 
+///设置lineContainView背景颜色
+- (void)settingLineContainViewBGColor:(UIColor *)bgColor;
+///隐藏lineView
+- (void)hiddenLineView;
+///设置lineView背景颜色
+- (void)settingLineViewBGColor:(UIColor *)bgColor;
 ///滚动到指定的列
 - (void)scrollToIndexPath:(NSIndexPath *)key;
 /**

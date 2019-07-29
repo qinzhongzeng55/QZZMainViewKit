@@ -365,10 +365,10 @@ replacementText:(NSString *)text{
     self.titleLabel.text = [NSString stringWithFormat:@"%@",model.lableTitle];
     if ([QZZVerificationTools isEmptyString:model.info]) {
         self.placeHudLabel.hidden = NO;
-        self.placeHudLabel.text = model.placeHoled;
+        self.placeHudLabel.text = model.placeholder;
     }else{
         self.placeHudLabel.hidden = YES;
-        self.placeHudLabel.text = model.placeHoled;
+        self.placeHudLabel.text = model.placeholder;
         self.contentTextView.text = model.info;
     }
     if (self.isShowAllowance) {

@@ -10,4 +10,5 @@
 @interface UIImage (Extension)
 
 + (instancetype)qzz_imagePathWithName:(NSString *)imageName bundle:(NSString *)bundle targetClass:(Class)targetClass;
++ (instancetype)qzz_imagePathForFrameworkWithName:(NSString *)imageName bundle:(NSString *)bundle targetClass:(Class)targetClass;
 @end

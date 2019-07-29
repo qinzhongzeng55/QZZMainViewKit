@@ -24,7 +24,7 @@
 {
     TableViewCellModel *model = [[TableViewCellModel alloc]init];
     model.lableTitle = title;
-    model.placeHoled = place;
+    model.placeholder = place;
     model.info = infoDetail;
     model.Value = Value;
     return model;

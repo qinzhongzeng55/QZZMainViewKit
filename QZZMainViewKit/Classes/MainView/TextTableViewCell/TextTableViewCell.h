@@ -23,9 +23,9 @@
 ///最大字数
 @property (nonatomic, assign) NSInteger maxCount;
 ///占位文字颜色
-@property (nonatomic, strong) UIColor *placehodlerColor;
+@property (nonatomic, strong) UIColor *placeholderColor;
 ///占位文字字体
-@property (nonatomic, strong) UIFont *placehodlerFont;
+@property (nonatomic, strong) UIFont *placeholderFont;
 ///内容文本颜色
 @property (nonatomic, strong) UIColor *contentTextColor;
 ///内容字体

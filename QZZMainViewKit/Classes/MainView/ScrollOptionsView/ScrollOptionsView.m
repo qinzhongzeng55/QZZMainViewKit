@@ -11,6 +11,7 @@
 
 @interface ScrollOptionsView ()<UICollectionViewDelegate,UICollectionViewDataSource,ScrollOptionsCellDelegate,UIScrollViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UIView *lineView;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) UIView *scrollLineView;
 @property (nonatomic, strong) UIScrollView *lineContainScrollView;
@@ -41,7 +42,7 @@ static NSString *identifier = @"ScrollOptionsCellID";
     if (self.lineWidth == 0) {
         self.lineWidth = self.maxWidth;
     }
-    self.flowLayout.itemSize = CGSizeMake(self.lineWidth, self.bounds.size.height);
+    [self.collectionView reloadData];
 }
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
@@ -69,12 +70,13 @@ static NSString *identifier = @"ScrollOptionsCellID";
     if (self.lineWidth == 0) {
         self.lineWidth = self.maxWidth;
     }
-    return CGSizeMake(self.lineWidth, 48);
+    CGFloat itemH = self.itemHeight == 0 ? 48 : self.itemHeight;
+    return CGSizeMake(self.lineWidth+2*self.lineMargin, itemH);
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    self.lineContainScrollView.contentSize = CGSizeMake(self.collectionView.contentSize.width, 2);
-    
+    CGFloat h = self.lineHeight == 0 ? 2 : self.lineHeight;
+    self.lineContainScrollView.contentSize = CGSizeMake(self.collectionView.contentSize.width, h);
     self.lineContainScrollView.contentOffset = self.collectionView.contentOffset;
 }
 #pragma mark - ScrollOptionsCellDelegate
@@ -93,23 +95,18 @@ static NSString *identifier = @"ScrollOptionsCellID";
         W = Screen_Width/self.dataArray.count;
     }
     if (self.lineWidth != 0) {
-        W = self.lineWidth;
+        W = self.lineWidth+10;
     }
     if (self.selectedKey != nil) {
+        CGFloat h = self.lineHeight == 0 ? 2 : self.lineHeight;
         if (key != self.selectedKey) {
             CGFloat w = self.lineWidth*0.2;
-            self.scrollLineView.frame = CGRectMake((self.selectedKey.item+2)*((W-self.lineWidth)*0.5)+self.selectedKey.item*self.lineWidth+self.lineWidth*0.4, 0, w, 2);
+            self.scrollLineView.frame = CGRectMake(self.lineMargin+self.lineMargin*self.selectedKey.item*2+self.lineWidth*self.selectedKey.item, 0, w, h);
             self.selectedKey = key;
-        }
-        CGFloat x = 0;
-        if (key.item == 0) {
-            x = (W-self.lineWidth)*0.5;
-        }else{
-            x = (key.item+2)*((W-self.lineWidth)*0.5)+key.item*self.lineWidth;
         }
         __weak typeof(self) weakSelf = self;
         [UIView animateWithDuration:0.65 animations:^{
-            weakSelf.scrollLineView.frame = CGRectMake(x, 0, weakSelf.lineWidth, 2);
+            weakSelf.scrollLineView.frame = CGRectMake(self.lineWidth*self.selectedKey.item+self.lineMargin+self.lineMargin*self.selectedKey.item*2, 0, weakSelf.lineWidth, h);
         }];
     }else{
         self.selectedKey = key;
@@ -125,12 +122,13 @@ static NSString *identifier = @"ScrollOptionsCellID";
         }else{
             W = Screen_Width/self.dataArray.count;
         }
-        CGFloat x = W-self.lineWidth;
-        if (x < 0) {
-            x = 0;
+        if (self.lineWidth == 0){
+            self.lineWidth = self.maxWidth;
         }
-        self.scrollLineView.frame = CGRectMake(x*0.5, 0, self.lineWidth, 2);
-        self.lineContainScrollView.contentSize = CGSizeMake(W * self.dataArray.count, 2);
+        CGFloat h = self.lineHeight == 0 ? 2 : self.lineHeight;
+        self.scrollLineView.frame = CGRectMake(self.lineWidth*self.selectedKey.item+self.lineMargin+self.lineMargin*self.selectedKey.item*2, 0, self.lineWidth, h);
+        self.lineContainScrollView.contentSize = CGSizeMake(self.flowLayout.itemSize.width * self.dataArray.count, h);
+        self.lineContainScrollView.frame = CGRectMake(0, self.itemHeight, Screen_Width, h);
         [self.contentView addSubview:self.lineContainScrollView];
     }
 }
@@ -156,6 +154,7 @@ static NSString *identifier = @"ScrollOptionsCellID";
     self.flowLayout.minimumLineSpacing = 0;
     self.flowLayout.minimumInteritemSpacing = 0;
 }
+
 #pragma mark - 设置选项字体
 - (void)settingOptionTitleColor:(UIColor *)color selectedColor:(UIColor *)selectedColor font:(UIFont *)font{
     self.optionsTitleFont = font;
@@ -178,6 +177,18 @@ static NSString *identifier = @"ScrollOptionsCellID";
             }
         }
     }
+}
+#pragma mark - 设置lineContainView背景颜色
+- (void)settingLineContainViewBGColor:(UIColor *)bgColor{
+    self.lineContainScrollView.backgroundColor = bgColor;
+}
+#pragma mark - 设置lineView背景颜色
+- (void)settingLineViewBGColor:(UIColor *)bgColor{
+    self.lineView.backgroundColor = bgColor;
+}
+#pragma mark - 隐藏lineView
+- (void)hiddenLineView{
+    self.lineView.hidden = YES;
 }
 #pragma mark - setter,getter
 - (void)setDataArray:(NSMutableArray *)dataArray{
@@ -202,11 +213,12 @@ static NSString *identifier = @"ScrollOptionsCellID";
     }else{
         x = self.selectedKey.item*self.lineWidth;
     }
-    self.scrollLineView.frame = CGRectMake(x, 0, self.lineWidth, 2);
+    CGFloat h = self.lineHeight == 0 ? 2 : self.lineHeight;
+    self.scrollLineView.frame = CGRectMake(x, 0, self.lineWidth, h);
 }
 - (UIView *)scrollLineView{
     if (_scrollLineView == nil) {
-        UIView *lineView= [[UIView alloc] init];
+        UIView *lineView = [[UIView alloc] init];
         lineView.layer.cornerRadius = 1;
         lineView.layer.masksToBounds = YES;
         lineView.backgroundColor = self.lineColor == nil ? QZZUIColorWithRGB(58, 156, 241) : self.lineColor;

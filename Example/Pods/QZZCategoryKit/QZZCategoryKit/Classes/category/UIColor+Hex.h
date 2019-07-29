@@ -16,5 +16,5 @@
 #endif
 
 + (instancetype)colorWithHexString:(NSString *)hexStr ;
-
++ (UIColor *)colorWithHexString:(NSString *)color alpha:(CGFloat)alpha;
 @end

@@ -11,8 +11,8 @@
 @interface TableViewCellModel : NSObject
 ///标题
 @property (copy,nonatomic) NSString *lableTitle;
-///站位文字
-@property (copy, nonatomic) NSString *placeHoled;
+///占位文字
+@property (copy, nonatomic) NSString *placeholder;
 ///内容
 @property (copy,nonatomic) NSString *info;
 ///info若是选项的话,Value表示选项对应的ID

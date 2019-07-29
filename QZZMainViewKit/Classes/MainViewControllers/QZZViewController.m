@@ -10,10 +10,6 @@
 
 @interface QZZViewController ()<NavSearchBarViewDelegate>
 
-@property (nonatomic, strong) UILabel *titleLabelOfEmptyContentView;
-@property (nonatomic, strong) UIImageView *bgImgOfEmptyContentView;
-@property (nonatomic, strong) UILabel *titleLabelOfErrorView;
-@property (nonatomic, strong) UIImageView *bgImgOfErrorView;
 @end
 
 @implementation QZZViewController

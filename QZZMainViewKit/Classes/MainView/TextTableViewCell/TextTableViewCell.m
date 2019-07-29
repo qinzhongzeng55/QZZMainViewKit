@@ -55,8 +55,8 @@
         self.contentText.textColor = self.contentTextColor;
         self.contentText.font = self.contentTextFont;
     }else{
-        self.contentText.textColor = self.placehodlerColor;
-        self.contentText.font = self.placehodlerFont;
+        self.contentText.textColor = self.placeholderColor;
+        self.contentText.font = self.placeholderFont;
     }
     if ([text isEqualToString:@"\n"]) {
         [self endEditing:YES];
@@ -130,13 +130,13 @@
     _model = model;
     self.titleLabel.text = model.lableTitle;//[NSString stringWithFormat:@"%@: ",model.lableTitle];
     if ([QZZVerificationTools isEmptyString:model.info]) {
-        if ([QZZVerificationTools isEmptyString:model.placeHoled]) {
+        if ([QZZVerificationTools isEmptyString:model.placeholder]) {
             //self.contentText.placeholder = @"请填写";
         }else{
-            self.contentText.text = model.placeHoled;
+            self.contentText.text = model.placeholder;
         }
-        self.contentText.textColor = self.placehodlerColor ? self.placehodlerColor : [UIColor colorWithWhite:200/255.0 alpha:1];
-        self.contentText.font = self.placehodlerFont;
+        self.contentText.textColor = self.placeholderColor ? self.placeholderColor : [UIColor colorWithWhite:200/255.0 alpha:1];
+        self.contentText.font = self.placeholderFont;
     }else{
         self.contentText.text = model.info;
         self.contentText.textColor = self.contentTextColor ? self.contentTextColor :[UIColor colorWithWhite:102/255.0 alpha:1];

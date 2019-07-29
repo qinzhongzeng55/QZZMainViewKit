@@ -32,6 +32,14 @@
 @property (nonatomic, assign) XSTableViewAnimationType animationType;
 ///导航栏的返回按钮
 @property (nonatomic, strong) UIButton *navBackBtn;
+///空页面标题
+@property (nonatomic, strong) UILabel *titleLabelOfEmptyContentView;
+///网络错误页面标题
+@property (nonatomic, strong) UILabel *titleLabelOfErrorView;
+///空页面
+@property (nonatomic, strong) UIImageView *bgImgOfEmptyContentView;
+///网络错误页面
+@property (nonatomic, strong) UIImageView *bgImgOfErrorView;
 
 #pragma mark - 加载子控件
 - (void)guolv;
