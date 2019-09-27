@@ -134,7 +134,7 @@ _Pragma("clang diagnostic pop") \
  @param alpha 透明度的值
  @return 生成的颜色对象
  */
-#define QZZUIColorWithHexString(hexString,colorAlpha) [UIColor colorWithHexString:hexString alpha:colorAlpha];
+#define QZZUIColorWithHexString(hexString,colorAlpha) [UIColor colorWithHexString:hexString alpha:colorAlpha]
 
 /**
  根据十六进制的字符串来生成不透明的颜色对象
@@ -220,10 +220,10 @@ _Pragma("clang diagnostic pop") \
 // iPhone6 Plus/6s Plus/7 Plus 5.5英寸 屏幕宽高：414*736点 屏幕模式：3x 分辨率：1242*2208像素
 #define iPhone6Plusor6sPlusor7Plus ([UIScreen mainScreen].bounds.size.height == 736.0) ? YES : NO
 
-// iPhoneX/XS 屏幕宽高：375*812点 屏幕模式：3x 分辨率：1125*2436像素
+// iPhoneX/XS 5.8英寸 屏幕宽高：375*812点 屏幕模式：3x 分辨率：1125*2436像素
 #define iPhoneXXS ([UIScreen mainScreen].bounds.size.height == 812.0) ? YES : NO
 
-// iPhoneXR/XS Max 屏幕宽高：414*896点 XS Max屏幕模式：3x 分辨率：1242*2688像素 XR屏幕模式：2x 分辨率：828*1792像素
+// iPhoneXR/11/XS Max  屏幕宽高：414*896点 XS Max 6.5英寸 屏幕模式：3x 分辨率：1242*2688像素 iPhone11/XR 6.1英寸 屏幕模式：2x 分辨率：828*1792像素
 #define iPhoneXRXSMax ([UIScreen mainScreen].bounds.size.height == 896.0) ? YES : NO
 
 //******************************************************************

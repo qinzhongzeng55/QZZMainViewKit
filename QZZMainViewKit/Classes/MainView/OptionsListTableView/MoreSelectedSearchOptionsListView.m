@@ -143,9 +143,16 @@
 }
 #pragma mark - 设置搜索框的样式
 - (void)settingSearchBarStyle{
-    UITextField * searchField = [self.searchBar valueForKey:@"_searchField"];
-    [searchField setValue:[UIColor colorWithWhite:204/255.0 alpha:1] forKeyPath:@"_placeholderLabel.textColor"];
-    [searchField setValue:[UIFont boldSystemFontOfSize:13] forKeyPath:@"_placeholderLabel.font"];
+    for (UIView *subView in self.searchBar.subviews){
+        for (UIView *secondLevelSubview in subView.subviews){
+            if ([secondLevelSubview isKindOfClass:[UITextField class]]){
+                UITextField *searchBarTextField = (UITextField *)secondLevelSubview;
+                //placeHolder文字设置
+                searchBarTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.searchBar.placeholder attributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:13],NSForegroundColorAttributeName : [UIColor colorWithWhite:204/255.0 alpha:1]}];
+                break;
+            }
+        }
+    }
     [self.searchBar setImage:[UIImage qzz_imagePathWithName:@"nav_search" bundle:@"QZZMainViewKit" targetClass:[self class]] forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
     self.searchBar.showsScopeBar = NO;
     self.searchBar.scopeBarBackgroundImage = [UIImage new];

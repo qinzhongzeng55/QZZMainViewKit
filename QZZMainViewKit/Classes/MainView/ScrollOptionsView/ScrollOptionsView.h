@@ -49,4 +49,6 @@
  * 若想设置最大文本宽度为lineView的话,设置选项字体之前不要设置lineView;
  */
 - (void)settingOptionTitleColor:(UIColor *)color selectedColor:(UIColor *)selectedColor font:(UIFont *)font;
+///设置选项字体
+- (void)settingTextFont:(UIFont *)font withSelectedFont:(UIFont *)selectedFont;
 @end

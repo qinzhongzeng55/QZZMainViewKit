@@ -19,6 +19,7 @@
 @property (nonatomic, strong) UIColor *optionsTitleColor;
 @property (nonatomic, strong) UIColor *optionsTitleSelecteColor;
 @property (nonatomic, strong) UIFont *optionsTitleFont;
+@property (nonatomic, strong) UIFont *optionsTitleSelectedFont;
 @property (nonatomic, assign) CGFloat maxWidth;
 @end
 
@@ -61,6 +62,7 @@ static NSString *identifier = @"ScrollOptionsCellID";
     //设置是否被选中
     [cell settingSelectedForOptionBtn:self.selectedKey == indexPath];
     [cell settingOptionTitleColor:(self.optionsTitleColor == nil ? QZZUIColorWithHexStringNoTransparent(@"#333333") : self.optionsTitleColor) selectedColor:(self.optionsTitleSelecteColor == nil ? QZZUIColorWithHexStringNoTransparent(@"#333333") : self.optionsTitleSelecteColor) font:(self.optionsTitleFont == nil ? [UIFont systemFontOfSize:17] : self.optionsTitleFont)];
+    [cell settingTextFont:(self.optionsTitleFont == nil ? [UIFont systemFontOfSize:17] : self.optionsTitleFont) withSelectedFont:(self.optionsTitleSelectedFont == nil ? [UIFont systemFontOfSize:17] : self.optionsTitleSelectedFont)];
     return cell;
 }
 #pragma mark - UICollectionViewDelegate
@@ -143,7 +145,6 @@ static NSString *identifier = @"ScrollOptionsCellID";
 }
 #pragma mark - settingCollectionView
 - (void)settingCollectionView{
-    self.collectionView.backgroundColor = [UIColor whiteColor];
     [self.collectionView registerNib:[UINib nibWithNibName:@"ScrollOptionsCell" bundle:[NSBundle bundleWithPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"QZZMainViewKit.bundle"]]] forCellWithReuseIdentifier:identifier];
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
@@ -155,11 +156,18 @@ static NSString *identifier = @"ScrollOptionsCellID";
     self.flowLayout.minimumInteritemSpacing = 0;
 }
 
-#pragma mark - 设置选项字体
+#pragma mark - 设置选项颜色
 - (void)settingOptionTitleColor:(UIColor *)color selectedColor:(UIColor *)selectedColor font:(UIFont *)font{
     self.optionsTitleFont = font;
     self.optionsTitleColor = color;
     self.optionsTitleSelecteColor = selectedColor;
+    [self settingMaxWidth];
+    [self.collectionView reloadData];
+}
+#pragma mark - 设置选项字体
+- (void)settingTextFont:(UIFont *)font withSelectedFont:(UIFont *)selectedFont{
+    self.optionsTitleFont = font;
+    self.optionsTitleSelectedFont = selectedFont;
     [self settingMaxWidth];
     [self.collectionView reloadData];
 }
@@ -203,6 +211,7 @@ static NSString *identifier = @"ScrollOptionsCellID";
 
 - (void)setSelectedKey:(NSIndexPath *)selectedKey{
     _selectedKey = selectedKey;
+    [self.collectionView scrollToItemAtIndexPath:selectedKey atScrollPosition:UICollectionViewScrollPositionNone animated:YES];
     [self.collectionView reloadData];
 }
 - (void)setLineWidth:(CGFloat)lineWidth{

@@ -25,6 +25,8 @@
 - (void)settingTitleLabelText:(NSString *)text;
 ///设置这个选项是否被选中
 - (void)settingSelectedForOptionBtn:(BOOL)isSelected;
-///设置选项字体
+///设置选项颜色
 - (void)settingOptionTitleColor:(UIColor *)color selectedColor:(UIColor *)selectedColor font:(UIFont *)font;
+///设置选项字体
+- (void)settingTextFont:(UIFont *)font withSelectedFont:(UIFont *)selectedFont;
 @end

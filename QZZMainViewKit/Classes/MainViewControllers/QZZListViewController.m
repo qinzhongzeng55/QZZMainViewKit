@@ -49,7 +49,7 @@
 }
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
-    [self.view endEditing:YES];
+//    [self.view endEditing:YES];
     [self endEditing];
     __weak typeof(self) weakSelf = self;
     [UIView animateWithDuration:  0.32 animations:^{
@@ -464,7 +464,7 @@
 #pragma mark - 结束编辑状态
 - (void)endEditing{
     [self.searchBar resignFirstResponder];
-    [self.view endEditing:YES];
+//    [self.view endEditing:YES];
     [self.navSearchBarView endEditing];
 }
 #pragma mark - 懒加载

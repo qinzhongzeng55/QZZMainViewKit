@@ -73,10 +73,17 @@
 }
 #pragma mark - 设置字体大小
 - (void)settingTextSize:(CGFloat)textSize{
-    UITextField * searchField = [self.searchBar valueForKey:@"_searchField"];
-    //设置占位文字大小
-    [searchField setValue:[UIFont boldSystemFontOfSize:textSize] forKeyPath:@"_placeholderLabel.font"];
-    searchField.font = [UIFont boldSystemFontOfSize:textSize];
+    for (UIView *subView in self.searchBar.subviews){
+        for (UIView *secondLevelSubview in subView.subviews){
+            if ([secondLevelSubview isKindOfClass:[UITextField class]]){
+                UITextField *searchBarTextField = (UITextField *)secondLevelSubview;
+                searchBarTextField.font = [UIFont boldSystemFontOfSize:textSize];
+                //placeHolder文字设置
+                searchBarTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"请输入要搜索的关键字" attributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:textSize]}];
+                break;
+            }
+        }
+    }
 }
 #pragma mark - 设置搜索框样式
 - (void)settingSearchBar{
@@ -84,11 +91,16 @@
     self.searchBar.backgroundImage = [UIImage new];
     self.searchBar.showsCancelButton = NO;
     self.searchBar.placeholder = @"请输入要搜索的关键字";
-    UITextField *searchField = [self.searchBar valueForKey:@"_searchField"];
-    //设置占位文字颜色
-    [searchField setValue:[UIColor colorWithWhite:204/255.0 alpha:1] forKeyPath:@"_placeholderLabel.textColor"];
-    //设置占位文字大小
-    [searchField setValue:[UIFont boldSystemFontOfSize:13] forKeyPath:@"_placeholderLabel.font"];
+    for (UIView *subView in self.searchBar.subviews){
+        for (UIView *secondLevelSubview in subView.subviews){
+            if ([secondLevelSubview isKindOfClass:[UITextField class]]){
+                UITextField *searchBarTextField = (UITextField *)secondLevelSubview;
+                //placeHolder文字设置
+                searchBarTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.searchBar.placeholder attributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:13],NSForegroundColorAttributeName : [UIColor colorWithWhite:204/255.0 alpha:1]}];
+                break;
+            }
+        }
+    }
     [self.searchBar setImage:[UIImage qzz_imagePathWithName:@"nav_search" bundle:@"QZZMainViewKit" targetClass:[self class]] forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
     self.searchBar.showsScopeBar = NO;
     self.searchBar.scopeBarBackgroundImage = [UIImage new];
