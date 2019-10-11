@@ -25,6 +25,10 @@
 - (void)settingTitleText:(NSString *)title font:(UIFont *)font;
 ///设置头部lineView的背景颜色
 - (void)settingColorOfTopLineView:(UIColor *)color;
+///设置警告框内容字体颜色
+- (void)settingAlertTitleColor:(UIColor *)color;
+///设置警告框背景颜色
+- (void)settingBackgroundColor:(UIColor *)color;
 ///设置确定按钮的字体颜色
 - (void)settingColorOfQueDingBtn:(UIColor *)color;
 //设置取消按钮的字体颜色

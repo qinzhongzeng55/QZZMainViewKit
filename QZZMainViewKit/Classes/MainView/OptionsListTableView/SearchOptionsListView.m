@@ -255,6 +255,8 @@
 - (void)setSearchPlaceholder:(NSString *)searchPlaceholder{
     _searchPlaceholder = searchPlaceholder;
     self.searchBar.placeholder = searchPlaceholder;
+    //设置搜索框的样式
+    [self settingSearchBarStyle];
 }
 #pragma mark - 设置提示信息
 - (void)settingTiShi:(NSString *)tiShi{

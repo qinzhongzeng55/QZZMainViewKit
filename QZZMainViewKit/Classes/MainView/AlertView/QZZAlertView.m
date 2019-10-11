@@ -66,6 +66,14 @@
 - (void)settingColorOfTopLineView:(UIColor *)color{
     self.TopLineView.backgroundColor = color;
 }
+///设置警告框内容字体颜色
+- (void)settingAlertTitleColor:(UIColor *)color{
+    self.TitleTextLabel.textColor = color;
+}
+///设置警告框背景颜色
+- (void)settingBackgroundColor:(UIColor *)color{
+    self.alertView.backgroundColor = color;
+}
 //设置确定按钮的字体颜色
 - (void)settingColorOfQueDingBtn:(UIColor *)color{
     [self.queDingBtn setTitleColor:color forState:UIControlStateNormal];

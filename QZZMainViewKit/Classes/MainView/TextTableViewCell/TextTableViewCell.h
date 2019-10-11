@@ -47,4 +47,6 @@
 - (void)settingLineViewColor:(UIColor *)color;
 ///设置标题的字体
 - (void)settingTitleColor:(UIColor *)color font:(UIFont *)font;
+///设置内容的字体
+- (void)settingContentTextColor:(UIColor *)color font:(UIFont *)font;
 @end

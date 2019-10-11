@@ -287,7 +287,6 @@ replacementText:(NSString *)text{
     [self.contentView layoutIfNeeded];
 }
 - (void)buJuTextView{
-    
     CGSize contentTextViewMaxSize = CGSizeMake(Screen_Width-self.contentTextViewLeft*3,DBL_MAX);
     CGSize size = [[AutomaticSizeTools sharedAutomaticSizeTools] calculateSizeForTextView:self.contentTextView MaxWidth:contentTextViewMaxSize.width LineSpacing:kWebLineSpacing WordsSpacing:kWebWordsSpacing];
     __weak typeof(self) weakSelf = self;
@@ -337,7 +336,6 @@ replacementText:(NSString *)text{
     [self.contentView layoutIfNeeded];
 }
 - (void)settingContainView:(CGSize)size{
-    
     [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.leading.trailing.bottom.equalTo(self);
     }];
@@ -349,7 +347,6 @@ replacementText:(NSString *)text{
 }
 #pragma mark - setter,getter
 - (void)setIsEditting:(BOOL)isEditting{
-    
     _isEditting = isEditting;
     self.contentTextView.editable = isEditting;
     self.userInteractionEnabled = isEditting;
@@ -360,7 +357,6 @@ replacementText:(NSString *)text{
     [UILabel changeSpace:self.textMaxLengthLabel withLineSpace:kWebLineSpacing WordSpace:kWebWordsSpacing];
 }
 - (void)setModel:(TableViewCellModel *)model{
-    
     _model = model;
     self.titleLabel.text = [NSString stringWithFormat:@"%@",model.lableTitle];
     if ([QZZVerificationTools isEmptyString:model.info]) {

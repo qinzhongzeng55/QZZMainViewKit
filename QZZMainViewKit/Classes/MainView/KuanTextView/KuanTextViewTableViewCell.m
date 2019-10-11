@@ -252,7 +252,6 @@
 }
 #pragma mark - setter,getter
 - (void)setIsEditting:(BOOL)isEditting{
-    
     _isEditting = isEditting;
     self.contentTextView.editable = isEditting;
     self.userInteractionEnabled = isEditting;
@@ -262,7 +261,6 @@
     self.textMaxLengthLabel.text = [NSString stringWithFormat:@"/%ld",(long)maxLengtn];
 }
 - (void)setModel:(TableViewCellModel *)model{
-    
     _model = model;
     self.titleLabel.text = [NSString stringWithFormat:@"%@",model.lableTitle];
     if ([QZZVerificationTools isEmptyString:model.info]) {

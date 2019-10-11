@@ -214,6 +214,10 @@
     self.optionsTitleFont = font;
     [self.tableView reloadData];
 }
+#pragma mark - 设置确定按钮的字体颜色
+- (void)settingTextColorOfQueDingBtn:(UIColor *)color{
+    [self.queDingBtn setTitleColor:color forState:UIControlStateNormal];
+}
 #pragma mark - 懒加载
 - (void)setDataArray:(NSMutableArray *)dataArray{
     

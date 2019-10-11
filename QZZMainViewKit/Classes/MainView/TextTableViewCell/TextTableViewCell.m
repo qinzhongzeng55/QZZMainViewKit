@@ -124,6 +124,11 @@
     self.titleLabel.textColor = color;
     self.titleLabel.font = font;
 }
+#pragma mark - 设置内容的字体
+- (void)settingContentTextColor:(UIColor *)color font:(UIFont *)font{
+    self.contentText.textColor = color;
+    self.contentText.font = font;
+}
 #pragma mark - setter,getter
 - (void)setModel:(TableViewCellModel *)model{
     

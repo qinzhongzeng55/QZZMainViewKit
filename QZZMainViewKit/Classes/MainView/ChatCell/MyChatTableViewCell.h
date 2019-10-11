@@ -20,4 +20,6 @@
 - (void)settingIconImage:(UIImage *)image;
 ///设置聊天内容背景图片
 - (void)settingChatContentBGImage:(UIImage *)image;
+///设置聊天内容字体颜色
+- (void)settingChatContentTextColor:(UIColor *)color;
 @end

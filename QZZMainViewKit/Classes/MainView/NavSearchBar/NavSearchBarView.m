@@ -101,6 +101,7 @@
             }
         }
     }
+    [self.searchBar setSearchFieldBackgroundImage:[UIImage new] forState:UIControlStateNormal];
     [self.searchBar setImage:[UIImage qzz_imagePathWithName:@"nav_search" bundle:@"QZZMainViewKit" targetClass:[self class]] forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
     self.searchBar.showsScopeBar = NO;
     self.searchBar.scopeBarBackgroundImage = [UIImage new];

@@ -60,6 +60,15 @@
     self.TitleLabel.text = title;
     self.TitleLabel.font = font;
 }
+#pragma mark - 设置标题字体颜色
+- (void)settingTitle:(NSString *)title withTitleColor:(UIColor *)titleColor font:(UIFont *)font{
+    self.TitleLabel.textColor = titleColor;
+    [self settingTitle:title font:font];
+}
+#pragma mark - 设置日期选择器背景颜色
+- (void)settingDatePickerBackgroundColor:(UIColor *)color{
+    self.dateSelecterView.backgroundColor = color;
+}
 #pragma mark - 设置头部View的背景颜色
 - (void)settingBackgroundColorOfTopView:(UIColor *)color{
     self.topView.backgroundColor = color;

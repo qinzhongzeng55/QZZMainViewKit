@@ -31,7 +31,7 @@
 - (void)settingSearchTextPositionAdjustment:(UIOffset)offset;
 ///设置占位文字
 - (void)settingPlaceHolder:(NSString *)placeHolder;
-//设置搜索框背景
+///设置搜索框背景
 - (void)settingBackgroundImage:(UIImage *)image;
 ///更新数据
 - (void)loadDataList;

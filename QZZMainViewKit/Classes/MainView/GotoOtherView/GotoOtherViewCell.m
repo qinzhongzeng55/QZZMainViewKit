@@ -65,7 +65,6 @@
 - (void)showImageView:(BOOL)isShow{
     self.IconImageView.hidden = !isShow;
     if (!isShow) {
-        
         self.imgWConstraint.constant = 0;
         self.TitleLConstraint.constant = 0;
     }
@@ -82,5 +81,4 @@
 - (void)settingLineViewColor:(UIColor *)color{
     self.lineView.backgroundColor = color;
 }
-
 @end

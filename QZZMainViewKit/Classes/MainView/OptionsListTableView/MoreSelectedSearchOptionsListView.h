@@ -34,6 +34,8 @@ typedef void (^OptionMoreSelectedBlock)(NSMutableArray *selectedNamesArray,NSMut
 - (void)settingBackgroundColorOfTopView:(UIColor *)color;
 ///设置确定按钮的背景颜色
 - (void)settingBackgroundColorOfQueDingBtn:(UIColor *)color;
+///设置确定按钮的字体颜色
+- (void)settingTextColorOfQueDingBtn:(UIColor *)color;
 ///设置选中按钮的图片
 - (void)settingImage:(UIImage *)img withSelectedImage:(UIImage *)selectedImg;
 ///设置选项lineView的颜色
@@ -44,7 +46,6 @@ typedef void (^OptionMoreSelectedBlock)(NSMutableArray *selectedNamesArray,NSMut
 - (void)settingSelectedBtnWidth:(CGFloat)width;
 ///设置选项的字体
 - (void)settingContentTextColor:(UIColor *)color font:(UIFont *)font;
-
 ///设置提示信息
 - (void)settingTiShi:(NSString *)tiShi;
 @end

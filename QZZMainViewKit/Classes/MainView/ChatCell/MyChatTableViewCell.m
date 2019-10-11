@@ -93,4 +93,8 @@
 - (void)settingChatContentFont:(UIFont *)font{
     self.TextLabel.font = font;
 }
+#pragma mark - 设置聊天内容字体颜色
+- (void)settingChatContentTextColor:(UIColor *)color{
+    self.TextLabel.textColor = color;
+}
 @end
