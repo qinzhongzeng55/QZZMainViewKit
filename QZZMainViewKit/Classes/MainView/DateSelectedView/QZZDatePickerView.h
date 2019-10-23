@@ -35,6 +35,8 @@ typedef NS_ENUM(NSInteger, QZZDatePickerMode) {
 @property (nonatomic, assign) BOOL isLandScape;
 ///按钮字体颜色
 @property (nonatomic, strong) UIColor *tinColor;
+///背景颜色
+@property (nonatomic, strong) UIColor *backgroundColor;
 ///按钮字体
 @property (nonatomic, strong) UIFont *tinfont;
 

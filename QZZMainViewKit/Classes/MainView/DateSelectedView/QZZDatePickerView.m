@@ -131,7 +131,7 @@ const CGFloat QZZDatePickerViewButtonHeight = 35.0;
         return;
     }
     _bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight([UIScreen mainScreen].bounds), CGRectGetWidth([UIScreen mainScreen].bounds), QZZDatePickerViewBottomViewHeight)];
-    _bottomView.backgroundColor = [UIColor whiteColor];
+    _bottomView.backgroundColor = [UIColor grayColor];
     [_mainView addSubview:_bottomView];
     
     [self setupCancelAndConfirmButton];
@@ -193,7 +193,7 @@ const CGFloat QZZDatePickerViewButtonHeight = 35.0;
         }
         _datePickerView = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, QZZDatePickerViewButtonHeight, CGRectGetWidth([UIScreen mainScreen].bounds), QZZDatePickerViewBottomViewHeight - QZZDatePickerViewButtonHeight)];
         _datePickerView.datePickerMode = UIDatePickerModeDate;
-        
+        _datePickerView.backgroundColor = [UIColor grayColor];
         [_bottomView addSubview:_datePickerView];
         
         
@@ -211,7 +211,7 @@ const CGFloat QZZDatePickerViewButtonHeight = 35.0;
         self.timeSelectedString = [NSString stringWithFormat:@"%@-%@",self.yearStr,self.monthStr];
         
         _datePicker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, QZZDatePickerViewButtonHeight, CGRectGetWidth([UIScreen mainScreen].bounds), QZZDatePickerViewBottomViewHeight - QZZDatePickerViewButtonHeight)];
-        _datePicker.backgroundColor = [UIColor whiteColor];
+        _datePicker.backgroundColor = [UIColor grayColor];
         _datePicker.dataSource = self;
         _datePicker.delegate = self;
         [_bottomView addSubview:_datePicker];
@@ -237,7 +237,7 @@ const CGFloat QZZDatePickerViewButtonHeight = 35.0;
         self.timeSelectedString = [NSString stringWithFormat:@"%@",self.yearStr];
         
         _datePicker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, QZZDatePickerViewButtonHeight, CGRectGetWidth([UIScreen mainScreen].bounds), QZZDatePickerViewBottomViewHeight - QZZDatePickerViewButtonHeight)];
-        _datePicker.backgroundColor = [UIColor whiteColor];
+        _datePicker.backgroundColor = [UIColor grayColor];
         _datePicker.dataSource = self;
         _datePicker.delegate = self;
         [_bottomView addSubview:_datePicker];
@@ -390,5 +390,11 @@ const CGFloat QZZDatePickerViewButtonHeight = 35.0;
     _tinfont = tinfont;
     self.cancelButton.titleLabel.font = tinfont;
     self.confirmButton.titleLabel.font = tinfont;
+}
+- (void)setBackgroundColor:(UIColor *)backgroundColor{
+    _backgroundColor = backgroundColor;
+    _bottomView.backgroundColor = backgroundColor;
+    _datePickerView.backgroundColor = backgroundColor;
+    _datePicker.backgroundColor = backgroundColor;
 }
 @end
