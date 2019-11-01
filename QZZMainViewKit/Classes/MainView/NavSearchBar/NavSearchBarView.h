@@ -29,6 +29,8 @@
 - (void)settingSearchBarIcon:(UIImage *)image;
 ///设置搜索框中文本框的文本偏移量
 - (void)settingSearchTextPositionAdjustment:(UIOffset)offset;
+///设置搜索框的字体颜色
+- (void)settingSearchBarTextColor:(UIColor *)color;
 ///设置占位文字
 - (void)settingPlaceHolder:(NSString *)placeHolder;
 ///设置搜索框背景
