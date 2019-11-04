@@ -186,6 +186,7 @@
 }
 #pragma mark - 设置tableView
 - (void)settingTableView{
+    self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.rowHeight = 54;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -80,6 +81,7 @@
                 <constraint firstItem="nFR-e4-D4O" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="oDN-Ve-BUx"/>
                 <constraint firstAttribute="trailing" secondItem="nFR-e4-D4O" secondAttribute="trailing" id="rfi-nG-ke5"/>
             </constraints>
+            <viewLayoutGuide key="safeArea" id="uJp-zs-WMG"/>
             <connections>
                 <outlet property="TiShiLabel" destination="YI7-Tl-Wm8" id="7HU-aG-kVf"/>
                 <outlet property="TopViewHConstraint" destination="h5I-n6-XWp" id="jO4-Vu-eU6"/>

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -85,6 +86,7 @@
                 <constraint firstItem="MUn-tD-pAQ" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ien-fE-Bx9"/>
                 <constraint firstAttribute="trailing" secondItem="jEt-fC-7Nh" secondAttribute="trailing" id="jn1-MB-3ao"/>
             </constraints>
+            <viewLayoutGuide key="safeArea" id="gXd-Xq-eab"/>
             <connections>
                 <outlet property="TitleLabel" destination="U4R-Ue-bmV" id="2kZ-Uu-nma"/>
                 <outlet property="datePicker" destination="LzH-Nv-EpE" id="4Yr-yq-bj1"/>

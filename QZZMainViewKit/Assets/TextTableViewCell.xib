@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -75,6 +76,7 @@
                     <constraint firstItem="NXI-CQ-uPm" firstAttribute="top" secondItem="7A5-Ii-dLc" secondAttribute="top" id="zZv-KH-eDu"/>
                 </constraints>
             </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="QHH-B8-ijQ"/>
             <connections>
                 <outlet property="contentText" destination="xQv-XQ-Gng" id="CFG-Xu-Ku0"/>
                 <outlet property="lineLConstraint" destination="pCh-Os-QuS" id="p5l-3s-CiU"/>
@@ -84,7 +86,7 @@
                 <outlet property="titleLabel" destination="7A5-Ii-dLc" id="VDO-WO-fBd"/>
                 <outlet property="titleWConstraint" destination="LD6-Xw-LjP" id="SMe-Mh-xg1"/>
             </connections>
-            <point key="canvasLocation" x="139" y="154"/>
+            <point key="canvasLocation" x="137.59999999999999" y="153.82308845577214"/>
         </tableViewCell>
     </objects>
 </document>
